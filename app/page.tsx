@@ -10,6 +10,7 @@ const services = [
     description: "Expert Design Partners (and good listeners)",
     accent: "from-blue-400/30 via-blue-500/10 to-transparent",
     iconBg: "from-blue-500 to-blue-700",
+    image: "/Design.svg",
     icon: (
       <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
         <path
@@ -28,8 +29,8 @@ const services = [
       </svg>
     ),
     features: [
-      { title: "Bring ideas to life", desc: "Aligned with your brand vision", icon: "🌱" },
-      { title: "Industry Leading UX", desc: "Our expertise, at your disposal", icon: "✦" },
+      { title: "Bring ideas to life", desc: "Aligned with your brand vision", image: "/1.svg" },
+      { title: "Industry Leading UX", desc: "Our expertise, at your disposal", image: "/2.svg" },
     ],
   },
   {
@@ -37,6 +38,7 @@ const services = [
     description: "Bring your users into focus.",
     accent: "from-violet-400/30 via-violet-500/10 to-transparent",
     iconBg: "from-violet-500 to-purple-700",
+    image: "/Data.svg",
     icon: (
       <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
         <circle cx="24" cy="24" r="18" fill="url(#targetGrad)" stroke="#7c3aed" strokeWidth="1.5" />
@@ -52,8 +54,8 @@ const services = [
       </svg>
     ),
     features: [
-      { title: "Personalised Insights", desc: "The data that matters most", icon: "🔍" },
-      { title: "Optimised Interactions", desc: "Data-driven UX Strategy", icon: "◎" },
+      { title: "Personalised Insights", desc: "The data that matters most", image: "/3.svg" },
+      { title: "Optimised Interactions", desc: "Data-driven UX Strategy", image: "/4.svg" },
     ],
   },
   {
@@ -61,6 +63,7 @@ const services = [
     description: "What if Technology wasn't an obstacle?",
     accent: "from-fuchsia-400/30 via-fuchsia-500/10 to-transparent",
     iconBg: "from-fuchsia-500 to-pink-700",
+    image: "/Web.svg",
     icon: (
       <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
         <rect x="6" y="6" width="36" height="36" rx="10" fill="url(#codeGrad)" stroke="#c026d3" strokeWidth="1.5" />
@@ -76,8 +79,8 @@ const services = [
       </svg>
     ),
     features: [
-      { title: "Faster Time to Market", desc: "Accelerated through composability", icon: "⏱" },
-      { title: "Infinite Scalability", desc: "Agile foundations for growth", icon: "↗" },
+      { title: "Faster Time to Market", desc: "Accelerated through composability", image: "/5.svg" },
+      { title: "Infinite Scalability", desc: "Agile foundations for growth", image: "/6.svg" },
     ],
   },
 ];
@@ -203,23 +206,13 @@ function GradientHighlight({ children }: { children: ReactNode }) {
 function SectionDivider() {
   return (
     <div className="relative w-full overflow-hidden flex justify-center -mb-20 sm:-mb-28 md:-mb-36 pointer-events-none select-none">
-      <svg viewBox="0 0 1555 623" className="w-full h-auto object-contain opacity-90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#sectionDividerBlur)">
-          <rect x="100" y="100" width="1355" height="423" rx="15" fill="url(#sectionDividerGrad)" />
-        </g>
-        <rect x="100" y="100" width="1355" height="20" rx="10" fill="#323232" />
-        <defs>
-          <filter id="sectionDividerBlur" x="0" y="0" width="1555" height="623" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur" />
-          </filter>
-          <linearGradient id="sectionDividerGrad" x1="777.5" y1="100" x2="777.5" y2="523" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#323232" />
-            <stop offset="1" stopColor="#323232" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-      </svg>
+      <Image
+        src="/Effect.png"
+        alt="Section Divider Effect"
+        width={1555}
+        height={623}
+        className="w-[50%] h-auto object-contain opacity-90"
+      />
     </div>
   );
 }
@@ -253,8 +246,8 @@ function ProjectMockup({ accent }: { accent: string }) {
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col flex-1 bg-[#fafafc] overflow-hidden">
-      {/* ── Hero ── */}
+    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden">
+      {/* ── 1. Hero ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
         <div className="hero-glow w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bottom-[-100px] right-[-100px] opacity-80" />
         <div className="hero-glow w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] top-[-100px] left-[-100px] opacity-40" />
@@ -313,110 +306,44 @@ export default function Home() {
               Start a project
             </Link>
           </div>
-        </div>
-      </section>
 
-      {/* ── How We Help ── */}
-      <section className="relative bg-[#F9F9F9] py-24 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col items-center text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-zinc-200/80 text-sm font-medium text-zinc-700 mb-6">
-              What We Do
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-5">How We Help</h2>
-            <p className="text-zinc-500 text-lg sm:text-xl max-w-2xl leading-relaxed">
-              From concept to launch and beyond. We partner with you to bring ideas to life and deliver results{" "}
-              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium">
-                you can measure
-              </span>
-              .
+          {/* Client Logos Infinite Carousel */}
+          <div className="mt-14 w-full overflow-hidden marquee-container py-4">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8 text-center animate-fade-in-up [animation-delay:900ms]">
+              Trusted by industry leaders
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="relative bg-white rounded-3xl border border-zinc-100/80 overflow-hidden flex flex-col items-center text-center px-6 pt-10 pb-8 shadow-sm hover:shadow-md transition-shadow duration-300"
-              >
-                <div className={`absolute inset-x-0 top-0 h-32 bg-gradient-to-b ${service.accent} pointer-events-none`} />
-                <div className="relative mb-6">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-zinc-900 mb-2">{service.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{service.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-8">
-            {services.map((service) => (
-              <div key={`features-${service.title}`} className="space-y-6">
-                {service.features.map((feature) => (
-                  <div key={feature.title} className="flex gap-4 items-start">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-white border border-zinc-100 flex items-center justify-center text-lg shadow-sm">
-                      {feature.icon}
-                    </span>
-                    <div>
-                      <p className="font-semibold text-zinc-900 text-[15px]">{feature.title}</p>
-                      <p className="text-zinc-500 text-sm mt-0.5">{feature.desc}</p>
-                    </div>
-                  </div>
+            <div className="relative flex w-full overflow-x-hidden animate-fade-in-up [animation-delay:1000ms]">
+              <div className="flex gap-16 items-center shrink-0 animate-marquee pr-16 whitespace-nowrap">
+                {[
+                  "/Client_Logo/Clip path group.svg",
+                  "/Client_Logo/Clip path group-1.svg",
+                  "/Client_Logo/Clip path group-2.svg",
+                  "/Client_Logo/Clip path group-3.svg",
+                  "/Client_Logo/Group 14.svg",
+                  "/Client_Logo/Vector.svg",
+                  "/Client_Logo/Clip path group.svg",
+                  "/Client_Logo/Clip path group-1.svg",
+                  "/Client_Logo/Clip path group-2.svg",
+                  "/Client_Logo/Clip path group-3.svg",
+                  "/Client_Logo/Group 14.svg",
+                  "/Client_Logo/Vector.svg",
+                ].map((src, i) => (
+                  <Image
+                    key={i}
+                    src={src}
+                    alt={`Client Logo ${i + 1}`}
+                    width={120}
+                    height={36}
+                    className="h-7 w-auto object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
+                  />
                 ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Our Work ── */}
-      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
-            <div className="max-w-xl">
-              <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-4">Our Work</h2>
-              <p className="text-zinc-500 text-lg leading-relaxed">
-                Brands from around the world. Projects of every shape and size. Each one built to perform.
-              </p>
             </div>
-            <Link
-              href="/work"
-              className="flex-shrink-0 self-start px-6 py-3 rounded-full bg-zinc-900 text-white text-[15px] font-medium shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-zinc-800 hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200"
-            >
-              View All Projects
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {projects.map((project) => (
-              <article key={project.title} className={project.stagger ? "md:mt-24" : ""}>
-                <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} p-6 pb-4 overflow-hidden`}>
-                  <ProjectMockup accent={project.mockupAccent} />
-                </div>
-                <div className="mt-6">
-                  <h3 className="text-xl font-semibold text-zinc-900 mb-2">{project.title}</h3>
-                  <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
-                  <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 text-xs font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <span className="text-xl" title="Country">
-                      {project.flag}
-                    </span>
-                  </div>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
+      {/* ── 2. Testimonials (Why clients trust) ── */}
       <section className="relative bg-[#F9F9FB] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
@@ -426,7 +353,7 @@ export default function Home() {
               <span>Why clients</span>
 
               <span className="relative inline-flex items-center mx-1 sm:mx-2 group">
-                <span className="absolute -top-7 -right-5 z-20 -rotate-12 bg-white text-[10px] sm:text-[11px] font-bold text-zinc-800 px-3 py-1 rounded-full border border-zinc-200/80 shadow-md select-none animate-float">
+                <span className="absolute -top-7 -right-5 z-20 -rotate-12 bg-white text-[14px] sm:text-[18px] font-bold text-zinc-800 px-3 py-1 rounded-full border border-zinc-200/80 shadow-md select-none animate-float">
                   trust
                   <span className="absolute bottom-[-4px] left-[25%] w-2 h-2 bg-white border-r border-b border-zinc-200/80 rotate-45" />
                 </span>
@@ -478,6 +405,117 @@ export default function Home() {
                     <p className="text-zinc-400 text-xs mt-0.5">{t.role}</p>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Our Work ── */}
+      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
+            <div className="max-w-xl">
+              <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-4">Our Work</h2>
+              <p className="text-zinc-500 text-lg leading-relaxed">
+                Brands from around the world. Projects of every shape and size. Each one built to perform.
+              </p>
+            </div>
+            <Link
+              href="/work"
+              className="flex-shrink-0 self-start px-6 py-3 rounded-full bg-zinc-900 text-white text-[15px] font-regular shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200"
+            >
+              View All Projects
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 ">
+            {projects.map((project) => (
+              <article key={project.title} className={project.stagger ? "md:mt-24" : ""}>
+                <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} p-6 pb-4 overflow-hidden`}>
+                  <ProjectMockup accent={project.mockupAccent} />
+                </div>
+                <div className="mt-6">
+                  <h3 className="text-xl font-semibold text-zinc-900 mb-2">{project.title}</h3>
+                  <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
+                  <div className="flex items-center justify-between gap-4 flex-wrap">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 rounded-full bg-white text-black text-xs font-medium shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-xl" title="Country">
+                      {project.flag}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. How We Help ── */}
+      <section className="relative bg-[#F9F9F9] py-24 px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-16">
+            
+            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-5">How We Help</h2>
+            <p className="text-zinc-500 text-lg sm:text-xl max-w-2xl leading-relaxed">
+              From concept to launch and beyond. We partner with you to bring ideas to life and deliver results{" "}
+              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium">
+                you can measure
+              </span>
+              .
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="relative w-full max-w-[400] bg-white rounded-2xl border border-zinc-100/80 overflow-hidden flex flex-col items-center text-center px-6 pt-10 pb-2 border-2"
+              >
+                
+                <div className="relative w-full h-full min-h-[200px] flex items-center justify-center">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover -translate-y-10"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-zinc-900 mb-2 -mt-4">{service.title}</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-8">
+            {services.map((service) => (
+              <div key={`features-${service.title}`} className="space-y-6">
+                {service.features.map((feature) => (
+                  <div key={feature.title} className="flex gap-4 items-start">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-white border border-zinc-100 flex items-center justify-center shadow-sm relative">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={20}
+                        height={20}
+                        className="object-contain"
+                      />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-zinc-900 text-[15px]">{feature.title}</p>
+                      <p className="text-zinc-500 text-sm mt-0.5">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
