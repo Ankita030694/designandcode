@@ -1,95 +1,488 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
+
+/* ─── Data ─── */
+
+const services = [
+  {
+    title: "UI/UX Design",
+    description: "Expert Design Partners (and good listeners)",
+    accent: "from-blue-400/30 via-blue-500/10 to-transparent",
+    iconBg: "from-blue-500 to-blue-700",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
+        <path
+          d="M24 4L8 14v20l16 10 16-10V14L24 4z"
+          fill="url(#penGrad)"
+          stroke="#2563eb"
+          strokeWidth="1.5"
+        />
+        <path d="M24 14v20M8 14l16 10 16-10" stroke="#93c5fd" strokeWidth="1.5" />
+        <defs>
+          <linearGradient id="penGrad" x1="8" y1="4" x2="40" y2="44">
+            <stop stopColor="#60a5fa" />
+            <stop offset="1" stopColor="#1d4ed8" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
+    features: [
+      { title: "Bring ideas to life", desc: "Aligned with your brand vision", icon: "🌱" },
+      { title: "Industry Leading UX", desc: "Our expertise, at your disposal", icon: "✦" },
+    ],
+  },
+  {
+    title: "Data & Analytics",
+    description: "Bring your users into focus.",
+    accent: "from-violet-400/30 via-violet-500/10 to-transparent",
+    iconBg: "from-violet-500 to-purple-700",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
+        <circle cx="24" cy="24" r="18" fill="url(#targetGrad)" stroke="#7c3aed" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="10" stroke="#c4b5fd" strokeWidth="2" />
+        <circle cx="24" cy="24" r="4" fill="#ede9fe" />
+        <path d="M24 6v6M24 36v6M6 24h6M36 24h6" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" />
+        <defs>
+          <linearGradient id="targetGrad" x1="6" y1="6" x2="42" y2="42">
+            <stop stopColor="#a78bfa" />
+            <stop offset="1" stopColor="#6d28d9" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
+    features: [
+      { title: "Personalised Insights", desc: "The data that matters most", icon: "🔍" },
+      { title: "Optimised Interactions", desc: "Data-driven UX Strategy", icon: "◎" },
+    ],
+  },
+  {
+    title: "Web Development",
+    description: "What if Technology wasn't an obstacle?",
+    accent: "from-fuchsia-400/30 via-fuchsia-500/10 to-transparent",
+    iconBg: "from-fuchsia-500 to-pink-700",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
+        <rect x="6" y="6" width="36" height="36" rx="10" fill="url(#codeGrad)" stroke="#c026d3" strokeWidth="1.5" />
+        <text x="24" y="30" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="monospace">
+          {"</>"}
+        </text>
+        <defs>
+          <linearGradient id="codeGrad" x1="6" y1="6" x2="42" y2="42">
+            <stop stopColor="#e879f9" />
+            <stop offset="1" stopColor="#a21caf" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
+    features: [
+      { title: "Faster Time to Market", desc: "Accelerated through composability", icon: "⏱" },
+      { title: "Infinite Scalability", desc: "Agile foundations for growth", icon: "↗" },
+    ],
+  },
+];
+
+const projects = [
+  {
+    title: "Bank Al Etihad",
+    description:
+      "A fully composable atomic design overhaul that streamlined workflows, reduced friction, and accelerated iterative development.",
+    tags: ["Atomic Systems", "Enterprise", "UI/UX"],
+    flag: "🇯🇴",
+    bg: "from-[#f87171]/20 via-[#fb923c]/15 to-[#fecaca]/30",
+    mockupAccent: "bg-gradient-to-br from-orange-400 to-red-400",
+    stagger: false,
+  },
+  {
+    title: "WP Engine",
+    description:
+      "Implementing composable Headless WordPress architecture and design systems to enhance scalability and personalisation.",
+    tags: ["Development", "Enterprise", "UI/UX"],
+    flag: "🇺🇸",
+    bg: "from-[#60a5fa]/20 via-[#38bdf8]/15 to-[#bae6fd]/30",
+    mockupAccent: "bg-gradient-to-br from-sky-400 to-blue-500",
+    stagger: true,
+  },
+  {
+    title: "Android Authority",
+    description: "Enhancing Core Web Vitals and User Retention with migration to a Headless CMS.",
+    tags: ["Enterprise", "Headless", "UI/UX"],
+    flag: "🇨🇦",
+    bg: "from-zinc-200/60 via-zinc-100/40 to-zinc-200/30",
+    mockupAccent: "bg-gradient-to-br from-zinc-400 to-zinc-600",
+    stagger: false,
+  },
+  {
+    title: "Amplifidor",
+    description: "Creating a scalable, user-focused platform using composable design systems.",
+    tags: ["UI/UX"],
+    flag: "🇸🇦",
+    bg: "from-[#f472b6]/15 via-[#a78bfa]/10 to-[#fbcfe8]/25",
+    mockupAccent: "bg-gradient-to-br from-pink-400 to-violet-400",
+    stagger: true,
+  },
+];
+
+const testimonials = [
+  {
+    company: "WPengine",
+    logo: (
+      <span className="flex items-center gap-2 font-semibold text-zinc-800 tracking-tight">
+        <span className="grid grid-cols-3 gap-0.5 w-5">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <span key={i} className="w-1.5 h-1.5 rounded-sm bg-zinc-800" />
+          ))}
+        </span>
+        WPengine
+      </span>
+    ),
+    quote: (
+      <>
+        Designncode has done so much work with Headless platforms, and we knew the team was incredibly well-versed in
+        that space.{" "}
+        <GradientHighlight>They were one of the first to do it</GradientHighlight>, and they&apos;ve done it
+        exceptionally well.
+      </>
+    ),
+    name: "Kelsey Oliver",
+    role: "Marketing Manager, WPEngine",
+    initials: "KO",
+  },
+  {
+    company: "acs",
+    logo: (
+      <span className="flex items-center gap-2 font-semibold text-zinc-800 tracking-tight lowercase">
+        <span className="w-6 h-6 rounded-full border-2 border-zinc-800 flex items-center justify-center text-[8px] font-bold">
+          acs
+        </span>
+        acs
+      </span>
+    ),
+    quote: (
+      <>
+        What&apos;s particularly impressive is{" "}
+        <GradientHighlight>their ability to think beyond</GradientHighlight> just the immediate project, sharing
+        knowledge that benefits our company as a whole.
+      </>
+    ),
+    name: "Silas Gregory",
+    role: "Marketing Manager, ACS",
+    initials: "SG",
+  },
+  {
+    company: "amplifidor",
+    logo: (
+      <span className="flex items-center gap-2 font-semibold text-zinc-800 tracking-tight lowercase">
+        <span className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[14px] border-b-zinc-800" />
+        amplifidor
+      </span>
+    ),
+    quote: (
+      <>
+        The team is <GradientHighlight>highly responsive, attentive, and collaborative</GradientHighlight>. They ask
+        insightful questions, provide input, and raise objections when necessary.{" "}
+        <GradientHighlight>They truly act as part of our team</GradientHighlight> rather than just a vendor.
+      </>
+    ),
+    name: "Faisal Alqahtani",
+    role: "CEO, Amplifidor",
+    initials: "FA",
+  },
+];
+
+/* ─── Helpers ─── */
+
+function GradientHighlight({ children }: { children: ReactNode }) {
+  return (
+    <span className="bg-gradient-to-r from-[#5DE0E6] to-[#AD8BFF] bg-clip-text text-transparent font-medium">
+      {children}
+    </span>
+  );
+}
+
+function SectionDivider() {
+  return (
+    <div className="relative w-full overflow-hidden flex justify-center -mb-20 sm:-mb-28 md:-mb-36 pointer-events-none select-none">
+      <svg viewBox="0 0 1555 623" className="w-full h-auto object-contain opacity-90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#sectionDividerBlur)">
+          <rect x="100" y="100" width="1355" height="423" rx="15" fill="url(#sectionDividerGrad)" />
+        </g>
+        <rect x="100" y="100" width="1355" height="20" rx="10" fill="#323232" />
+        <defs>
+          <filter id="sectionDividerBlur" x="0" y="0" width="1555" height="623" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur" />
+          </filter>
+          <linearGradient id="sectionDividerGrad" x1="777.5" y1="100" x2="777.5" y2="523" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#323232" />
+            <stop offset="1" stopColor="#323232" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  );
+}
+
+function ProjectMockup({ accent }: { accent: string }) {
+  return (
+    <div className="relative w-[78%] mx-auto mt-8 mb-2">
+      <div className={`absolute inset-0 ${accent} rounded-2xl blur-2xl opacity-40 scale-95`} />
+      <div className="relative bg-white rounded-xl shadow-lg border border-white/80 overflow-hidden">
+        <div className="flex items-center gap-1.5 px-3 py-2 bg-zinc-50 border-b border-zinc-100">
+          <span className="w-2 h-2 rounded-full bg-red-300" />
+          <span className="w-2 h-2 rounded-full bg-yellow-300" />
+          <span className="w-2 h-2 rounded-full bg-green-300" />
+        </div>
+        <div className="p-4 space-y-2">
+          <div className="h-2.5 w-3/4 rounded-full bg-zinc-200" />
+          <div className="h-2 w-1/2 rounded-full bg-zinc-100" />
+          <div className="grid grid-cols-3 gap-2 pt-2">
+            <div className="h-10 rounded-lg bg-zinc-100" />
+            <div className="h-10 rounded-lg bg-zinc-100" />
+            <div className="h-10 rounded-lg bg-zinc-100" />
+          </div>
+          <div className="h-16 rounded-lg bg-zinc-50 border border-zinc-100" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Page ─── */
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col flex-1 items-center justify-center bg-[#fafafc] overflow-hidden py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)]">
-      {/* Premium Ambient Background Glows */}
-      <div className="hero-glow w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bottom-[-100px] right-[-100px] opacity-80" />
-      <div className="hero-glow w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] top-[-100px] left-[-100px] opacity-40" />
+    <main className="relative flex flex-col flex-1 bg-[#fafafc] overflow-hidden">
+      {/* ── Hero ── */}
+      <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
+        <div className="hero-glow w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bottom-[-100px] right-[-100px] opacity-80" />
+        <div className="hero-glow w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] top-[-100px] left-[-100px] opacity-40" />
 
-      {/* Hero Content Container */}
-      <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto text-center">
-        
-        {/* Badge: Design-Led Development Partners */}
-        <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full animate-fade-in-up">
-          {/* Left Laurel Wreath */}
-          <Image
-            src="/LL.svg"
-            alt="Laurel Left"
-            width={22}
-            height={22}
-            className="w-8 h-8 object-contain"
-          />
-          
-          <span className="tracking-wide text-[16px] font-regular text-zinc-600">
-            Design-Led Development Partners
-          </span>
-          
-          {/* Right Laurel Wreath */}
-          <Image
-            src="/LR.svg"
-            alt="Laurel Right"
-            width={22}
-            height={22}
-            className="w-8 h-8 object-contain"
-          />
+        <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full animate-fade-in-up">
+            <Image src="/LL.svg" alt="Laurel Left" width={22} height={22} className="w-8 h-8 object-contain" />
+            <span className="tracking-wide text-[16px] font-regular text-zinc-600">Design-Led Development Partners</span>
+            <Image src="/LR.svg" alt="Laurel Right" width={22} height={22} className="w-8 h-8 object-contain" />
+          </div>
+
+          <h1 className="flex flex-col items-center mt-8 tracking-tight">
+            <span className="text-5xl sm:text-6xl md:text-6xl font-medium text-zinc-900 leading-[1.1] animate-fade-in-up [animation-delay:200ms] block">
+              Strategy that ships.
+            </span>
+            <span className="relative text-5xl sm:text-6xl md:text-6xl font-semibold bg-gradient-to-r from-[#60a5fa] via-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent leading-[1.2] pb-10 px-2 inline-block animate-fade-in-up [animation-delay:400ms]">
+              Design that endures.
+              <Image
+                src="/Marker.svg"
+                alt="Marker Underline"
+                width={541}
+                height={38}
+                className="absolute bottom-1 sm:bottom-0 left-0 w-full h-[18px] sm:h-[40px] pointer-events-none object-contain select-none animate-reveal-width [animation-delay:400ms]"
+                priority
+              />
+            </span>
+          </h1>
+
+          <p className="mt-8 text-center text-zinc-500 text-lg sm:text-xl max-w-2xl leading-relaxed animate-fade-in-up [animation-delay:600ms] px-4">
+            Design and development partners for{" "}
+            <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
+              enterprise
+            </span>
+            ,{" "}
+            <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
+              ecommerce
+            </span>
+            , and{" "}
+            <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
+              startups
+            </span>
+            . We bring clarity to complexity.
+          </p>
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-6 animate-fade-in-up [animation-delay:800ms]">
+            <Link
+              href="/about"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-zinc-200/80 bg-zinc-50/40 text-[15px] font-medium text-zinc-700 hover:bg-zinc-100/80 hover:border-zinc-300/80 hover:text-zinc-900 transition-all duration-200 text-center cursor-pointer shadow-xs"
+            >
+              Why Designncode?
+            </Link>
+            <Link
+              href="/ContactUs"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-[15px] font-medium text-zinc-900 transition-all duration-200 text-center shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-zinc-100/80 hover:shadow-[0_8px_20px_rgba(0,0,0,0.07)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            >
+              Start a project
+            </Link>
+          </div>
         </div>
+      </section>
 
-        {/* Headline */}
-        <h1 className="flex flex-col items-center mt-8 tracking-tight">
-          <span className="text-5xl sm:text-6xl md:text-6xl font-medium text-zinc-900 leading-[1.1] animate-fade-in-up [animation-delay:200ms] block">
-            Strategy that ships.
-          </span>
-          <span className="relative  text-5xl sm:text-6xl md:text-6xl font-semibold bg-gradient-to-r from-[#60a5fa] via-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent leading-[1.2] pb-10 px-2 inline-block animate-fade-in-up [animation-delay:400ms]">
-            Design that endures.
-            
-            {/* SVG Squiggle Underline */}
-            <Image
-              src="/Marker.svg"
-              alt="Marker Underline"
-              width={541}
-              height={38}
-              className="absolute bottom-1 sm:bottom-0 left-0 w-full h-[18px] sm:h-[40px] pointer-events-none object-contain select-none animate-reveal-width [animation-delay:400ms]"
-              priority
-            />
-          </span>
-        </h1>
+      {/* ── How We Help ── */}
+      <section className="relative bg-[#F9F9F9] py-24 px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-zinc-200/80 text-sm font-medium text-zinc-700 mb-6">
+              What We Do
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-5">How We Help</h2>
+            <p className="text-zinc-500 text-lg sm:text-xl max-w-2xl leading-relaxed">
+              From concept to launch and beyond. We partner with you to bring ideas to life and deliver results{" "}
+              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium">
+                you can measure
+              </span>
+              .
+            </p>
+          </div>
 
-        {/* Sub-headline / Paragraph */}
-        <p className="mt-8 text-center text-zinc-500 text-lg sm:text-xl max-w-2xl leading-relaxed animate-fade-in-up [animation-delay:600ms] px-4">
-          Design and development partners for{" "}
-          <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
-            enterprise
-          </span>
-          ,{" "}
-          <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
-            ecommerce
-          </span>
-          , and{" "}
-          <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
-            startups
-          </span>
-          . We bring clarity to complexity.
-        </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="relative bg-white rounded-3xl border border-zinc-100/80 overflow-hidden flex flex-col items-center text-center px-6 pt-10 pb-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <div className={`absolute inset-x-0 top-0 h-32 bg-gradient-to-b ${service.accent} pointer-events-none`} />
+                <div className="relative mb-6">{service.icon}</div>
+                <h3 className="text-xl font-semibold text-zinc-900 mb-2">{service.title}</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
 
-        {/* Call to Actions */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-6 animate-fade-in-up [animation-delay:800ms]">
-          <Link
-            href="/about"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-zinc-200/80 bg-zinc-50/40 text-[15px] font-medium text-zinc-700 hover:bg-zinc-100/80 hover:border-zinc-300/80 hover:text-zinc-900 transition-all duration-200 text-center cursor-pointer shadow-xs"
-          >
-            Why Designncode?
-          </Link>
-          <Link
-            href="/ContactUs"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-[15px] font-medium text-zinc-900 transition-all duration-200 text-center shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-zinc-100/80 hover:shadow-[0_8px_20px_rgba(0,0,0,0.07)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-          >
-            Start a project
-          </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-8">
+            {services.map((service) => (
+              <div key={`features-${service.title}`} className="space-y-6">
+                {service.features.map((feature) => (
+                  <div key={feature.title} className="flex gap-4 items-start">
+                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-white border border-zinc-100 flex items-center justify-center text-lg shadow-sm">
+                      {feature.icon}
+                    </span>
+                    <div>
+                      <p className="font-semibold text-zinc-900 text-[15px]">{feature.title}</p>
+                      <p className="text-zinc-500 text-sm mt-0.5">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-      </div>
+      {/* ── Our Work ── */}
+      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
+            <div className="max-w-xl">
+              <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-4">Our Work</h2>
+              <p className="text-zinc-500 text-lg leading-relaxed">
+                Brands from around the world. Projects of every shape and size. Each one built to perform.
+              </p>
+            </div>
+            <Link
+              href="/work"
+              className="flex-shrink-0 self-start px-6 py-3 rounded-full bg-zinc-900 text-white text-[15px] font-medium shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-zinc-800 hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200"
+            >
+              View All Projects
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+            {projects.map((project) => (
+              <article key={project.title} className={project.stagger ? "md:mt-24" : ""}>
+                <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} p-6 pb-4 overflow-hidden`}>
+                  <ProjectMockup accent={project.mockupAccent} />
+                </div>
+                <div className="mt-6">
+                  <h3 className="text-xl font-semibold text-zinc-900 mb-2">{project.title}</h3>
+                  <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
+                  <div className="flex items-center justify-between gap-4 flex-wrap">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 text-xs font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-xl" title="Country">
+                      {project.flag}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ── */}
+      <section className="relative bg-[#F9F9FB] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <SectionDivider />
+
+          <div className="relative z-10 pt-8 pb-14 flex flex-col items-center">
+            <h2 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-900 text-center">
+              <span>Why clients</span>
+
+              <span className="relative inline-flex items-center mx-1 sm:mx-2 group">
+                <span className="absolute -top-7 -right-5 z-20 -rotate-12 bg-white text-[10px] sm:text-[11px] font-bold text-zinc-800 px-3 py-1 rounded-full border border-zinc-200/80 shadow-md select-none animate-float">
+                  trust
+                  <span className="absolute bottom-[-4px] left-[25%] w-2 h-2 bg-white border-r border-b border-zinc-200/80 rotate-45" />
+                </span>
+                <span className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 shadow-[0_4px_20px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.2)] border border-zinc-800">
+                  <svg
+                    className="w-6 h-6 sm:w-7 sm:h-7 text-white fill-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)] group-hover:animate-heartbeat"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </span>
+              </span>
+
+              <span className="relative inline-flex items-center group/dnc">
+                Designncode
+                <span className="absolute -top-3 -right-6 sm:-top-4 sm:-right-8 select-none">
+                  <svg
+                    className="w-6 h-6 sm:w-7 sm:h-7 text-zinc-400 opacity-90 transition-transform duration-300 group-hover/dnc:rotate-12 group-hover/dnc:scale-110"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                  >
+                    <path d="M6 14L3 11" />
+                    <path d="M12 9L11 4" />
+                    <path d="M17 12L20 10" />
+                  </svg>
+                </span>
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100/80 flex flex-col hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="mb-8">{t.logo}</div>
+                <p className="text-zinc-600 text-[15px] leading-relaxed flex-1">{t.quote}</p>
+                <div className="mt-8 pt-6 border-t border-dotted border-zinc-200 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-zinc-200 flex items-center justify-center text-xs font-semibold text-zinc-600 grayscale">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-zinc-900 text-sm">{t.name}</p>
+                    <p className="text-zinc-400 text-xs mt-0.5">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
