@@ -1,6 +1,10 @@
+"use client";
+
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import Footer from "./Components/footer";
 
 /* ─── Data ─── */
 
@@ -245,74 +249,120 @@ function ProjectMockup({ accent }: { accent: string }) {
 /* ─── Page ─── */
 
 export default function Home() {
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 50) {
+      setActiveTestimonial((prev) => Math.min(prev + 1, testimonials.length - 1));
+    }
+    if (diff < -50) {
+      setActiveTestimonial((prev) => Math.max(prev - 1, 0));
+    }
+  };
+
+  const [activePartner, setActivePartner] = useState(0);
+  const touchPartnerStartX = useRef(0);
+  const touchPartnerEndX = useRef(0);
+
+  const handlePartnerTouchStart = (e: React.TouchEvent) => {
+    touchPartnerStartX.current = e.targetTouches[0].clientX;
+    touchPartnerEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handlePartnerTouchMove = (e: React.TouchEvent) => {
+    touchPartnerEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handlePartnerTouchEnd = () => {
+    const diff = touchPartnerStartX.current - touchPartnerEndX.current;
+    if (diff > 50) {
+      setActivePartner((prev) => Math.min(prev + 1, 2));
+    }
+    if (diff < -50) {
+      setActivePartner((prev) => Math.max(prev - 1, 0));
+    }
+  };
+
   return (
-    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden">
+    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-20">
       {/* ── 1. Hero ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
         <div className="hero-glow w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bottom-[-100px] right-[-100px] opacity-80" />
         <div className="hero-glow w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] top-[-100px] left-[-100px] opacity-40" />
 
-        <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full animate-fade-in-up">
-            <Image src="/LL.svg" alt="Laurel Left" width={22} height={22} className="w-8 h-8 object-contain" />
-            <span className="tracking-wide text-[16px] font-regular text-zinc-600">Design-Led Development Partners</span>
-            <Image src="/LR.svg" alt="Laurel Right" width={22} height={22} className="w-8 h-8 object-contain" />
+        <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto text-center px-4 sm:px-6">
+          <div className="inline-flex items-center gap-2 sm:gap-3 px-4 py-1.5 rounded-full animate-fade-in-up">
+            <Image src="/LL.svg" alt="Laurel Left" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
+            <span className="tracking-wide text-[13px] sm:text-[16px] font-regular text-zinc-600">Design-Led Development Partners</span>
+            <Image src="/LR.svg" alt="Laurel Right" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
           </div>
 
-          <h1 className="flex flex-col items-center mt-8 tracking-tight">
-            <span className="text-5xl sm:text-6xl md:text-6xl font-medium text-zinc-900 leading-[1.1] animate-fade-in-up [animation-delay:200ms] block">
+          <h1 className="flex flex-col items-center mt-6 sm:mt-8 tracking-tight px-4">
+            <span className="text-4xl sm:text-6xl md:text-6xl font-medium text-zinc-900 leading-[1.1] animate-fade-in-up [animation-delay:200ms] block">
               Strategy that ships.
             </span>
-            <span className="relative text-5xl sm:text-6xl md:text-6xl font-semibold bg-gradient-to-r from-[#60a5fa] via-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent leading-[1.2] pb-10 px-2 inline-block animate-fade-in-up [animation-delay:400ms]">
+            <span className="relative text-4xl sm:text-6xl md:text-6xl font-semibold bg-gradient-to-r from-[#60a5fa] via-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent leading-[1.2] pb-6 sm:pb-10 px-2 inline-block animate-fade-in-up [animation-delay:400ms]">
               Design that endures.
               <Image
                 src="/Marker.svg"
                 alt="Marker Underline"
                 width={541}
                 height={38}
-                className="absolute bottom-1 sm:bottom-0 left-0 w-full h-[18px] sm:h-[40px] pointer-events-none object-contain select-none animate-reveal-width [animation-delay:400ms]"
+                className="absolute bottom-1 sm:bottom-0 left-0 w-full h-[12px] sm:h-[40px] pointer-events-none object-contain select-none animate-reveal-width [animation-delay:400ms]"
                 priority
               />
             </span>
           </h1>
 
-          <p className="mt-8 text-center text-zinc-500 text-lg sm:text-xl max-w-2xl leading-relaxed animate-fade-in-up [animation-delay:600ms] px-4">
+          <p className="mt-6 sm:mt-8 text-center text-zinc-500 text-sm sm:text-xl max-w-2xl leading-relaxed animate-fade-in-up [animation-delay:600ms] px-4">
             Design and development partners for{" "}
-            <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
+            <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded-md font-medium text-[13px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
               enterprise
             </span>
             ,{" "}
-            <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
+            <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded-md font-medium text-[13px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
               ecommerce
             </span>
             , and{" "}
-            <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-[16px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
+            <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded-md font-medium text-[13px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
               startups
             </span>
             . We bring clarity to complexity.
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-6 animate-fade-in-up [animation-delay:800ms]">
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-6 animate-fade-in-up [animation-delay:800ms]">
             <Link
               href="/about"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-zinc-200/80 bg-zinc-50/40 text-[15px] font-medium text-zinc-700 hover:bg-zinc-100/80 hover:border-zinc-300/80 hover:text-zinc-900 transition-all duration-200 text-center cursor-pointer shadow-xs"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-zinc-200/80 bg-zinc-50/40 text-[14px] sm:text-[15px] font-medium text-zinc-700 hover:bg-zinc-100/80 hover:border-zinc-300/80 hover:text-zinc-900 transition-all duration-200 text-center cursor-pointer shadow-xs"
             >
               Why Designncode?
             </Link>
             <Link
               href="/ContactUs"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-[15px] font-medium text-zinc-900 transition-all duration-200 text-center shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-zinc-100/80 hover:shadow-[0_8px_20px_rgba(0,0,0,0.07)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-[14px] sm:text-[15px] font-medium text-zinc-900 transition-all duration-200 text-center shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-zinc-100/80 hover:shadow-[0_8px_20px_rgba(0,0,0,0.07)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               Start a project
             </Link>
           </div>
 
           {/* Client Logos Infinite Carousel */}
-          <div className="mt-14 w-full overflow-hidden marquee-container py-4">
+          <div className="mt-14 w-full max-w-full overflow-hidden marquee-container py-4">
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8 text-center animate-fade-in-up [animation-delay:900ms]">
               Trusted by industry leaders
             </p>
-            <div className="relative flex w-full overflow-x-hidden animate-fade-in-up [animation-delay:1000ms]">
+            <div className="relative flex w-full max-w-full overflow-hidden animate-fade-in-up [animation-delay:1000ms]">
               <div className="flex gap-16 items-center shrink-0 animate-marquee pr-16 whitespace-nowrap">
                 {[
                   "/Client_Logo/Clip path group.svg",
@@ -342,6 +392,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
       <section className="relative bg-[#F9F9FB] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden">
@@ -388,7 +439,8 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Desktop version */}
+          <div className="hidden md:grid grid-cols-3 gap-6">
             {testimonials.map((t) => (
               <div
                 key={t.name}
@@ -407,6 +459,49 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile version draggable slider */}
+          <div className="block md:hidden w-full overflow-hidden">
+            <div
+              className="flex transition-transform duration-300 ease-out cursor-grab active:cursor-grabbing"
+              style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {testimonials.map((t) => (
+                <div key={t.name} className="w-full shrink-0 px-2 select-none">
+                  <div className="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100/80 flex flex-col min-h-[300px]">
+                    <div className="mb-8">{t.logo}</div>
+                    <p className="text-zinc-600 text-[15px] leading-relaxed flex-1">{t.quote}</p>
+                    <div className="mt-8 pt-6 border-t border-dotted border-zinc-200 flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-zinc-200 flex items-center justify-center text-xs font-semibold text-zinc-600 grayscale">
+                        {t.initials}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-zinc-900 text-sm">{t.name}</p>
+                        <p className="text-zinc-400 text-xs mt-0.5">{t.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-2.5 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTestimonial(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    activeTestimonial === index ? "w-6 bg-zinc-900" : "w-2.5 bg-zinc-300"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -429,7 +524,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {projects.map((project) => (
               <article key={project.title} className={project.stagger ? "md:mt-24" : ""}>
                 <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} p-6 pb-4 overflow-hidden`}>
@@ -496,12 +591,19 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-8">
-            {services.map((service) => (
-              <div key={`features-${service.title}`} className="space-y-6">
-                {service.features.map((feature) => (
-                  <div key={feature.title} className="flex gap-4 items-start">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-white border border-zinc-100 flex items-center justify-center shadow-sm relative">
+          {/* Infinite scrolling carousel of 6 feature pointers */}
+          <div className="w-full overflow-hidden marquee-container ">
+            <div className="relative flex w-full overflow-x-hidden">
+              <div className="flex gap-8 items-center shrink-0 animate-marquee pr-8 whitespace-nowrap">
+                {[
+                  ...services.flatMap((s) => s.features),
+                  ...services.flatMap((s) => s.features)
+                ].map((feature, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-4 items-center bg-white rounded-2xl border border-zinc-100/80 px-6 py-4 shadow-xs min-w-[280px] sm:min-w-[320px]"
+                  >
+                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center shadow-xs relative">
                       <Image
                         src={feature.image}
                         alt={feature.title}
@@ -510,17 +612,234 @@ export default function Home() {
                         className="object-contain"
                       />
                     </span>
-                    <div>
-                      <p className="font-semibold text-zinc-900 text-[15px]">{feature.title}</p>
-                      <p className="text-zinc-500 text-sm mt-0.5">{feature.desc}</p>
+                    <div className="whitespace-normal">
+                      <p className="font-semibold text-zinc-900 text-[14px] leading-tight">{feature.title}</p>
+                      <p className="text-zinc-500 text-[12px] mt-0.5 leading-snug">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ── 5. Who We Partner With ── */}
+      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-5">
+              Who We Partner With
+            </h2>
+            <p className="text-zinc-500 text-base sm:text-lg max-w-2xl leading-relaxed">
+              Our signature blend of{" "}
+              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-sm sm:text-base border border-zinc-200/80">
+                design expertise
+              </span>{" "}
+              and{" "}
+              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-sm sm:text-base border border-zinc-200/80">
+                technical innovation
+              </span>{" "}
+              — shaped around your business.
+            </p>
+          </div>
+
+          {/* Desktop version */}
+          <div className="hidden md:grid grid-cols-3 gap-8">
+            {[
+              {
+                title: "Enterprise",
+                desc: "Tailor-made solutions at scale",
+                image: "/Enterprise.png"
+              },
+              {
+                title: "E-commerce",
+                desc: "Performance & Personalisation",
+                image: "/E-Commerce.png"
+              },
+              {
+                title: "Startup",
+                desc: "Disruption meets scalability",
+                image: "/Startup.png"
+              }
+            ].map((partner) => (
+              <div
+                key={partner.title}
+                className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center transition-all duration-300"
+              >
+                <h3 className="text-xl font-semibold text-zinc-900 mb-1">{partner.title}</h3>
+                <p className="text-zinc-500 text-sm mb-6">{partner.desc}</p>
+                <div className="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
+                  <Image
+                    src={partner.image}
+                    alt={partner.title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile version draggable slider */}
+          <div className="block md:hidden w-full overflow-hidden">
+            <div
+              className="flex transition-transform duration-300 ease-out cursor-grab active:cursor-grabbing"
+              style={{ transform: `translateX(-${activePartner * 100}%)` }}
+              onTouchStart={handlePartnerTouchStart}
+              onTouchMove={handlePartnerTouchMove}
+              onTouchEnd={handlePartnerTouchEnd}
+            >
+              {[
+                {
+                  title: "Enterprise",
+                  desc: "Tailor-made solutions at scale",
+                  image: "/Enterprise.png"
+                },
+                {
+                  title: "E-commerce",
+                  desc: "Performance & Personalisation",
+                  image: "/E-Commerce.png"
+                },
+                {
+                  title: "Startup",
+                  desc: "Disruption meets scalability",
+                  image: "/Startup.png"
+                }
+              ].map((partner) => (
+                <div key={partner.title} className="w-full shrink-0 px-2 select-none">
+                  <div className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center shadow-xs">
+                    <h3 className="text-xl font-semibold text-zinc-900 mb-1">{partner.title}</h3>
+                    <p className="text-zinc-500 text-sm mb-6">{partner.desc}</p>
+                    <div className="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
+                      <Image
+                        src={partner.image}
+                        alt={partner.title}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-2.5 mt-8">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setActivePartner(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    activePartner === index ? "w-6 bg-zinc-900" : "w-2.5 bg-zinc-300"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Project Check-Up CTA ── */}
+      <section className="relative bg-[#F9F9FB] py-28 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
+          {/* Chat Icon & Bubble */}
+          <div className="relative mb-8 flex items-center justify-center">
+            {/* The grey gradient card */}
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 shadow-[0_8px_30px_rgba(0,0,0,0.15)] flex items-center justify-center border border-zinc-800/80">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-white" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+              </svg>
+            </div>
+            {/* Holaa! speech bubble */}
+            <div className="absolute -top-6 left-[calc(50%+24px)] bg-white text-zinc-800 font-semibold text-xs sm:text-sm px-3.5 py-1.5 rounded-full border border-zinc-200/80 shadow-md select-none animate-float whitespace-nowrap">
+              Holaa!
+              <span className="absolute bottom-[-5px] left-[20%] w-2.5 h-2.5 bg-white border-r border-b border-zinc-200/80 rotate-45" />
+            </div>
+          </div>
+
+          <h2 className="text-4xl sm:text-6xl font-medium tracking-tight text-zinc-900 mb-6 max-w-3xl leading-[1.1]">
+            Get a free<br />project check-up
+          </h2>
+          <p className="text-zinc-500 text-base sm:text-xl max-w-2xl leading-relaxed">
+            Drop us a message or book a quick call. Whether it&apos;s revamping a full-blown site or nurturing the kernel of an idea, we&apos;re here to make it happen.
+          </p>
+
+          {/* CTA Card */}
+          <div className="relative mt-16 w-full max-w-md mx-auto rounded-2xl text-left overflow-hidden flex flex-col p-8 md:p-10">
+            {/* The background grid image wrapper */}
+            <div className="absolute inset-0 pointer-events-none">
+              <Image
+                src="/CTA.png"
+                alt="CTA Background"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            <div className="relative z-10 flex flex-col h-full space-y-6">
+              {/* Heading */}
+              <h3 className="text-2xl md:text-3xl font-medium text-zinc-900 leading-tight flex flex-wrap items-center gap-x-2">
+                <span>Book a</span>
+                <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">30-min</span>
+                <span>Introduction Call 👋</span>
+              </h3>
+
+              {/* Description */}
+              <p className="text-zinc-600 text-[15px] leading-relaxed">
+                Hop on a{" "}
+                <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded font-medium text-sm">
+                  quick call
+                </span>{" "}
+                and turn half an hour into the start of something{" "}
+                <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded font-medium text-sm">
+                  great.
+                </span>
+              </p>
+
+              {/* Subheading */}
+              <h4 className="text-[16px] font-medium text-zinc-950">
+                What we&apos;ll be doing for ~30 mins:
+              </h4>
+
+              {/* List */}
+              <ul className="space-y-3">
+                {[
+                  "A quick intro.",
+                  "Unpacking your project.",
+                  "Pinpoint how we can help."
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-zinc-700 text-[15px]">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-zinc-900 flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white fill-none stroke-current" strokeWidth="3" viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Button */}
+              <Link
+                href="/ContactUs"
+                className="w-full py-4 rounded-full bg-zinc-900 text-white font-medium hover:bg-black transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 text-[15px] "
+              >
+                <svg className="w-4 h-4 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                <span>Book a Call</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Footer />
     </main>
   );
 }

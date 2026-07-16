@@ -1,14 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // If scrolling down, hide navbar. If scrolling up, show navbar.
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <header className="w-full bg-white dark:bg-white dotted-bottom-border transition-colors duration-200 relative z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white dark:bg-white dotted-bottom-border transition-transform duration-300 ease-in-out ${
+      show ? "translate-y-0" : "-translate-y-full"
+    }`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
@@ -25,7 +47,7 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <Link
-            href="/about"
+            href="/About_us"
             className="text-[15px] font-regular text-black hover:text-black dark:text-black dark:hover:border-black transition-colors"
           >
             About Us
@@ -123,7 +145,7 @@ export default function Navbar() {
       >
         <div className="px-6 py-6 flex flex-col gap-4">
           <Link
-            href="/about"
+            href="/About_us"
             onClick={() => setIsOpen(false)}
             className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white transition-colors"
           >
