@@ -3,24 +3,73 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --navbar-dot-color: #d4d4d8;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-outfit);
   --font-mono: var(--font-geist-mono);
+
+  --animate-fade-in-up: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-draw: draw 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-reveal-width: revealWidth 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes revealWidth {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+}
+
+.hero-glow {
+  position: absolute;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.11) 0%, rgba(59, 130, 246, 0.07) 35%, rgba(236, 72, 153, 0.04) 60%, rgba(255, 255, 255, 0) 80%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 9999px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
+    --navbar-dot-color: #d4d4d8;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+@utility dotted-bottom-border {
+  background-image: radial-gradient(circle at center, var(--navbar-dot-color) 1px, transparent 1px);
+  background-size: 6px 4px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 4px; /* spacing above the border line */
 }
