@@ -304,9 +304,9 @@ export default function Home() {
 
         <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto text-center px-4 sm:px-6">
           <div className="inline-flex items-center gap-2 sm:gap-3 px-4 py-1.5 rounded-full animate-fade-in-up">
-            <Image src="/LL.svg" alt="Laurel Left" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
+            <Image src="/left.svg" alt="Laurel Left" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
             <span className="tracking-wide text-[13px] sm:text-[16px] font-regular text-zinc-600">Design-Led Development Partners</span>
-            <Image src="/LR.svg" alt="Laurel Right" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
+            <Image src="/right.svg" alt="Laurel Right" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
           </div>
 
           <h1 className="flex flex-col items-center mt-6 sm:mt-8 tracking-tight px-4">
