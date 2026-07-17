@@ -94,7 +94,7 @@ export default function Navbar() {
             Projects
           </Link>
           <Link
-            href="/resources"
+            href="/Blogs"
             className="text-[15px] font-regular text-black hover:text-black dark:text-black dark:hover:border-black transition-colors"
           >
             Resources
@@ -185,7 +185,7 @@ export default function Navbar() {
             Projects
           </Link>
           <Link
-            href="/resources"
+            href="/Blogs"
             onClick={() => setIsOpen(false)}
             className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white transition-colors"
           >

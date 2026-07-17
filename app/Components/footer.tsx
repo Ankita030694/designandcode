@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Links Columns */}
-          <div className="lg:col-span-6 grid grid-cols-3 gap-6 sm:gap-8">
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-y-10 gap-x-6 sm:gap-8">
             {/* Pages Column */}
             <div className="flex flex-col gap-4">
               <h4 className="text-md font-medium text-black">Pages</h4>
@@ -79,7 +79,7 @@ export default function Footer() {
                 {[
                   { label: "About Us", href: "/About_us" },
                   { label: "Projects", href: "/projects" },
-                  { label: "Blog", href: "/blog" },
+                  { label: "Resources", href: "/Blogs" },
                   { label: "Contact", href: "/ContactUs" },
                   { label: "Privacy Policy", href: "/privacy" }
                 ].map((link) => (
