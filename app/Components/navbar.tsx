@@ -148,7 +148,7 @@ export default function Navbar() {
                   <div className="flex flex-col gap-3">
                     {/* UI/UX Design */}
                     <Link
-                      href="/services/web-design"
+                      href="/Service/ui_ux"
                       className="flex items-center gap-3.5 bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] rounded-2xl p-4 transition-all duration-300"
                     >
                       <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center flex-shrink-0">
@@ -271,11 +271,11 @@ export default function Navbar() {
             <span className="text-base font-medium text-zinc-700 dark:text-zinc-300">Services</span>
             <div className="pl-4 flex flex-col gap-2 border-l border-zinc-100 dark:border-zinc-800">
               <Link
-                href="/services/web-design"
+                href="/Service/ui_ux"
                 onClick={() => setIsOpen(false)}
                 className="text-sm text-zinc-500 hover:text-black dark:hover:text-white"
               >
-                Web Design
+                UI/UX Design
               </Link>
               <Link
                 href="/services/development"
