@@ -1,8 +1,52 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../Components/footer";
+
+const AnimatedCounter = ({ target, suffix = "", duration = 1500 }: { target: number; suffix?: string; duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          let startTimestamp: number | null = null;
+          
+          const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            setCount(Math.floor(progress * target));
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            }
+          };
+          
+          window.requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = elementRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [target, duration]);
+
+  return <span ref={elementRef}>{count}{suffix}</span>;
+};
 
 const CardBgSquares = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[32px] z-0">
@@ -30,21 +74,68 @@ const CardBgSquares = () => (
 
 const teamMembers = [
   {
-    name: "Tayo Onabule",
+    name: "Ankita Malik",
     role: "Co-Founder & Managing Director",
-    imageSrc: "/tayo.png",
+    imageSrc: "/ankita.png",
   },
   {
-    name: "Charlie-George Baker",
-    role: "Co-Founder & Creative Director",
-    imageSrc: "/charlie.png",
+    name: "Bhavya",
+    role: "SDE",
+    imageSrc: "/bhavya.png",
   },
   {
-    name: "Dewey Robbins",
-    role: "Data Partner",
-    imageSrc: "/dewey.png",
+    name: "Zaib",
+    role: "Designer & Frontend Developer",
+    imageSrc: "/zaib.png",
   },
 ];
+
+const statsItems = [
+  {
+    target: 15,
+    suffix: "+",
+    label: "Years of clinical experience",
+  },
+  {
+    target: 12,
+    suffix: "k+",
+    label: "Smiles treated and counting",
+  },
+  {
+    target: 98,
+    suffix: "%",
+    label: "Patient satisfaction rating",
+  },
+  {
+    target: 9,
+    suffix: "",
+    label: "Specialists across every field",
+  },
+];
+
+const storyData = {
+  kicker: "Our Story",
+  title: "Care that started with a simple promise",
+  paragraphs: [
+    "Dentora began with a single treatment room and one belief: going to the dentist shouldn't feel like something to endure. From our first patient onward, we designed every detail — from the light in our waiting area to the way we explain each procedure — around calm, clarity, and trust.",
+    "Today, our team of nine specialists covers everything from preventive care to full-mouth restoration, supported by 3D imaging, same-day crowns, and digital treatment planning. But the promise hasn't changed: honest advice, gentle hands, and a plan that fits your life — not the other way around.",
+    "We measure success in quiet moments: a nervous patient who falls asleep in the chair, a teenager smiling freely in photos again, a family that's been with us for a decade. That's the work we're proudest of."
+  ],
+  cards: [
+    {
+      title: "Honesty first",
+      description: "We only recommend treatment you actually need, explained in plain language with clear pricing before we begin."
+    },
+    {
+      title: "Comfort by design",
+      description: "Noise-cancelling headphones, warm blankets, and sedation options make every visit as calm as possible."
+    },
+    {
+      title: "Technology that helps",
+      description: "3D imaging, digital scans, and same-day crowns mean fewer visits, faster healing, and better outcomes."
+    }
+  ]
+};
 
 export default function AboutUs() {
   return (
@@ -86,6 +177,79 @@ export default function AboutUs() {
               priority
             />
           </div>
+        </div>
+      </section>
+
+      {/* ── Stats Section ── */}
+      <section className="relative w-full max-w-7xl mx-auto py-16 px-6 sm:px-8 lg:px-12 z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {statsItems.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white border border-zinc-200/40 rounded-[12px] p-8 pt-10 pb-8 flex flex-col justify-between transition-all duration-300 ease-out group border-2 border-zinc-100"
+            >
+              <div>
+                <span className="block text-zinc-900 font-medium text-2xl md:text-5xl tracking-tight leading-none group-hover:text-black transition-colors duration-300">
+                  <AnimatedCounter target={item.target} suffix={item.suffix} />
+                </span>
+                <p className="text-zinc-500 font-normal text-sm md:text-base mt-4 leading-normal">
+                  {item.label}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Our Story Section ── */}
+      <section className="relative w-full max-w-7xl mx-auto py-16 px-6 sm:px-8 lg:px-12 z-10">
+        {/* Top block: left kicker/title, right paragraphs */}
+        <div className="flex flex-col md:flex-row justify-between gap-12 md:gap-16">
+          {/* Left Column */}
+          <div className="w-full md:w-[45%] flex flex-col items-start">
+            {/* Kicker */}
+            <div className="flex items-center gap-2 text-zinc-500 font-medium text-sm select-none">
+              <svg className="w-3.5 h-3.5 text-zinc-400" viewBox="0 0 16 16" fill="currentColor">
+                <rect x="2" y="2" width="3" height="3" rx="0.5" />
+                <rect x="7" y="2" width="3" height="3" rx="0.5" />
+                <rect x="2" y="7" width="3" height="3" rx="0.5" />
+                <rect x="7" y="7" width="3" height="3" rx="0.5" />
+                <rect x="2" y="12" width="3" height="3" rx="0.5" />
+                <rect x="7" y="12" width="3" height="3" rx="0.5" />
+              </svg>
+              <span>{storyData.kicker}</span>
+            </div>
+            {/* Title */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-zinc-900 mt-4 leading-tight">
+              {storyData.title}
+            </h2>
+          </div>
+
+          {/* Right Column */}
+          <div className="w-full md:w-[50%] flex flex-col gap-6 text-zinc-500 text-sm sm:text-base leading-relaxed font-light">
+            {storyData.paragraphs.map((p, index) => (
+              <p key={index}>{p}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom row: three cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          {storyData.cards.map((card, index) => (
+            <div
+              key={index}
+              className="bg-zinc-50 border border-zinc-100 rounded-[24px] p-8 pt-10 pb-8 flex flex-col justify-between hover:bg-zinc-100/50 transition-all duration-300 ease-out"
+            >
+              <div>
+                <h3 className="text-zinc-900 font-medium text-lg sm:text-xl tracking-tight">
+                  {card.title}
+                </h3>
+                <p className="text-zinc-500 font-light text-sm mt-3 leading-relaxed">
+                  {card.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
