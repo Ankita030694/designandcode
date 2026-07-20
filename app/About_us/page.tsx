@@ -51,25 +51,16 @@ const AnimatedCounter = ({ target, suffix = "", duration = 1500 }: { target: num
 
 const CardBgSquares = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[32px] z-0">
-    {/* Top-left overlapping border */}
-    <div className="absolute top-[8%] left-[-16px] w-12 h-12 border border-zinc-200/50 rounded-xl" />
+    {/* Cluster positioned beside the image (Right side of card) */}
+    <div className="absolute top-[8%] left-[48%] w-12 h-12 border border-zinc-200/50 rounded-xl" />
+    <div className="absolute top-[24%] left-[42%] w-10 h-10 border border-zinc-200/40 rounded-lg" />
+    <div className="absolute top-[6%] left-[66%] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
+    <div className="absolute top-[28%] left-[60%] w-12 h-12 border border-zinc-200/40 rounded-xl" />
+    <div className="absolute top-[18%] left-[82%] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
     
-    {/* Behind photo area */}
-    <div className="absolute top-[18%] left-[8%] w-14 h-14 border border-zinc-200/40 rounded-2xl" />
-    
-    {/* Middle cluster */}
-    <div className="absolute top-[6%] left-[36%] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
-    <div className="absolute top-[28%] left-[28%] w-12 h-12 border border-zinc-200/40 rounded-xl" />
-    <div className="absolute top-[22%] left-[48%] w-16 h-16 border border-zinc-200/50 rounded-2xl" />
-    
-    {/* Right cluster */}
-    <div className="absolute top-[12%] left-[68%] w-12 h-12 border border-zinc-200/40 rounded-xl" />
-    <div className="absolute top-[32%] left-[60%] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
-    <div className="absolute top-[20%] left-[84%] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
-    
-    {/* Far right overflowing border */}
-    <div className="absolute top-[6%] right-[-16px] w-12 h-12 border border-zinc-200/50 rounded-xl" />
-    <div className="absolute top-[30%] right-[-24px] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
+    {/* Far right overflowing borders */}
+    <div className="absolute top-[6%] right-[-14px] w-12 h-12 border border-zinc-200/50 rounded-xl" />
+    <div className="absolute top-[32%] right-[-20px] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
   </div>
 );
 
@@ -255,7 +246,7 @@ export default function AboutUs() {
       </section>
 
       {/* ── Meet the Team Section ── */}
-      <section className="relative w-full max-w-6xl mx-auto py-24 px-6 sm:px-8 lg:px-12 z-10">
+      <section className="relative w-full max-w-6xl mx-auto py-24 px-6 sm:px-8 lg:px-12 z-10 -mt-16">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium text-zinc-900 tracking-tight leading-tight flex items-center justify-center flex-wrap gap-2 md:gap-3">
@@ -313,12 +304,12 @@ export default function AboutUs() {
 
               {/* Top part: Elevated Portrait */}
               <div className="relative z-10 self-start">
-                <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-[24px] overflow-hidden shadow-md border border-zinc-200/20 group-hover:shadow-[0_25px_40px_rgba(0,0,0,0.35)] transition-all duration-500 ease-out group-hover:-translate-y-8 group-hover:-translate-x-2 group-hover:scale-[1.03]">
+                <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-[24px] overflow-hidden shadow-md border border-zinc-200/20 group-hover:shadow-[0_25px_40px_rgba(0,0,0,0.35)] transition-all duration-500 ease-out group-hover:-translate-y-8 group-hover:-translate-x-2 group-hover:scale-[1.3] group-hover:z-20">
                   <Image
                     src={member.imageSrc}
                     alt={member.name}
                     fill
-                    className="object-cover grayscale"
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     sizes="(max-width: 768px) 112px, 128px"
                   />
                 </div>

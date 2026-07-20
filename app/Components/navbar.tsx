@@ -69,69 +69,69 @@ export default function Navbar() {
             {/* Dropdown Menu Container with safety hover area */}
             <div className="absolute top-full left-1/2 -translate-x-[45%] pt-4 w-[850px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div className="bg-white border border-zinc-200/80 rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-7 flex gap-8 text-left cursor-default" onClick={(e) => e.stopPropagation()}>
-                {/* Left Section: Industries */}
+                {/* Left Section: Expertise / Services */}
                 <div className="flex-1">
                   <span className="text-[11px] font-bold text-zinc-400 tracking-wider uppercase block mb-4 select-none">
-                    Industries:
+                    Expertise:
                   </span>
                   <div className="grid grid-cols-3 gap-4">
-                    {/* Enterprise Card */}
+                    {/* UI/UX Design Card */}
                     <Link
-                      href="/enterprise"
+                      href="/Service/ui_ux"
                       className="group/card flex flex-col justify-between bg-[#F5F5F7] hover:bg-[#EBEBEF] rounded-2xl p-5 h-[230px] transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="flex-grow flex items-center justify-center -mt-2">
                         <Image
-                          src="/Enterprise.png"
-                          alt="Enterprise"
+                          src="/Design.svg"
+                          alt="UI/UX Design"
                           width={180}
                           height={120}
                           className="object-contain max-h-[110px] w-auto transition-transform duration-500 group-hover/card:scale-105"
                         />
                       </div>
                       <div className="relative z-10 mt-auto">
-                        <h4 className="text-sm font-medium text-zinc-900 mb-0.5">Enterprise</h4>
-                        <p className="text-[11px] text-zinc-500 leading-snug">Transformation at scale</p>
+                        <h4 className="text-sm font-medium text-zinc-900 mb-0.5">UI/UX Design</h4>
+                        <p className="text-[11px] text-zinc-500 leading-snug">Expert Design Partners</p>
                       </div>
                     </Link>
 
-                    {/* Startup Card */}
+                    {/* Web Development Card */}
                     <Link
-                      href="/startup"
+                      href="/webd"
                       className="group/card flex flex-col justify-between bg-[#F5F5F7] hover:bg-[#EBEBEF] rounded-2xl p-5 h-[230px] transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="flex-grow flex items-center justify-center -mt-2">
                         <Image
-                          src="/Startup.png"
-                          alt="Startup"
+                          src="/Web.svg"
+                          alt="Web Development"
                           width={180}
                           height={120}
                           className="object-contain max-h-[110px] w-auto transition-transform duration-500 group-hover/card:scale-105"
                         />
                       </div>
                       <div className="relative z-10 mt-auto">
-                        <h4 className="text-sm font-medium text-zinc-900 mb-0.5">Startup</h4>
-                        <p className="text-[11px] text-zinc-500 leading-snug">Disruption meets scalability</p>
+                        <h4 className="text-sm font-medium text-zinc-900 mb-0.5">Web Development</h4>
+                        <p className="text-[11px] text-zinc-500 leading-snug">Scalable & Composable</p>
                       </div>
                     </Link>
 
-                    {/* Ecommerce Card */}
+                    {/* Performance Marketing Card */}
                     <Link
-                      href="/ecommerce"
+                      href="/marketing"
                       className="group/card flex flex-col justify-between bg-[#F5F5F7] hover:bg-[#EBEBEF] rounded-2xl p-5 h-[230px] transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="flex-grow flex items-center justify-center -mt-2">
                         <Image
-                          src="/E-Commerce.png"
-                          alt="Ecommerce"
+                          src="/Data.svg"
+                          alt="Performance Marketing"
                           width={180}
                           height={120}
                           className="object-contain max-h-[110px] w-auto transition-transform duration-500 group-hover/card:scale-105"
                         />
                       </div>
                       <div className="relative z-10 mt-auto">
-                        <h4 className="text-sm font-medium text-zinc-900 mb-0.5">Ecommerce</h4>
-                        <p className="text-[11px] text-zinc-500 leading-snug">Performance & Personalisation</p>
+                        <h4 className="text-sm font-medium text-zinc-900 mb-0.5">Performance Marketing</h4>
+                        <p className="text-[11px] text-zinc-500 leading-snug">User-focused insights</p>
                       </div>
                     </Link>
                   </div>
@@ -140,62 +140,69 @@ export default function Navbar() {
                 {/* Divider line */}
                 <div className="w-[1px] bg-zinc-100 self-stretch my-2" />
 
-                {/* Right Section: Expertise */}
+                {/* Right Section: Industries */}
                 <div className="w-[260px] flex flex-col">
                   <span className="text-[11px] font-bold text-zinc-400 tracking-wider uppercase block mb-4 select-none">
-                    Expertise:
+                    Industries:
                   </span>
                   <div className="flex flex-col gap-3">
-                    {/* UI/UX Design */}
+                    {/* Enterprise */}
                     <Link
-                      href="/Service/ui_ux"
+                      href="/enterprise"
                       className="flex items-center gap-3.5 bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] rounded-2xl p-4 transition-all duration-300"
                     >
                       <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center flex-shrink-0">
                         <Image
-                          src="/UX.svg"
-                          alt="UI/UX Design"
-                          width={20}
-                          height={20}
-                          className="w-7 h-7 object-contain"
+                          src="/Enterprise.png"
+                          alt="Enterprise"
+                          width={24}
+                          height={24}
+                          className="w-6 h-6 object-contain"
                         />
                       </div>
                       <div>
-                        <h4 className="text-[13px] font-medium text-zinc-900 leading-tight">UI/UX Design</h4>
-                        <p className="text-[11px] text-zinc-400 mt-0.5">Expert Design Partners</p>
+                        <h4 className="text-[13px] font-medium text-zinc-900 leading-tight">Enterprise</h4>
+                        <p className="text-[11px] text-zinc-400 mt-0.5">Transformation at scale</p>
                       </div>
                     </Link>
 
-                    {/* Web Development */}
+                    {/* Startup */}
                     <Link
-                      href="/webd"
+                      href="/startup"
                       className="flex items-center gap-3.5 bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] rounded-2xl p-4 transition-all duration-300"
                     >
                       <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-zinc-655" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
-                        </svg>
+                        <Image
+                          src="/Startup.png"
+                          alt="Startup"
+                          width={24}
+                          height={24}
+                          className="w-6 h-6 object-contain"
+                        />
                       </div>
                       <div>
-                        <h4 className="text-[13px] font-medium text-zinc-900 leading-tight">Web Development</h4>
-                        <p className="text-[11px] text-zinc-400 mt-0.5">Scalable & Composable</p>
+                        <h4 className="text-[13px] font-medium text-zinc-900 leading-tight">Startup</h4>
+                        <p className="text-[11px] text-zinc-400 mt-0.5">Disruption meets scalability</p>
                       </div>
                     </Link>
 
-                    {/* Data & Analytics / Performance Marketing */}
+                    {/* Ecommerce */}
                     <Link
-                      href="/marketing"
+                      href="/ecommerce"
                       className="flex items-center gap-3.5 bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] rounded-2xl p-4 transition-all duration-300"
                     >
                       <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-zinc-650" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
-                        </svg>
+                        <Image
+                          src="/E-Commerce.png"
+                          alt="Ecommerce"
+                          width={24}
+                          height={24}
+                          className="w-6 h-6 object-contain"
+                        />
                       </div>
                       <div>
-                        <h4 className="text-[13px] font-medium text-zinc-900 leading-tight">Performance Marketing</h4>
-                        <p className="text-[11px] text-zinc-400 mt-0.5">User-focused insights</p>
+                        <h4 className="text-[13px] font-medium text-zinc-900 leading-tight">Ecommerce</h4>
+                        <p className="text-[11px] text-zinc-400 mt-0.5">Performance & Personalisation</p>
                       </div>
                     </Link>
                   </div>

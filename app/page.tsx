@@ -213,13 +213,13 @@ function GradientHighlight({ children }: { children: ReactNode }) {
 
 function SectionDivider() {
   return (
-    <div className="relative w-full overflow-hidden flex justify-center -mb-20 sm:-mb-28 md:-mb-36 pointer-events-none select-none">
+    <div className="relative w-full overflow-hidden flex justify-center -mb-10 sm:-mb-28 md:-mb-36 pointer-events-none select-none">
       <Image
         src="/Effect.png"
         alt="Section Divider Effect"
         width={1555}
         height={623}
-        className="w-[50%] h-auto object-contain opacity-90"
+        className="w-[80%] h-auto object-contain opacity-90"
       />
     </div>
   );
@@ -351,7 +351,7 @@ export default function Home() {
               href="/about"
               className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-zinc-200/80 bg-zinc-50/40 text-[14px] sm:text-[15px] font-medium text-zinc-700 hover:bg-zinc-100/80 hover:border-zinc-300/80 hover:text-zinc-900 transition-all duration-200 text-center cursor-pointer shadow-xs"
             >
-              Why Designncode?
+              Explore Projects
             </Link>
             <Link
               href="/ContactUs"
@@ -399,7 +399,7 @@ export default function Home() {
 
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#F9F9FB] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden">
+      <section className="relative bg-[#F9F9FB] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden -mt-20">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
@@ -511,7 +511,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. Our Work ── */}
-      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12">
+      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 -mt-15">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
             <div className="max-w-xl">
@@ -560,7 +560,7 @@ export default function Home() {
       </section>
 
       {/* ── 4. How We Help ── */}
-      <section className="relative bg-[#F9F9F9] py-24 px-6 sm:px-8 lg:px-12">
+      <section className="relative bg-[#F9F9F9] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center mb-16">
             
@@ -629,7 +629,7 @@ export default function Home() {
       </section>
 
       {/* ── 5. Who We Partner With ── */}
-      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50">
+      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-5">
