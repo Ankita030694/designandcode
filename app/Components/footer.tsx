@@ -99,7 +99,7 @@ export default function Footer() {
                 {[
                   { label: "Web Development", href: "/webd" },
                   { label: "UI/UX Design", href: "/Service/ui_ux" },
-                  { label: "Data & Analytics", href: "/services/analytics" },
+                  { label: "Performance Marketing", href: "/marketing" },
                   { label: "Enterprise", href: "/services/enterprise" },
                   { label: "Startup", href: "/services/startup" },
                   { label: "E-commerce", href: "/services/ecommerce" }

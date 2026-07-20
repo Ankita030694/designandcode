@@ -182,9 +182,9 @@ export default function Navbar() {
                       </div>
                     </Link>
 
-                    {/* Data & Analytics */}
+                    {/* Data & Analytics / Performance Marketing */}
                     <Link
-                      href="/services/analytics"
+                      href="/marketing"
                       className="flex items-center gap-3.5 bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-[0_4px_20px_rgba(0,0,0,0.02)] rounded-2xl p-4 transition-all duration-300"
                     >
                       <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center flex-shrink-0">
@@ -283,6 +283,13 @@ export default function Navbar() {
                 className="text-sm text-zinc-500 hover:text-black dark:hover:text-white"
               >
                 Web Development
+              </Link>
+              <Link
+                href="/marketing"
+                onClick={() => setIsOpen(false)}
+                className="text-sm text-zinc-500 hover:text-black dark:hover:text-white"
+              >
+                Performance Marketing
               </Link>
               <Link
                 href="/services/branding"
