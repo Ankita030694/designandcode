@@ -13,6 +13,7 @@ const services = [
   {
     title: "UI/UX Design",
     description: "Expert Design Partners (and good listeners)",
+    href: "/Service/ui_ux",
     accent: "from-blue-400/30 via-blue-500/10 to-transparent",
     iconBg: "from-blue-500 to-blue-700",
     image: "/Design.svg",
@@ -39,8 +40,9 @@ const services = [
     ],
   },
   {
-    title: "Data & Analytics",
+    title: "Performance Marketing",
     description: "Bring your users into focus.",
+    href: "/marketing",
     accent: "from-violet-400/30 via-violet-500/10 to-transparent",
     iconBg: "from-violet-500 to-purple-700",
     image: "/Data.svg",
@@ -66,6 +68,7 @@ const services = [
   {
     title: "Web Development",
     description: "What if Technology wasn't an obstacle?",
+    href: "/webd",
     accent: "from-fuchsia-400/30 via-fuchsia-500/10 to-transparent",
     iconBg: "from-fuchsia-500 to-pink-700",
     image: "/Web.svg",
@@ -573,22 +576,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="relative w-full max-w-[400] bg-white rounded-2xl border border-zinc-100/80 overflow-hidden flex flex-col items-center text-center px-6 pt-10 pb-2 border-2"
+                href={service.href}
+                className="relative w-full max-w-[400px] bg-white rounded-2xl border border-zinc-100/80 overflow-hidden flex flex-col items-center text-center px-6 pt-10 pb-6 border-2 hover:border-zinc-300 hover:shadow-md transition-all duration-300 group cursor-pointer"
               >
-                
                 <div className="relative w-full h-full min-h-[200px] flex items-center justify-center">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover -translate-y-10"
+                    className="object-cover -translate-y-10 group-hover:scale-[1.03] transition-transform duration-500"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-zinc-900 mb-2 -mt-4">{service.title}</h3>
+                <h3 className="text-xl font-semibold text-zinc-900 mb-2 -mt-4 group-hover:text-black transition-colors">{service.title}</h3>
                 <p className="text-zinc-500 text-sm leading-relaxed">{service.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -651,34 +654,38 @@ export default function Home() {
               {
                 title: "Enterprise",
                 desc: "Tailor-made solutions at scale",
-                image: "/Enterprise.png"
+                image: "/Enterprise.png",
+                href: "/enterprise",
               },
               {
                 title: "E-commerce",
                 desc: "Performance & Personalisation",
-                image: "/E-Commerce.png"
+                image: "/E-Commerce.png",
+                href: "/ecommerce",
               },
               {
                 title: "Startup",
                 desc: "Disruption meets scalability",
-                image: "/Startup.png"
+                image: "/Startup.png",
+                href: "/startup",
               }
             ].map((partner) => (
-              <div
+              <Link
                 key={partner.title}
-                className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center transition-all duration-300"
+                href={partner.href}
+                className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-zinc-300 hover:shadow-md group cursor-pointer"
               >
-                <h3 className="text-xl font-semibold text-zinc-900 mb-1">{partner.title}</h3>
+                <h3 className="text-xl font-semibold text-zinc-900 mb-1 group-hover:text-black transition-colors">{partner.title}</h3>
                 <p className="text-zinc-500 text-sm mb-6">{partner.desc}</p>
                 <div className="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
                   <Image
                     src={partner.image}
                     alt={partner.title}
                     fill
-                    className="object-contain"
+                    className="object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -695,21 +702,24 @@ export default function Home() {
                 {
                   title: "Enterprise",
                   desc: "Tailor-made solutions at scale",
-                  image: "/Enterprise.png"
+                  image: "/Enterprise.png",
+                  href: "/enterprise",
                 },
                 {
                   title: "E-commerce",
                   desc: "Performance & Personalisation",
-                  image: "/E-Commerce.png"
+                  image: "/E-Commerce.png",
+                  href: "/ecommerce",
                 },
                 {
                   title: "Startup",
                   desc: "Disruption meets scalability",
-                  image: "/Startup.png"
+                  image: "/Startup.png",
+                  href: "/startup",
                 }
               ].map((partner) => (
                 <div key={partner.title} className="w-full shrink-0 px-2 select-none">
-                  <div className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center shadow-xs">
+                  <Link href={partner.href} className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center shadow-xs block">
                     <h3 className="text-xl font-semibold text-zinc-900 mb-1">{partner.title}</h3>
                     <p className="text-zinc-500 text-sm mb-6">{partner.desc}</p>
                     <div className="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
@@ -720,7 +730,7 @@ export default function Home() {
                         className="object-contain"
                       />
                     </div>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>

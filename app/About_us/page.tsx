@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import CTA from "../Components/cta";
 import Footer from "../Components/footer";
 
 const AnimatedCounter = ({ target, suffix = "", duration = 1500 }: { target: number; suffix?: string; duration?: number }) => {
@@ -337,9 +338,11 @@ export default function AboutUs() {
         </div>
       </section>
 
+      {/* CTA component */}
+      <CTA />
+
       {/* Footer component */}
       <Footer />
     </main>
   );
 }
-

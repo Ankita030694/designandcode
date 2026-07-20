@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import CTA from "../Components/cta";
 import Footer from "../Components/footer";
 
 // ─── PROJECT MOCK DATA ───
@@ -134,6 +135,9 @@ export default function ProjectsPage() {
         </div>
 
       </div>
+
+      {/* CTA section */}
+      <CTA />
 
       <Footer />
     </main>

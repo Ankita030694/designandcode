@@ -100,9 +100,9 @@ export default function Footer() {
                   { label: "Web Development", href: "/webd" },
                   { label: "UI/UX Design", href: "/Service/ui_ux" },
                   { label: "Performance Marketing", href: "/marketing" },
-                  { label: "Enterprise", href: "/services/enterprise" },
-                  { label: "Startup", href: "/services/startup" },
-                  { label: "E-commerce", href: "/services/ecommerce" }
+                  { label: "Enterprise", href: "/enterprise" },
+                  { label: "Startup", href: "/startup" },
+                  { label: "E-commerce", href: "/ecommerce" }
                 ].map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="text-md text-zinc-500 hover:text-zinc-900 transition-colors">

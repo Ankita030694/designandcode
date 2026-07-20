@@ -77,7 +77,7 @@ export default function Navbar() {
                   <div className="grid grid-cols-3 gap-4">
                     {/* Enterprise Card */}
                     <Link
-                      href="/services/enterprise"
+                      href="/enterprise"
                       className="group/card flex flex-col justify-between bg-[#F5F5F7] hover:bg-[#EBEBEF] rounded-2xl p-5 h-[230px] transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="flex-grow flex items-center justify-center -mt-2">
@@ -97,7 +97,7 @@ export default function Navbar() {
 
                     {/* Startup Card */}
                     <Link
-                      href="/services/startup"
+                      href="/startup"
                       className="group/card flex flex-col justify-between bg-[#F5F5F7] hover:bg-[#EBEBEF] rounded-2xl p-5 h-[230px] transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="flex-grow flex items-center justify-center -mt-2">
@@ -117,7 +117,7 @@ export default function Navbar() {
 
                     {/* Ecommerce Card */}
                     <Link
-                      href="/services/ecommerce"
+                      href="/ecommerce"
                       className="group/card flex flex-col justify-between bg-[#F5F5F7] hover:bg-[#EBEBEF] rounded-2xl p-5 h-[230px] transition-all duration-300 relative overflow-hidden"
                     >
                       <div className="flex-grow flex items-center justify-center -mt-2">

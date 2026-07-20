@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CTA from "../Components/cta";
 import Footer from "../Components/footer";
 
 // ─── TYPES & INTERFACES ───
@@ -599,6 +600,9 @@ export default function BlogsPage() {
         </div>
 
       </div>
+
+      {/* CTA section */}
+      <CTA />
 
       {/* Footer component */}
       <Footer />

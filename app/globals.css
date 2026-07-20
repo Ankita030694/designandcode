@@ -43,13 +43,23 @@
   }
 
   --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-reverse: marqueeReverse 30s linear infinite;
 
   @keyframes marquee {
-    from {
+    0% {
       transform: translateX(0);
     }
-    to {
+    100% {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marqueeReverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 
@@ -84,6 +94,14 @@
 .marquee-container {
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 30s linear infinite;
 }
 
 
