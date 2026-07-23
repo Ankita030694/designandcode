@@ -305,31 +305,82 @@ export default function Home() {
           {/* Client Logos Infinite Carousel */}
           <div className="mt-14 w-full max-w-full overflow-hidden marquee-container py-4">
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8 text-center animate-fade-in-up [animation-delay:900ms]">
-              Trusted by industry leaders
+              Core technologies & tools we use
             </p>
             <div className="relative flex w-full max-w-full overflow-hidden animate-fade-in-up [animation-delay:1000ms]">
-              <div className="flex gap-16 items-center shrink-0 animate-marquee pr-16 whitespace-nowrap">
+              <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap">
                 {[
-                  "/Client_Logo/Clip path group.svg",
-                  "/Client_Logo/Clip path group-1.svg",
-                  "/Client_Logo/Clip path group-2.svg",
-                  "/Client_Logo/Clip path group-3.svg",
-                  "/Client_Logo/Group 14.svg",
-                  "/Client_Logo/Vector.svg",
-                  "/Client_Logo/Clip path group.svg",
-                  "/Client_Logo/Clip path group-1.svg",
-                  "/Client_Logo/Clip path group-2.svg",
-                  "/Client_Logo/Clip path group-3.svg",
-                  "/Client_Logo/Group 14.svg",
-                  "/Client_Logo/Vector.svg",
+                  "/Tools/1.svg",
+                  "/Tools/2.svg",
+                  "/Tools/3.svg",
+                  "/Tools/4.svg",
+                  "/Tools/5.svg",
+                  "/Tools/6.svg",
+                  "/Tools/7.svg",
+                  "/Tools/8.svg",
+                  "/Tools/9.svg",
+                  "/Tools/10.svg",
+                  "/Tools/11.svg",
+                  "/Tools/12.svg",
+                  "/Tools/13.svg",
+                  "/Tools/14.svg",
+                  "/Tools/15.svg",
+                  "/Tools/16.svg",
+                  "/Tools/17.svg",
+                  "/Tools/18.svg",
+                  "/Tools/19.svg",
+                  "/Tools/20.svg",
+                  "/Tools/21.svg",
+                  "/Tools/22.svg",
+                  "/Tools/23.svg",
+                  "/Tools/24.svg",
+                  "/Tools/25.svg",
                 ].map((src, i) => (
                   <Image
                     key={i}
                     src={src}
-                    alt={`Client Logo ${i + 1}`}
-                    width={120}
-                    height={36}
-                    className="h-7 w-auto object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
+                    alt={`Tool Logo ${i + 1}`}
+                    width={150}
+                    height={48}
+                    className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
+                  />
+                ))}
+              </div>
+              <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap" aria-hidden="true">
+                {[
+                  "/Tools/1.svg",
+                  "/Tools/2.svg",
+                  "/Tools/3.svg",
+                  "/Tools/4.svg",
+                  "/Tools/5.svg",
+                  "/Tools/6.svg",
+                  "/Tools/7.svg",
+                  "/Tools/8.svg",
+                  "/Tools/9.svg",
+                  "/Tools/10.svg",
+                  "/Tools/11.svg",
+                  "/Tools/12.svg",
+                  "/Tools/13.svg",
+                  "/Tools/14.svg",
+                  "/Tools/15.svg",
+                  "/Tools/16.svg",
+                  "/Tools/17.svg",
+                  "/Tools/18.svg",
+                  "/Tools/19.svg",
+                  "/Tools/20.svg",
+                  "/Tools/21.svg",
+                  "/Tools/22.svg",
+                  "/Tools/23.svg",
+                  "/Tools/24.svg",
+                  "/Tools/25.svg",
+                ].map((src, i) => (
+                  <Image
+                    key={`dup-${i}`}
+                    src={src}
+                    alt=""
+                    width={150}
+                    height={48}
+                    className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
                   />
                 ))}
               </div>
