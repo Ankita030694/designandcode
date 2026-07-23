@@ -6,48 +6,44 @@ import Footer from "../Components/footer";
 import { COUNTRY_CODES } from "../../data/CC";
 
 const logoRow1 = [
-  "/Client_Logo/Clip path group.svg",
-  "/Client_Logo/Clip path group-1.svg",
-  "/Client_Logo/Clip path group-2.svg",
-  "/Client_Logo/Clip path group-3.svg",
-  "/Client_Logo/Group 14.svg",
-  "/Client_Logo/Vector.svg",
-  "/Client_Logo/Clip path group.svg",
-  "/Client_Logo/Clip path group-1.svg",
-  "/Client_Logo/Clip path group-2.svg",
-  "/Client_Logo/Clip path group-3.svg",
-  "/Client_Logo/Group 14.svg",
-  "/Client_Logo/Vector.svg",
+  "/LOGO%20DESIGNNCODE/88F8482F-C350-44A7-940E-386058BB49C9-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Anyadha-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Asset_1_2x_1-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Group_7-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/KM-gradient-logo-300x300-1__2_-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Logo_Lockup__1_-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/88F8482F-C350-44A7-940E-386058BB49C9-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Anyadha-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Asset_1_2x_1-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Group_7-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/KM-gradient-logo-300x300-1__2_-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Logo_Lockup__1_-removebg-preview%201.png",
 ];
 
 const logoRow2 = [
-  "/Client_Logo/Vector.svg",
-  "/Client_Logo/Group 14.svg",
-  "/Client_Logo/Clip path group-3.svg",
-  "/Client_Logo/Clip path group-2.svg",
-  "/Client_Logo/Clip path group-1.svg",
-  "/Client_Logo/Clip path group.svg",
-  "/Client_Logo/Vector.svg",
-  "/Client_Logo/Group 14.svg",
-  "/Client_Logo/Clip path group-3.svg",
-  "/Client_Logo/Clip path group-2.svg",
-  "/Client_Logo/Clip path group-1.svg",
-  "/Client_Logo/Clip path group.svg",
+  "/LOGO%20DESIGNNCODE/Logo_Primary_Logo%201.png",
+  "/LOGO%20DESIGNNCODE/Red_w_transparent_bg_1-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/WhatsApp-Image-2022-08-04-at-1.16.15-AM-1-4-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/WhatsApp_Image_2025-09-30_at_10.44.53_c9d9cf5d-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/cropped-Black_and_White_Simple_Business_QR_Code_Square_Sticker__1_-removebg-preview-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/Logo_Primary_Logo%201.png",
+  "/LOGO%20DESIGNNCODE/Red_w_transparent_bg_1-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/WhatsApp-Image-2022-08-04-at-1.16.15-AM-1-4-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/WhatsApp_Image_2025-09-30_at_10.44.53_c9d9cf5d-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/cropped-Black_and_White_Simple_Business_QR_Code_Square_Sticker__1_-removebg-preview-removebg-preview%201.png",
 ];
 
 const logoRow3 = [
-  "/Client_Logo/Clip path group-2.svg",
-  "/Client_Logo/Clip path group.svg",
-  "/Client_Logo/Group 14.svg",
-  "/Client_Logo/Vector.svg",
-  "/Client_Logo/Clip path group-1.svg",
-  "/Client_Logo/Clip path group-3.svg",
-  "/Client_Logo/Clip path group-2.svg",
-  "/Client_Logo/Clip path group.svg",
-  "/Client_Logo/Group 14.svg",
-  "/Client_Logo/Vector.svg",
-  "/Client_Logo/Clip path group-1.svg",
-  "/Client_Logo/Clip path group-3.svg",
+  "/LOGO%20DESIGNNCODE/foire_logo_1_-01-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/image_url__2Ftrans-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/logo-01_400x200-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/mama_jama_logo_2__page-0001-removebg-preview%20(1)%201.png",
+  "/LOGO%20DESIGNNCODE/transparent-D0veniAb__1_-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/foire_logo_1_-01-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/image_url__2Ftrans-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/logo-01_400x200-removebg-preview%201.png",
+  "/LOGO%20DESIGNNCODE/mama_jama_logo_2__page-0001-removebg-preview%20(1)%201.png",
+  "/LOGO%20DESIGNNCODE/transparent-D0veniAb__1_-removebg-preview%201.png",
 ];
 
 export default function ContactUs() {
@@ -128,9 +124,9 @@ export default function ContactUs() {
                       key={i}
                       src={src}
                       alt={`Client Logo ${i + 1}`}
-                      width={120}
-                      height={36}
-                      className="h-8 w-auto object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
+                      width={180}
+                      height={54}
+                      className="h-10 sm:h-12 w-auto max-w-[140px] sm:max-w-[185px] object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
                     />
                   ))}
                 </div>
@@ -140,9 +136,9 @@ export default function ContactUs() {
                       key={`dup-${i}`}
                       src={src}
                       alt=""
-                      width={120}
-                      height={36}
-                      className="h-8 w-auto object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
+                      width={180}
+                      height={54}
+                      className="h-10 sm:h-12 w-auto max-w-[140px] sm:max-w-[185px] object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
                     />
                   ))}
                 </div>
@@ -156,9 +152,9 @@ export default function ContactUs() {
                       key={i}
                       src={src}
                       alt={`Client Logo ${i + 1}`}
-                      width={120}
-                      height={36}
-                      className="h-8 w-auto object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
+                      width={180}
+                      height={54}
+                      className="h-10 sm:h-12 w-auto max-w-[140px] sm:max-w-[185px] object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
                     />
                   ))}
                 </div>
@@ -168,9 +164,9 @@ export default function ContactUs() {
                       key={`dup-${i}`}
                       src={src}
                       alt=""
-                      width={120}
-                      height={36}
-                      className="h-8 w-auto object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
+                      width={180}
+                      height={54}
+                      className="h-10 sm:h-12 w-auto max-w-[140px] sm:max-w-[185px] object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
                     />
                   ))}
                 </div>
@@ -184,9 +180,9 @@ export default function ContactUs() {
                       key={i}
                       src={src}
                       alt={`Client Logo ${i + 1}`}
-                      width={120}
-                      height={36}
-                      className="h-8 w-auto object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
+                      width={180}
+                      height={54}
+                      className="h-10 sm:h-12 w-auto max-w-[140px] sm:max-w-[185px] object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
                     />
                   ))}
                 </div>
@@ -196,9 +192,9 @@ export default function ContactUs() {
                       key={`dup-${i}`}
                       src={src}
                       alt=""
-                      width={120}
-                      height={36}
-                      className="h-8 w-auto object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
+                      width={180}
+                      height={54}
+                      className="h-10 sm:h-12 w-auto max-w-[140px] sm:max-w-[185px] object-contain opacity-60 hover:opacity-95 transition-opacity duration-300"
                     />
                   ))}
                 </div>

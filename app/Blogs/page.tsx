@@ -8,14 +8,13 @@ import Footer from "../Components/footer";
 
 // ─── TYPES & INTERFACES ───
 type ContentType = "All" | "Fundamentals" | "Guides" | "Insights";
-type TopicType = "All" | "Composability" | "Data & Analytics" | "Design" | "Development" | "Ecommerce";
 
 interface BlogPost {
   id: string;
   title: string;
   description: string;
   contentType: Exclude<ContentType, "All">;
-  topic: Exclude<TopicType, "All">;
+  topic: string;
   tag: string;
   date: string;
   duration: string;
@@ -32,24 +31,6 @@ interface BlogPost {
 
 // ─── MOCK BLOG POST DATA ───
 const BLOG_POSTS: BlogPost[] = [
-  {
-    id: "1",
-    title: "Why Designers Need to Post Online (with James McDonald)",
-    description: "In our inaugural podcast episode, we sit down with designer James McDonald to discuss why creating public content is a cheat code for career growth, refining your craft, and attracting high-value clients in 2026.",
-    contentType: "Insights",
-    topic: "Design",
-    tag: "Podcast",
-    date: "July 16, 2026",
-    duration: "45 min episode",
-    author: {
-      name: "James McDonald",
-      avatar: "/Client_Logo/wp.svg" // fallback or using a simple initials avatar if logo not available
-    },
-    image: "/podcast_cover.png",
-    isFeatured: true,
-    episodeNumber: "EP01",
-    guestName: "JAMES MCDONALD"
-  },
   {
     id: "2",
     title: "The Architectural Guide to Composable Web Applications",
@@ -124,12 +105,26 @@ const BLOG_POSTS: BlogPost[] = [
       avatar: "/Client_Logo/wp.svg"
     },
     image: "/E-Commerce.png"
+  },
+  {
+    id: "7",
+    title: "The Incomplete Pitch: A Method for B2B Tech Marketing",
+    description: "Discover why leaving gaps in your product presentation is the ultimate cheat code for closing enterprise B2B sales in 2026. A framework for design-led marketing.",
+    contentType: "Insights",
+    topic: "Development",
+    tag: "Article",
+    date: "July 23, 2026",
+    duration: "8 min read",
+    author: {
+      name: "Sarah Lin",
+      avatar: "/Client_Logo/wp.svg"
+    },
+    image: "/b2b_tech_marketing_hero.png"
   }
 ];
 
 export default function BlogsPage() {
   const [selectedContentType, setSelectedContentType] = useState<ContentType>("All");
-  const [selectedTopic, setSelectedTopic] = useState<TopicType>("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   // ─── FILTER LOGIC ───
@@ -137,7 +132,6 @@ export default function BlogsPage() {
     return BLOG_POSTS.filter((post) => {
       const matchesContentType =
         selectedContentType === "All" || post.contentType === selectedContentType;
-      const matchesTopic = selectedTopic === "All" || post.topic === selectedTopic;
       
       const searchLower = searchQuery.toLowerCase();
       const matchesSearch =
@@ -146,9 +140,9 @@ export default function BlogsPage() {
         post.tag.toLowerCase().includes(searchLower) ||
         (post.guestName && post.guestName.toLowerCase().includes(searchLower));
 
-      return matchesContentType && matchesTopic && matchesSearch;
+      return matchesContentType && matchesSearch;
     });
-  }, [selectedContentType, selectedTopic, searchQuery]);
+  }, [selectedContentType, searchQuery]);
 
   // Separate featured post if it's matching the filters (or if we want it standard)
   const { featuredPost, regularPosts } = useMemo(() => {
@@ -159,7 +153,6 @@ export default function BlogsPage() {
 
   const resetFilters = () => {
     setSelectedContentType("All");
-    setSelectedTopic("All");
     setSearchQuery("");
   };
 
@@ -212,7 +205,7 @@ export default function BlogsPage() {
           </div>
 
           {/* Active Filter Pills Info */}
-          {(selectedContentType !== "All" || selectedTopic !== "All" || searchQuery) && (
+          {(selectedContentType !== "All" || searchQuery) && (
             <button
               onClick={resetFilters}
               className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 hover:border-indigo-200 transition-all"
@@ -241,25 +234,6 @@ export default function BlogsPage() {
                   }`}
                 >
                   {type}
-                </button>
-              ))}
-            </div>
-          </div>
-          
-          <div>
-            <span className="text-[10px] font-bold text-zinc-400 tracking-wider uppercase block mb-2 pl-1">Topics</span>
-            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
-              {(["All", "Composability", "Data & Analytics", "Design", "Development", "Ecommerce"] as TopicType[]).map((topic) => (
-                <button
-                  key={topic}
-                  onClick={() => setSelectedTopic(topic)}
-                  className={`flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-medium border transition-all ${
-                    selectedTopic === topic
-                      ? "bg-zinc-900 text-white border-zinc-900 shadow-sm"
-                      : "bg-white/80 text-zinc-600 border-zinc-200 hover:border-zinc-350"
-                  }`}
-                >
-                  {topic === "All" ? "All Topics" : topic}
                 </button>
               ))}
             </div>
@@ -339,107 +313,6 @@ export default function BlogsPage() {
                 </button>
               </div>
             </div>
-
-            {/* Topics Card */}
-            <div className="bg-white/80 backdrop-blur-md border border-zinc-200/70 rounded-3xl p-6 shadow-sm">
-              <h2 className="text-[10px] sm:text-[11px] font-bold text-zinc-400 tracking-wider uppercase mb-5 select-none">
-                Topics
-              </h2>
-              <div className="flex flex-col gap-2">
-                {/* All Topics */}
-                <button
-                  onClick={() => setSelectedTopic("All")}
-                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-sm font-medium transition-all ${
-                    selectedTopic === "All"
-                      ? "bg-zinc-900 text-white shadow-sm"
-                      : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
-                  }`}
-                >
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 14.25v2.25m3-2.25v2.25m3-2.25v2.25m3-2.25v2.25M3.75 20.25h16.5A2.25 2.25 0 0 0 22.5 18V6a2.25 2.25 0 0 0-2.25-2.25H3.75A2.25 2.25 0 0 0 1.5 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
-                  </svg>
-                  <span>All Topics</span>
-                </button>
-
-                {/* Composability */}
-                <button
-                  onClick={() => setSelectedTopic("Composability")}
-                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-sm font-medium transition-all ${
-                    selectedTopic === "Composability"
-                      ? "bg-zinc-900 text-white shadow-sm"
-                      : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
-                  }`}
-                >
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="3" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v2m0 16v2m10-10h-2M4 12H2m14.828-6.828l-1.414 1.414M6.586 17.414l-1.414 1.414m12.728 0l-1.414-1.414M6.586 6.586L5.172 5.172" />
-                  </svg>
-                  <span>Composability</span>
-                </button>
-
-                {/* Data & Analytics */}
-                <button
-                  onClick={() => setSelectedTopic("Data & Analytics")}
-                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-sm font-medium transition-all ${
-                    selectedTopic === "Data & Analytics"
-                      ? "bg-zinc-900 text-white shadow-sm"
-                      : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
-                  }`}
-                >
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
-                  </svg>
-                  <span>Data & Analytics</span>
-                </button>
-
-                {/* Design */}
-                <button
-                  onClick={() => setSelectedTopic("Design")}
-                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-sm font-medium transition-all ${
-                    selectedTopic === "Design"
-                      ? "bg-zinc-900 text-white shadow-sm"
-                      : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
-                  }`}
-                >
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="9" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18M3 12h18" />
-                  </svg>
-                  <span>Design</span>
-                </button>
-
-                {/* Development */}
-                <button
-                  onClick={() => setSelectedTopic("Development")}
-                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-sm font-medium transition-all ${
-                    selectedTopic === "Development"
-                      ? "bg-zinc-900 text-white shadow-sm"
-                      : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
-                  }`}
-                >
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
-                  </svg>
-                  <span>Development</span>
-                </button>
-
-                {/* Ecommerce */}
-                <button
-                  onClick={() => setSelectedTopic("Ecommerce")}
-                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-2xl text-sm font-medium transition-all ${
-                    selectedTopic === "Ecommerce"
-                      ? "bg-zinc-900 text-white shadow-sm"
-                      : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950"
-                  }`}
-                >
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                  </svg>
-                  <span>Ecommerce</span>
-                </button>
-              </div>
-            </div>
           </aside>
 
           {/* ─── Articles Content Area (Grid) ─── */}
@@ -466,7 +339,7 @@ export default function BlogsPage() {
 
             {/* ─── FEATURED POST CARD (Podcast replica from image) ─── */}
             {featuredPost && (
-              <div className="flex flex-col group cursor-pointer">
+              <Link href={`/Blogs/Slug?id=${featuredPost.id}`} className="flex flex-col group cursor-pointer">
                 {/* Cover Card */}
                 <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-[32px] overflow-hidden bg-zinc-950 border border-zinc-200/10 shadow-lg">
                   {/* Backdrop Image */}
@@ -541,14 +414,14 @@ export default function BlogsPage() {
                     {featuredPost.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             )}
 
             {/* ─── REGULAR BLOGS GRID ─── */}
             {regularPosts.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
                 {regularPosts.map((post) => (
-                  <article key={post.id} className="group cursor-pointer flex flex-col">
+                  <Link key={post.id} href={`/Blogs/Slug?id=${post.id}`} className="group cursor-pointer flex flex-col">
                     {/* Image Wrapper */}
                     <div className="relative aspect-[16/10] w-full rounded-[24px] overflow-hidden bg-zinc-100 border border-zinc-200/50 shadow-sm mb-5">
                       <Image
@@ -591,7 +464,7 @@ export default function BlogsPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                       </svg>
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
             )}

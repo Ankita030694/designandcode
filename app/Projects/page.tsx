@@ -4,70 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CTA from "../Components/cta";
 import Footer from "../Components/footer";
-
-// ─── PROJECT MOCK DATA ───
-const PROJECTS_DATA = [
-  {
-    title: "Bank Al Etihad",
-    description:
-      "A fully composable atomic design overhaul that streamlined workflows, reduced friction, and accelerated iterative development.",
-    tags: ["Atomic Systems", "Enterprise", "UI/UX"],
-    flag: "🇯🇴",
-    bg: "from-[#f87171]/20 via-[#fb923c]/15 to-[#fecaca]/30",
-    mockupAccent: "bg-gradient-to-br from-orange-400 to-red-400",
-  },
-  {
-    title: "WP Engine",
-    description:
-      "Implementing composable Headless WordPress architecture and design systems to enhance scalability and personalisation.",
-    tags: ["Development", "Enterprise", "UI/UX"],
-    flag: "🇺🇸",
-    bg: "from-[#60a5fa]/20 via-[#38bdf8]/15 to-[#bae6fd]/30",
-    mockupAccent: "bg-gradient-to-br from-sky-400 to-blue-500",
-  },
-  {
-    title: "Android Authority",
-    description: "Enhancing Core Web Vitals and User Retention with migration to a Headless CMS.",
-    tags: ["Enterprise", "Headless", "UI/UX"],
-    flag: "🇨🇦",
-    bg: "from-zinc-200/60 via-zinc-100/40 to-zinc-200/30",
-    mockupAccent: "bg-gradient-to-br from-zinc-400 to-zinc-600",
-  },
-  {
-    title: "Amplifidor",
-    description: "Creating a scalable, user-focused platform using composable design systems.",
-    tags: ["UI/UX"],
-    flag: "🇸🇦",
-    bg: "from-[#f472b6]/15 via-[#a78bfa]/10 to-[#fbcfe8]/25",
-    mockupAccent: "bg-gradient-to-br from-pink-400 to-violet-400",
-  },
-];
-
-// ─── COMPONENT: PROJECT MOCKUP ───
-function ProjectMockup({ accent }: { accent: string }) {
-  return (
-    <div className="relative w-[85%] mx-auto mt-8 mb-2 transition-transform duration-500 group-hover:scale-[1.02]">
-      <div className={`absolute inset-0 ${accent} rounded-2xl blur-2xl opacity-30 scale-95 transition-opacity duration-500 group-hover:opacity-40`} />
-      <div className="relative bg-white rounded-xl shadow-lg border border-white/80 overflow-hidden">
-        <div className="flex items-center gap-1.5 px-3 py-2 bg-zinc-50 border-b border-zinc-100">
-          <span className="w-2 h-2 rounded-full bg-red-300" />
-          <span className="w-2 h-2 rounded-full bg-yellow-300" />
-          <span className="w-2 h-2 rounded-full bg-green-300" />
-        </div>
-        <div className="p-4 space-y-2">
-          <div className="h-2.5 w-3/4 rounded-full bg-zinc-200" />
-          <div className="h-2 w-1/2 rounded-full bg-zinc-100" />
-          <div className="grid grid-cols-3 gap-2 pt-2">
-            <div className="h-10 rounded-lg bg-zinc-100" />
-            <div className="h-10 rounded-lg bg-zinc-100" />
-            <div className="h-10 rounded-lg bg-zinc-100" />
-          </div>
-          <div className="h-16 rounded-lg bg-zinc-50 border border-zinc-100" />
-        </div>
-      </div>
-    </div>
-  );
-}
+import { PROJECTS_DATA } from "../data/projects";
 
 // ─── PAGE COMPONENT ───
 export default function ProjectsPage() {
@@ -109,8 +46,14 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
           {PROJECTS_DATA.map((project) => (
             <article key={project.title} className="group cursor-pointer">
-              <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} p-6 pb-4 overflow-hidden border border-zinc-200/50 shadow-sm transition-shadow duration-300 hover:shadow-md`}>
-                <ProjectMockup accent={project.mockupAccent} />
+              <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/50 shadow-sm transition-shadow duration-300 hover:shadow-md`}>
+                <div className="relative w-full transition-transform duration-500 group-hover:scale-[1.02]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-auto"
+                  />
+                </div>
               </div>
               <div className="mt-6 px-1">
                 <h3 className="text-xl font-semibold text-zinc-900 mb-2 transition-colors duration-300 group-hover:text-black flex items-center gap-2">

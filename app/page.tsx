@@ -6,6 +6,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import Footer from "./Components/footer";
 import CTA from "./Components/cta";
+import { PROJECTS_DATA } from "./data/projects";
 
 /* ─── Data ─── */
 
@@ -93,46 +94,10 @@ const services = [
   },
 ];
 
-const projects = [
-  {
-    title: "Bank Al Etihad",
-    description:
-      "A fully composable atomic design overhaul that streamlined workflows, reduced friction, and accelerated iterative development.",
-    tags: ["Atomic Systems", "Enterprise", "UI/UX"],
-    flag: "🇯🇴",
-    bg: "from-[#f87171]/20 via-[#fb923c]/15 to-[#fecaca]/30",
-    mockupAccent: "bg-gradient-to-br from-orange-400 to-red-400",
-    stagger: false,
-  },
-  {
-    title: "WP Engine",
-    description:
-      "Implementing composable Headless WordPress architecture and design systems to enhance scalability and personalisation.",
-    tags: ["Development", "Enterprise", "UI/UX"],
-    flag: "🇺🇸",
-    bg: "from-[#60a5fa]/20 via-[#38bdf8]/15 to-[#bae6fd]/30",
-    mockupAccent: "bg-gradient-to-br from-sky-400 to-blue-500",
-    stagger: true,
-  },
-  {
-    title: "Android Authority",
-    description: "Enhancing Core Web Vitals and User Retention with migration to a Headless CMS.",
-    tags: ["Enterprise", "Headless", "UI/UX"],
-    flag: "🇨🇦",
-    bg: "from-zinc-200/60 via-zinc-100/40 to-zinc-200/30",
-    mockupAccent: "bg-gradient-to-br from-zinc-400 to-zinc-600",
-    stagger: false,
-  },
-  {
-    title: "Amplifidor",
-    description: "Creating a scalable, user-focused platform using composable design systems.",
-    tags: ["UI/UX"],
-    flag: "🇸🇦",
-    bg: "from-[#f472b6]/15 via-[#a78bfa]/10 to-[#fbcfe8]/25",
-    mockupAccent: "bg-gradient-to-br from-pink-400 to-violet-400",
-    stagger: true,
-  },
-];
+const projects = PROJECTS_DATA.slice(0, 4).map((project, idx) => ({
+  ...project,
+  stagger: idx % 2 === 1,
+}));
 
 const testimonials = [
   {
@@ -225,30 +190,7 @@ function SectionDivider() {
   );
 }
 
-function ProjectMockup({ accent }: { accent: string }) {
-  return (
-    <div className="relative w-[78%] mx-auto mt-8 mb-2">
-      <div className={`absolute inset-0 ${accent} rounded-2xl blur-2xl opacity-40 scale-95`} />
-      <div className="relative bg-white rounded-xl shadow-lg border border-white/80 overflow-hidden">
-        <div className="flex items-center gap-1.5 px-3 py-2 bg-zinc-50 border-b border-zinc-100">
-          <span className="w-2 h-2 rounded-full bg-red-300" />
-          <span className="w-2 h-2 rounded-full bg-yellow-300" />
-          <span className="w-2 h-2 rounded-full bg-green-300" />
-        </div>
-        <div className="p-4 space-y-2">
-          <div className="h-2.5 w-3/4 rounded-full bg-zinc-200" />
-          <div className="h-2 w-1/2 rounded-full bg-zinc-100" />
-          <div className="grid grid-cols-3 gap-2 pt-2">
-            <div className="h-10 rounded-lg bg-zinc-100" />
-            <div className="h-10 rounded-lg bg-zinc-100" />
-            <div className="h-10 rounded-lg bg-zinc-100" />
-          </div>
-          <div className="h-16 rounded-lg bg-zinc-50 border border-zinc-100" />
-        </div>
-      </div>
-    </div>
-  );
-}
+
 
 /* ─── Page ─── */
 
@@ -303,8 +245,7 @@ export default function Home() {
     <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-20">
       {/* ── 1. Hero ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
-        <div className="hero-glow w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bottom-[-100px] right-[-100px] opacity-80" />
-        <div className="hero-glow w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] top-[-100px] left-[-100px] opacity-40" />
+        
 
         <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto text-center px-4 sm:px-6">
           <div className="inline-flex items-center gap-2 sm:gap-3 px-4 py-1.5 rounded-full animate-fade-in-up">
@@ -348,7 +289,7 @@ export default function Home() {
 
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-6 animate-fade-in-up [animation-delay:800ms]">
             <Link
-              href="/about"
+              href="/Projects"
               className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-zinc-200/80 bg-zinc-50/40 text-[14px] sm:text-[15px] font-medium text-zinc-700 hover:bg-zinc-100/80 hover:border-zinc-300/80 hover:text-zinc-900 transition-all duration-200 text-center cursor-pointer shadow-xs"
             >
               Explore Projects
@@ -521,7 +462,7 @@ export default function Home() {
               </p>
             </div>
             <Link
-              href="/work"
+              href="/Projects"
               className="flex-shrink-0 self-start px-6 py-3 rounded-full bg-zinc-900 text-white text-[15px] font-regular shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200"
             >
               View All Projects
@@ -530,9 +471,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {projects.map((project) => (
-              <article key={project.title} className={project.stagger ? "md:mt-24" : ""}>
-                <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} p-6 pb-4 overflow-hidden`}>
-                  <ProjectMockup accent={project.mockupAccent} />
+              <article key={project.title} className={`group cursor-pointer ${project.stagger ? "md:mt-24" : ""}`}>
+                <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/50 shadow-sm transition-shadow duration-300 hover:shadow-md`}>
+                  <div className="relative w-full transition-transform duration-500 group-hover:scale-[1.02]">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
                 <div className="mt-6">
                   <h3 className="text-xl font-semibold text-zinc-900 mb-2">{project.title}</h3>
