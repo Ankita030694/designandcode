@@ -35,7 +35,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
           <Image
-            src="/logo.svg"
+            src="/LOGO.svg"
             alt="Drewl Logo"
             width={135}
             height={40}

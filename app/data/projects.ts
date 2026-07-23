@@ -1,4 +1,5 @@
 export interface Project {
+  slug: string;
   title: string;
   description: string;
   tags: string[];
@@ -10,6 +11,7 @@ export interface Project {
 
 export const PROJECTS_DATA: Project[] = [
   {
+    slug: "ama",
     title: "AMA",
     description: "An immersive wellness and lifestyle experience, designed for holistic health tracking and community connection.",
     tags: ["Web Design", "Wellness", "UI/UX"],
@@ -19,6 +21,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/AMA.svg"
   },
   {
+    slug: "adorna-casa",
     title: "Adorna Casa",
     description: "A luxury furniture and interior styling platform bringing curated European craftsmanship to global homes.",
     tags: ["E-Commerce", "Branding", "Minimalist UI"],
@@ -28,6 +31,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Adorna_casa.svg"
   },
   {
+    slug: "aerolume",
     title: "Aerolume",
     description: "Next-generation smart lighting systems controlled via an intuitive, real-time dashboard.",
     tags: ["IoT Systems", "Dashboard", "UI/UX"],
@@ -37,6 +41,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Aerolume.svg"
   },
   {
+    slug: "anyadha",
     title: "Anyadha",
     description: "A modern fashion boutique celebrating local heritage and artisanal textiles through e-commerce.",
     tags: ["E-Commerce", "Web Development", "UI/UX"],
@@ -46,6 +51,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Anyadha.svg"
   },
   {
+    slug: "bloom",
     title: "Bloom",
     description: "A smart gardening and plant care tracker that makes indoor plant propagation effortless.",
     tags: ["Mobile First", "UI/UX", "Brand Design"],
@@ -55,6 +61,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Bloom.svg"
   },
   {
+    slug: "botai",
     title: "Botai",
     description: "An AI-powered conversation tool that helps businesses automate support and lead qualification.",
     tags: ["AI Systems", "SaaS Dashboard", "Development"],
@@ -64,6 +71,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Botai.svg"
   },
   {
+    slug: "bunt",
     title: "Bunt",
     description: "A vibrant creative portfolio space for contemporary artists and designers.",
     tags: ["Portfolio", "Art Direction", "Web Design"],
@@ -73,6 +81,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Bunt.svg"
   },
   {
+    slug: "credsettle",
     title: "Credsettle",
     description: "A secure, transparent fintech platform streamlining enterprise debt settlement and compliance.",
     tags: ["Fintech", "Enterprise", "UI/UX"],
@@ -82,6 +91,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Credsettle.svg"
   },
   {
+    slug: "delhi-house",
     title: "Delhi House",
     description: "An interactive virtual tour and booking experience for high-end boutique hospitality.",
     tags: ["Hospitality", "Booking Engine", "Branding"],
@@ -91,6 +101,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Delhi%20House.svg"
   },
   {
+    slug: "farzi-cafe",
     title: "Farzi Cafe",
     description: "A premium modern Indian bistro website with immersive menus and table reservations.",
     tags: ["Food & Beverage", "Interaction Design", "UI/UX"],
@@ -100,6 +111,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Farzi_Cafe.svg"
   },
   {
+    slug: "foire",
     title: "Foire",
     description: "An online marketplace showcasing artisan products and localized craft events.",
     tags: ["E-Commerce", "Web Development", "UI/UX"],
@@ -109,6 +121,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Foire.svg"
   },
   {
+    slug: "honk",
     title: "HONK",
     description: "A modern ride-sharing and carpool tracking system with high precision maps.",
     tags: ["Mobility", "Mobile Design", "UI/UX"],
@@ -118,6 +131,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/HONK.svg"
   },
   {
+    slug: "kamal",
     title: "Kamal",
     description: "A luxury heritage jewelry store presenting intricately detailed items online.",
     tags: ["Luxury Retail", "E-Commerce", "Branding"],
@@ -127,6 +141,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Kamal.svg"
   },
   {
+    slug: "kitchun",
     title: "Kitchun",
     description: "A meal-planning and smart-pantry application designed to minimize food waste.",
     tags: ["SaaS", "Mobile First", "UI/UX"],
@@ -136,6 +151,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Kitchun.svg"
   },
   {
+    slug: "mama-jama",
     title: "Mama Jama",
     description: "A fun, energetic music streaming app for indie musicians and curators.",
     tags: ["Entertainment", "Web App", "UI/UX"],
@@ -145,6 +161,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Mama_jama.svg"
   },
   {
+    slug: "oud",
     title: "Oud",
     description: "A digital showcase for fine Arabian fragrances and interactive sensory branding.",
     tags: ["Branding", "Interactive UI", "Luxury"],
@@ -154,6 +171,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Oud.svg"
   },
   {
+    slug: "rosete",
     title: "Rosete",
     description: "A high-fashion brand portal focused on editorial imagery and seamless checkout.",
     tags: ["E-Commerce", "Art Direction", "Web Design"],
@@ -163,6 +181,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Rosete.svg"
   },
   {
+    slug: "sexsea",
     title: "Sexsea",
     description: "A premium marine excursions and private yacht charter booking platform.",
     tags: ["Travel & Leisure", "Web App", "UI/UX"],
@@ -172,6 +191,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/Sexsea.svg"
   },
   {
+    slug: "the-fat-cookie",
     title: "The Fat Cookie",
     description: "An artisanal bakery delivery app with real-time order tracking and customizable toppings.",
     tags: ["E-Commerce", "Interaction Design", "UI/UX"],

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "../../Components/footer";
 import CTA from "../../Components/cta";
+import FAQ from "../../Components/FAQ";
 
 
 const MedalLensIcon = () => (
@@ -789,6 +790,7 @@ export default function UiUxDesignService() {
         </div>
       </section>
 
+      <FAQ />
       {/* CTA section */}
       <CTA />
 

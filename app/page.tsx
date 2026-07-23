@@ -6,6 +6,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import Footer from "./Components/footer";
 import CTA from "./Components/cta";
+import FAQ from "./Components/FAQ";
 import { PROJECTS_DATA } from "./data/projects";
 
 /* ─── Data ─── */
@@ -389,9 +390,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Why Choose Us ── */}
+      <section className="relative bg-[#ffffff] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Staggered Stats & Dots */}
+          <div className="lg:col-span-6 grid grid-cols-2 gap-8 items-start select-none">
+            {/* Column 1: Dot, 3.2S, Dot */}
+            <div className="flex flex-col justify-between h-[360px] sm:h-[420px] pr-4">
+              <div className="text-4xl text-black">•</div>
+              <div className="space-y-3">
+                <div className="text-6xl sm:text-7xl md:text-8xl font-medium tracking-tight text-zinc-950 leading-none">
+                  01
+                </div>
+                <p className="text-[10px] sm:text-xs font-medium tracking-wider text-zinc-500 max-w-[200px] leading-relaxed">
+                  Every project starts with research, user behavior, and business goals—not random design decisions.
+                </p>
+              </div>
+              <div className="text-4xl text-black">•</div>
+            </div>
+
+            {/* Column 2: 60+, Dot, 89% */}
+            <div className="flex flex-col justify-between h-[360px] sm:h-[420px] pl-4">
+              <div className="space-y-3">
+                <div className="text-6xl sm:text-7xl md:text-8xl font-medium tracking-tight text-zinc-950 leading-none">
+                  02
+                </div>
+                <p className="text-[10px] sm:text-xs font-medium tracking-wider text-zinc-500 max-w-[200px] leading-relaxed">
+                  Beautiful interfaces crafted to increase engagement, improve usability, and generate measurable results.
+                </p>
+              </div>
+              <div className="text-4xl text-black translate-y-6">•</div>
+              <div className="space-y-3">
+                <div className="text-6xl sm:text-7xl md:text-8xl font-medium tracking-tight text-zinc-950 leading-none">
+                  03
+                </div>
+                <p className="text-[10px] sm:text-xs font-medium tracking-wider text-zinc-500 max-w-[200px] leading-relaxed">
+                  Beautiful interfaces crafted to increase engagement, improve usability, and generate measurable results.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Copy & Citation */}
+          <div className="lg:col-span-6 flex flex-col justify-between h-full">
+            <div>
+              <span className="text-md font-medium text-black tracking-wider uppercase block mb-6">
+                Why Choose Us
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-medium tracking-tight text-zinc-950 leading-[0.95] uppercase mb-10 max-w-2xl">
+                EVERY GREAT DIGITAL PRODUCT STARTS WITH A PROBLEM WORTH SOLVING.
+              </h2>
+              <p className="text-zinc-500 text-md font-regular tracking-wider max-w-lg leading-relaxed mb-12">
+              We don't build websites just to launch them. We build digital experiences that help businesses grow, convert visitors, and create lasting impressions.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#F9F9FB] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden -mt-20">
+      <section className="relative bg-[#F9F9FB] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-20 z-10 py-10">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
@@ -503,7 +563,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. Our Work ── */}
-      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 -mt-15">
+      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 -mt-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
             <div className="max-w-xl">
@@ -522,36 +582,38 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {projects.map((project) => (
-              <article key={project.title} className={`group cursor-pointer ${project.stagger ? "md:mt-24" : ""}`}>
-                <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/50 shadow-sm transition-shadow duration-300 hover:shadow-md`}>
-                  <div className="relative w-full transition-transform duration-500 group-hover:scale-[1.02]">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-                <div className="mt-6">
-                  <h3 className="text-xl font-semibold text-zinc-900 mb-2">{project.title}</h3>
-                  <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
-                  <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 rounded-full bg-white text-black text-xs font-medium shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+              <Link href={`/Projects/${project.slug}`} key={project.slug} className={`group block cursor-pointer ${project.stagger ? "md:mt-24" : ""}`}>
+                <article>
+                  <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/50 shadow-sm transition-shadow duration-300 hover:shadow-md`}>
+                    <div className="relative w-full transition-transform duration-500 group-hover:scale-[1.02]">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-auto"
+                      />
                     </div>
-                    <span className="text-xl" title="Country">
-                      {project.flag}
-                    </span>
                   </div>
-                </div>
-              </article>
+                  <div className="mt-6">
+                    <h3 className="text-xl font-semibold text-zinc-900 mb-2 group-hover:text-black transition-colors">{project.title}</h3>
+                    <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
+                    <div className="flex items-center justify-between gap-4 flex-wrap">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 rounded-full bg-white text-black text-xs font-medium shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="text-xl" title="Country">
+                        {project.flag}
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -626,130 +688,106 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. Who We Partner With ── */}
+      {/* ── 5. Flow Section ── */}
       <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-5">
-              Who We Partner With
+          {/* Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-zinc-950 uppercase leading-none select-none">
+              FLOW
             </h2>
-            <p className="text-zinc-500 text-base sm:text-lg max-w-2xl leading-relaxed">
-              Our signature blend of{" "}
-              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-sm sm:text-base border border-zinc-200/80">
-                design expertise
-              </span>{" "}
-              and{" "}
-              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium text-sm sm:text-base border border-zinc-200/80">
-                technical innovation
-              </span>{" "}
-              — shaped around your business.
+            <p className="text-zinc-500 text-sm sm:text-base md:text-[15px] max-w-xs leading-relaxed md:text-right">
+              Our process for turning ideas into real, working solutions that deliver amazing results.
             </p>
           </div>
 
-          {/* Desktop version */}
-          <div className="hidden md:grid grid-cols-3 gap-8">
-            {[
-              {
-                title: "Enterprise",
-                desc: "Tailor-made solutions at scale",
-                image: "/Enterprise.png",
-                href: "/enterprise",
-              },
-              {
-                title: "E-commerce",
-                desc: "Performance & Personalisation",
-                image: "/E-Commerce.png",
-                href: "/ecommerce",
-              },
-              {
-                title: "Startup",
-                desc: "Disruption meets scalability",
-                image: "/Startup.png",
-                href: "/startup",
-              }
-            ].map((partner) => (
-              <Link
-                key={partner.title}
-                href={partner.href}
-                className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-zinc-300 hover:shadow-md group cursor-pointer"
-              >
-                <h3 className="text-xl font-semibold text-zinc-900 mb-1 group-hover:text-black transition-colors">{partner.title}</h3>
-                <p className="text-zinc-500 text-sm mb-6">{partner.desc}</p>
-                <div className="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
-                  <Image
-                    src={partner.image}
-                    alt={partner.title}
-                    fill
-                    className="object-contain group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </Link>
-            ))}
+          {/* Divider line */}
+          <div className="border-t border-zinc-200/80 mb-6" />
+
+          {/* Subheader Metadata */}
+          <div className="flex justify-between items-center text-xs font-bold text-zinc-400 tracking-wider uppercase mb-16">
+            <span>Process: 4 Steps</span>
+            <span>Duration: ~ 3 Weeks</span>
           </div>
 
-          {/* Mobile version draggable slider */}
-          <div className="block md:hidden w-full overflow-hidden">
-            <div
-              className="flex transition-transform duration-300 ease-out cursor-grab active:cursor-grabbing"
-              style={{ transform: `translateX(-${activePartner * 100}%)` }}
-              onTouchStart={handlePartnerTouchStart}
-              onTouchMove={handlePartnerTouchMove}
-              onTouchEnd={handlePartnerTouchEnd}
-            >
-              {[
-                {
-                  title: "Enterprise",
-                  desc: "Tailor-made solutions at scale",
-                  image: "/Enterprise.png",
-                  href: "/enterprise",
-                },
-                {
-                  title: "E-commerce",
-                  desc: "Performance & Personalisation",
-                  image: "/E-Commerce.png",
-                  href: "/ecommerce",
-                },
-                {
-                  title: "Startup",
-                  desc: "Disruption meets scalability",
-                  image: "/Startup.png",
-                  href: "/startup",
-                }
-              ].map((partner) => (
-                <div key={partner.title} className="w-full shrink-0 px-2 select-none">
-                  <Link href={partner.href} className="bg-[#F9F9F9] rounded-2xl border border-zinc-100/80 p-8 flex flex-col items-center text-center shadow-xs block">
-                    <h3 className="text-xl font-semibold text-zinc-900 mb-1">{partner.title}</h3>
-                    <p className="text-zinc-500 text-sm mb-6">{partner.desc}</p>
-                    <div className="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
-                      <Image
-                        src={partner.image}
-                        alt={partner.title}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </Link>
+          {/* 4-Step Process Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border-t border-zinc-200/40 md:border-t-0">
+            {/* Step 1: Discover */}
+            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
+              <div className="space-y-6 md:mt-48">
+                <div className="space-y-4">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+                    Discover
+                  </h3>
+                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                    Understanding your challenge, your audience, and what success looks like for you.
+                  </p>
                 </div>
-              ))}
+                <div className="space-y-3">
+                  <span className="text-xs font-bold text-zinc-900 block">25%</span>
+                  <div className="w-[25%] h-[5px] bg-black rounded-full" />
+                </div>
+              </div>
             </div>
 
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2.5 mt-8">
-              {[0, 1, 2].map((index) => (
-                <button
-                  key={index}
-                  onClick={() => setActivePartner(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    activePartner === index ? "w-6 bg-zinc-900" : "w-2.5 bg-zinc-300"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+            {/* Step 2: Design */}
+            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
+              <div className="space-y-6 md:mt-32">
+                <div className="space-y-4">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+                    Design
+                  </h3>
+                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                    Ideas take shape. We explore directions, test concepts, and refine until it feels right.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <span className="text-xs font-bold text-zinc-900 block">50%</span>
+                  <div className="w-[50%] h-[5px] bg-black rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            {/* Step 3: Build */}
+            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
+              <div className="space-y-6 md:mt-16">
+                <div className="space-y-4">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+                    Build
+                  </h3>
+                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                    We develop the final product with attention to every detail and technical precision.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <span className="text-xs font-bold text-zinc-900 block">75%</span>
+                  <div className="w-[75%] h-[5px] bg-black rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            {/* Step 4: Launch */}
+            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80">
+              <div className="space-y-6 md:mt-0">
+                <div className="space-y-4">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+                    Launch
+                  </h3>
+                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                    We manage the launch, provide training if needed, and ensure a smooth transition.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <span className="text-xs font-bold text-zinc-900 block">100%</span>
+                  <div className="w-full h-[5px] bg-black rounded-full" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <FAQ />
       {/* ── 6. Project Check-Up CTA ── */}
       <CTA />
       <Footer />

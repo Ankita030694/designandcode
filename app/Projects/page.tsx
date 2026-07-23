@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CTA from "../Components/cta";
 import Footer from "../Components/footer";
+import FAQ from "../Components/FAQ";
 import { PROJECTS_DATA } from "../data/projects";
 
 // ─── PAGE COMPONENT ───
@@ -45,40 +46,43 @@ export default function ProjectsPage() {
         {/* ─── Projects Grid ─── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
           {PROJECTS_DATA.map((project) => (
-            <article key={project.title} className="group cursor-pointer">
-              <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/50 shadow-sm transition-shadow duration-300 hover:shadow-md`}>
-                <div className="relative w-full transition-transform duration-500 group-hover:scale-[1.02]">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-auto"
-                  />
+            <Link href={`/Projects/${project.slug}`} key={project.slug} className="group block cursor-pointer">
+              <article>
+                <div className={`relative rounded-3xl bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/50 shadow-sm transition-shadow duration-300 hover:shadow-md`}>
+                  <div className="relative w-full transition-transform duration-500 group-hover:scale-[1.02]">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="mt-6 px-1">
-                <h3 className="text-xl font-semibold text-zinc-900 mb-2 transition-colors duration-300 group-hover:text-black flex items-center gap-2">
-                  <span>{project.title}</span>
-                  <span className="text-lg" title="Country">{project.flag}</span>
-                </h3>
-                <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-white border border-zinc-150 text-zinc-700 text-xs font-medium shadow-[0_2px_6px_rgba(0,0,0,0.04)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="mt-6 px-1">
+                  <h3 className="text-xl font-semibold text-zinc-900 mb-2 transition-colors duration-300 group-hover:text-black flex items-center gap-2">
+                    <span>{project.title}</span>
+                    <span className="text-lg" title="Country">{project.flag}</span>
+                  </h3>
+                  <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full bg-white border border-zinc-150 text-zinc-700 text-xs font-medium shadow-[0_2px_6px_rgba(0,0,0,0.04)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
 
       </div>
 
+      <FAQ />
       {/* CTA section */}
       <CTA />
 

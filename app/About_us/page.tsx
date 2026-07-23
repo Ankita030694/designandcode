@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CTA from "../Components/cta";
 import Footer from "../Components/footer";
+import FAQ from "../Components/FAQ";
 
 const AnimatedCounter = ({ target, suffix = "", duration = 1500 }: { target: number; suffix?: string; duration?: number }) => {
   const [count, setCount] = useState(0);
@@ -329,6 +330,7 @@ export default function AboutUs() {
         </div>
       </section>
 
+      <FAQ />
       {/* CTA component */}
       <CTA />
 

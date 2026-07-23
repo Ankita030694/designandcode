@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CTA from "../../Components/cta";
 import Footer from "../../Components/footer";
+import FAQ from "../../Components/FAQ";
 import { BLOGS_DETAILS } from "../../../data/blogs";
 
 function BlogDetailContent() {
@@ -198,6 +199,7 @@ function BlogDetailContent() {
         </div>
       </div>
 
+      <FAQ />
       {/* CTA section */}
       <CTA />
 

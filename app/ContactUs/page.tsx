@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Footer from "../Components/footer";
+import FAQ from "../Components/FAQ";
 import { COUNTRY_CODES } from "../../data/CC";
 
 const logoRow1 = [
@@ -386,6 +387,7 @@ export default function ContactUs() {
         <TestimonialsSection />
       </section>
 
+      <FAQ />
       {/* Footer component */}
       <Footer />
     </main>

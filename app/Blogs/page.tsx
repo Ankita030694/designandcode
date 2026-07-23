@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CTA from "../Components/cta";
 import Footer from "../Components/footer";
+import FAQ from "../Components/FAQ";
 
 // ─── TYPES & INTERFACES ───
 type ContentType = "All" | "Fundamentals" | "Guides" | "Insights";
@@ -474,6 +475,7 @@ export default function BlogsPage() {
 
       </div>
 
+      <FAQ />
       {/* CTA section */}
       <CTA />
 

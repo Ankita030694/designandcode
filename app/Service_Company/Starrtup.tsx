@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "../Components/footer";
 import CTA from "../Components/cta";
+import FAQ from "../Components/FAQ";
 
 export default function StartupServicePage() {
   const [activeToc, setActiveToc] = useState("intro");
@@ -276,6 +277,7 @@ export default function StartupServicePage() {
         </div>
       </section>
 
+      <FAQ />
       {/* CTA section */}
       <CTA />
 
