@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function CTA() {
   return (
-    <section className="relative bg-[#F9F9FB] py-20 lg:py-28 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 overflow-hidden -mt-10">
+    <section className="relative bg-[#FFFCF5] py-20 lg:py-28 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 overflow-hidden -mt-10">
       <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Side: Content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">

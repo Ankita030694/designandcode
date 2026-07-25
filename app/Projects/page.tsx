@@ -11,21 +11,6 @@ import { PROJECTS_DATA } from "../data/projects";
 // ─── PAGE COMPONENT ───
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState<"All" | "Shopify Store" | "Custom Code">("All");
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Close dropdown on click outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   const filteredProjects = PROJECTS_DATA.filter((project) => {
     if (activeFilter === "All") return true;
@@ -40,10 +25,8 @@ export default function ProjectsPage() {
         <div className="hero-glow w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] top-[10%] left-[-150px] opacity-25" />
       </div>
 
-      <div className="relative z-10 flex-grow max-w-7xl mx-auto w-full px-6 sm:px-8 py-12 md:py-16">
-        
-        {/* ─── Hero Header & Filter Section ─── */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 sm:mb-20">
+      <div className="relative z-10 flex-grow max-w-7xl mx-auto w-full px-6 sm:px-8 py-12 md:py-16">        {/* ─── Hero Header & Filter Section ─── */}
+        <div className="flex flex-col items-center text-center gap-6 mb-12">
           <div className="max-w-2xl">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-900 leading-[1.1] mb-6">
               Our{" "}
@@ -66,50 +49,41 @@ export default function ProjectsPage() {
               Discover how we enhance our clients&apos; digital presence.
             </p>
           </div>
+        </div>
 
-          {/* Elegant Custom Dropdown */}
-          <div className="relative z-50 self-start md:self-end" ref={dropdownRef}>
+        {/* ─── Tab Filter Menu (Capsule Style) ─── */}
+        <div className="flex justify-center mb-16 relative z-20">
+          <div className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-[#f4f1e6] border border-zinc-200/40 select-none shadow-xs">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-between gap-3 px-5 py-3 rounded-2xl bg-white border border-zinc-200 text-zinc-800 text-sm font-medium shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:border-zinc-300 active:scale-[0.98] transition-all duration-200 cursor-pointer min-w-[200px]"
+              onClick={() => setActiveFilter("All")}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                activeFilter === "All"
+                  ? "bg-white text-zinc-900 shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
             >
-              <span>{activeFilter === "All" ? "All Projects" : activeFilter === "Shopify Store" ? "Shopify Stores" : "Custom Code"}</span>
-              <svg
-                className={`w-4.5 h-4.5 text-zinc-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
+              All
             </button>
-
-            {isOpen && (
-              <div className="absolute left-0 md:right-0 mt-2.5 w-52 bg-white/95 backdrop-blur-md border border-zinc-200/60 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-1.5 focus:outline-none z-50 animate-fade-in-up">
-                {(["All", "Shopify Store", "Custom Code"] as const).map((filterOption) => (
-                  <button
-                    key={filterOption}
-                    onClick={() => {
-                      setActiveFilter(filterOption);
-                      setIsOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 flex items-center justify-between cursor-pointer ${
-                      activeFilter === filterOption
-                        ? "text-zinc-950 font-semibold bg-zinc-50"
-                        : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50/50"
-                    }`}
-                  >
-                    <span>{filterOption === "All" ? "All Projects" : filterOption === "Shopify Store" ? "Shopify Stores" : "Custom Code"}</span>
-                    {activeFilter === filterOption && (
-                      <svg className="w-4 h-4 text-zinc-900" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    )}
-                  </button>
-                ))}
-              </div>
-            )}
+            <button
+              onClick={() => setActiveFilter("Shopify Store")}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                activeFilter === "Shopify Store"
+                  ? "bg-white text-zinc-900 shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              Shopify Stores
+            </button>
+            <button
+              onClick={() => setActiveFilter("Custom Code")}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                activeFilter === "Custom Code"
+                  ? "bg-white text-zinc-900 shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              Custom Code
+            </button>
           </div>
         </div>
 

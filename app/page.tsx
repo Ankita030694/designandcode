@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -196,20 +196,18 @@ function SectionDivider() {
 /* ─── Page ─── */
 
 export default function Home() {
-  const showcaseSectionRef = useRef<HTMLDivElement>(null);
-  const [showcaseMouseOffset, setShowcaseMouseOffset] = useState({ x: 0, y: 0 });
 
-  const handleShowcaseMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!showcaseSectionRef.current) return;
-    const rect = showcaseSectionRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setShowcaseMouseOffset({ x, y });
-  };
+  const [scrollY, setScrollY] = useState(0);
 
-  const handleShowcaseMouseLeave = () => {
-    setShowcaseMouseOffset({ x: 0, y: 0 });
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const touchStartX = useRef(0);
@@ -258,196 +256,162 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-20">
-      {/* ── 1. Hero ── */}
-      <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
-        
-
-        <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto text-center px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-4 py-1.5 rounded-full animate-fade-in-up">
-            <Image src="/left.svg" alt="Laurel Left" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
-            <span className="tracking-wide text-[13px] sm:text-[16px] font-regular text-zinc-600">Design-Led Development Partners</span>
-            <Image src="/right.svg" alt="Laurel Right" width={22} height={22} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
-          </div>
-
-          <h1 className="flex flex-col items-center mt-6 sm:mt-8 tracking-tight px-4">
-            <span className="text-4xl sm:text-6xl md:text-6xl font-medium text-zinc-900 leading-[1.1] animate-fade-in-up [animation-delay:200ms] block">
-              Strategy that ships.
-            </span>
-            <span className="relative text-4xl sm:text-6xl md:text-6xl font-semibold bg-gradient-to-r from-[#60a5fa] via-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent leading-[1.2] pb-6 sm:pb-10 px-2 inline-block animate-fade-in-up [animation-delay:400ms]">
-              Design that endures.
-              <Image
-                src="/Marker.svg"
-                alt="Marker Underline"
-                width={541}
-                height={38}
-                className="absolute bottom-1 sm:bottom-0 left-0 w-full h-[12px] sm:h-[40px] pointer-events-none object-contain select-none animate-reveal-width [animation-delay:400ms]"
-                priority
-              />
-            </span>
-          </h1>
-
-          <p className="mt-6 sm:mt-8 text-center text-zinc-500 text-sm sm:text-xl max-w-2xl leading-relaxed animate-fade-in-up [animation-delay:600ms] px-4">
-            Design and development partners for{" "}
-            <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded-md font-medium text-[13px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
-              enterprise
-            </span>
-            ,{" "}
-            <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded-md font-medium text-[13px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
-              ecommerce
-            </span>
-            , and{" "}
-            <span className="inline-block bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded-md font-medium text-[13px] sm:text-[18px] transition-all duration-200 hover:bg-zinc-200/80 hover:text-zinc-950 cursor-default select-none mx-0.5">
-              startups
-            </span>
-            . We bring clarity to complexity.
-          </p>
-
-          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-6 animate-fade-in-up [animation-delay:800ms]">
-            <Link
-              href="/Projects"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-zinc-200/80 bg-zinc-50/40 text-[14px] sm:text-[15px] font-medium text-zinc-700 hover:bg-zinc-100/80 hover:border-zinc-300/80 hover:text-zinc-900 transition-all duration-200 text-center cursor-pointer shadow-xs"
-            >
-              Explore Projects
-            </Link>
-            <Link
-              href="/ContactUs"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-[14px] sm:text-[15px] font-medium text-zinc-900 transition-all duration-200 text-center shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-zinc-100/80 hover:shadow-[0_8px_20px_rgba(0,0,0,0.07)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-            >
-              Start a project
-            </Link>
-          </div>
-
-          {/* Client Logos Infinite Carousel */}
-          <div className="mt-14 w-full max-w-full overflow-hidden marquee-container py-4">
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-8 text-center animate-fade-in-up [animation-delay:900ms]">
-              Core technologies & tools we use
-            </p>
-            <div className="relative flex w-full max-w-full overflow-hidden animate-fade-in-up [animation-delay:1000ms]">
-              <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap">
-                {[
-                  "/Tools/1.svg",
-                  "/Tools/2.svg",
-                  "/Tools/3.svg",
-                  "/Tools/4.svg",
-                  "/Tools/5.svg",
-                  "/Tools/6.svg",
-                  "/Tools/7.svg",
-                  "/Tools/8.svg",
-                  "/Tools/9.svg",
-                  "/Tools/10.svg",
-                  "/Tools/11.svg",
-                  "/Tools/12.svg",
-                  "/Tools/13.svg",
-                  "/Tools/14.svg",
-                  "/Tools/15.svg",
-                  "/Tools/16.svg",
-                  "/Tools/17.svg",
-                  "/Tools/18.svg",
-                  "/Tools/19.svg",
-                  "/Tools/20.svg",
-                  "/Tools/21.svg",
-                  "/Tools/22.svg",
-                  "/Tools/23.svg",
-                  "/Tools/24.svg",
-                  "/Tools/25.svg",
-                ].map((src, i) => (
-                  <Image
-                    key={i}
-                    src={src}
-                    alt={`Tool Logo ${i + 1}`}
-                    width={150}
-                    height={48}
-                    className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
-                  />
-                ))}
-              </div>
-              <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap" aria-hidden="true">
-                {[
-                  "/Tools/1.svg",
-                  "/Tools/2.svg",
-                  "/Tools/3.svg",
-                  "/Tools/4.svg",
-                  "/Tools/5.svg",
-                  "/Tools/6.svg",
-                  "/Tools/7.svg",
-                  "/Tools/8.svg",
-                  "/Tools/9.svg",
-                  "/Tools/10.svg",
-                  "/Tools/11.svg",
-                  "/Tools/12.svg",
-                  "/Tools/13.svg",
-                  "/Tools/14.svg",
-                  "/Tools/15.svg",
-                  "/Tools/16.svg",
-                  "/Tools/17.svg",
-                  "/Tools/18.svg",
-                  "/Tools/19.svg",
-                  "/Tools/20.svg",
-                  "/Tools/21.svg",
-                  "/Tools/22.svg",
-                  "/Tools/23.svg",
-                  "/Tools/24.svg",
-                  "/Tools/25.svg",
-                ].map((src, i) => (
-                  <Image
-                    key={`dup-${i}`}
-                    src={src}
-                    alt=""
-                    width={150}
-                    height={48}
-                    className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 1.5 Shoe Showcase Section ── */}
+    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-0 bg-[#FFFCF5]">
+      {/* ── 1. Hero with Background Video ── */}
       <section
-        ref={showcaseSectionRef}
-        onMouseMove={handleShowcaseMouseMove}
-        onMouseLeave={handleShowcaseMouseLeave}
-        className="relative w-full overflow-hidden bg-[#f3f3f3] py-28 md:py-40 flex items-center justify-center border-y border-zinc-200/20"
+        className="relative w-full min-h-screen flex flex-col justify-between pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
+        style={{
+          borderBottomLeftRadius: "var(--hero-br-active)",
+          borderBottomRightRadius: "var(--hero-br-active)",
+          // @ts-ignore
+          "--hero-br-active": `calc(var(--hero-br) * ${1 - Math.min(scrollY / 300, 1)})`
+        } as React.CSSProperties}
       >
-        {/* ── Background Typography Layer (Exact Reference Style) ── */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0">
-          <div className="w-full max-w-9xl mx-auto flex flex-col gap-2 md:gap-4 px-6 md:px-12 select-none">
-            <div className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111] leading-none text-left">
-              DESIGNED WITH
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 brightness-[0.85]"
+        >
+          <source src="/Hero_VOD.webm" type="video/webm" />
+        </video>
+
+        {/* Subtle Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent pointer-events-none z-0" />
+
+        {/* Content Container */}
+        <div className="relative z-10 flex flex-col justify-between flex-1 max-w-9xl mx-auto w-full h-full">
+          {/* Top content: Kicker & Headline */}
+          <div className="flex flex-col items-start mt-12 sm:mt-16">
+            <div className="flex items-center gap-2 mb-6 select-none animate-fade-in-up">
+              <span className="text-xs sm:text-sm font-regular tracking-wider uppercase text-white/95 flex items-center gap-2">
+                <span>🌅</span> HELPED +200 FOUNDERS RISE THEIR BRANDS
+              </span>
             </div>
-            <div className="flex justify-between w-full leading-none select-none">
-              <span className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111]">PURPOSE</span>
-              <span className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111] text-right">SIGN WITH</span>
-            </div>
-            <div className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111] leading-none text-right">
-              INTENTION
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-medium tracking-tight leading-[1.05] text-left text-white max-w-4xl animate-fade-in-up [animation-delay:200ms]">
+              We build design on <br />
+              clarity, speed, and <span className="text-[#facc15] font-medium">care.</span>
+            </h1>
+          </div>
+
+          {/* Bottom content: Description & Buttons */}
+          <div className="mt-auto pt-20 flex flex-col md:flex-row md:items-end justify-between gap-8 w-full">
+            <div className="max-w-md text-left animate-fade-in-up [animation-delay:400ms]">
+              <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed font-light">
+                We create thoughtful work through a refined process, guided by clear thinking and a deep respect for time.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 select-none">
+                <Link
+                  href="/Projects"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-sm font-medium text-white hover:bg-white/25 hover:border-white/40 transition-all duration-200 text-center cursor-pointer shadow-sm"
+                >
+                  Explore Projects
+                </Link>
+                <Link
+                  href="/ContactUs"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-sm font-medium text-zinc-900 hover:bg-zinc-100 transition-all duration-200 text-center shadow-md cursor-pointer"
+                >
+                  Start a project
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* ── Centered Interactive Shoe Showcase ── */}
-        <div 
-          className="relative z-10 flex items-center justify-center max-w-lg md:max-w-2xl mx-auto cursor-pointer group px-4"
-          style={{
-            transform: `translate(${showcaseMouseOffset.x * 30}px, ${showcaseMouseOffset.y * 30}px)`,
-            transition: "transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-          }}
-        >
-          <img 
-            src="/image.png" 
-            alt="Showcase Shoe" 
-            className="w-[80%] md:w-[90%] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:scale-[1.02] select-none pointer-events-none"
-          />
-          
-          
+      {/* ── 1.2 Tools Marquee Section ── */}
+      <section className="relative w-full bg-[#FFFCF5] border-b border-zinc-200/40 py-10 overflow-hidden select-none z-10">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400 mb-6 text-center">
+            Core technologies & tools we use
+          </p>
+          <div className="relative flex w-full max-w-full overflow-hidden">
+            <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap">
+              {[
+                "/Tools/1.svg",
+                "/Tools/2.svg",
+                "/Tools/3.svg",
+                "/Tools/4.svg",
+                "/Tools/5.svg",
+                "/Tools/6.svg",
+                "/Tools/7.svg",
+                "/Tools/8.svg",
+                "/Tools/9.svg",
+                "/Tools/10.svg",
+                "/Tools/11.svg",
+                "/Tools/12.svg",
+                "/Tools/13.svg",
+                "/Tools/14.svg",
+                "/Tools/15.svg",
+                "/Tools/16.svg",
+                "/Tools/17.svg",
+                "/Tools/18.svg",
+                "/Tools/19.svg",
+                "/Tools/20.svg",
+                "/Tools/21.svg",
+                "/Tools/22.svg",
+                "/Tools/23.svg",
+                "/Tools/24.svg",
+                "/Tools/25.svg",
+              ].map((src, i) => (
+                <Image
+                  key={i}
+                  src={src}
+                  alt={`Tool Logo ${i + 1}`}
+                  width={150}
+                  height={48}
+                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
+                />
+              ))}
+            </div>
+            <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap" aria-hidden="true">
+              {[
+                "/Tools/1.svg",
+                "/Tools/2.svg",
+                "/Tools/3.svg",
+                "/Tools/4.svg",
+                "/Tools/5.svg",
+                "/Tools/6.svg",
+                "/Tools/7.svg",
+                "/Tools/8.svg",
+                "/Tools/9.svg",
+                "/Tools/10.svg",
+                "/Tools/11.svg",
+                "/Tools/12.svg",
+                "/Tools/13.svg",
+                "/Tools/14.svg",
+                "/Tools/15.svg",
+                "/Tools/16.svg",
+                "/Tools/17.svg",
+                "/Tools/18.svg",
+                "/Tools/19.svg",
+                "/Tools/20.svg",
+                "/Tools/21.svg",
+                "/Tools/22.svg",
+                "/Tools/23.svg",
+                "/Tools/24.svg",
+                "/Tools/25.svg",
+              ].map((src, i) => (
+                <Image
+                  key={`dup-${i}`}
+                  src={src}
+                  alt=""
+                  width={150}
+                  height={48}
+                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
+
+
 
       {/* ── Why Choose Us ── */}
-      <section className="relative bg-[#ffffff] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
+      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Staggered Stats & Dots */}
@@ -507,7 +471,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#F9F9FB] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-20 z-10 py-10">
+      <section className="relative bg-[#FFFCF5] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-20 z-10 py-10">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
@@ -619,7 +583,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. Our Work ── */}
-      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 -mt-5">
+      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 -mt-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
             <div className="max-w-xl">
@@ -685,7 +649,7 @@ export default function Home() {
       </section>
 
       {/* ── 4. How We Help ── */}
-      <section className="relative bg-[#F9F9F9] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
+      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center mb-16">
             
@@ -754,7 +718,7 @@ export default function Home() {
       </section>
 
       {/* ── 5. Flow Section ── */}
-      <section className="relative bg-white py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
+      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">

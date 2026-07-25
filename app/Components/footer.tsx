@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#F9F9FB] border-t border-zinc-100/50 pt-16 pb-12 px-6 sm:px-8 lg:px-12">
+    <footer className="w-full bg-[#FFFCF5] border-t border-zinc-100/50 pt-16 pb-12 px-6 sm:px-8 lg:px-12">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Top Section: Logo & Signature */}
         <div className="flex flex-col items-center text-center gap-4 mb-10">

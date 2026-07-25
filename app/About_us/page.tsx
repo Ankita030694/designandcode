@@ -50,20 +50,6 @@ const AnimatedCounter = ({ target, suffix = "", duration = 1500 }: { target: num
   return <span ref={elementRef}>{count}{suffix}</span>;
 };
 
-const CardBgSquares = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[32px] z-0">
-    {/* Cluster positioned beside the image (Right side of card) */}
-    <div className="absolute top-[8%] left-[48%] w-12 h-12 border border-zinc-200/50 rounded-xl" />
-    <div className="absolute top-[24%] left-[42%] w-10 h-10 border border-zinc-200/40 rounded-lg" />
-    <div className="absolute top-[6%] left-[66%] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
-    <div className="absolute top-[28%] left-[60%] w-12 h-12 border border-zinc-200/40 rounded-xl" />
-    <div className="absolute top-[18%] left-[82%] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
-    
-    {/* Far right overflowing borders */}
-    <div className="absolute top-[6%] right-[-14px] w-12 h-12 border border-zinc-200/50 rounded-xl" />
-    <div className="absolute top-[32%] right-[-20px] w-14 h-14 border border-zinc-200/50 rounded-2xl" />
-  </div>
-);
 
 const teamMembers = [
   {
@@ -226,23 +212,95 @@ export default function AboutUs() {
           </div>
         </div>
 
-        {/* Bottom row: three cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-          {storyData.cards.map((card, index) => (
-            <div
-              key={index}
-              className="bg-zinc-50 border border-zinc-100 rounded-[24px] p-8 pt-10 pb-8 flex flex-col justify-between hover:bg-zinc-100/50 transition-all duration-300 ease-out"
-            >
+        {/* ─── Our Values Section ─── */}
+        <div className="mt-28">
+          
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-950 text-center leading-tight mb-16 max-w-3xl mx-auto -mt-5">
+            Principles that guide how we work.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Card 1: Clarity as Foundation */}
+            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 hover:shadow-md h-[340px]">
+              {/* Soft Blue blur gradient circle bottom-right */}
+              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-blue-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
               <div>
-                <h3 className="text-zinc-900 font-medium text-lg sm:text-xl tracking-tight">
-                  {card.title}
+                {/* Icon Circle */}
+                <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
+                  <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                    <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
+                  </svg>
+                </div>
+                <h3 className="text-zinc-950 font-bold text-xl tracking-tight mb-3">
+                  Clarity as Foundation
                 </h3>
-                <p className="text-zinc-500 font-light text-sm mt-3 leading-relaxed">
-                  {card.description}
+                <p className="text-zinc-500 text-sm leading-relaxed max-w-[260px]">
+                  Every project begins with understanding —bringing structure to ideas before moving into execution.
                 </p>
               </div>
+              <div className="mt-auto flex justify-end">
+                <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
+                  Clear Direction
+                </span>
+              </div>
             </div>
-          ))}
+
+            {/* Card 2: Intentional Craft */}
+            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 hover:shadow-md h-[340px]">
+              {/* Soft Pink blur gradient circle bottom-right */}
+              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-pink-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
+              <div>
+                {/* Icon Circle */}
+                <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
+                  <svg className="w-5 h-5 text-pink-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M12 22V12M12 2v6" />
+                    <path d="M17 13l-5-5-5 5" />
+                    <rect x="3" y="18" width="18" height="4" rx="1" />
+                  </svg>
+                </div>
+                <h3 className="text-zinc-950 font-bold text-xl tracking-tight mb-3">
+                  Intentional Craft
+                </h3>
+                <p className="text-zinc-500 text-sm leading-relaxed max-w-[260px]">
+                  We design and build with care, where every detail serves a purpose and contributes to a cohesive whole.
+                </p>
+              </div>
+              <div className="mt-auto flex justify-end">
+                <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
+                  Thoughtful & precise
+                </span>
+              </div>
+            </div>
+
+            {/* Card 3: Measured Pace */}
+            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 hover:shadow-md h-[340px]">
+              {/* Soft Teal blur gradient circle bottom-right */}
+              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-teal-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
+              <div>
+                {/* Icon Circle */}
+                <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
+                  <svg className="w-5 h-5 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                  </svg>
+                </div>
+                <h3 className="text-zinc-950 font-bold text-xl tracking-tight mb-3">
+                  Measured Pace
+                </h3>
+                <p className="text-zinc-500 text-sm leading-relaxed max-w-[260px]">
+                  We move steadily and with intention, allowing ideas to develop without losing momentum.
+                </p>
+              </div>
+              <div className="mt-auto flex justify-end">
+                <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
+                  Right progress
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -293,35 +351,31 @@ export default function AboutUs() {
           </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
+        {/* Team Grid (Portrait Cards Style) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => (
             <div 
               key={index}
-              className="relative bg-white  border border-zinc-200/40 rounded-[32px] p-7 pt-8 flex flex-col justify-between min-h-[260px] md:min-h-[280px] transition-all duration-500 ease-out group overflow-visible"
+              className="relative rounded-[32px] overflow-hidden aspect-[3/4] shadow-sm border border-zinc-200/20 group cursor-pointer bg-zinc-900"
             >
-              {/* Background outline decorative squares */}
-              <CardBgSquares />
+              {/* Background Image */}
+              <Image
+                src={member.imageSrc}
+                alt={member.name}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
 
-              {/* Top part: Elevated Portrait */}
-              <div className="relative z-10 self-start">
-                <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-[24px] overflow-hidden shadow-md border border-zinc-200/20 group-hover:shadow-[0_25px_40px_rgba(0,0,0,0.35)] transition-all duration-500 ease-out group-hover:-translate-y-8 group-hover:-translate-x-2 group-hover:scale-[1.3] group-hover:z-20">
-                  <Image
-                    src={member.imageSrc}
-                    alt={member.name}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    sizes="(max-width: 768px) 112px, 128px"
-                  />
-                </div>
-              </div>
+              {/* Bottom Vignette Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
 
-              {/* Bottom part: Name and Role */}
-              <div className="relative z-10 mt-auto pt-6">
-                <h3 className="text-zinc-900 font-semibold text-lg md:text-xl tracking-tight group-hover:text-black transition-colors duration-300">
+              {/* Info Text Overlay at Bottom-Left */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10">
+                <h3 className="text-white font-bold text-xl sm:text-2xl tracking-tight leading-none mb-2">
                   {member.name}
                 </h3>
-                <p className="text-zinc-400 font-medium text-sm md:text-base mt-1">
+                <p className="text-zinc-300 font-medium text-sm">
                   {member.role}
                 </p>
               </div>
