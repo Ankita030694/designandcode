@@ -7,6 +7,7 @@ export interface Project {
   bg: string;
   mockupAccent: string;
   image: string;
+  projectType: "Shopify Store" | "Custom Code";
 }
 
 export const PROJECTS_DATA: Project[] = [
@@ -18,7 +19,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇺🇸",
     bg: "from-teal-500/10 via-emerald-400/5 to-teal-500/10",
     mockupAccent: "from-teal-400 to-emerald-400",
-    image: "/project/AMA.svg"
+    image: "/project/AMA.svg",
+    projectType: "Custom Code"
   },
   {
     slug: "adorna-casa",
@@ -28,7 +30,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇹",
     bg: "from-amber-500/10 via-orange-400/5 to-amber-500/10",
     mockupAccent: "from-amber-400 to-orange-400",
-    image: "/project/Adorna_casa.svg"
+    image: "/project/Adorna_casa.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "aerolume",
@@ -38,7 +41,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇩🇪",
     bg: "from-blue-500/10 via-indigo-400/5 to-blue-500/10",
     mockupAccent: "from-blue-400 to-indigo-400",
-    image: "/project/Aerolume.svg"
+    image: "/project/Aerolume.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "anyadha",
@@ -48,7 +52,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-purple-500/10 via-pink-400/5 to-purple-500/10",
     mockupAccent: "from-purple-400 to-pink-400",
-    image: "/project/Anyadha.svg"
+    image: "/project/Anyadha.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "bloom",
@@ -58,7 +63,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇨🇦",
     bg: "from-green-500/10 via-emerald-400/5 to-green-500/10",
     mockupAccent: "from-green-400 to-emerald-400",
-    image: "/project/Bloom.svg"
+    image: "/project/Bloom.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "botai",
@@ -68,7 +74,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇬🇧",
     bg: "from-cyan-500/10 via-sky-400/5 to-cyan-500/10",
     mockupAccent: "from-cyan-400 to-sky-400",
-    image: "/project/Botai.svg"
+    image: "/project/Botai.svg",
+    projectType: "Custom Code"
   },
   {
     slug: "bunt",
@@ -78,7 +85,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇫🇷",
     bg: "from-rose-500/10 via-fuchsia-400/5 to-rose-500/10",
     mockupAccent: "from-rose-400 to-fuchsia-400",
-    image: "/project/Bunt.svg"
+    image: "/project/Bunt.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "credsettle",
@@ -88,7 +96,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇺🇸",
     bg: "from-indigo-500/10 via-blue-400/5 to-indigo-500/10",
     mockupAccent: "from-indigo-400 to-blue-400",
-    image: "/project/Credsettle.svg"
+    image: "/project/Credsettle.svg",
+    projectType: "Custom Code"
   },
   {
     slug: "delhi-house",
@@ -98,7 +107,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-amber-500/10 via-yellow-400/5 to-amber-500/10",
     mockupAccent: "from-amber-400 to-yellow-400",
-    image: "/project/Delhi%20House.svg"
+    image: "/project/Delhi%20House.svg",
+    projectType: "Custom Code"
   },
   {
     slug: "farzi-cafe",
@@ -108,7 +118,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇦🇪",
     bg: "from-red-500/10 via-orange-400/5 to-red-500/10",
     mockupAccent: "from-red-400 to-orange-400",
-    image: "/project/Farzi_Cafe.svg"
+    image: "/project/Farzi_Cafe.svg",
+    projectType: "Custom Code"
   },
   {
     slug: "foire",
@@ -118,7 +129,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇧🇪",
     bg: "from-violet-500/10 via-purple-400/5 to-violet-500/10",
     mockupAccent: "from-violet-400 to-purple-400",
-    image: "/project/Foire.svg"
+    image: "/project/Foire.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "honk",
@@ -128,7 +140,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇸🇬",
     bg: "from-sky-500/10 via-blue-400/5 to-sky-500/10",
     mockupAccent: "from-sky-400 to-blue-400",
-    image: "/project/HONK.svg"
+    image: "/project/HONK.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "kamal",
@@ -138,7 +151,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-yellow-500/10 via-amber-400/5 to-yellow-500/10",
     mockupAccent: "from-yellow-400 to-amber-400",
-    image: "/project/Kamal.svg"
+    image: "/project/Kamal.svg",
+    projectType: "Custom Code"
   },
   {
     slug: "kitchun",
@@ -148,7 +162,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇦🇺",
     bg: "from-orange-500/10 via-red-400/5 to-orange-500/10",
     mockupAccent: "from-orange-400 to-red-400",
-    image: "/project/Kitchun.svg"
+    image: "/project/Kitchun.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "mama-jama",
@@ -158,7 +173,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇯🇲",
     bg: "from-pink-500/10 via-rose-400/5 to-pink-500/10",
     mockupAccent: "from-pink-400 to-rose-400",
-    image: "/project/Mama_jama.svg"
+    image: "/project/Mama_jama.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "oud",
@@ -168,7 +184,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇸🇦",
     bg: "from-yellow-600/10 via-zinc-400/5 to-yellow-600/10",
     mockupAccent: "from-amber-600 to-zinc-600",
-    image: "/project/Oud.svg"
+    image: "/project/Oud.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "rosete",
@@ -178,7 +195,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇫🇷",
     bg: "from-rose-500/10 via-pink-400/5 to-rose-500/10",
     mockupAccent: "from-rose-400 to-pink-400",
-    image: "/project/Rosete.svg"
+    image: "/project/Rosete.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "sexsea",
@@ -188,7 +206,8 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇲🇨",
     bg: "from-cyan-500/10 via-teal-400/5 to-cyan-500/10",
     mockupAccent: "from-cyan-500 to-teal-400",
-    image: "/project/Sexsea.svg"
+    image: "/project/Sexsea.svg",
+    projectType: "Shopify Store"
   },
   {
     slug: "the-fat-cookie",
@@ -198,6 +217,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇬🇧",
     bg: "from-amber-500/10 via-orange-400/5 to-amber-500/10",
     mockupAccent: "from-amber-500 to-orange-500",
-    image: "/project/The_fat_cookie.svg"
+    image: "/project/The_fat_cookie.svg",
+    projectType: "Shopify Store"
   }
 ];

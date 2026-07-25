@@ -124,6 +124,10 @@ export default async function ProjectDetailPage({
               {/* Metadata list */}
               <div className="space-y-4 text-sm sm:text-[15px]">
                 <div className="flex justify-between items-baseline border-b border-zinc-100 pb-3">
+                  <span className="text-zinc-400 font-medium">Type:</span>
+                  <span className="text-zinc-800 font-semibold text-right">{project.projectType}</span>
+                </div>
+                <div className="flex justify-between items-baseline border-b border-zinc-100 pb-3">
                   <span className="text-zinc-400 font-medium">Category:</span>
                   <span className="text-zinc-800 font-semibold text-right">{copy.category}</span>
                 </div>

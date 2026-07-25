@@ -196,6 +196,21 @@ function SectionDivider() {
 /* ─── Page ─── */
 
 export default function Home() {
+  const showcaseSectionRef = useRef<HTMLDivElement>(null);
+  const [showcaseMouseOffset, setShowcaseMouseOffset] = useState({ x: 0, y: 0 });
+
+  const handleShowcaseMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!showcaseSectionRef.current) return;
+    const rect = showcaseSectionRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setShowcaseMouseOffset({ x, y });
+  };
+
+  const handleShowcaseMouseLeave = () => {
+    setShowcaseMouseOffset({ x: 0, y: 0 });
+  };
+
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -390,6 +405,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 1.5 Shoe Showcase Section ── */}
+      <section
+        ref={showcaseSectionRef}
+        onMouseMove={handleShowcaseMouseMove}
+        onMouseLeave={handleShowcaseMouseLeave}
+        className="relative w-full overflow-hidden bg-[#f3f3f3] py-28 md:py-40 flex items-center justify-center border-y border-zinc-200/20"
+      >
+        {/* ── Background Typography Layer (Exact Reference Style) ── */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0">
+          <div className="w-full max-w-9xl mx-auto flex flex-col gap-2 md:gap-4 px-6 md:px-12 select-none">
+            <div className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111] leading-none text-left">
+              DESIGNED WITH
+            </div>
+            <div className="flex justify-between w-full leading-none select-none">
+              <span className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111]">PURPOSE</span>
+              <span className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111] text-right">SIGN WITH</span>
+            </div>
+            <div className="text-[8vw] sm:text-[6vw] font-black tracking-tighter text-[#111111] leading-none text-right">
+              INTENTION
+            </div>
+          </div>
+        </div>
+
+        {/* ── Centered Interactive Shoe Showcase ── */}
+        <div 
+          className="relative z-10 flex items-center justify-center max-w-lg md:max-w-2xl mx-auto cursor-pointer group px-4"
+          style={{
+            transform: `translate(${showcaseMouseOffset.x * 30}px, ${showcaseMouseOffset.y * 30}px)`,
+            transition: "transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          }}
+        >
+          <img 
+            src="/image.png" 
+            alt="Showcase Shoe" 
+            className="w-[80%] md:w-[90%] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:scale-[1.02] select-none pointer-events-none"
+          />
+          
+          
+        </div>
+      </section>
+
       {/* ── Why Choose Us ── */}
       <section className="relative bg-[#ffffff] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -574,7 +630,7 @@ export default function Home() {
             </div>
             <Link
               href="/Projects"
-              className="flex-shrink-0 self-start px-6 py-3 rounded-full bg-zinc-900 text-white text-[15px] font-regular shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200"
+              className="flex-shrink-0 self-start px-6 py-3 rounded-full bg-zinc-900 text-white text-[15px] font-regular shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200 cursor-pointer"
             >
               View All Projects
             </Link>
@@ -598,10 +654,19 @@ export default function Home() {
                     <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>
                     <div className="flex items-center justify-between gap-4 flex-wrap">
                       <div className="flex flex-wrap gap-2">
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border ${
+                            project.projectType === "Shopify Store"
+                              ? "bg-emerald-50/80 text-emerald-700 border-emerald-200/50"
+                              : "bg-indigo-50/80 text-indigo-700 border-indigo-200/50"
+                          }`}
+                        >
+                          {project.projectType}
+                        </span>
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-3 py-1 rounded-full bg-white text-black text-xs font-medium shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+                            className="px-3 py-1 rounded-full bg-white text-black text-xs font-medium shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-zinc-150"
                           >
                             {tag}
                           </span>

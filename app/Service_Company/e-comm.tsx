@@ -6,8 +6,10 @@ import Image from "next/image";
 import Footer from "../Components/footer";
 import CTA from "../Components/cta";
 import FAQ from "../Components/FAQ";
+import { PROJECTS_DATA } from "../data/projects";
 
 export default function EcommerceServicePage() {
+  const shopifyProjects = PROJECTS_DATA.filter((p) => p.projectType === "Shopify Store").slice(0, 2);
   const [activeToc, setActiveToc] = useState("intro");
 
   useEffect(() => {
@@ -221,59 +223,43 @@ export default function EcommerceServicePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {/* Project 1: WP Engine */}
-          <div className="group cursor-pointer flex flex-col justify-between">
-            <div className="relative rounded-[28px] bg-gradient-to-br from-[#dbeafe] via-[#eff6ff] to-[#e0f2fe] p-6 sm:p-8 overflow-hidden border border-zinc-200/60 shadow-xs transition-transform duration-500 group-hover:scale-[1.01] group-hover:shadow-md aspect-[16/10] flex items-center justify-center">
-              <div className="w-full h-full bg-white rounded-xl shadow-lg border border-white/80 overflow-hidden flex flex-col p-4">
-                <span className="font-bold text-sky-600 text-sm mb-1">WP ENGINE</span>
-                <span className="text-xs text-zinc-500">Headless Digital Storefront</span>
-                <div className="mt-4 flex gap-2">
-                  <span className="px-2 py-1 rounded bg-sky-100 text-sky-700 text-[10px] font-semibold">Headless</span>
-                  <span className="px-2 py-1 rounded bg-blue-100 text-blue-700 text-[10px] font-semibold">Global CDN</span>
+          {shopifyProjects.map((project) => (
+            <Link href={`/Projects/${project.slug}`} key={project.slug} className="group block cursor-pointer">
+              <article>
+                <div className={`relative rounded-[28px] bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/60 shadow-xs transition-transform duration-500 group-hover:scale-[1.01] group-hover:shadow-md aspect-[16/10] flex items-center justify-center p-6`}>
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-zinc-900 mb-2 group-hover:text-sky-600 transition-colors">
-                WP Engine
-              </h3>
-              <p className="text-zinc-500 text-sm leading-relaxed mb-4">
-                Implementing composable Headless WordPress architecture and design systems to enhance scalability and personalization.
-              </p>
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-700 text-xs font-medium shadow-xs">Ecommerce</span>
-                <span className="px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-700 text-xs font-medium shadow-xs">Headless</span>
-                <span className="px-2.5 py-1 rounded-full bg-white border border-zinc-200 text-xs shadow-xs">🇺🇸</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 2: Bank Al Etihad */}
-          <div className="group cursor-pointer flex flex-col justify-between">
-            <div className="relative rounded-[28px] bg-gradient-to-br from-[#fbe3d5] via-[#f9e9df] to-[#f4ded4] p-6 sm:p-8 overflow-hidden border border-zinc-200/60 shadow-xs transition-transform duration-500 group-hover:scale-[1.01] group-hover:shadow-md aspect-[16/10] flex items-center justify-center">
-              <div className="w-full h-full bg-white rounded-xl shadow-lg border border-white/80 overflow-hidden flex flex-col p-4">
-                <span className="font-bold text-orange-600 text-sm mb-1">BANK AL ETIHAD</span>
-                <span className="text-xs text-zinc-500">Atomic System Architecture</span>
-                <div className="mt-4 flex gap-2">
-                  <span className="px-2 py-1 rounded bg-orange-100 text-orange-700 text-[10px] font-semibold">99.99% Uptime</span>
-                  <span className="px-2 py-1 rounded bg-amber-100 text-amber-700 text-[10px] font-semibold">Atomic Design</span>
+                <div className="mt-6">
+                  <h3 className="text-2xl font-semibold text-zinc-900 mb-2 group-hover:text-black transition-colors flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span>{project.title}</span>
+                      <span className="text-xl leading-none" title="Country">{project.flag}</span>
+                    </div>
+                    <span className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200/60">
+                      {project.projectType}
+                    </span>
+                  </h3>
+                  <p className="text-zinc-500 text-sm leading-relaxed mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full bg-white text-black text-xs font-medium shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-zinc-150"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-zinc-900 mb-2 group-hover:text-orange-600 transition-colors">
-                Bank Al Etihad
-              </h3>
-              <p className="text-zinc-500 text-sm leading-relaxed mb-4">
-                A fully composable atomic design overhaul that streamlined enterprise workflows and accelerated checkout conversion.
-              </p>
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-700 text-xs font-medium shadow-xs">Enterprise</span>
-                <span className="px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-700 text-xs font-medium shadow-xs">Atomic Systems</span>
-                <span className="px-2.5 py-1 rounded-full bg-white border border-zinc-200 text-xs shadow-xs">🇯🇴</span>
-              </div>
-            </div>
-          </div>
+              </article>
+            </Link>
+          ))}
         </div>
       </section>
 
