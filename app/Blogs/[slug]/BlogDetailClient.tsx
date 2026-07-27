@@ -1,18 +1,59 @@
 "use client";
 
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState, Suspense } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import CTA from "../../Components/cta";
 import Footer from "../../Components/footer";
 import FAQ from "../../Components/FAQ";
-import { BLOGS_DETAILS } from "../../../data/blogs";
+import ReactMarkdown from "react-markdown";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../../../lib/firebase";
 
 function BlogDetailContent() {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id") || "7";
-  const blog = BLOGS_DETAILS[id] || BLOGS_DETAILS["7"];
+  const params = useParams();
+  const slug = params?.slug as string;
+  const [blog, setBlog] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      if (!slug) return;
+      try {
+        const q = query(collection(db, "blogs"), where("slug", "==", slug));
+        const snapshot = await getDocs(q);
+        if (!snapshot.empty) {
+          const data = snapshot.docs[0].data();
+          // Ensure faqs is an array
+          if (data.faqs && !Array.isArray(data.faqs) && data.faqs.faqs) {
+            data.faqs = data.faqs.faqs;
+          }
+          setBlog({ id: snapshot.docs[0].id, ...data });
+        } else {
+          // fallback if slug doesn't match but ID does
+          const idQ = query(collection(db, "blogs"), where("__name__", "==", slug));
+          const idSnapshot = await getDocs(idQ);
+          if (!idSnapshot.empty) {
+             setBlog({ id: idSnapshot.docs[0].id, ...idSnapshot.docs[0].data() });
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching blog:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlog();
+  }, [slug]);
+
+  if (loading) {
+    return <div className="min-h-screen bg-[#FAFAFC] pt-32 text-center text-zinc-500">Loading Article...</div>;
+  }
+
+  if (!blog) {
+    return <div className="min-h-screen bg-[#FAFAFC] pt-32 text-center text-zinc-500">Article not found.</div>;
+  }
 
   return (
     <main className="relative flex flex-col min-h-screen bg-[#FAFAFC] pt-20">
@@ -64,7 +105,7 @@ function BlogDetailContent() {
           </p>
         )}
         <p className="text-zinc-400 text-xs sm:text-sm font-semibold tracking-wide">
-          {blog.date} &nbsp;•&nbsp; {blog.author.name}
+          {blog.date || new Date().toISOString().split('T')[0]} &nbsp;•&nbsp; {blog.author || "Admin Team"}
         </p>
       </div>
 
@@ -76,46 +117,22 @@ function BlogDetailContent() {
           <div className="lg:col-span-8 bg-white border border-zinc-200/60 rounded-[32px] p-8 sm:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.015)]">
             <div className="prose prose-zinc max-w-none space-y-6 text-zinc-700 text-[15px] sm:text-[17px] leading-relaxed">
               
-              {/* Introduction paragraph */}
-              <p className="text-zinc-800 font-regular text-[16px] sm:text-[18px]">
-                {blog.content.introduction}
-              </p>
-
-              {/* Core sections with dynamic headings and paragraphs */}
-              {blog.content.sections.map((section, idx) => (
-                <div key={idx} className="space-y-4 pt-4">
-                  {section.heading && (
-                    <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 pt-2 border-b border-zinc-100 pb-2">
-                      {section.heading}
-                    </h2>
-                  )}
-                  {section.paragraphs.map((paragraph, pIdx) => {
-                    // Check if it's a list item starting with a number or key phrases for special formatting
-                    const isMetric = paragraph.startsWith('"') || paragraph.startsWith('\"') || paragraph.includes("metric emphasis");
-                    const isAspirational = paragraph.includes("aspirational extrapolate");
-                    
-                    return (
-                      <p 
-                        key={pIdx} 
-                        className={`text-zinc-600 font-regular ${
-                          isMetric || isAspirational 
-                            ? "bg-zinc-50/50 p-4 rounded-xl border-l-2 border-zinc-300 pl-4 italic text-[15px]" 
-                            : ""
-                        }`}
-                      >
-                        {paragraph}
-                      </p>
-                    );
-                  })}
-                </div>
-              ))}
-
-              {/* Conclusion paragraph */}
-              <div className="pt-8 mt-8 border-t border-zinc-150">
-                <p className="text-zinc-600 font-regular bg-zinc-50/30 p-5 sm:p-6 rounded-2xl border border-zinc-100/50">
-                  {blog.content.conclusion}
-                </p>
-              </div>
+              {/* Main Content Rendered via Markdown */}
+              <ReactMarkdown
+                components={{
+                  h1: ({node, ...props}) => <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 mt-8 mb-4" {...props} />,
+                  h2: ({node, ...props}) => <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 mt-8 mb-4 border-b border-zinc-100 pb-2" {...props} />,
+                  h3: ({node, ...props}) => <h3 className="text-lg sm:text-xl font-bold text-zinc-800 mt-6 mb-3" {...props} />,
+                  p: ({node, ...props}) => <p className="text-zinc-600 font-regular text-[16px] sm:text-[18px] mb-4" {...props} />,
+                  ul: ({node, ...props}) => <ul className="list-disc list-inside space-y-2 mb-4 text-zinc-600" {...props} />,
+                  ol: ({node, ...props}) => <ol className="list-decimal list-inside space-y-2 mb-4 text-zinc-600" {...props} />,
+                  li: ({node, ...props}) => <li className="text-[16px] sm:text-[18px]" {...props} />,
+                  strong: ({node, ...props}) => <strong className="font-bold text-zinc-800" {...props} />,
+                  blockquote: ({node, ...props}) => <blockquote className="bg-zinc-50/50 p-4 rounded-xl border-l-4 border-indigo-300 pl-4 italic text-[15px] mb-4 text-zinc-600" {...props} />
+                }}
+              >
+                {blog.description}
+              </ReactMarkdown>
 
             </div>
 
@@ -144,23 +161,26 @@ function BlogDetailContent() {
               <div className="flex items-center gap-4.5 mb-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden bg-zinc-50 relative border border-zinc-200 shrink-0">
                   <Image
-                    src={blog.author.avatar}
-                    alt={blog.author.name}
+                    src={"/Client_Logo/wp.svg"}
+                    alt={blog.author || "Admin Team"}
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div>
-                  <h4 className="font-bold text-zinc-900 text-[15px] sm:text-base leading-tight">
-                    {blog.author.name}
-                  </h4>
+                <div className="flex flex-col flex-grow">
+                  <span className="text-zinc-900 font-bold text-[15px]">
+                    {blog.author || "Admin Team"}
+                  </span>
+                  <span className="text-zinc-500 text-xs mt-0.5">
+                    Content Creator
+                  </span>
                   <Link href="/About_us" className="text-indigo-600 hover:text-indigo-800 text-[11px] font-bold mt-1 block uppercase tracking-wider transition-colors">
                     View Profile
                   </Link>
                 </div>
               </div>
               <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed mt-2 pl-0.5">
-                {blog.author.bio}
+                {blog.author?.bio || "Expert contributor to our insights platform."}
               </p>
             </div>
 

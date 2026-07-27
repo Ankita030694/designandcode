@@ -5,6 +5,8 @@ import Image from "next/image";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
 import { COUNTRY_CODES } from "../../data/CC";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../../lib/firebase";
 
 const logoRow1 = [
   "/LOGO%20DESIGNNCODE/88F8482F-C350-44A7-940E-386058BB49C9-removebg-preview%201.png",
@@ -78,20 +80,35 @@ export default function ContactUs() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        name: "",
-        countryCode: "+1",
-        phoneNumber: "",
-        email: "",
-        service: "",
-        message: "",
+    try {
+      await addDoc(collection(db, "leads"), {
+        name: formData.name,
+        phone: `${formData.countryCode} ${formData.phoneNumber}`,
+        email: formData.email,
+        service: formData.service,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+        status: "new"
       });
-    }, 4000);
+
+      setFormSubmitted(true);
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setFormData({
+          name: "",
+          countryCode: "+1",
+          phoneNumber: "",
+          email: "",
+          service: "",
+          message: "",
+        });
+      }, 4000);
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Failed to submit the form. Please try again later.");
+    }
   };
 
   return (
