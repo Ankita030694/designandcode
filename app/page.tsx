@@ -102,28 +102,24 @@ const projects = PROJECTS_DATA.slice(0, 4).map((project, idx) => ({
 
 const testimonials = [
   {
-    company: "WPengine",
+    company: "AMA Legal Solutions",
     logo: (
       <span className="flex items-center gap-2 font-semibold text-zinc-800 tracking-tight">
-        <span className="grid grid-cols-3 gap-0.5 w-5">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <span key={i} className="w-1.5 h-1.5 rounded-sm bg-zinc-800" />
-          ))}
-        </span>
-        WPengine
+        
+        AMA Legal Solutions
       </span>
     ),
     quote: (
       <>
-        Designncode has done so much work with Headless platforms, and we knew the team was incredibly well-versed in
-        that space.{" "}
-        <GradientHighlight>They were one of the first to do it</GradientHighlight>, and they&apos;ve done it
-        exceptionally well.
+        DesignnCode <GradientHighlight>delivered exactly what we envisioned</GradientHighlight>. Their team
+        understood our requirements, created a modern website, and{" "}
+        <GradientHighlight>ensured every detail reflected our brand</GradientHighlight>. A reliable team that I
+        would highly recommend.
       </>
     ),
-    name: "Kelsey Oliver",
-    role: "Marketing Manager, WPEngine",
-    initials: "KO",
+    name: "Anuj Anand Malik",
+    role: "Founder, AMA Legal Solutions",
+    initials: "AM",
   },
   {
     company: "acs",
@@ -259,7 +255,7 @@ export default function Home() {
     <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-0 bg-[#FFFCF5]">
       {/* ── 1. Hero with Background Video ── */}
       <section
-        className="relative w-full min-h-screen flex flex-col justify-between pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
+        className="relative w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
         style={{
           borderBottomLeftRadius: "var(--hero-br-active)",
           borderBottomRightRadius: "var(--hero-br-active)",
@@ -279,43 +275,41 @@ export default function Home() {
         </video>
 
         {/* Subtle Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-black/35 pointer-events-none z-0" />
 
         {/* Content Container */}
-        <div className="relative z-10 flex flex-col justify-between flex-1 max-w-9xl mx-auto w-full h-full">
-          {/* Top content: Kicker & Headline */}
-          <div className="flex flex-col items-start mt-12 sm:mt-16">
-            <div className="flex items-center gap-2 mb-6 select-none animate-fade-in-up">
-              <span className="text-xs sm:text-sm font-regular tracking-wider uppercase text-white/95 flex items-center gap-2">
-                <span>🌅</span> HELPED +200 FOUNDERS RISE THEIR BRANDS
-              </span>
-            </div>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-medium tracking-tight leading-[1.05] text-left text-white max-w-4xl animate-fade-in-up [animation-delay:200ms]">
-              We build design on <br />
-              clarity, speed, and <span className="text-[#facc15] font-medium">care.</span>
-            </h1>
+        <div className="relative z-10 flex flex-col justify-center items-center flex-1 max-w-4xl mx-auto w-full text-center">
+          {/* Badge / Kicker */}
+          <div className="flex items-center justify-center gap-2 mb-6 select-none animate-fade-in-up">
+            <span className="text-xs sm:text-sm font-regular tracking-wider uppercase text-white/95 flex items-center gap-2">
+              <span>🌅</span> HELPED +200 FOUNDERS RISE THEIR BRANDS
+            </span>
           </div>
 
-          {/* Bottom content: Description & Buttons */}
-          <div className="mt-auto pt-20 flex flex-col md:flex-row md:items-end justify-between gap-8 w-full">
-            <div className="max-w-md text-left animate-fade-in-up [animation-delay:400ms]">
-              <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed font-light">
-                We create thoughtful work through a refined process, guided by clear thinking and a deep respect for time.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 select-none">
-                <Link
-                  href="/Projects"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-sm font-medium text-white hover:bg-white/25 hover:border-white/40 transition-all duration-200 text-center cursor-pointer shadow-sm"
-                >
-                  Explore Projects
-                </Link>
-                <Link
-                  href="/ContactUs"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-sm font-medium text-zinc-900 hover:bg-zinc-100 transition-all duration-200 text-center shadow-md cursor-pointer"
-                >
-                  Start a project
-                </Link>
-              </div>
+          {/* Heading */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-medium tracking-tight leading-[1.05] text-center text-white max-w-4xl animate-fade-in-up [animation-delay:200ms] mb-8">
+            We build design on <br />
+            clarity, speed, and <span className="text-[#facc15] font-medium">care.</span>
+          </h1>
+
+          {/* Description & Buttons */}
+          <div className="max-w-2xl mx-auto text-center flex flex-col items-center animate-fade-in-up [animation-delay:400ms]">
+            <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed font-light max-w-xl mx-auto">
+              We create thoughtful work through a refined process, guided by clear thinking and a deep respect for time.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 select-none w-full sm:w-auto">
+              <Link
+                href="/Projects"
+                className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/20 bg-white/15 backdrop-blur-xl text-sm font-medium text-white hover:bg-white/25 hover:border-white/40 transition-all duration-200 text-center cursor-pointer shadow-sm"
+              >
+                Explore Projects
+              </Link>
+              <Link
+                href="/ContactUs"
+                className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-sm font-medium text-zinc-900 hover:bg-zinc-100 transition-all duration-200 text-center shadow-md cursor-pointer"
+              >
+                Start a project
+              </Link>
             </div>
           </div>
         </div>

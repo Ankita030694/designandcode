@@ -38,7 +38,7 @@ export default function CTA() {
             {/* The background grid image wrapper */}
             <div className="absolute inset-0 pointer-events-none">
               <Image
-                src="/CTA.png"
+                src="/CTA.jpg"
                 alt="CTA Background"
                 fill
                 className="object-cover"

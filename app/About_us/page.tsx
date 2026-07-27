@@ -221,10 +221,17 @@ export default function AboutUs() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Card 1: Clarity as Foundation */}
-            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 hover:shadow-md h-[340px]">
+            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 h-[340px]">
+              {/* Background Mesh Image */}
+              <Image
+                src="/pexels-codioful-7130467.jpg"
+                alt="Clarity as Foundation background"
+                fill
+                className="absolute inset-0 object-cover opacity-35 group-hover:scale-105 transition-transform duration-500 pointer-events-none z-0"
+              />
               {/* Soft Blue blur gradient circle bottom-right */}
-              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-blue-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
-              <div>
+              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-blue-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none z-0" />
+              <div className="relative z-10">
                 {/* Icon Circle */}
                 <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
                   <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -240,7 +247,7 @@ export default function AboutUs() {
                   Every project begins with understanding —bringing structure to ideas before moving into execution.
                 </p>
               </div>
-              <div className="mt-auto flex justify-end">
+              <div className="mt-auto flex justify-end relative z-10">
                 <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
                   Clear Direction
                 </span>
@@ -248,10 +255,17 @@ export default function AboutUs() {
             </div>
 
             {/* Card 2: Intentional Craft */}
-            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 hover:shadow-md h-[340px]">
+            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 h-[340px]">
+              {/* Background Mesh Image */}
+              <Image
+                src="/pexels-codioful-7130467.jpg"
+                alt="Intentional Craft background"
+                fill
+                className="absolute inset-0 object-cover opacity-35 group-hover:scale-105 transition-transform duration-500 pointer-events-none z-0"
+              />
               {/* Soft Pink blur gradient circle bottom-right */}
-              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-pink-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
-              <div>
+              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-pink-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none z-0" />
+              <div className="relative z-10">
                 {/* Icon Circle */}
                 <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
                   <svg className="w-5 h-5 text-pink-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -267,7 +281,7 @@ export default function AboutUs() {
                   We design and build with care, where every detail serves a purpose and contributes to a cohesive whole.
                 </p>
               </div>
-              <div className="mt-auto flex justify-end">
+              <div className="mt-auto flex justify-end relative z-10">
                 <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
                   Thoughtful & precise
                 </span>
@@ -275,10 +289,17 @@ export default function AboutUs() {
             </div>
 
             {/* Card 3: Measured Pace */}
-            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 hover:shadow-md h-[340px]">
+            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 h-[340px]">
+              {/* Background Mesh Image */}
+              <Image
+                src="/pexels-codioful-7130467.jpg"
+                alt="Measured Pace background"
+                fill
+                className="absolute inset-0 object-cover opacity-35 group-hover:scale-105 transition-transform duration-500 pointer-events-none z-0"
+              />
               {/* Soft Teal blur gradient circle bottom-right */}
-              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-teal-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
-              <div>
+              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-teal-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none z-0" />
+              <div className="relative z-10">
                 {/* Icon Circle */}
                 <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
                   <svg className="w-5 h-5 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -294,7 +315,7 @@ export default function AboutUs() {
                   We move steadily and with intention, allowing ideas to develop without losing momentum.
                 </p>
               </div>
-              <div className="mt-auto flex justify-end">
+              <div className="mt-auto flex justify-end relative z-10">
                 <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
                   Right progress
                 </span>

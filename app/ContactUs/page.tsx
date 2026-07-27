@@ -368,7 +368,7 @@ export default function ContactUs() {
                   {/* Field 6: Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-4 bg-[#AD8BFF] hover:bg-[#AD8BFF] text-white font-bold rounded-full text-base transition-colors duration-200 shadow-md cursor-pointer mt-2"
+                    className="w-full py-4 bg-[#facc15] hover:bg-[#facc15] text-white font-bold rounded-full text-base transition-colors duration-200 shadow-md cursor-pointer mt-2"
                   >
                     Submit
                   </button>
