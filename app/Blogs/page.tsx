@@ -30,6 +30,7 @@ interface BlogPost {
   // Specific for featured podcast card replica
   episodeNumber?: string;
   guestName?: string;
+  slug?: string;
 }
 
 // ─── MOCK BLOG POST DATA ───
