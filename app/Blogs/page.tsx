@@ -158,11 +158,10 @@ export default function BlogsPage() {
   };
 
   return (
-    <main className="relative flex flex-col min-h-screen homepage-grid-bg pt-20">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FFFCF5]">
       {/* Background glow effects wrapped to avoid blocking sticky behavior */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="hero-glow w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bottom-[-100px] right-[-100px] opacity-60" />
-        <div className="hero-glow w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] top-[10%] left-[-150px] opacity-30" />
+        
       </div>
 
       <div className="relative z-10 flex-grow max-w-7xl mx-auto w-full px-6 sm:px-8 py-12 md:py-16">
@@ -170,7 +169,7 @@ export default function BlogsPage() {
         {/* ─── Hero Header Section ─── */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-regular tracking-tight text-zinc-900 leading-[1.1] mb-6">
-            Our latest <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent font-semibold">thoughts</span> & <span className="relative decoration-indigo-500/20 decoration-4 underline-offset-8">discoveries</span>.
+            Our latest <span className="bg-gradient-to-r from-[#facc15] via-indigo-600 to-violet-600 bg-clip-text text-transparent font-semibold">thoughts</span> & <span className="relative decoration-indigo-500/20 decoration-4 underline-offset-8">discoveries</span>.
           </h1>
           <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed">
             Delve into composable architecture guidelines, industry-leading design systems strategies, headless technology deep-dives, and insights from our team.

@@ -118,12 +118,11 @@ const storyData = {
 
 export default function AboutUs() {
   return (
-    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-20">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FFFCF5]">
       {/* ── About Us Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-20 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
         {/* Background glow effects */}
-        <div className="hero-glow w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bottom-[-100px] right-[-100px] opacity-75" />
-        <div className="hero-glow w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] top-[-100px] left-[-100px] opacity-35" />
+       
 
         <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto text-center px-4 sm:px-6">
           
@@ -136,7 +135,7 @@ export default function AboutUs() {
               </svg>
             </span>{" "}
             the deal with{" "}
-            <span className="relative bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500 bg-clip-text text-transparent decoration-blue-500/30 decoration-2 underline-offset-8">
+            <span className="relative bg-gradient-to-r from-[#facc15] via-indigo-500 to-violet-500 bg-clip-text text-transparent decoration-blue-500/30 decoration-2 underline-offset-8">
               Designncode?
             </span>
           </h1>
@@ -379,20 +378,29 @@ export default function AboutUs() {
               key={index}
               className="relative rounded-[32px] overflow-hidden aspect-[3/4] shadow-sm border border-zinc-200/20 group cursor-pointer bg-zinc-900"
             >
+              {/* Starry Sky Card Background */}
+              <Image
+                src="/pexels-kseniya-budko-58499146-7952548.jpg"
+                alt="Card background"
+                fill
+                className="object-cover absolute inset-0 z-0 transition-transform duration-700 ease-out group-hover:scale-102 pointer-events-none"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+
               {/* Background Image */}
               <Image
                 src={member.imageSrc}
                 alt={member.name}
                 fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 relative z-10"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
 
               {/* Bottom Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none z-20" />
 
               {/* Info Text Overlay at Bottom-Left */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10">
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-30">
                 <h3 className="text-white font-bold text-xl sm:text-2xl tracking-tight leading-none mb-2">
                   {member.name}
                 </h3>

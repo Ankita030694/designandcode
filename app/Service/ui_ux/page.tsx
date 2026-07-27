@@ -317,12 +317,11 @@ export default function UiUxDesignService() {
   const currentTab = tabContent[activeTab] || tabContent.define;
 
   return (
-    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-20">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FFFCF5]">
       {/* ── UI/UX Service Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         {/* Background glow effects */}
-        <div className="hero-glow w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bottom-[-100px] right-[-100px] opacity-75" />
-        <div className="hero-glow w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] top-[-100px] left-[-100px] opacity-35" />
+        
 
         <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto text-center px-4 sm:px-6">
           
@@ -340,9 +339,9 @@ export default function UiUxDesignService() {
             Award-Winning <MedalLensIcon /> Design Partners{" "}
             <span className="block mt-2">
               (Who Actually{" "}
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500">
+              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#facc15] via-indigo-500 to-violet-500">
                 Listen)
-                <img src="/Marker.svg" alt="" className="absolute left-0 right-0 -bottom-3.5 w-full h-auto select-none pointer-events-none" />
+                <img src="/Vector 20.svg" alt="" className="absolute left-0 right-0 -bottom-3.5 w-full h-auto select-none pointer-events-none" />
               </span>
               .
             </span>

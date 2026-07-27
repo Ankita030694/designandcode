@@ -143,7 +143,7 @@ export default function Footer() {
       {/* Large looping marquee text */}
       <div className="w-full overflow-hidden marquee-container select-none pointer-events-none mt-6 -mb-12 border-t border-zinc-100/30 pt-4">
         <div className="relative flex w-full overflow-x-hidden">
-          <div className="flex gap-16 items-center shrink-0 animate-marquee whitespace-nowrap text-[12vw] font-black tracking-tighter text-zinc-200/35 uppercase leading-none">
+          <div className="flex gap-16 items-center shrink-0 animate-marquee whitespace-nowrap text-[12vw] font-black tracking-tighter text-[#facc15]/35 uppercase leading-none">
             <span>DESIGNNCODE</span>
             <span>DESIGNNCODE</span>
             <span>DESIGNNCODE</span>

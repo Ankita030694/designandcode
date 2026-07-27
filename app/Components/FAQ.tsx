@@ -47,7 +47,7 @@ export default function FAQ() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         
         {/* Left Side Info */}
-        <div className="md:col-span-5 flex flex-col justify-between">
+        <div className="md:col-span-5 flex flex-col justify-start">
           <div className="space-y-6">
             <span className="text-xs font-bold text-zinc-400 tracking-wider uppercase block">
               FAQ
@@ -57,7 +57,7 @@ export default function FAQ() {
             </h2>
           </div>
 
-          <div className="space-y-6 mt-12 md:mt-24">
+          <div className="space-y-6 mt-8 md:mt-12">
             <div className="space-y-2">
               <h4 className="text-sm font-bold text-zinc-900 uppercase tracking-wide">
                 Not finding answers?

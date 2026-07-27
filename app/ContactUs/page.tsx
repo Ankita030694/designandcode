@@ -95,7 +95,7 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 min-h-screen homepage-grid-bg pt-24 pb-12">
+    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-[#FFFCF5]">
       {/* ── Main Contact Section ── */}
       <section className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

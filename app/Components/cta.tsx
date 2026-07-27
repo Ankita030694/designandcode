@@ -42,7 +42,7 @@ export default function CTA() {
                 alt="CTA Background"
                 fill
                 className="object-cover"
-                priority
+                priority 
               />
             </div>
 
@@ -50,7 +50,7 @@ export default function CTA() {
               {/* Heading */}
               <h3 className="text-2xl md:text-3xl font-medium text-zinc-900 leading-tight flex flex-wrap items-center gap-x-2">
                 <span>Book a</span>
-                <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">30-min</span>
+                <span className="bg-gradient-to-r from-[#facc15] to-violet-500 bg-clip-text text-transparent">30-min</span>
                 <span>Introduction Call 👋</span>
               </h3>
 

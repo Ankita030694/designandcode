@@ -251,7 +251,7 @@ export default function WebDevelopmentService() {
   const currentTab = tabContent[activeTab] || tabContent.strategise;
 
   return (
-    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-20">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FFFCF5]">
       {/* ── Web Development Service Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         {/* Background glow effects */}
@@ -273,9 +273,9 @@ export default function WebDevelopmentService() {
             Composable Without <MagicWandIcon />{" "}
             <span className="block mt-2">
               the{" "}
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500">
+              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#facc15] via-indigo-500 to-violet-500">
                 Chaos.
-                <img src="/Marker.svg" alt="" className="absolute left-0 right-0 -bottom-3.5 w-full h-auto select-none pointer-events-none" />
+                <img src="/Vector 20.svg" alt="" className="absolute left-0 right-0 -bottom-3.5 w-full h-auto select-none pointer-events-none" />
               </span>
             </span>
           </h1>

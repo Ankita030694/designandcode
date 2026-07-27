@@ -252,7 +252,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 homepage-grid-bg overflow-hidden pt-0 bg-[#FFFCF5]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#FFFCF5]">
       {/* ── 1. Hero with Background Video ── */}
       <section
         className="relative w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
