@@ -52,8 +52,9 @@ Return ONLY a JSON object with this exact structure:
   "metaTitle": "SEO meta title (60-70 chars)",
   "metaDescription": "SEO meta description (150-160 chars)",
   "slug": "url-friendly-slug",
-  "outline": ["H2 Heading 1", "H2 Heading 2", "H2 Heading 3", "H2 Heading 4", "H2 Heading 5", "H2 Heading 6", "H2 Heading 7", "H2 Heading 8"]
-}`
+  "outline": ["H2 Heading 1", "H2 Heading 2", "H2 Heading 3", "H2 Heading 4", "H2 Heading 5", "H2 Heading 6", "H2 Heading 7", "Conclusion"]
+}
+Note: The final heading in the outline MUST be exactly "Conclusion" or a similar wrap-up heading.`
         }
       ],
       response_format: { type: "json_object" },
@@ -87,18 +88,19 @@ Target Primary Keyword: ${primaryKeyword}
 Article Title: ${step1Result.title}
 
 **CRITICAL REQUIREMENT**:
-Write EXACTLY 300-380 words of content specific ONLY to this section: "## ${heading}".
-Start the response directly with the "## ${heading}" markdown header, followed by the content.
+Write EXACTLY 300-380 words of HTML content specific ONLY to this H2 section: "<h2>${heading}</h2>".
+DO NOT write the entire article. DO NOT mention the other headings. Focus exclusively on this one section.
+Start the response directly with the "<h2>${heading}</h2>" tag, followed by the content.
 
 **Requirements**:
-- **Structure**: Use standard Markdown formatting (## for headers, - for lists, ** for bold, etc.).
+- **Structure**: Use HTML tags: <h2>, <h3>, <h4>, <p>, <ul>, <li>, <table>. 
 - **Tone**: Professional, authoritative, human, premium agency voice.
-- **No HTML**: Do NOT use HTML tags. Use markdown formatting instead.${isLastHeading ? "" : "\n- **NO CONCLUSIONS**: This is merely ONE section of a larger article. DO NOT write any concluding paragraphs, summaries, 'in conclusion', or wrap-ups at the end of this section. End the section factually and leave it open-ended."}
+- **No Markdown**: Do NOT use markdown headers (like ##) or markdown formatting. Use HTML tags instead.${isLastHeading ? "\n- **CONCLUSION**: This is the final section. Write a strong, compelling concluding summary to wrap up the entire article." : "\n- **NO CONCLUSIONS**: This is merely ONE section of a larger article. DO NOT write any concluding paragraphs, summaries, 'in conclusion', or wrap-ups at the end of this section. End the section factually and leave it open-ended."}
 - **Do NOT** include any title (H1), FAQs, or Reviews.
-- **Do NOT** wrap the response in markdown code blocks like \`\`\`markdown or \`\`\`. Output raw text only.
+- **Do NOT** wrap the response in markdown code blocks like \`\`\`html or \`\`\`. Output RAW HTML only.
 `;
 
-      const chunkUserMessage = `Write the 300-380 word section for "## ${heading}".`;
+      const chunkUserMessage = `Write the 300-380 word HTML section for "<h2>${heading}</h2>".`;
 
       try {
         const chunkCompletion = await openai.chat.completions.create({

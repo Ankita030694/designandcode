@@ -66,7 +66,7 @@ export default function BlogManagerUI() {
         </div>
         <button
           onClick={() => setIsWriting(true)}
-          className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl transition-colors shadow-md flex items-center gap-2 whitespace-nowrap cursor-pointer"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-colors shadow-md flex items-center gap-2 whitespace-nowrap cursor-pointer"
         >
           <span>+</span> Write Blog Post
         </button>
@@ -76,7 +76,7 @@ export default function BlogManagerUI() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-white rounded-2xl p-6 border border-zinc-200/60 shadow-sm">
           <h3 className="text-[10px] font-bold text-zinc-400 tracking-wider uppercase mb-3">Total Published Blogs</h3>
-          <div className="text-4xl font-extrabold text-red-600">{totalPublished}</div>
+          <div className="text-4xl font-extrabold text-blue-600">{totalPublished}</div>
         </div>
         <div className="bg-white rounded-2xl p-6 border border-zinc-200/60 shadow-sm">
           <h3 className="text-[10px] font-bold text-zinc-400 tracking-wider uppercase mb-3">TOC & SEO Enriched</h3>
@@ -98,7 +98,7 @@ export default function BlogManagerUI() {
           </div>
           <input
             type="text"
-            className="w-full pl-12 pr-4 py-4 bg-white border border-zinc-200/60 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all shadow-sm"
+            className="w-full pl-12 pr-4 py-4 bg-white border border-zinc-200/60 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
             placeholder="Search blogs by title, subtitle, or slug..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

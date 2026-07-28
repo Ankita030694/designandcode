@@ -34,8 +34,7 @@ export async function POST(request: NextRequest) {
         model: "gpt-image-2", 
         prompt: prompt,
         n: 1,
-        size: "1024x1024",
-        response_format: "url"
+        size: "1024x1024"
       }),
       signal: controller.signal
     });
@@ -45,6 +44,7 @@ export async function POST(request: NextRequest) {
     const data = await openAiResponse.json();
 
     if (!openAiResponse.ok) {
+      console.error("OpenAI API rejected the request. Details:", JSON.stringify(data, null, 2));
       console.warn(`OpenAI generation failed. Falling back to dynamic prompt-based Pollinations AI (FLUX) generation...`);
 
       const encodedPrompt = encodeURIComponent(prompt);
@@ -61,9 +61,12 @@ export async function POST(request: NextRequest) {
     const firstItem = data.data?.[0];
     if (!firstItem) throw new Error("No data returned from OpenAI");
 
-    const imageUrl = firstItem.url;
+    const imageUrl = firstItem.url || (firstItem.b64_json ? `data:image/png;base64,${firstItem.b64_json}` : null);
 
-    if (!imageUrl) throw new Error("No image URL returned. Forcing fallback to avoid Base64 size limits.");
+    if (!imageUrl) {
+      console.error("Response format unexpected. Data:", JSON.stringify(data, null, 2));
+      throw new Error("No image URL or Base64 returned. Forcing fallback.");
+    }
 
     return NextResponse.json({ success: true, url: imageUrl, imageUrl: imageUrl });
 

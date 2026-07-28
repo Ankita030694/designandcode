@@ -7,7 +7,7 @@ import Image from "next/image";
 import CTA from "../../Components/cta";
 import Footer from "../../Components/footer";
 import FAQ from "../../Components/FAQ";
-import ReactMarkdown from "react-markdown";
+import BlogHTMLRenderer from "../../../components/BlogHTMLRenderer";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 
@@ -115,26 +115,7 @@ function BlogDetailContent() {
           
           {/* ─── Left Column: Main Article Body ─── */}
           <div className="lg:col-span-8 bg-white border border-zinc-200/60 rounded-[32px] p-8 sm:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.015)]">
-            <div className="prose prose-zinc max-w-none space-y-6 text-zinc-700 text-[15px] sm:text-[17px] leading-relaxed">
-              
-              {/* Main Content Rendered via Markdown */}
-              <ReactMarkdown
-                components={{
-                  h1: ({node, ...props}) => <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 mt-8 mb-4" {...props} />,
-                  h2: ({node, ...props}) => <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 mt-8 mb-4 border-b border-zinc-100 pb-2" {...props} />,
-                  h3: ({node, ...props}) => <h3 className="text-lg sm:text-xl font-bold text-zinc-800 mt-6 mb-3" {...props} />,
-                  p: ({node, ...props}) => <p className="text-zinc-600 font-regular text-[16px] sm:text-[18px] mb-4" {...props} />,
-                  ul: ({node, ...props}) => <ul className="list-disc list-inside space-y-2 mb-4 text-zinc-600" {...props} />,
-                  ol: ({node, ...props}) => <ol className="list-decimal list-inside space-y-2 mb-4 text-zinc-600" {...props} />,
-                  li: ({node, ...props}) => <li className="text-[16px] sm:text-[18px]" {...props} />,
-                  strong: ({node, ...props}) => <strong className="font-bold text-zinc-800" {...props} />,
-                  blockquote: ({node, ...props}) => <blockquote className="bg-zinc-50/50 p-4 rounded-xl border-l-4 border-indigo-300 pl-4 italic text-[15px] mb-4 text-zinc-600" {...props} />
-                }}
-              >
-                {blog.description}
-              </ReactMarkdown>
-
-            </div>
+            <BlogHTMLRenderer content={blog.description} />
 
             {/* Back button */}
             <div className="mt-12 pt-6 border-t border-zinc-100">
