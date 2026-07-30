@@ -569,7 +569,7 @@ const TiptapEditor: React.FC<TiptapEditorProps> = ({ content, onChange, classNam
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-slate prose-sm sm:prose lg:prose-lg max-w-none p-6 min-h-[400px] focus:outline-none text-slate-800 bg-white',
+        class: 'prose prose-slate prose-sm sm:prose lg:prose-lg w-full !max-w-none p-6 min-h-[400px] focus:outline-none text-slate-800 bg-white',
       },
     },
   });
