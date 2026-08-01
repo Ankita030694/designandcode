@@ -201,7 +201,7 @@ export default function BlogsPage() {
   };
 
   return (
-    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FFFCF5]">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FCFCFD]">
       {/* Background glow effects wrapped to avoid blocking sticky behavior */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         

@@ -251,7 +251,7 @@ export default function WebDevelopmentService() {
   const currentTab = tabContent[activeTab] || tabContent.strategise;
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FFFCF5]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FCFCFD]">
       {/* ── Web Development Service Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         {/* Background glow effects */}
@@ -610,10 +610,7 @@ export default function WebDevelopmentService() {
                 </div>
                 <div className="mt-6">
                   <h3 className="text-2xl font-semibold text-zinc-900 mb-2 group-hover:text-black transition-colors flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span>{project.title}</span>
-                      <span className="text-xl leading-none" title="Country">{project.flag}</span>
-                    </div>
+                    <span>{project.title}</span>
                     <span className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200/60">
                       {project.projectType}
                     </span>

@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   });
 
   return (
-    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FFFCF5]">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FCFCFD]">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="hero-glow w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bottom-[-100px] right-[-100px] opacity-40" />
@@ -103,10 +103,7 @@ export default function ProjectsPage() {
                 </div>
                 <div className="mt-6 px-1">
                   <h3 className="text-xl font-semibold text-zinc-900 mb-2 transition-colors duration-300 group-hover:text-black flex items-center justify-between gap-2 flex-wrap">
-                    <div className="flex items-center gap-2">
-                      <span>{project.title}</span>
-                      <span className="text-lg" title="Country">{project.flag}</span>
-                    </div>
+                    <span>{project.title}</span>
                     <span className={`text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full border ${
                       project.projectType === "Shopify Store" 
                         ? "bg-emerald-50 text-emerald-700 border-emerald-200/60" 

@@ -3,7 +3,7 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: #FCFCFD;
   --foreground: #171717;
   --navbar-dot-color: #d4d4d8;
 }
@@ -117,12 +117,12 @@
 }
 
 .homepage-grid-bg {
-  background-color: #FFFCF5;
+  background-color: #FCFCFD;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
+    --background: #FCFCFD;
     --foreground: #171717;
     --navbar-dot-color: #d4d4d8;
   }

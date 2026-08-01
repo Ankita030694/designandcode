@@ -237,10 +237,7 @@ export default function EcommerceServicePage() {
                 </div>
                 <div className="mt-6">
                   <h3 className="text-2xl font-semibold text-zinc-900 mb-2 group-hover:text-black transition-colors flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span>{project.title}</span>
-                      <span className="text-xl leading-none" title="Country">{project.flag}</span>
-                    </div>
+                    <span>{project.title}</span>
                     <span className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200/60">
                       {project.projectType}
                     </span>

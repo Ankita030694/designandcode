@@ -268,7 +268,7 @@ export default function PerformanceMarketingService() {
   const currentTab = tabContent[activeTab] || tabContent.analyse;
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FFFCF5]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FCFCFD]">
       {/* ── Performance Marketing Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto text-center px-4 sm:px-6">

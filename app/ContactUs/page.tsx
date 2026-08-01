@@ -112,7 +112,7 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-[#FFFCF5]">
+    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-[#FCFCFD]">
       {/* ── Main Contact Section ── */}
       <section className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -127,9 +127,12 @@ export default function ContactUs() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-zinc-500 text-base sm:text-md leading-relaxed max-w-xl mb-12">
-              Contact our team to learn how Designncode can help you build stronger connections, modernise tech, and drive sales.
-            </p>
+            <div className="text-zinc-500 text-base sm:text-md leading-relaxed max-w-xl mb-12 space-y-3">
+              <p>Contact our team to learn how Designncode can help you build stronger connections, modernise tech, and drive sales.</p>
+              <p className="text-zinc-800 font-medium">
+                Call us: <a href="tel:+919220721921" className="hover:text-black transition-colors underline">+91 92207 21921</a>
+              </p>
+            </div>
 
             {/* 3 Infinite Carousel Rows */}
             <div className="flex flex-col gap-8 w-full max-w-full overflow-hidden marquee-container py-2 select-none">

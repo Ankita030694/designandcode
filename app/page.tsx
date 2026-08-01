@@ -319,7 +319,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#FFFCF5]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#FCFCFD]">
       {/* ── 1. Hero with Background Video ── */}
       <section
         className="relative w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
@@ -383,7 +383,7 @@ export default function Home() {
       </section>
 
       {/* ── 1.2 Tools Marquee Section ── */}
-      <section className="relative w-full bg-[#FFFCF5] border-b border-zinc-200/40 py-10 overflow-hidden select-none z-10">
+      <section className="relative w-full bg-[#FCFCFD] py-10 overflow-hidden select-none z-10">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400 mb-6 text-center">
             Core technologies & tools we use
@@ -391,31 +391,21 @@ export default function Home() {
           <div className="relative flex w-full max-w-full overflow-hidden">
             <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap">
               {[
-                "/Tools/1.svg",
-                "/Tools/2.svg",
-                "/Tools/3.svg",
-                "/Tools/4.svg",
-                "/Tools/5.svg",
-                "/Tools/6.svg",
-                "/Tools/7.svg",
-                "/Tools/8.svg",
-                "/Tools/9.svg",
-                "/Tools/10.svg",
-                "/Tools/11.svg",
-                "/Tools/12.svg",
-                "/Tools/13.svg",
-                "/Tools/14.svg",
-                "/Tools/15.svg",
-                "/Tools/16.svg",
-                "/Tools/17.svg",
-                "/Tools/18.svg",
-                "/Tools/19.svg",
-                "/Tools/20.svg",
-                "/Tools/21.svg",
-                "/Tools/22.svg",
-                "/Tools/23.svg",
-                "/Tools/24.svg",
-                "/Tools/25.svg",
+                "/Tools_Color/1.svg",
+                "/Tools_Color/2.svg",
+                "/Tools_Color/3.svg",
+                "/Tools_Color/4.svg",
+                "/Tools_Color/5.svg",
+                "/Tools_Color/6.svg",
+                "/Tools_Color/7.svg",
+                "/Tools_Color/75.svg",
+                "/Tools_Color/76.svg",
+                "/Tools_Color/77.svg",
+                "/Tools_Color/78.svg",
+                "/Tools_Color/79.svg",
+                "/Tools_Color/80.svg",
+                "/Tools_Color/81.svg",
+                "/Tools_Color/82.svg",
               ].map((src, i) => (
                 <Image
                   key={i}
@@ -423,37 +413,27 @@ export default function Home() {
                   alt={`Tool Logo ${i + 1}`}
                   width={150}
                   height={48}
-                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
+                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
                 />
               ))}
             </div>
             <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap" aria-hidden="true">
               {[
-                "/Tools/1.svg",
-                "/Tools/2.svg",
-                "/Tools/3.svg",
-                "/Tools/4.svg",
-                "/Tools/5.svg",
-                "/Tools/6.svg",
-                "/Tools/7.svg",
-                "/Tools/8.svg",
-                "/Tools/9.svg",
-                "/Tools/10.svg",
-                "/Tools/11.svg",
-                "/Tools/12.svg",
-                "/Tools/13.svg",
-                "/Tools/14.svg",
-                "/Tools/15.svg",
-                "/Tools/16.svg",
-                "/Tools/17.svg",
-                "/Tools/18.svg",
-                "/Tools/19.svg",
-                "/Tools/20.svg",
-                "/Tools/21.svg",
-                "/Tools/22.svg",
-                "/Tools/23.svg",
-                "/Tools/24.svg",
-                "/Tools/25.svg",
+                "/Tools_Color/1.svg",
+                "/Tools_Color/2.svg",
+                "/Tools_Color/3.svg",
+                "/Tools_Color/4.svg",
+                "/Tools_Color/5.svg",
+                "/Tools_Color/6.svg",
+                "/Tools_Color/7.svg",
+                "/Tools_Color/75.svg",
+                "/Tools_Color/76.svg",
+                "/Tools_Color/77.svg",
+                "/Tools_Color/78.svg",
+                "/Tools_Color/79.svg",
+                "/Tools_Color/80.svg",
+                "/Tools_Color/81.svg",
+                "/Tools_Color/82.svg",
               ].map((src, i) => (
                 <Image
                   key={`dup-${i}`}
@@ -461,7 +441,7 @@ export default function Home() {
                   alt=""
                   width={150}
                   height={48}
-                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-45 hover:opacity-85 transition-opacity duration-300"
+                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
                 />
               ))}
             </div>
@@ -472,11 +452,11 @@ export default function Home() {
 
 
       {/* ── Why Choose Us ── */}
-      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
+      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Staggered Stats & Dots */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-8 items-start select-none">
+          <div className="lg:col-span-6 grid grid-cols-2 gap-8 items-start select-none order-2 lg:order-none">
             {/* Column 1: Dot, 3.2S, Dot */}
             <div className="flex flex-col justify-between h-[360px] sm:h-[420px] pr-4">
               <div className="text-4xl text-black">•</div>
@@ -514,7 +494,7 @@ export default function Home() {
           </div>
 
           {/* Right Column: Copy & Citation */}
-          <div className="lg:col-span-6 flex flex-col justify-between h-full">
+          <div className="lg:col-span-6 flex flex-col justify-between h-full order-1 lg:order-none">
             <div>
               <span className="text-md font-medium text-black tracking-wider uppercase block mb-6">
                 Why Choose Us
@@ -532,7 +512,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#FFFCF5] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
+      <section className="relative bg-[#FCFCFD] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
@@ -579,7 +559,7 @@ export default function Home() {
           {/* Bento-box Grid Version */}
           <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2">
             {/* Card 1 (Col Span: 3 | Blue Bg): 1.5x increase in qualified meetings */}
-            <div className="col-span-12 md:col-span-3 bg-[#CA90F1] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="col-span-12 md:col-span-3 bg-[#F8F3FF] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
@@ -661,7 +641,7 @@ export default function Home() {
             </div>
 
             {/* Card 6 (Col Span: 3 | Warm Sand Bg): $1M+ pipeline generated in first 3 months */}
-            <div className="col-span-12 md:col-span-3 bg-[#facc15] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="col-span-12 md:col-span-3 bg-[#FFF4C7] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
@@ -676,7 +656,7 @@ export default function Home() {
           {/* Mobile Carousel & Testimonials Version */}
           <div className="block md:hidden space-y-4">
             {/* Card 1: 3.2x increase ... */}
-            <div className="bg-[#CA90F1] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+            <div className="bg-[#F8F3FF] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
               <div className="flex flex-col">
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
@@ -688,7 +668,7 @@ export default function Home() {
             </div>
 
             {/* Card 6: 150%+ more leads ... */}
-            <div className="bg-[#facc15] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+            <div className="bg-[#FFF4C7] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
               <div className="flex flex-col">
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
@@ -763,7 +743,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. Our Work ── */}
-      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 -mt-5">
+      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 -mt-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
             <div className="max-w-xl">
@@ -816,9 +796,6 @@ export default function Home() {
                           </span>
                         ))}
                       </div>
-                      <span className="text-xl" title="Country">
-                        {project.flag}
-                      </span>
                     </div>
                   </div>
                 </article>
@@ -829,7 +806,7 @@ export default function Home() {
       </section>
 
       {/* ── 4. How We Help ── */}
-      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
+      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center mb-16">
             
@@ -898,7 +875,7 @@ export default function Home() {
       </section>
 
       {/* ── 5. Flow Section ── */}
-      <section className="relative bg-[#FFFCF5] py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
+      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
