@@ -71,47 +71,42 @@ const teamMembers = [
 
 const statsItems = [
   {
-    target: 15,
-    suffix: "+",
-    label: "Years of clinical experience",
-  },
-  {
-    target: 12,
-    suffix: "k+",
-    label: "Smiles treated and counting",
-  },
-  {
-    target: 98,
-    suffix: "%",
-    label: "Patient satisfaction rating",
-  },
-  {
-    target: 9,
+    target: 142,
     suffix: "",
-    label: "Specialists across every field",
+    label: "Campaigns / Month",
+  },
+  {
+    target: 4,
+    suffix: "M",
+    label: "Impressions",
+  },
+  {
+    target: 497,
+    suffix: "",
+    label: "Personalized Ads",
   },
 ];
 
 const storyData = {
   kicker: "Our Story",
-  title: "Care that started with a simple promise",
+  title: "Craft that started with a simple promise",
   paragraphs: [
-    "Dentora began with a single treatment room and one belief: going to the dentist shouldn't feel like something to endure. From our first patient onward, we designed every detail — from the light in our waiting area to the way we explain each procedure — around calm, clarity, and trust.",
-    "Today, our team of nine specialists covers everything from preventive care to full-mouth restoration, supported by 3D imaging, same-day crowns, and digital treatment planning. But the promise hasn't changed: honest advice, gentle hands, and a plan that fits your life — not the other way around.",
-    "We measure success in quiet moments: a nervous patient who falls asleep in the chair, a teenager smiling freely in photos again, a family that's been with us for a decade. That's the work we're proudest of."
+    "DesignNCode began with a small shared desk and a single belief: building for the web shouldn't feel like a compromise. From our very first line of code, we designed every interaction — from the layout of a landing page to the underlying API structure — around speed, aesthetics, and trust.",
+    "Today, our team of developers and designers covers everything from headless CMS to custom web products, supported by modern frameworks, micro-interactions, and performant marketing operations. But the promise remains unchanged: beautiful design, clean engineering, and digital products that fit your brand goals.",
+    "We measure success in real impacts: a brand that doubles its engagement, a platform that scales smoothly under high loads, a client that partners with us year after year. That's the work we're proudest of."
   ],
   cards: [
     {
-      title: "Honesty first",
-      description: "We only recommend treatment you actually need, explained in plain language with clear pricing before we begin."
+      title: "Design first",
+      description: "We prioritize intuitive, gorgeous aesthetics that wow users and represent your brand premiumness."
     },
     {
-      title: "Comfort by design",
-      description: "Noise-cancelling headphones, warm blankets, and sedation options make every visit as calm as possible."
+      title: "Clean engineering",
+      description: "No bloated code or heavy dependencies. We build scalable, lightweight systems optimized for speed."
     },
     {
-      title: "Technology that helps",
-      description: "3D imaging, digital scans, and same-day crowns mean fewer visits, faster healing, and better outcomes."
+      title: "Time respected",
+      description: "We value your schedule. Clear communication, transparency, and timely delivery guide our process."
     }
   ]
 };
@@ -158,26 +153,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* ── Stats Section ── */}
-      <section className="relative w-full max-w-7xl mx-auto py-16 px-6 sm:px-8 lg:px-12 z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {statsItems.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white border border-zinc-200/40 rounded-[12px] p-8 pt-10 pb-8 flex flex-col justify-between transition-all duration-300 ease-out group border-2 border-zinc-100"
-            >
-              <div>
-                <span className="block text-zinc-900 font-medium text-2xl md:text-5xl tracking-tight leading-none group-hover:text-black transition-colors duration-300">
-                  <AnimatedCounter target={item.target} suffix={item.suffix} />
-                </span>
-                <p className="text-zinc-500 font-normal text-sm md:text-base mt-4 leading-normal">
-                  {item.label}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* ── Our Story Section ── */}
       <section className="relative w-full max-w-7xl mx-auto py-16 px-6 sm:px-8 lg:px-12 z-10">
@@ -213,114 +189,113 @@ export default function AboutUs() {
 
         {/* ─── Our Values Section ─── */}
         <div className="mt-28">
-          
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-950 text-center leading-tight mb-16 max-w-3xl mx-auto -mt-5">
-            Principles that guide how we work.
-          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto items-stretch">
+            {/* Row 1 Col 1-2: Header */}
+            <div className="md:col-span-2 flex flex-col justify-center text-left pr-4 mb-8 md:mb-0">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#08302c] mb-3">
+                Why Designncode
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-[#08302c] leading-[1.1]">
+                Trusted by leading<br />
+                businesses with digital<br />
+                & design success
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Card 1: Clarity as Foundation */}
-            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 h-[340px]">
-              {/* Background Mesh Image */}
-              <Image
-                src="/pexels-codioful-7130467.jpg"
-                alt="Clarity as Foundation background"
-                fill
-                className="absolute inset-0 object-cover opacity-35 group-hover:scale-105 transition-transform duration-500 pointer-events-none z-0"
-              />
-              {/* Soft Blue blur gradient circle bottom-right */}
-              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-blue-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none z-0" />
-              <div className="relative z-10">
-                {/* Icon Circle */}
-                <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
-                  <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                    <ellipse cx="12" cy="5" rx="9" ry="3" />
-                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                    <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
-                  </svg>
-                </div>
-                <h3 className="text-zinc-950 font-bold text-xl tracking-tight mb-3">
-                  Clarity as Foundation
-                </h3>
-                <p className="text-zinc-500 text-sm leading-relaxed max-w-[260px]">
-                  Every project begins with understanding —bringing structure to ideas before moving into execution.
-                </p>
+            {/* Row 1 Col 3: Teal Card */}
+            <div className="rounded-[32px] bg-[#00e1cf] text-[#08302c] p-8 flex flex-col justify-between h-[280px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
+              {/* Layer Stack Icon */}
+              <div className="w-10 h-10 flex items-center justify-start">
+                <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
               </div>
-              <div className="mt-auto flex justify-end relative z-10">
-                <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
-                  Clear Direction
-                </span>
+              <div className="text-left">
+                <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  Consistent Branding
+                </h3>
+                <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
+                  Ensure every campaign aligns with your brand's identity.
+                </p>
               </div>
             </div>
 
-            {/* Card 2: Intentional Craft */}
-            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 h-[340px]">
-              {/* Background Mesh Image */}
-              <Image
-                src="/pexels-codioful-7130467.jpg"
-                alt="Intentional Craft background"
-                fill
-                className="absolute inset-0 object-cover opacity-35 group-hover:scale-105 transition-transform duration-500 pointer-events-none z-0"
-              />
-              {/* Soft Pink blur gradient circle bottom-right */}
-              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-pink-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none z-0" />
-              <div className="relative z-10">
-                {/* Icon Circle */}
-                <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
-                  <svg className="w-5 h-5 text-pink-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                    <path d="M12 22V12M12 2v6" />
-                    <path d="M17 13l-5-5-5 5" />
-                    <rect x="3" y="18" width="18" height="4" rx="1" />
-                  </svg>
-                </div>
-                <h3 className="text-zinc-950 font-bold text-xl tracking-tight mb-3">
-                  Intentional Craft
-                </h3>
-                <p className="text-zinc-500 text-sm leading-relaxed max-w-[260px]">
-                  We design and build with care, where every detail serves a purpose and contributes to a cohesive whole.
-                </p>
+            {/* Row 1 Col 4: Curved Panel 1 */}
+            <div className="relative rounded-[32px] bg-[#f0f3f2] h-[280px] overflow-hidden hidden md:block select-none">
+              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-[#fcfcfd]" />
+            </div>
+
+            {/* Row 2 Col 1: Curved Panel 2 */}
+            <div className="relative rounded-[32px] bg-[#f0f3f2] h-[280px] overflow-hidden hidden md:block select-none">
+              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#fcfcfd]" />
+            </div>
+
+            {/* Row 2 Col 2: Dark Green Card */}
+            <div className="rounded-[32px] bg-[#08302c] text-white p-8 flex flex-col justify-between h-[280px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
+              {/* Nodes/Connections Icon */}
+              <div className="w-10 h-10 flex items-center justify-start">
+                <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 8A3 3 0 1018 2A3 3 0 0018 8zM6 15A3 3 0 106 9A3 3 0 006 15zM18 22A3 3 0 1018 16A3 3 0 0018 22z" />
+                  <path d="M8.59 13.51l5.83 3.4M14.4 7.1l-5.8 3.4" />
+                </svg>
               </div>
-              <div className="mt-auto flex justify-end relative z-10">
-                <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
-                  Thoughtful & precise
-                </span>
+              <div className="text-left">
+                <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  Automation & Precision
+                </h3>
+                <p className="text-xs opacity-90 leading-relaxed max-w-[220px]">
+                  Effortlessly manage and personalize campaigns.
+                </p>
               </div>
             </div>
 
-            {/* Card 3: Measured Pace */}
-            <div className="group relative rounded-3xl border border-zinc-200/50 p-8 pt-10 pb-8 flex flex-col justify-between overflow-hidden bg-white/60 backdrop-blur-md shadow-xs transition-all duration-300 h-[340px]">
-              {/* Background Mesh Image */}
-              <Image
-                src="/pexels-codioful-7130467.jpg"
-                alt="Measured Pace background"
-                fill
-                className="absolute inset-0 object-cover opacity-35 group-hover:scale-105 transition-transform duration-500 pointer-events-none z-0"
-              />
-              {/* Soft Teal blur gradient circle bottom-right */}
-              <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-teal-400/20 blur-3xl group-hover:scale-110 transition-transform duration-500 pointer-events-none z-0" />
-              <div className="relative z-10">
-                {/* Icon Circle */}
-                <div className="w-10 h-10 rounded-full bg-white shadow-xs border border-zinc-100 flex items-center justify-center mb-6">
-                  <svg className="w-5 h-5 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                    <line x1="18" y1="20" x2="18" y2="10" />
-                    <line x1="12" y1="20" x2="12" y2="4" />
-                    <line x1="6" y1="20" x2="6" y2="14" />
-                  </svg>
-                </div>
-                <h3 className="text-zinc-950 font-bold text-xl tracking-tight mb-3">
-                  Measured Pace
-                </h3>
-                <p className="text-zinc-500 text-sm leading-relaxed max-w-[260px]">
-                  We move steadily and with intention, allowing ideas to develop without losing momentum.
-                </p>
+            {/* Row 2 Col 3: Curved Panel 3 */}
+            <div className="relative rounded-[32px] bg-[#f0f3f2] h-[280px] overflow-hidden hidden md:block select-none">
+              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#fcfcfd]" />
+            </div>
+
+            {/* Row 2 Col 4: Yellow Card */}
+            <div className="rounded-[32px] bg-[#efff3c] text-[#08302c] p-8 flex flex-col justify-between h-[280px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
+              {/* Scale/Resize Icon */}
+              <div className="w-10 h-10 flex items-center justify-start">
+                <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 5v14M19 12H5M12 5l3 3M12 5L9 8M12 19l3-3M12 19l-3-3" />
+                </svg>
               </div>
-              <div className="mt-auto flex justify-end relative z-10">
-                <span className="bg-white text-zinc-800 text-[11px] font-medium px-3.5 py-1.5 rounded-full border border-zinc-200/60 shadow-xs select-none">
-                  Right progress
-                </span>
+              <div className="text-left">
+                <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  Scalable Solutions
+                </h3>
+                <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
+                  Managing complex campaigns across multiple locations.
+                </p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Stats Section ── */}
+      <section className="relative w-full max-w-6xl mx-auto py-20 px-6 sm:px-8 lg:px-12 z-10 border-t border-zinc-100 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+          {statsItems.map((item, index) => (
+            <div key={index} className="flex flex-col text-left">
+              {/* Number */}
+              <div className="text-[64px] sm:text-[80px] font-black text-[#08302c] tracking-tight leading-none">
+                <AnimatedCounter target={item.target} suffix={item.suffix} />
+              </div>
+              
+              {/* Horizontal line divider */}
+              <div className="h-[2px] bg-zinc-200 w-full mt-4 mb-4" />
+              
+              {/* Label */}
+              <p className="text-[#08302c] font-black text-[13px] tracking-wider uppercase">
+                {item.label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 

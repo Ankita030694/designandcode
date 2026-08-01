@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import SpecularButton from "@/components/SpecularButton";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
 import { COUNTRY_CODES } from "../../data/CC";
@@ -386,12 +387,17 @@ export default function ContactUs() {
                   </div>
 
                   {/* Field 6: Submit Button */}
-                  <button
+                  <SpecularButton
                     type="submit"
-                    className="w-full py-4 bg-[#facc15] hover:bg-[#facc15] text-white font-bold rounded-full text-base transition-colors duration-200 shadow-md cursor-pointer mt-2"
+                    className="w-full py-3 mt-2 text-base font-bold"
+                    baseColor="#18181b"
+                    textColor="#ffffff"
+                    lineColor="#ffffff"
+                    radius={9999}
+                    intensity={1.2}
                   >
                     Submit
-                  </button>
+                  </SpecularButton>
 
                 </form>
               )}

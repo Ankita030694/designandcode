@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import SpecularButton from "@/components/SpecularButton";
 import Footer from "./Components/footer";
 import CTA from "./Components/cta";
 import FAQ from "./Components/FAQ";
@@ -365,18 +366,28 @@ export default function Home() {
               We create thoughtful work through a refined process, guided by clear thinking and a deep respect for time.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 select-none w-full sm:w-auto">
-              <Link
+              <SpecularButton
                 href="/Projects"
-                className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/20 bg-white/15 backdrop-blur-xl text-sm font-medium text-white hover:bg-white/25 hover:border-white/40 transition-all duration-200 text-center cursor-pointer shadow-sm"
+                className="w-full sm:w-auto px-6 py-2.5 text-center"
+                baseColor="#18181b"
+                textColor="#ffffff"
+                lineColor="#ffffff"
+                radius={9999}
+                intensity={1.2}
               >
                 Explore Projects
-              </Link>
-              <Link
+              </SpecularButton>
+              <SpecularButton
                 href="/ContactUs"
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-sm font-medium text-zinc-900 hover:bg-zinc-100 transition-all duration-200 text-center shadow-md cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 text-center"
+                baseColor="#18181b"
+                textColor="#ffffff"
+                lineColor="#ffffff"
+                radius={9999}
+                intensity={1.2}
               >
                 Start a project
-              </Link>
+              </SpecularButton>
             </div>
           </div>
         </div>
@@ -752,12 +763,17 @@ export default function Home() {
                 Brands from around the world. Projects of every shape and size. Each one built to perform.
               </p>
             </div>
-            <Link
+            <SpecularButton
               href="/Projects"
-              className="flex-shrink-0 self-start px-6 py-3 rounded-full bg-zinc-900 text-white text-[15px] font-regular shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200 cursor-pointer"
+              className="flex-shrink-0 self-start px-6 py-2.5"
+              baseColor="#18181b"
+              textColor="#ffffff"
+              lineColor="#ffffff"
+              radius={9999}
+              intensity={1.2}
             >
               View All Projects
-            </Link>
+            </SpecularButton>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">

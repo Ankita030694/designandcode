@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SpecularButton from "@/components/SpecularButton";
 import Footer from "../../Components/footer";
 import CTA from "../../Components/cta";
 import FAQ from "../../Components/FAQ";
@@ -353,15 +354,23 @@ export default function UiUxDesignService() {
           </p>
 
           {/* Action CTA Button */}
-          <button className="flex items-center gap-2.5 bg-white border border-zinc-200 rounded-full px-6 py-3 text-sm font-medium text-zinc-800 shadow-sm hover:shadow-md hover:border-zinc-300 transition-all duration-300 select-none cursor-pointer">
-            <svg className="w-4 h-4 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <SpecularButton
+            href="/ContactUs"
+            className="flex items-center gap-2.5 py-2.5 px-6"
+            baseColor="#18181b"
+            textColor="#ffffff"
+            lineColor="#ffffff"
+            radius={9999}
+            intensity={1.2}
+          >
+            <svg className="w-4 h-4 text-white/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               <circle cx="8" cy="10" r="0.5" fill="currentColor" />
               <circle cx="12" cy="10" r="0.5" fill="currentColor" />
               <circle cx="16" cy="10" r="0.5" fill="currentColor" />
             </svg>
             <span>Let&apos;s Build Together</span>
-          </button>
+          </SpecularButton>
         </div>
 
         {/* Floating Capsule Toolbar / Dock */}
