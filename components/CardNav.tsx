@@ -48,6 +48,7 @@ const CardNav: React.FC<CardNavProps> = ({
   const navRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const isFirstMount = useRef(true);
 
   const calculateHeight = () => {
     const navEl = navRef.current;
@@ -141,21 +142,32 @@ const CardNav: React.FC<CardNavProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [isExpanded]);
 
-  const toggleMenu = () => {
+  useLayoutEffect(() => {
     const tl = tlRef.current;
     if (!tl) return;
-    if (!isExpanded) {
-      setIsHamburgerOpen(true);
-      setIsExpandedLocal(true);
-      onExpandedChange?.(true);
-      tl.play(0);
+
+    setIsHamburgerOpen(isExpanded);
+
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      if (isExpanded) {
+        tl.progress(1);
+      }
+      return;
+    }
+
+    if (isExpanded) {
+      tl.play();
     } else {
-      setIsHamburgerOpen(false);
-      tl.eventCallback('onReverseComplete', () => {
-        setIsExpandedLocal(false);
-        onExpandedChange?.(false);
-      });
       tl.reverse();
+    }
+  }, [isExpanded]);
+
+  const toggleMenu = () => {
+    const nextState = !isExpanded;
+    onExpandedChange?.(nextState);
+    if (propIsExpanded === undefined) {
+      setIsExpandedLocal(nextState);
     }
   };
 
@@ -234,7 +246,12 @@ const CardNav: React.FC<CardNavProps> = ({
                     key={`${lnk.label}-${i}`}
                     className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
                     href={lnk.href}
-                    onClick={toggleMenu}
+                    onClick={() => {
+                      onExpandedChange?.(false);
+                      if (propIsExpanded === undefined) {
+                        setIsExpandedLocal(false);
+                      }
+                    }}
                     aria-label={lnk.ariaLabel}
                   >
                     <svg className="w-4 h-4 nav-card-link-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

@@ -38,6 +38,10 @@ export default function Navbar() {
   }
 
   useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (isMenuOpen) return;
       const currentScrollY = window.scrollY;

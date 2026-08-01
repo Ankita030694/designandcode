@@ -99,69 +99,156 @@ const projects = PROJECTS_DATA.slice(0, 4).map((project, idx) => ({
   ...project,
   stagger: idx % 2 === 1,
 }));
+const ClientLogo1 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/Logo_Primary_Logo 1.png"
+    alt="Client Logo 1"
+    className="h-[55px] max-w-[200px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
 
-const testimonials = [
+const ClientLogo2 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/Logo_Lockup__1_-removebg-preview 1.png"
+    alt="Client Logo 2"
+    className="h-[55px] max-w-[200px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
+
+const ClientLogo3 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/Anyadha-removebg-preview 1.png"
+    alt="Client Logo 3"
+    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
+
+const ClientLogo4 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/foire_logo_1_-01-removebg-preview 1.png"
+    alt="Client Logo 4"
+    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
+
+const ClientLogo5 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/transparent-D0veniAb__1_-removebg-preview 1.png"
+    alt="Client Logo 5"
+    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
+
+const ClientLogo6 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/Asset_1_2x_1-removebg-preview 1.png"
+    alt="Client Logo 6"
+    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
+
+const ClientLogo7 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/logo-01_400x200-removebg-preview 1.png"
+    alt="Client Logo 7"
+    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
+
+const ClientLogo8 = () => (
+  <img
+    src="/LOGO DESIGNNCODE/Group_7-removebg-preview 1.png"
+    alt="Client Logo 8"
+    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+  />
+);
+
+const logoPool1 = [<ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />];
+const logoPool2 = [<ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />, <ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />];
+const logoPool3 = [<ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />, <ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />];
+const logoPool4 = [<ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />, <ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />];
+
+const mobileTestimonials = [
   {
-    company: "AMA Legal Solutions",
-    logo: (
-      <span className="flex items-center gap-2 font-semibold text-zinc-800 tracking-tight">
-        
-        AMA Legal Solutions
-      </span>
-    ),
-    quote: (
-      <>
-        DesignnCode <GradientHighlight>delivered exactly what we envisioned</GradientHighlight>. Their team
-        understood our requirements, created a modern website, and{" "}
-        <GradientHighlight>ensured every detail reflected our brand</GradientHighlight>. A reliable team that I
-        would highly recommend.
-      </>
-    ),
-    name: "Anuj Anand Malik",
-    role: "Founder, AMA Legal Solutions",
-    initials: "AM",
+    quote: "We chose Designncode for their commitment to partnership. They were willing to build with us, experiment, and learn what works. We didn't know what was possible at first, but the quality of the output now is incredibly impressive.",
+    name: "Zoë McKenzie",
+    role: "Director of RevOps Technology at Checkr",
+    avatar: "/jennifer.png",
+    logo: <ClientLogo1 />
   },
   {
-    company: "acs",
-    logo: (
-      <span className="flex items-center gap-2 font-semibold text-zinc-800 tracking-tight lowercase">
-        <span className="w-6 h-6 rounded-full border-2 border-zinc-800 flex items-center justify-center text-[8px] font-bold">
-          acs
-        </span>
-        acs
-      </span>
-    ),
-    quote: (
-      <>
-        What&apos;s particularly impressive is{" "}
-        <GradientHighlight>their ability to think beyond</GradientHighlight> just the immediate project, sharing
-        knowledge that benefits our company as a whole.
-      </>
-    ),
-    name: "Silas Gregory",
-    role: "Marketing Manager, ACS",
-    initials: "SG",
-  },
-  {
-    company: "amplifidor",
-    logo: (
-      <span className="flex items-center gap-2 font-semibold text-zinc-800 tracking-tight lowercase">
-        <span className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[14px] border-b-zinc-800" />
-        amplifidor
-      </span>
-    ),
-    quote: (
-      <>
-        The team is <GradientHighlight>highly responsive, attentive, and collaborative</GradientHighlight>. They ask
-        insightful questions, provide input, and raise objections when necessary.{" "}
-        <GradientHighlight>They truly act as part of our team</GradientHighlight> rather than just a vendor.
-      </>
-    ),
-    name: "Faisal Alqahtani",
-    role: "CEO, Amplifidor",
-    initials: "FA",
-  },
+    quote: "Designncode became the execution layer behind our inbound and outbound motions. It made our sales operation leaner, more efficient, and easier to scale.",
+    name: "Mark Deacon",
+    role: "Chief Revenue Operations Officer at canibuild",
+    avatar: "/charlie.png",
+    logo: <ClientLogo2 />
+  }
 ];
+
+function SlotMachineLogo({
+  logos,
+  interval = 3500,
+  staggerDelay = 0,
+  align = "center",
+}: {
+  logos: React.ReactNode[];
+  interval?: number;
+  staggerDelay?: number;
+  align?: "left" | "center";
+}) {
+  const [index, setIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  // Clone first item to create a seamless scroll loop
+  const displayLogos = [...logos, logos[0]];
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      const timer = setInterval(() => {
+        setIsTransitioning(true);
+        setIndex((prev) => {
+          if (prev >= logos.length) {
+            return 1;
+          }
+          return prev + 1;
+        });
+      }, interval);
+
+      return () => clearInterval(timer);
+    }, staggerDelay);
+
+    return () => clearTimeout(startTimeout);
+  }, [logos.length, interval, staggerDelay]);
+
+  const handleTransitionEnd = () => {
+    if (index >= logos.length) {
+      setIsTransitioning(false);
+      setIndex(0);
+    }
+  };
+
+  return (
+    <div className={`relative h-[62px] overflow-hidden w-full flex ${align === "left" ? "justify-start" : "justify-center"}`}>
+      <div
+        className="flex flex-col w-full"
+        style={{
+          transition: isTransitioning ? "transform 700ms cubic-bezier(0.76, 0, 0.24, 1)" : "none",
+          transform: `translateY(-${index * 62}px)`,
+        }}
+        onTransitionEnd={handleTransitionEnd}
+      >
+        {displayLogos.map((logo, idx) => (
+          <div
+            key={idx}
+            className={`h-[62px] w-full flex items-center ${align === "left" ? "justify-start" : "justify-center"} flex-shrink-0`}
+          >
+            {logo}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /* ─── Helpers ─── */
 
@@ -194,6 +281,7 @@ function SectionDivider() {
 export default function Home() {
 
   const [scrollY, setScrollY] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -205,28 +293,7 @@ export default function Home() {
 
 
 
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const diff = touchStartX.current - touchEndX.current;
-    if (diff > 50) {
-      setActiveTestimonial((prev) => Math.min(prev + 1, testimonials.length - 1));
-    }
-    if (diff < -50) {
-      setActiveTestimonial((prev) => Math.max(prev - 1, 0));
-    }
-  };
 
   const [activePartner, setActivePartner] = useState(0);
   const touchPartnerStartX = useRef(0);
@@ -465,12 +532,12 @@ export default function Home() {
       </section>
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#FFFCF5] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-20 z-10 py-10">
+      <section className="relative bg-[#FFFCF5] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
           <div className="relative z-10 pt-8 pb-14 flex flex-col items-center">
-            <h2 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-900 text-center">
+            <h2 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-900 text-center mt-6 md:-mt-24">
               <span>Why clients</span>
 
               <span className="relative inline-flex items-center mx-1 sm:mx-2 group">
@@ -509,68 +576,187 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Desktop version */}
-          <div className="hidden md:grid grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100/80 flex flex-col hover:shadow-md transition-shadow duration-300"
-              >
-                <div className="mb-8">{t.logo}</div>
-                <p className="text-zinc-600 text-[15px] leading-relaxed flex-1">{t.quote}</p>
-                <div className="mt-8 pt-6 border-t border-dotted border-zinc-200 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-zinc-200 flex items-center justify-center text-xs font-semibold text-zinc-600 grayscale">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-zinc-900 text-sm">{t.name}</p>
-                    <p className="text-zinc-400 text-xs mt-0.5">{t.role}</p>
-                  </div>
-                </div>
+          {/* Bento-box Grid Version */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2">
+            {/* Card 1 (Col Span: 3 | Blue Bg): 1.5x increase in qualified meetings */}
+            <div className="col-span-12 md:col-span-3 bg-[#CA90F1] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="flex flex-col">
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
+                <span className="text-zinc-700 text-xs font-regular mt-1.5">in organic website traffic</span>
               </div>
-            ))}
-          </div>
-
-          {/* Mobile version draggable slider */}
-          <div className="block md:hidden w-full overflow-hidden">
-            <div
-              className="flex transition-transform duration-300 ease-out cursor-grab active:cursor-grabbing"
-              style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {testimonials.map((t) => (
-                <div key={t.name} className="w-full shrink-0 px-2 select-none">
-                  <div className="bg-white rounded-3xl p-8 shadow-sm border border-zinc-100/80 flex flex-col min-h-[300px]">
-                    <div className="mb-8">{t.logo}</div>
-                    <p className="text-zinc-600 text-[15px] leading-relaxed flex-1">{t.quote}</p>
-                    <div className="mt-8 pt-6 border-t border-dotted border-zinc-200 flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-zinc-200 flex items-center justify-center text-xs font-semibold text-zinc-600 grayscale">
-                        {t.initials}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-zinc-900 text-sm">{t.name}</p>
-                        <p className="text-zinc-400 text-xs mt-0.5">{t.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <div className="mt-6 border-t border-black/10 pt-3">
+                <SlotMachineLogo logos={logoPool1} staggerDelay={0} align="left" />
+              </div>
             </div>
 
-            {/* Pagination Dots */}
-            <div className="flex justify-center gap-2.5 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    activeTestimonial === index ? "w-6 bg-zinc-900" : "w-2.5 bg-zinc-300"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
+            {/* Card 2 (Col Span: 3 | Glassy Teal Bg): Ouster centered logo slot-machine */}
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 bg-gradient-to-br from-teal-400/25 via-teal-500/10 to-teal-600/20 backdrop-blur-md border border-teal-200/30 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.45),_0_8px_32px_rgba(20,184,166,0.12)] hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.6),_0_12px_40px_rgba(20,184,166,0.2)] transition-all duration-500 group">
+              {/* Glossy Diagonal Reflection Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 opacity-80 pointer-events-none" />
+              {/* Inner 3D Glow Rim */}
+              <div className="absolute inset-[1px] rounded-[23px] bg-gradient-to-br from-teal-300/10 via-transparent to-transparent pointer-events-none" />
+              <SlotMachineLogo logos={logoPool2} staggerDelay={400} align="center" />
+            </div>
+
+            {/* Card 3 (Col Span: 6 | White Bg): Zoë McKenzie Checkr testimonial */}
+            <div className="col-span-12 md:col-span-6 bg-white border border-zinc-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+              <p className="text-zinc-800 font-regular text-md leading-relaxed md:text-lg">
+                "We chose DesignnCode for their commitment to partnership. They were willing to build with us, experiment, and learn what works. We didn&apos;t know what was possible at first, but the quality of the output now is incredibly impressive."
+              </p>
+              <div className="mt-6 pt-4 border-t border-dotted border-zinc-200 flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200/80 bg-zinc-100 flex-shrink-0">
+                    <Image
+                      src="/jennifer.png"
+                      alt="Zoë McKenzie"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-zinc-950 text-xs leading-tight">Zoë McKenzie</p>
+                    <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Director of RevOps Technology at Checkr</p>
+                  </div>
+                </div>
+                <div className="flex-shrink-0 flex items-center scale-90 origin-right">
+                  <ClientLogo1 />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 (Col Span: 3 | Glassy Teal Bg): Rho centered logo slot-machine */}
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 bg-gradient-to-br from-teal-400/25 via-teal-500/10 to-teal-600/20 backdrop-blur-md border border-teal-200/30 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.45),_0_8px_32px_rgba(20,184,166,0.12)] hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.6),_0_12px_40px_rgba(20,184,166,0.2)] transition-all duration-500 group">
+              {/* Glossy Diagonal Reflection Highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 opacity-80 pointer-events-none" />
+              {/* Inner 3D Glow Rim */}
+              <div className="absolute inset-[1px] rounded-[23px] bg-gradient-to-br from-teal-300/10 via-transparent to-transparent pointer-events-none" />
+              <SlotMachineLogo logos={logoPool3} staggerDelay={800} align="center" />
+            </div>
+
+            {/* Card 5 (Col Span: 6 | White Bg): Mark Deacon canibuild testimonial */}
+            <div className="col-span-12 md:col-span-6 bg-white border border-zinc-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+              <p className="text-zinc-800 font-regular text-md leading-relaxed md:text-lg">
+                "DesignnCode became the execution layer behind our inbound and outbound motions. It made our sales operation leaner, more efficient, and easier to scale."
+              </p>
+              <div className="mt-6 pt-4 border-t border-dotted border-zinc-200 flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200/80 bg-zinc-100 flex-shrink-0">
+                    <Image
+                      src="/charlie.png"
+                      alt="Mark Deacon"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-zinc-950 text-xs leading-tight">Mark Deacon</p>
+                    <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Chief Revenue Operations Officer</p>
+                  </div>
+                </div>
+                <div className="flex-shrink-0 flex items-center scale-90 origin-right">
+                  <ClientLogo2 />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 6 (Col Span: 3 | Warm Sand Bg): $1M+ pipeline generated in first 3 months */}
+            <div className="col-span-12 md:col-span-3 bg-[#facc15] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="flex flex-col">
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
+                <span className="text-zinc-700 text-xs font-regular mt-1.5">within 90 days</span>
+              </div>
+              <div className="mt-6 border-t border-black/10 pt-3">
+                <SlotMachineLogo logos={logoPool4} staggerDelay={1200} align="left" />
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Carousel & Testimonials Version */}
+          <div className="block md:hidden space-y-4">
+            {/* Card 1: 3.2x increase ... */}
+            <div className="bg-[#CA90F1] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+              <div className="flex flex-col">
+                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
+                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
+                <span className="text-zinc-700 text-xs font-regular mt-1.5">in organic website traffic</span>
+              </div>
+              <div className="mt-6 border-t border-black/10 pt-3">
+                <SlotMachineLogo logos={logoPool1} staggerDelay={0} align="left" />
+              </div>
+            </div>
+
+            {/* Card 6: 150%+ more leads ... */}
+            <div className="bg-[#facc15] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+              <div className="flex flex-col">
+                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
+                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
+                <span className="text-zinc-700 text-xs font-regular mt-1.5">within 90 days</span>
+              </div>
+              <div className="mt-6 border-t border-black/10 pt-3">
+                <SlotMachineLogo logos={logoPool4} staggerDelay={400} align="left" />
+              </div>
+            </div>
+
+            {/* Testimonial Slider Card */}
+            <div className="bg-white border border-zinc-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[260px] shadow-sm">
+              <p className="text-zinc-800 font-regular text-md leading-relaxed">
+                "{mobileTestimonials[activeTestimonial].quote}"
+              </p>
+              
+              <div className="mt-6 pt-4 border-t border-dotted border-zinc-200 flex flex-col gap-4">
+                <div className="flex items-center justify-between flex-wrap gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200/80 bg-zinc-100 flex-shrink-0">
+                      <Image
+                        src={mobileTestimonials[activeTestimonial].avatar}
+                        alt={mobileTestimonials[activeTestimonial].name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-zinc-950 text-xs leading-tight">
+                        {mobileTestimonials[activeTestimonial].name}
+                      </p>
+                      <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">
+                        {mobileTestimonials[activeTestimonial].role}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0 flex items-center scale-90 origin-right">
+                    {mobileTestimonials[activeTestimonial].logo}
+                  </div>
+                </div>
+
+                {/* Arrow navigation buttons and page indicator */}
+                <div className="flex items-center justify-between mt-2 pt-2 border-t border-zinc-100">
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => setActiveTestimonial((prev) => (prev > 0 ? prev - 1 : mobileTestimonials.length - 1))}
+                      className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-700 hover:bg-zinc-50 transition-colors cursor-pointer select-none"
+                      aria-label="Previous testimonial"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => setActiveTestimonial((prev) => (prev < mobileTestimonials.length - 1 ? prev + 1 : 0))}
+                      className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-700 hover:bg-zinc-50 transition-colors cursor-pointer select-none"
+                      aria-label="Next testimonial"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                  <span className="text-xs font-medium text-zinc-400">
+                    {activeTestimonial + 1} of {mobileTestimonials.length}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
