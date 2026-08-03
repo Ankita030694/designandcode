@@ -1,55 +1,18 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import CircularText from "@/components/CircularText";
 
 export default function GlobalContactWidget() {
   const pathname = usePathname();
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    // If we're on the Contact Us, Admin, or Blog pages, hide the global widget to prevent overlaps
-    if (
-      pathname === "/ContactUs" || 
-      pathname?.startsWith("/admin") || 
-      pathname?.startsWith("/Blogs")
-    ) {
-      setIsVisible(false);
-      return;
-    }
 
-    const handleScroll = () => {
-      // Only show the widget after scrolling past the hero section (300px)
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    // Trigger initial check
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
-
-  if (
-    pathname?.startsWith("/admin") || 
-    pathname?.startsWith("/Blogs") || 
-    pathname === "/ContactUs"
-  ) {
+  if (pathname?.startsWith("/admin")) {
     return null;
   }
 
   return (
-    <div
-      className={`fixed bottom-6 right-6 z-50 pointer-events-none transition-all duration-500 transform ${
-        isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"
-      }`}
-    >
+    <div className="fixed bottom-6 right-6 z-50 pointer-events-none">
       <Link
         href="/ContactUs"
         className="pointer-events-auto relative block group cursor-pointer"

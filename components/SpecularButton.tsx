@@ -27,6 +27,7 @@ export interface SpecularButtonProps {
   tintOpacity?: number;
   blur?: number;
   lineColor?: string;
+  variant?: "primary" | "secondary" | "default";
 }
 
 const SpecularButton = ({
@@ -39,11 +40,14 @@ const SpecularButton = ({
   className = "",
   type = "button",
   disabled = false,
+  variant = "default",
 }: SpecularButtonProps) => {
   const styleObj = {
     "--sb-radius": `${radius}px`,
     "--sb-text-color": textColor,
   } as CSSProperties;
+
+  const variantClass = variant !== "default" ? `specular-button--${variant}` : "";
 
   if (href) {
     return (
@@ -51,7 +55,7 @@ const SpecularButton = ({
         href={href}
         target={target}
         onClick={onClick}
-        className={`specular-button ${className}`}
+        className={`specular-button ${variantClass} ${className}`}
         style={styleObj}
       >
         <span className="specular-button__label">{children}</span>
@@ -64,7 +68,7 @@ const SpecularButton = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`specular-button ${className}`}
+      className={`specular-button ${variantClass} ${className}`}
       style={styleObj}
     >
       <span className="specular-button__label">{children}</span>

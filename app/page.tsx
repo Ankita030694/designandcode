@@ -367,8 +367,21 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 select-none w-full sm:w-auto">
               <SpecularButton
+                href="/ContactUs"
+                variant="primary"
+                className="w-[80%] sm:w-auto px-6 py-2.5 text-center"
+                baseColor="#18181b"
+                textColor="#ffffff"
+                lineColor="#ffffff"
+                radius={9999}
+                intensity={1.2}
+              >
+                Start a Project
+              </SpecularButton>
+              <SpecularButton
                 href="/Projects"
-                className="w-full sm:w-auto px-6 py-2.5 text-center"
+                variant="secondary"
+                className="w-[80%] sm:w-auto px-6 py-2.5 text-center"
                 baseColor="#18181b"
                 textColor="#ffffff"
                 lineColor="#ffffff"
@@ -376,17 +389,6 @@ export default function Home() {
                 intensity={1.2}
               >
                 Explore Projects
-              </SpecularButton>
-              <SpecularButton
-                href="/ContactUs"
-                className="w-full sm:w-auto px-6 py-2.5 text-center"
-                baseColor="#18181b"
-                textColor="#ffffff"
-                lineColor="#ffffff"
-                radius={9999}
-                intensity={1.2}
-              >
-                Start a project
               </SpecularButton>
             </div>
           </div>
