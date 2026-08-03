@@ -3,62 +3,41 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   font-family: inherit;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--sb-text-color);
-  background: color-mix(in srgb, var(--sb-tint) calc(var(--sb-tint-opacity) * 100%), transparent);
-  border-radius: var(--sb-radius);
-  backdrop-filter: blur(var(--sb-blur));
-  border: none;
+  font-weight: 600;
+  color: #ffffff !important;
+  background-color: #09090b !important;
+  border-radius: var(--sb-radius, 28px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   cursor: pointer;
   outline: none;
-  overflow: visible;
+  overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .specular-button:hover {
+  background-color: #18181b !important;
   transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 12px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .specular-button:active {
   transform: translateY(0);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.02),
-    0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #09090b !important;
 }
 
 .specular-button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none !important;
   box-shadow: none !important;
-}
-
-.specular-button__fx {
-  position: absolute;
-  inset: -20px; /* Pads around the button so the glow can bleed out */
-  pointer-events: none;
-  z-index: 1;
-}
-
-.specular-button__fx canvas {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: calc(100% - 40px);
-  height: calc(100% - 40px);
-  pointer-events: none;
 }
 
 .specular-button__label {
