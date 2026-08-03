@@ -6,6 +6,7 @@ import Image from "next/image";
 import CTA from "../Components/cta";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
+import CurvedLoop from "@/components/CurvedLoop";
 
 const AnimatedCounter = ({ target, suffix = "", duration = 1500 }: { target: number; suffix?: string; duration?: number }) => {
   const [count, setCount] = useState(0);
@@ -112,6 +113,50 @@ const storyData = {
 };
 
 export default function AboutUs() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftStart, setScrollLeftStart] = useState(0);
+
+  const handleScroll = () => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const { scrollLeft, scrollWidth, clientWidth } = container;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) {
+      setScrollProgress(0);
+    } else {
+      setScrollProgress((scrollLeft / maxScroll) * 100);
+    }
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const container = carouselRef.current;
+    if (!container) return;
+    setIsDragging(true);
+    setStartX(e.pageX - container.offsetLeft);
+    setScrollLeftStart(container.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const container = carouselRef.current;
+    if (!container) return;
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    container.scrollLeft = scrollLeftStart - walk;
+  };
+
   return (
     <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FCFCFD]">
       {/* ── About Us Hero Section ── */}
@@ -122,7 +167,7 @@ export default function AboutUs() {
         <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto text-center px-4 sm:px-6">
           
           {/* Header Title */}
-          <h1 className="text-2xl sm:text-4xl md:text-6xl font-medium text-zinc-900 tracking-tight leading-tight max-w-4xl mb-4">
+          <h1 className="text-4xl sm:text-6xl md:text-6xl font-medium text-zinc-900 tracking-tight leading-tight max-w-4xl mb-4">
             What&apos;s{" "}
             <span className="inline-flex items-center align-middle mx-1.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 p-2 rounded-xl shadow-md border border-zinc-800 w-10 h-10 sm:w-12 sm:h-12 justify-center">
               <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 24 24">
@@ -151,6 +196,15 @@ export default function AboutUs() {
             />
           </div>
         </div>
+
+        {/* Curved Loop for Mobile Version */}
+        <CurvedLoop
+          marqueeText="DESIGNNCODE • DESIGN • ENGINEERING • MARKETING • DEVELOPMENT • "
+          className="fill-[#000000] font-extrabold uppercase"
+          containerClassName="block md:hidden absolute bottom-[8%] left-0 right-0 w-full h-[120px] flex items-center justify-center select-none overflow-hidden z-20"
+          curveAmount={80}
+          speed={1.5}
+        />
       </section>
 
 
@@ -189,21 +243,28 @@ export default function AboutUs() {
 
         {/* ─── Our Values Section ─── */}
         <div className="mt-28">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto items-stretch">
+          <style dangerouslySetInnerHTML={{__html: `
+            .scrollbar-none::-webkit-scrollbar {
+              display: none;
+            }
+          `}} />
+
+          {/* Desktop View (md and up) */}
+          <div className="hidden md:grid grid-cols-4 gap-6 max-w-5xl mx-auto items-stretch">
             {/* Row 1 Col 1-2: Header */}
             <div className="md:col-span-2 flex flex-col justify-center text-left pr-4 mb-8 md:mb-0">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#08302c] mb-3">
+              <span className="text-xs font-regular tracking-[0.2em] text-[#000000] mb-3">
                 Why Designncode
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-[#08302c] leading-[1.1]">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium uppercase tracking-tight text-[#000000] leading-[1.1]">
                 Trusted by leading<br />
                 businesses with digital<br />
                 & design success
               </h2>
             </div>
 
-            {/* Row 1 Col 3: Teal Card */}
-            <div className="rounded-[32px] bg-[#00e1cf] text-[#08302c] p-8 flex flex-col justify-between h-[280px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
+            {/* Row 1 Col 3: Lavender Purple Card */}
+            <div className="rounded-[24px] bg-[#F7EDFF] text-[#08302c] p-6 flex flex-col justify-between h-[224px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
               {/* Layer Stack Icon */}
               <div className="w-10 h-10 flex items-center justify-start">
                 <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -223,17 +284,17 @@ export default function AboutUs() {
             </div>
 
             {/* Row 1 Col 4: Curved Panel 1 */}
-            <div className="relative rounded-[32px] bg-[#f0f3f2] h-[280px] overflow-hidden hidden md:block select-none">
-              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-[#fcfcfd]" />
+            <div className="relative rounded-[24px] bg-[#f0f3f2] h-[224px] overflow-hidden hidden md:block select-none">
+              <div className="absolute -top-12 -left-12 w-28 h-28 rounded-full bg-[#fcfcfd]" />
             </div>
 
             {/* Row 2 Col 1: Curved Panel 2 */}
-            <div className="relative rounded-[32px] bg-[#f0f3f2] h-[280px] overflow-hidden hidden md:block select-none">
-              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#fcfcfd]" />
+            <div className="relative rounded-[24px] bg-[#f0f3f2] h-[224px] overflow-hidden hidden md:block select-none">
+              <div className="absolute -bottom-12 -right-12 w-28 h-28 rounded-full bg-[#fcfcfd]" />
             </div>
 
             {/* Row 2 Col 2: Dark Green Card */}
-            <div className="rounded-[32px] bg-[#08302c] text-white p-8 flex flex-col justify-between h-[280px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
+            <div className="rounded-[24px] bg-[#FFF8E5] text-black p-6 flex flex-col justify-between h-[224px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
               {/* Nodes/Connections Icon */}
               <div className="w-10 h-10 flex items-center justify-start">
                 <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -252,12 +313,12 @@ export default function AboutUs() {
             </div>
 
             {/* Row 2 Col 3: Curved Panel 3 */}
-            <div className="relative rounded-[32px] bg-[#f0f3f2] h-[280px] overflow-hidden hidden md:block select-none">
-              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#fcfcfd]" />
+            <div className="relative rounded-[24px] bg-[#f0f3f2] h-[224px] overflow-hidden hidden md:block select-none">
+              <div className="absolute -bottom-12 -right-12 w-28 h-28 rounded-full bg-[#fcfcfd]" />
             </div>
 
             {/* Row 2 Col 4: Yellow Card */}
-            <div className="rounded-[32px] bg-[#efff3c] text-[#08302c] p-8 flex flex-col justify-between h-[280px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
+            <div className="rounded-[24px] bg-[#FFF8E5] text-black p-6 flex flex-col justify-between h-[224px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
               {/* Scale/Resize Icon */}
               <div className="w-10 h-10 flex items-center justify-start">
                 <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -274,16 +335,117 @@ export default function AboutUs() {
               </div>
             </div>
           </div>
+
+          {/* Mobile Carousel View (md:hidden) */}
+          <div className="block md:hidden max-w-md mx-auto">
+            {/* Header */}
+            <div className="flex flex-col justify-center text-left px-6 mb-6">
+              <span className="text-xs font-regular tracking-[0.2em] text-[#000000] mb-2">
+                Why Designncode
+              </span>
+              <h2 className="text-3xl font-medium uppercase tracking-tight text-[#000000] leading-[1.1]">
+                Trusted by leading<br />
+                businesses with digital<br />
+                & design success
+              </h2>
+            </div>
+
+            {/* Carousel Container */}
+            <div
+              ref={carouselRef}
+              onScroll={handleScroll}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none cursor-grab active:cursor-grabbing px-6 py-2"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
+            >
+              {/* Card 1: Lavender Purple */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#F7EDFF] text-[#08302c] p-6 flex flex-col justify-between h-[224px] shadow-sm select-none">
+                {/* Layer Stack Icon */}
+                <div className="w-10 h-10 flex items-center justify-start">
+                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                    Consistent Branding
+                  </h3>
+                  <p className="text-xs font-semibold opacity-90 leading-relaxed">
+                    Ensure every campaign aligns with your brand's identity.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2: Dark Green */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#08302c] text-white p-6 flex flex-col justify-between h-[224px] shadow-sm select-none">
+                {/* Nodes/Connections Icon */}
+                <div className="w-10 h-10 flex items-center justify-start">
+                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8A3 3 0 1018 2A3 3 0 0018 8zM6 15A3 3 0 106 9A3 3 0 006 15zM18 22A3 3 0 1018 16A3 3 0 0018 22z" />
+                    <path d="M8.59 13.51l5.83 3.4M14.4 7.1l-5.8 3.4" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                    Automation & Precision
+                  </h3>
+                  <p className="text-xs opacity-90 leading-relaxed">
+                    Effortlessly manage and personalize campaigns.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3: Light Yellow */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#FFF8E5] text-[#08302c] p-6 flex flex-col justify-between h-[224px] shadow-sm select-none">
+                {/* Scale/Resize Icon */}
+                <div className="w-10 h-10 flex items-center justify-start">
+                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 5v14M19 12H5M12 5l3 3M12 5L9 8M12 19l3-3M12 19l-3-3" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                    Scalable Solutions
+                  </h3>
+                  <p className="text-xs font-semibold opacity-90 leading-relaxed">
+                    Managing complex campaigns across multiple locations.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="mt-4 flex justify-center">
+              <div className="relative w-[120px] h-[3px] bg-zinc-200 rounded-full overflow-hidden">
+                <div
+                  className="absolute top-0 bottom-0 bg-[#BD70F0] rounded-full transition-transform duration-100 ease-out"
+                  style={{
+                    width: "40px",
+                    transform: `translateX(${(scrollProgress / 100) * 80}px)`
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── Stats Section ── */}
-      <section className="relative w-full max-w-6xl mx-auto py-20 px-6 sm:px-8 lg:px-12 z-10 border-t border-zinc-100 mt-16">
+      <section className="relative w-full max-w-6xl mx-auto py-20 px-6 sm:px-8 lg:px-12 z-10 border-t border-zinc-100 -mt-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {statsItems.map((item, index) => (
             <div key={index} className="flex flex-col text-left">
               {/* Number */}
-              <div className="text-[64px] sm:text-[80px] font-black text-[#08302c] tracking-tight leading-none">
+              <div className="text-[64px] sm:text-[80px] font-medium text-[#BD70F0] tracking-tight leading-none">
                 <AnimatedCounter target={item.target} suffix={item.suffix} />
               </div>
               
@@ -291,7 +453,7 @@ export default function AboutUs() {
               <div className="h-[2px] bg-zinc-200 w-full mt-4 mb-4" />
               
               {/* Label */}
-              <p className="text-[#08302c] font-black text-[13px] tracking-wider uppercase">
+              <p className="text-[#08302c] font-regular text-[13px] tracking-wider uppercase">
                 {item.label}
               </p>
             </div>

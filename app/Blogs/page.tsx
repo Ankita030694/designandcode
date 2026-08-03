@@ -161,9 +161,50 @@ export default function BlogsPage() {
             slug: data.slug || doc.id
           };
         });
-        setBlogsData(fetchedBlogs);
+        const mergedBlogs = [...fetchedBlogs];
+        const hasDummy = mergedBlogs.some(b => b.slug === "personal-loan-harassment-india-guide");
+        if (!hasDummy) {
+          mergedBlogs.push({
+            id: "personal-loan-harassment-india-guide",
+            slug: "personal-loan-harassment-india-guide",
+            title: "The Ultimate Guide to Modern Web Development & UI/UX Design for Enterprise Scale",
+            description: "An in-depth handbook on building modular, high-performance web systems using composable architecture and design systems for enterprise scale.",
+            contentType: "Guides",
+            topic: "Web Dev & Design",
+            tag: "Comprehensive Guide",
+            date: "August 3, 2026",
+            duration: "15 min read",
+            author: {
+              name: "Ankita Malik",
+              avatar: "/ankita.png"
+            },
+            image: "/Web.svg",
+            isFeatured: false
+          });
+        }
+        setBlogsData(mergedBlogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);
+        setBlogsData([
+          ...BLOG_POSTS,
+          {
+            id: "personal-loan-harassment-india-guide",
+            slug: "personal-loan-harassment-india-guide",
+            title: "The Ultimate Guide to Modern Web Development & UI/UX Design for Enterprise Scale",
+            description: "An in-depth handbook on building modular, high-performance web systems using composable architecture and design systems for enterprise scale.",
+            contentType: "Guides",
+            topic: "Web Dev & Design",
+            tag: "Comprehensive Guide",
+            date: "August 3, 2026",
+            duration: "15 min read",
+            author: {
+              name: "Ankita Malik",
+              avatar: "/ankita.png"
+            },
+            image: "/Web.svg",
+            isFeatured: false
+          }
+        ]);
       } finally {
         setIsLoading(false);
       }

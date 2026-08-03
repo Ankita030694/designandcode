@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import SpecularButton from "@/components/SpecularButton";
 
 export default function CTA() {
   return (
@@ -91,13 +90,9 @@ export default function CTA() {
               </ul>
 
               {/* Button */}
-              <SpecularButton
+              <Link
                 href="/ContactUs"
-                className="w-full py-3.5 flex items-center justify-center gap-2.5 text-[15px]"
-                baseColor="#18181b"
-                textColor="#ffffff"
-                radius={9999}
-                intensity={1.2}
+                className="w-full py-3.5 flex items-center justify-center gap-2.5 text-[15px] font-semibold text-white bg-zinc-950 hover:bg-zinc-900 rounded-xl transition-colors duration-250"
               >
                 <svg className="w-4 h-4 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -106,7 +101,7 @@ export default function CTA() {
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
                 <span>Book a Call</span>
-              </SpecularButton>
+              </Link>
             </div>
           </div>
         </div>

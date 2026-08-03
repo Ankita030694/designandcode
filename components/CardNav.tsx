@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link';
-import SpecularButton from './SpecularButton';
+
 
 type CardNavLink = {
   label: string;
@@ -216,16 +216,16 @@ const CardNav: React.FC<CardNavProps> = ({
             <img src={logo} alt={logoAlt} className="logo h-[28px]" />
           </Link>
 
-          <SpecularButton
+          <Link
             href="/ContactUs"
-            className="hidden md:inline-flex h-[42px] px-5"
-            baseColor={buttonBgColor || '#18181b'}
-            textColor={buttonTextColor || '#ffffff'}
-            radius={10}
-            intensity={1.2}
+            className="hidden md:inline-flex h-[42px] px-5 items-center justify-center rounded-[10px] text-sm font-medium transition-all duration-200 hover:scale-[1.02] active:scale-95 cursor-pointer shadow-sm hover:shadow"
+            style={{
+              backgroundColor: buttonBgColor || '#18181b',
+              color: buttonTextColor || '#ffffff',
+            }}
           >
             Start a project
-          </SpecularButton>
+          </Link>
         </div>
 
         <div
