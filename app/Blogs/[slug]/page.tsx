@@ -1,14 +1,34 @@
 import { Metadata, ResolvingMetadata } from "next";
 import BlogDetailClient from "./BlogDetailClient";
+import { SERVICE_PAGES_DATA } from "../../Explore_Slug";
 
 export async function generateMetadata({ 
   params 
 }: { 
   params: any 
 }): Promise<Metadata> {
-  // Use optional chaining or await depending on Next.js 14 vs 15 behavior
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
+
+  if (SERVICE_PAGES_DATA[slug]) {
+    const pageData = SERVICE_PAGES_DATA[slug];
+    return {
+      title: `${pageData.title} | DesignNCode`,
+      description: pageData.subtitle,
+      openGraph: {
+        title: `${pageData.title} | DesignNCode`,
+        description: pageData.subtitle,
+        images: pageData.image ? [pageData.image] : [],
+        type: 'article',
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${pageData.title} | DesignNCode`,
+        description: pageData.subtitle,
+        images: pageData.image ? [pageData.image] : [],
+      }
+    };
+  }
 
   try {
     const res = await fetch(`https://firestore.googleapis.com/v1/projects/designncode-c3380/databases/(default)/documents:runQuery`, {
