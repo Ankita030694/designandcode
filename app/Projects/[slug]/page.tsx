@@ -80,7 +80,7 @@ export default async function ProjectDetailPage({
         {/* Project Header Info */}
         <div className="max-w-5xl mx-auto text-center mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-900 leading-[1.15] mb-6">
-            {project.title} - {project.description}
+            {project.title}, {project.description}
           </h1>
 
           <div className="flex flex-wrap justify-center items-center gap-2.5 mt-8">
