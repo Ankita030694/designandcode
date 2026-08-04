@@ -92,7 +92,7 @@ const storyData = {
   kicker: "Our Story",
   title: "Craft that started with a simple promise",
   paragraphs: [
-    "DesignNCode began with a small shared desk and a single belief: building for the web shouldn't feel like a compromise. From our very first line of code, we designed every interaction — from the layout of a landing page to the underlying API structure — around speed, aesthetics, and trust.",
+    "DesignNCode began with a small shared desk and a single belief: building for the web shouldn't feel like a compromise. From our very first line of code, we designed every interaction - from the layout of a landing page to the underlying API structure - around speed, aesthetics, and trust.",
     "Today, our team of developers and designers covers everything from headless CMS to custom web products, supported by modern frameworks, micro-interactions, and performant marketing operations. But the promise remains unchanged: beautiful design, clean engineering, and digital products that fit your brand goals.",
     "We measure success in real impacts: a brand that doubles its engagement, a platform that scales smoothly under high loads, a client that partners with us year after year. That's the work we're proudest of."
   ],
@@ -158,7 +158,7 @@ export default function AboutUs() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FCFCFD]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#F4F8FF]">
       {/* ── About Us Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-20 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
         {/* Background glow effects */}
@@ -175,7 +175,7 @@ export default function AboutUs() {
               </svg>
             </span>{" "}
             the deal with{" "}
-            <span className="relative bg-gradient-to-r from-[#facc15] via-indigo-500 to-violet-500 bg-clip-text text-transparent decoration-blue-500/30 decoration-2 underline-offset-8">
+            <span className="relative bg-gradient-to-r from-[#facc15] to-[#2563EB] bg-clip-text text-transparent decoration-blue-500/30 decoration-2 underline-offset-8">
               Designncode?
             </span>
           </h1>
@@ -250,88 +250,74 @@ export default function AboutUs() {
           `}} />
 
           {/* Desktop View (md and up) */}
-          <div className="hidden md:grid grid-cols-4 gap-6 max-w-5xl mx-auto items-stretch">
-            {/* Row 1 Col 1-2: Header */}
-            <div className="md:col-span-2 flex flex-col justify-center text-left pr-4 mb-8 md:mb-0">
+          <div className="hidden md:block max-w-5xl mx-auto">
+            {/* Header Block */}
+            <div className="flex flex-col justify-center text-left pr-4 mb-10">
               <span className="text-xs font-regular tracking-[0.2em] text-[#000000] mb-3">
                 Why Designncode
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium uppercase tracking-tight text-[#000000] leading-[1.1]">
-                Trusted by leading<br />
-                businesses with digital<br />
-                & design success
+                Trusted by leading businesses with digital & design success
               </h2>
             </div>
 
-            {/* Row 1 Col 3: Lavender Purple Card */}
-            <div className="rounded-[24px] bg-[#F7EDFF] text-[#08302c] p-6 flex flex-col justify-between h-[224px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
-              {/* Layer Stack Icon */}
-              <div className="w-10 h-10 flex items-center justify-start">
-                <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
+            {/* Three Cards in a Row */}
+            <div className="grid grid-cols-3 gap-6 items-stretch">
+              {/* Card 1: Royal Blue */}
+              <div className="rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_20px_50px_rgba(37,99,235,0.25)] hover:shadow-[0_30px_60px_rgba(37,99,235,0.38)] hover:scale-[1.02] hover:-translate-y-2 transition-all duration-300 ease-out select-none">
+                {/* Layer Stack Icon */}
+                <div className="w-10 h-10 flex items-center justify-start text-white">
+                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                    Consistent Branding
+                  </h3>
+                  <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
+                    Ensure every campaign aligns with your brand's identity.
+                  </p>
+                </div>
               </div>
-              <div className="text-left">
-                <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
-                  Consistent Branding
-                </h3>
-                <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
-                  Ensure every campaign aligns with your brand's identity.
-                </p>
+
+              {/* Card 2: Middle - Yellow */}
+              <div className="rounded-[24px] bg-[#FACC15] text-[#08302c] p-6 flex flex-col justify-between h-[224px] border border-[#fde047]/30 shadow-[0_20px_50px_rgba(250,204,21,0.25)] hover:shadow-[0_30px_60px_rgba(250,204,21,0.38)] hover:scale-[1.02] hover:-translate-y-2 transition-all duration-300 ease-out select-none">
+                {/* Nodes/Connections Icon */}
+                <div className="w-10 h-10 flex items-center justify-start text-[#08302c]">
+                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8A3 3 0 1018 2A3 3 0 0018 8zM6 15A3 3 0 106 9A3 3 0 006 15zM18 22A3 3 0 1018 16A3 3 0 0018 22z" />
+                    <path d="M8.59 13.51l5.83 3.4M14.4 7.1l-5.8 3.4" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                    Automation & Precision
+                  </h3>
+                  <p className="text-xs opacity-90 leading-relaxed max-w-[220px]">
+                    Effortlessly manage and personalize campaigns.
+                  </p>
+                </div>
               </div>
-            </div>
 
-            {/* Row 1 Col 4: Curved Panel 1 */}
-            <div className="relative rounded-[24px] bg-[#f0f3f2] h-[224px] overflow-hidden hidden md:block select-none">
-              <div className="absolute -top-12 -left-12 w-28 h-28 rounded-full bg-[#fcfcfd]" />
-            </div>
-
-            {/* Row 2 Col 1: Curved Panel 2 */}
-            <div className="relative rounded-[24px] bg-[#f0f3f2] h-[224px] overflow-hidden hidden md:block select-none">
-              <div className="absolute -bottom-12 -right-12 w-28 h-28 rounded-full bg-[#fcfcfd]" />
-            </div>
-
-            {/* Row 2 Col 2: Dark Green Card */}
-            <div className="rounded-[24px] bg-[#FFF8E5] text-black p-6 flex flex-col justify-between h-[224px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
-              {/* Nodes/Connections Icon */}
-              <div className="w-10 h-10 flex items-center justify-start">
-                <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 8A3 3 0 1018 2A3 3 0 0018 8zM6 15A3 3 0 106 9A3 3 0 006 15zM18 22A3 3 0 1018 16A3 3 0 0018 22z" />
-                  <path d="M8.59 13.51l5.83 3.4M14.4 7.1l-5.8 3.4" />
-                </svg>
-              </div>
-              <div className="text-left">
-                <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
-                  Automation & Precision
-                </h3>
-                <p className="text-xs opacity-90 leading-relaxed max-w-[220px]">
-                  Effortlessly manage and personalize campaigns.
-                </p>
-              </div>
-            </div>
-
-            {/* Row 2 Col 3: Curved Panel 3 */}
-            <div className="relative rounded-[24px] bg-[#f0f3f2] h-[224px] overflow-hidden hidden md:block select-none">
-              <div className="absolute -bottom-12 -right-12 w-28 h-28 rounded-full bg-[#fcfcfd]" />
-            </div>
-
-            {/* Row 2 Col 4: Yellow Card */}
-            <div className="rounded-[24px] bg-[#FFF8E5] text-black p-6 flex flex-col justify-between h-[224px] shadow-xs group hover:scale-[1.02] transition-transform duration-300 select-none">
-              {/* Scale/Resize Icon */}
-              <div className="w-10 h-10 flex items-center justify-start">
-                <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 5v14M19 12H5M12 5l3 3M12 5L9 8M12 19l3-3M12 19l-3-3" />
-                </svg>
-              </div>
-              <div className="text-left">
-                <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
-                  Scalable Solutions
-                </h3>
-                <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
-                  Managing complex campaigns across multiple locations.
-                </p>
+              {/* Card 3: Royal Blue */}
+              <div className="rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_20px_50px_rgba(37,99,235,0.25)] hover:shadow-[0_30px_60px_rgba(37,99,235,0.38)] hover:scale-[1.02] hover:-translate-y-2 transition-all duration-300 ease-out select-none">
+                {/* Scale/Resize Icon */}
+                <div className="w-10 h-10 flex items-center justify-start text-white">
+                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 5v14M19 12H5M12 5l3 3M12 5L9 8M12 19l3-3M12 19l-3-3" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                    Scalable Solutions
+                  </h3>
+                  <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
+                    Managing complex campaigns across multiple locations.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -365,10 +351,10 @@ export default function AboutUs() {
                 WebkitOverflowScrolling: 'touch'
               }}
             >
-              {/* Card 1: Lavender Purple */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#F7EDFF] text-[#08302c] p-6 flex flex-col justify-between h-[224px] shadow-sm select-none">
+              {/* Card 1: Royal Blue */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_15px_35px_rgba(37,99,235,0.2)] select-none">
                 {/* Layer Stack Icon */}
-                <div className="w-10 h-10 flex items-center justify-start">
+                <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <polygon points="12 2 2 7 12 12 22 7 12 2" />
                     <polyline points="2 17 12 22 22 17" />
@@ -385,10 +371,10 @@ export default function AboutUs() {
                 </div>
               </div>
 
-              {/* Card 2: Dark Green */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#08302c] text-white p-6 flex flex-col justify-between h-[224px] shadow-sm select-none">
+              {/* Card 2: Yellow */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#FACC15] text-[#08302c] p-6 flex flex-col justify-between h-[224px] border border-[#fde047]/30 shadow-[0_15px_35px_rgba(250,204,21,0.2)] select-none">
                 {/* Nodes/Connections Icon */}
-                <div className="w-10 h-10 flex items-center justify-start">
+                <div className="w-10 h-10 flex items-center justify-start text-[#08302c]">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 8A3 3 0 1018 2A3 3 0 0018 8zM6 15A3 3 0 106 9A3 3 0 006 15zM18 22A3 3 0 1018 16A3 3 0 0018 22z" />
                     <path d="M8.59 13.51l5.83 3.4M14.4 7.1l-5.8 3.4" />
@@ -404,10 +390,10 @@ export default function AboutUs() {
                 </div>
               </div>
 
-              {/* Card 3: Light Yellow */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#FFF8E5] text-[#08302c] p-6 flex flex-col justify-between h-[224px] shadow-sm select-none">
+              {/* Card 3: Royal Blue */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_15px_35px_rgba(37,99,235,0.2)] select-none">
                 {/* Scale/Resize Icon */}
-                <div className="w-10 h-10 flex items-center justify-start">
+                <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 5v14M19 12H5M12 5l3 3M12 5L9 8M12 19l3-3M12 19l-3-3" />
                   </svg>
@@ -427,7 +413,7 @@ export default function AboutUs() {
             <div className="mt-4 flex justify-center">
               <div className="relative w-[120px] h-[3px] bg-zinc-200 rounded-full overflow-hidden">
                 <div
-                  className="absolute top-0 bottom-0 bg-[#BD70F0] rounded-full transition-transform duration-100 ease-out"
+                  className="absolute top-0 bottom-0 bg-[#2563EB] rounded-full transition-transform duration-100 ease-out"
                   style={{
                     width: "40px",
                     transform: `translateX(${(scrollProgress / 100) * 80}px)`
@@ -445,7 +431,7 @@ export default function AboutUs() {
           {statsItems.map((item, index) => (
             <div key={index} className="flex flex-col text-left">
               {/* Number */}
-              <div className="text-[64px] sm:text-[80px] font-medium text-[#BD70F0] tracking-tight leading-none">
+              <div className="text-[64px] sm:text-[80px] font-medium text-[#2563EB] tracking-tight leading-none">
                 <AnimatedCounter target={item.target} suffix={item.suffix} />
               </div>
               

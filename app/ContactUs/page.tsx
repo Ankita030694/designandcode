@@ -5,6 +5,7 @@ import Image from "next/image";
 import SpecularButton from "@/components/SpecularButton";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
+import TestimonialsCarousel from "../Components/TestimonialsCarousel";
 import { COUNTRY_CODES } from "../../data/CC";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../lib/firebase";
@@ -113,7 +114,7 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-[#FCFCFD]">
+    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-[#F4F8FF]">
       {/* ── Main Contact Section ── */}
       <section className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -409,8 +410,8 @@ export default function ContactUs() {
       </section>
 
       {/* ── Testimonials Section ── */}
-      <section className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-24 border-t border-zinc-100">
-        <TestimonialsSection />
+      <section className="relative z-10 w-full max-w-7xl mx-auto py-16 sm:py-24 border-t border-zinc-100/50">
+        <TestimonialsCarousel testimonials={testimonials} />
       </section>
 
       <FAQ />
@@ -470,126 +471,4 @@ const testimonials = [
     quote: "Designncode turned our napkin sketch into a production-ready MVP in under 6 weeks. They passed our VC technical due diligence with flying colors.",
   },
 ];
-
-function TestimonialsSection() {
-  const [currentIdx, setCurrentIdx] = useState(0);
-
-  const categories = [
-    "Web Development",
-    "UI/UX Design",
-    "Data & Analytics",
-    "Enterprise",
-    "E-Commerce",
-    "Start-Up",
-  ];
-
-  const current = testimonials[currentIdx];
-
-  const handleCategorySelect = (category: string) => {
-    const foundIdx = testimonials.findIndex((t) => t.category === category);
-    if (foundIdx !== -1) {
-      setCurrentIdx(foundIdx);
-    }
-  };
-
-  const handlePrev = () => {
-    setCurrentIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0));
-  };
-
-  return (
-    <div className="flex flex-col items-center text-center w-full">
-      
-      {/* Title */}
-      <h2 className="text-2xl sm:text-4xl font-medium tracking-tight text-zinc-900 mb-12">
-        What People Say
-      </h2>
-
-      
-
-      {/* Testimonial Card Box */}
-      <div className="w-full max-w-4xl bg-white border border-zinc-100 rounded-[32px] p-8 sm:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.03)] relative overflow-hidden flex flex-col justify-between text-left min-h-[320px]">
-        
-        {/* Background Large Quote Mark */}
-        <div className="absolute right-8 bottom-8 text-zinc-100 select-none pointer-events-none text-9xl font-serif leading-none opacity-60">
-          ”
-        </div>
-
-        {/* Content Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start relative z-10">
-          
-          {/* Avatar & Author Info */}
-          <div className="md:col-span-4 flex md:flex-col items-center md:items-start gap-4">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white shadow-md shrink-0">
-              <Image
-                src={current.avatar}
-                alt={current.name}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h4 className="text-lg sm:text-md font-bold text-zinc-900">
-                {current.name}
-              </h4>
-              <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                {current.role}
-              </p>
-            </div>
-          </div>
-
-          {/* Quote Text */}
-          <div className="md:col-span-8 flex items-center">
-            <blockquote className="text-md sm:text-l md:text-xl text-zinc-800 font-normal leading-relaxed">
-              &ldquo;{current.quote}&rdquo;
-            </blockquote>
-          </div>
-
-        </div>
-
-        {/* Bottom Bar: Arrows & Company Logo */}
-        <div className="flex flex-wrap items-center justify-between gap-6 pt-8 mt-8 border-t border-zinc-100 relative z-10">
-          
-          {/* Navigation Arrows */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={handlePrev}
-              className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 transition-colors cursor-pointer"
-              aria-label="Previous testimonial"
-            >
-              &larr;
-            </button>
-            <button
-              onClick={handleNext}
-              className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 transition-colors cursor-pointer"
-              aria-label="Next testimonial"
-            >
-              &rarr;
-            </button>
-            <span className="text-xs sm:text-sm font-medium text-zinc-400 ml-2">
-              {currentIdx + 1} of {testimonials.length}
-            </span>
-          </div>
-
-          {/* Company Logo */}
-          <div className="flex items-center">
-            <Image
-              src={current.logo}
-              alt="Company Logo"
-              width={110}
-              height={32}
-              className="h-7 w-auto object-contain opacity-70"
-            />
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  );
-}
 

@@ -3,7 +3,7 @@
 
 
 :root {
-  --background: #FCFCFD;
+  --background: #F4F8FF;
   --foreground: #171717;
   --navbar-dot-color: #d4d4d8;
 }
@@ -13,6 +13,68 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-outfit);
   --font-mono: var(--font-geist-mono);
+
+  /* Remap violet, purple, and indigo to blue tone #2563EB */
+  --color-violet-50: #eff6ff;
+  --color-violet-100: #dbeafe;
+  --color-violet-200: #bfdbfe;
+  --color-violet-300: #93c5fd;
+  --color-violet-400: #60a5fa;
+  --color-violet-500: #2563eb;
+  --color-violet-600: #2563eb;
+  --color-violet-700: #1d4ed8;
+  --color-violet-800: #1e40af;
+  --color-violet-900: #1e3a8a;
+  --color-violet-950: #172554;
+
+  --color-purple-50: #eff6ff;
+  --color-purple-100: #dbeafe;
+  --color-purple-200: #bfdbfe;
+  --color-purple-300: #93c5fd;
+  --color-purple-400: #60a5fa;
+  --color-purple-500: #2563eb;
+  --color-purple-600: #2563eb;
+  --color-purple-700: #1d4ed8;
+  --color-purple-800: #1e40af;
+  --color-purple-900: #1e3a8a;
+  --color-purple-950: #172554;
+
+  --color-indigo-50: #eff6ff;
+  --color-indigo-100: #dbeafe;
+  --color-indigo-200: #bfdbfe;
+  --color-indigo-300: #93c5fd;
+  --color-indigo-400: #60a5fa;
+  --color-indigo-500: #2563eb;
+  --color-indigo-600: #2563eb;
+  --color-indigo-700: #1d4ed8;
+  --color-indigo-800: #1e40af;
+  --color-indigo-900: #1e3a8a;
+  --color-indigo-950: #172554;
+
+  /* Remap yellow and amber to #FACC15 */
+  --color-yellow-50: #fefce8;
+  --color-yellow-100: #fef9c3;
+  --color-yellow-200: #fef08a;
+  --color-yellow-300: #fde047;
+  --color-yellow-400: #facc15;
+  --color-yellow-500: #facc15;
+  --color-yellow-600: #ca8a04;
+  --color-yellow-700: #a16207;
+  --color-yellow-800: #854d0e;
+  --color-yellow-900: #713f12;
+  --color-yellow-950: #422006;
+
+  --color-amber-50: #fefce8;
+  --color-amber-100: #fef9c3;
+  --color-amber-200: #fef08a;
+  --color-amber-300: #fde047;
+  --color-amber-400: #facc15;
+  --color-amber-500: #facc15;
+  --color-amber-600: #ca8a04;
+  --color-amber-700: #a16207;
+  --color-amber-800: #854d0e;
+  --color-amber-900: #713f12;
+  --color-amber-950: #422006;
 
   --animate-fade-in-up: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-draw: draw 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -109,7 +171,7 @@
 
 .hero-glow {
   position: absolute;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.11) 0%, rgba(59, 130, 246, 0.07) 35%, rgba(236, 72, 153, 0.04) 60%, rgba(255, 255, 255, 0) 80%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.11) 0%, rgba(59, 130, 246, 0.07) 35%, rgba(236, 72, 153, 0.04) 60%, rgba(255, 255, 255, 0) 80%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 1;
@@ -117,12 +179,12 @@
 }
 
 .homepage-grid-bg {
-  background-color: #FCFCFD;
+  background-color: #F4F8FF;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #FCFCFD;
+    --background: #F4F8FF;
     --foreground: #171717;
     --navbar-dot-color: #d4d4d8;
   }

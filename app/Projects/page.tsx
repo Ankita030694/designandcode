@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   });
 
   return (
-    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FCFCFD]">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-[#F4F8FF]">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="hero-glow w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bottom-[-100px] right-[-100px] opacity-40" />

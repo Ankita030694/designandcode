@@ -9,6 +9,12 @@ import Footer from "./Components/footer";
 import CTA from "./Components/cta";
 import FAQ from "./Components/FAQ";
 import { PROJECTS_DATA } from "./data/projects";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 /* ─── Data ─── */
 
@@ -51,14 +57,14 @@ const services = [
     image: "/Data.svg",
     icon: (
       <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
-        <circle cx="24" cy="24" r="18" fill="url(#targetGrad)" stroke="#7c3aed" strokeWidth="1.5" />
-        <circle cx="24" cy="24" r="10" stroke="#c4b5fd" strokeWidth="2" />
-        <circle cx="24" cy="24" r="4" fill="#ede9fe" />
-        <path d="M24 6v6M24 36v6M6 24h6M36 24h6" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="24" cy="24" r="18" fill="url(#targetGrad)" stroke="#2563EB" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="10" stroke="#93c5fd" strokeWidth="2" />
+        <circle cx="24" cy="24" r="4" fill="#dbeafe" />
+        <path d="M24 6v6M24 36v6M6 24h6M36 24h6" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" />
         <defs>
           <linearGradient id="targetGrad" x1="6" y1="6" x2="42" y2="42">
-            <stop stopColor="#a78bfa" />
-            <stop offset="1" stopColor="#6d28d9" />
+            <stop stopColor="#60a5fa" />
+            <stop offset="1" stopColor="#1d4ed8" />
           </linearGradient>
         </defs>
       </svg>
@@ -165,8 +171,8 @@ const ClientLogo8 = () => (
 );
 
 const logoPool1 = [<ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />];
-const logoPool2 = [<ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />, <ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />];
-const logoPool3 = [<ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />, <ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />];
+const logoPool2 = [<ClientLogo1 key="l1" />, <ClientLogo3 key="l3" />, <ClientLogo5 key="l5" />, <ClientLogo7 key="l7" />];
+const logoPool3 = [<ClientLogo2 key="l2" />, <ClientLogo4 key="l4" />, <ClientLogo6 key="l6" />, <ClientLogo8 key="l8" />];
 const logoPool4 = [<ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />, <ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />];
 
 const mobileTestimonials = [
@@ -191,11 +197,13 @@ function SlotMachineLogo({
   interval = 3500,
   staggerDelay = 0,
   align = "center",
+  logoClassName = "",
 }: {
   logos: React.ReactNode[];
   interval?: number;
   staggerDelay?: number;
   align?: "left" | "center";
+  logoClassName?: string;
 }) {
   const [index, setIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -243,7 +251,9 @@ function SlotMachineLogo({
             key={idx}
             className={`h-[62px] w-full flex items-center ${align === "left" ? "justify-start" : "justify-center"} flex-shrink-0`}
           >
-            {logo}
+            <div className={`${logoClassName} flex items-center justify-center`}>
+              {logo}
+            </div>
           </div>
         ))}
       </div>
@@ -283,6 +293,7 @@ export default function Home() {
 
   const [scrollY, setScrollY] = useState(0);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const flowSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -290,6 +301,39 @@ export default function Home() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const section = flowSectionRef.current;
+    if (!section) return;
+
+    const cards = section.querySelectorAll(".flow-step-card");
+    if (cards.length === 0) return;
+
+    // Set initial state immediately on mount so they are hidden before scroll
+    gsap.set(cards, { y: 60, opacity: 0 });
+
+    const trigger = ScrollTrigger.create({
+      trigger: section,
+      start: "top 80%",
+      onEnter: () => {
+        gsap.to(cards, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.12,
+          overwrite: "auto",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.set(cards, { y: 60, opacity: 0 });
+      },
+    });
+
+    return () => {
+      trigger.kill();
+    };
   }, []);
 
 
@@ -320,7 +364,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#FCFCFD]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#F4F8FF]">
       {/* ── 1. Hero with Background Video ── */}
       <section
         className="relative w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
@@ -396,7 +440,7 @@ export default function Home() {
       </section>
 
       {/* ── 1.2 Tools Marquee Section ── */}
-      <section className="relative w-full bg-[#FCFCFD] py-10 overflow-hidden select-none z-10">
+      <section className="relative w-full bg-[#F4F8FF] py-10 overflow-hidden select-none z-10">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400 mb-6 text-center">
             Core technologies & tools we use
@@ -465,7 +509,7 @@ export default function Home() {
 
 
       {/* ── Why Choose Us ── */}
-      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
+      <section className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Staggered Stats & Dots */}
@@ -478,7 +522,7 @@ export default function Home() {
                   01
                 </div>
                 <p className="text-[10px] sm:text-xs font-medium tracking-wider text-zinc-500 max-w-[200px] leading-relaxed">
-                  Every project starts with research, user behavior, and business goals—not random design decisions.
+                  Every project starts with research, user behavior, and business goals - not random design decisions.
                 </p>
               </div>
               <div className="text-4xl text-black">•</div>
@@ -525,7 +569,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#FCFCFD] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
+      <section className="relative bg-[#F4F8FF] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
@@ -572,7 +616,7 @@ export default function Home() {
           {/* Bento-box Grid Version */}
           <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2">
             {/* Card 1 (Col Span: 3 | Blue Bg): 1.5x increase in qualified meetings */}
-            <div className="col-span-12 md:col-span-3 bg-[#F8F3FF] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="col-span-12 md:col-span-3 bg-[#EBF2FF] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
@@ -589,7 +633,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 opacity-80 pointer-events-none" />
               {/* Inner 3D Glow Rim */}
               <div className="absolute inset-[1px] rounded-[23px] bg-gradient-to-br from-teal-300/10 via-transparent to-transparent pointer-events-none" />
-              <SlotMachineLogo logos={logoPool2} staggerDelay={400} align="center" />
+              <SlotMachineLogo logos={logoPool2} staggerDelay={400} align="center" logoClassName="scale-[1.1]" />
             </div>
 
             {/* Card 3 (Col Span: 6 | White Bg): Zoë McKenzie Checkr testimonial */}
@@ -624,7 +668,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 opacity-80 pointer-events-none" />
               {/* Inner 3D Glow Rim */}
               <div className="absolute inset-[1px] rounded-[23px] bg-gradient-to-br from-teal-300/10 via-transparent to-transparent pointer-events-none" />
-              <SlotMachineLogo logos={logoPool3} staggerDelay={800} align="center" />
+              <SlotMachineLogo logos={logoPool3} staggerDelay={800} align="center" logoClassName="scale-[1.1]" />
             </div>
 
             {/* Card 5 (Col Span: 6 | White Bg): Mark Deacon canibuild testimonial */}
@@ -654,7 +698,7 @@ export default function Home() {
             </div>
 
             {/* Card 6 (Col Span: 3 | Warm Sand Bg): $1M+ pipeline generated in first 3 months */}
-            <div className="col-span-12 md:col-span-3 bg-[#FFF4C7] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="col-span-12 md:col-span-3 bg-[#FFF9E6] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
@@ -669,7 +713,7 @@ export default function Home() {
           {/* Mobile Carousel & Testimonials Version */}
           <div className="block md:hidden space-y-4">
             {/* Card 1: 3.2x increase ... */}
-            <div className="bg-[#F8F3FF] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+            <div className="bg-[#EBF2FF] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
               <div className="flex flex-col">
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
@@ -681,7 +725,7 @@ export default function Home() {
             </div>
 
             {/* Card 6: 150%+ more leads ... */}
-            <div className="bg-[#FFF4C7] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+            <div className="bg-[#FFF9E6] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
               <div className="flex flex-col">
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
                 <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
@@ -756,7 +800,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. Our Work ── */}
-      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 -mt-5">
+      <section className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 -mt-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
             <div className="max-w-xl">
@@ -824,7 +868,7 @@ export default function Home() {
       </section>
 
       {/* ── 4. How We Help ── */}
-      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
+      <section className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center mb-16">
             
@@ -893,7 +937,7 @@ export default function Home() {
       </section>
 
       {/* ── 5. Flow Section ── */}
-      <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
+      <section ref={flowSectionRef} className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
@@ -917,7 +961,7 @@ export default function Home() {
           {/* 4-Step Process Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border-t border-zinc-200/40 md:border-t-0">
             {/* Step 1: Discover */}
-            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
+            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
               <div className="space-y-6 md:mt-48">
                 <div className="space-y-4">
                   <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
@@ -935,7 +979,7 @@ export default function Home() {
             </div>
 
             {/* Step 2: Design */}
-            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
+            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
               <div className="space-y-6 md:mt-32">
                 <div className="space-y-4">
                   <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
@@ -953,7 +997,7 @@ export default function Home() {
             </div>
 
             {/* Step 3: Build */}
-            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
+            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
               <div className="space-y-6 md:mt-16">
                 <div className="space-y-4">
                   <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
@@ -971,7 +1015,7 @@ export default function Home() {
             </div>
 
             {/* Step 4: Launch */}
-            <div className="flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80">
+            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80">
               <div className="space-y-6 md:mt-0">
                 <div className="space-y-4">
                   <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">

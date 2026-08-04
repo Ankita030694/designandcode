@@ -182,7 +182,7 @@ export default function PerformanceMarketingService() {
     analyse: {
       badge: "Strategise",
       heading: "Know Your Customers. Not Just Their Clicks.",
-      description: "Beyond click-through rates. User persona analysis that reveals who your customers actually are—and what they need.",
+      description: "Beyond click-through rates. User persona analysis that reveals who your customers actually are - and what they need.",
       cards: [
         {
           title: "CDP & Customer Data",
@@ -196,7 +196,7 @@ export default function PerformanceMarketingService() {
         },
         {
           title: "Persona Discovery",
-          description: "Know who you're talking to. Build strategies that speak to real people—not segments.",
+          description: "Know who you're talking to. Build strategies that speak to real people - not segments.",
           image: "/marketing/discovery_analysis_2x.avif",
           icon: (
             <svg className="w-4 h-4 text-zinc-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -269,7 +269,7 @@ export default function PerformanceMarketingService() {
   const currentTab = tabContent[activeTab] || tabContent.analyse;
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FCFCFD]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#F4F8FF]">
       {/* ── Performance Marketing Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto text-center px-4 sm:px-6">
@@ -550,7 +550,7 @@ export default function PerformanceMarketingService() {
           {[
             {
               title: "Reporting & Visualisation",
-              description: "Visual insights that make decisions easier—not more complicated.",
+              description: "Visual insights that make decisions easier - not more complicated.",
               image: "/marketing 3/11.avif",
             },
             {

@@ -191,17 +191,17 @@ export default function UiUxDesignService() {
     define: {
       badge: "Define",
       heading: "Journeys That Make Sense.",
-      description: "Chart a course for engaging experiences. Every touchpoint defined. Journeys that leave a mark—not confusion.",
+      description: "Chart a course for engaging experiences. Every touchpoint defined. Journeys that leave a mark - not confusion.",
       cards: [
         {
           title: "User Journey Mapping",
-          description: "Strategic journeys that actually boost engagement—not just look good on paper.",
+          description: "Strategic journeys that actually boost engagement - not just look good on paper.",
           image: "/uiux/11.svg",
           step: "01"
         },
         {
           title: "Buyer Journey Consulting",
-          description: "Drive conversions with experiences that feel personal—not programmed.",
+          description: "Drive conversions with experiences that feel personal - not programmed.",
           image: "/uiux/12.svg",
           step: "02"
         },
@@ -318,7 +318,7 @@ export default function UiUxDesignService() {
   const currentTab = tabContent[activeTab] || tabContent.define;
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FCFCFD]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#F4F8FF]">
       {/* ── UI/UX Service Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         {/* Background glow effects */}
@@ -495,7 +495,7 @@ export default function UiUxDesignService() {
           {/* Header Right */}
           <div className="max-w-md">
             <p className="text-zinc-500 text-md sm:text-md leading-relaxed">
-              Consistency at scale. Atomic design systems that prevent the Frankenstein effect—no matter how fast your team ships.
+              Consistency at scale. Atomic design systems that prevent the Frankenstein effect - no matter how fast your team ships.
             </p>
           </div>
         </div>
@@ -509,7 +509,7 @@ export default function UiUxDesignService() {
           {[
             {
               title: "Design System Architecture",
-              description: "A system that keeps your brand consistent—even when AI generates the components.",
+              description: "A system that keeps your brand consistent - even when AI generates the components.",
               image: "/uiux2/21.svg",
             },
             {
@@ -519,7 +519,7 @@ export default function UiUxDesignService() {
             },
             {
               title: "Information Architecture",
-              description: "Organise content so users find what they need—without the friction.",
+              description: "Organise content so users find what they need - without the friction.",
               image: "/uiux2/23.svg",
             },
           ].map((card, idx) => (

@@ -11,7 +11,7 @@ interface FAQItem {
 const FAQ_DATA: FAQItem[] = [
   {
     question: "Do you take on small projects?",
-    answer: "We're flexible. Whether you need a complete identity or just a standout landing page, we'll tailor our process to fit your scope — without compromising quality."
+    answer: "We're flexible. Whether you need a complete identity or just a standout landing page, we'll tailor our process to fit your scope - without compromising quality."
   },
   {
     question: "Can you work with an existing brand?",
@@ -43,7 +43,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative bg-[#FCFCFD] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-100/50 relative z-10 -mt-10">
+    <section className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-100/50 relative z-10 -mt-10">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
         
         {/* Left Side Info */}

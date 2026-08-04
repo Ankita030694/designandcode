@@ -68,7 +68,7 @@ export default function Navbar() {
         logo="/LOGO.svg"
         logoAlt="Designncode Logo"
         items={navItems}
-        baseColor="#FAF9F6"
+        baseColor="#F4F8FF"
         menuColor="#18181b"
         buttonBgColor="#18181b"
         buttonTextColor="#ffffff"

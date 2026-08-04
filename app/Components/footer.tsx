@@ -8,7 +8,7 @@ export default function Footer() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <footer className="w-full bg-[#FCFCFD] border-t border-zinc-100/50 pt-16 pb-12 px-6 sm:px-8 lg:px-12">
+    <footer className="w-full bg-[#F4F8FF] border-t border-zinc-100/50 pt-16 pb-12 px-6 sm:px-8 lg:px-12">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Top Section: Logo & Signature */}
         <div className="flex flex-col items-center text-center gap-4 mb-10">
@@ -98,11 +98,11 @@ export default function Footer() {
               <h4 className="text-md font-medium text-black">Projects</h4>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  { label: "AMA", href: "/Projects/ama" },
-                  { label: "Adorna Casa", href: "/Projects/adorna-casa" },
-                  { label: "Aerolume", href: "/Projects/aerolume" },
-                  { label: "Anyadha", href: "/Projects/anyadha" },
-                  { label: "Bloom", href: "/Projects/bloom" }
+                  { label: "Credsettle", href: "/Projects/credsettle" },
+                  { label: "House of Nihal khera", href: "/Projects/house-of-nihal-khera" },
+                  { label: "Bunt", href: "/Projects/bunt" },
+                  { label: "Oudqua", href: "/Projects/oudqua" },
+                  { label: "AMA", href: "/Projects/ama" }
                 ].map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="text-md text-zinc-500 hover:text-zinc-900 transition-colors">
@@ -175,7 +175,7 @@ export default function Footer() {
       {/* Large looping marquee text */}
       <div className="w-full overflow-hidden marquee-container select-none pointer-events-none mt-6 border-t border-zinc-100/30 pt-4">
         <div className="relative flex w-full overflow-x-hidden">
-          <div className="flex gap-16 items-center shrink-0 animate-marquee whitespace-nowrap text-[12vw] font-black tracking-tighter text-[#facc15]/35 uppercase leading-none">
+          <div className="flex gap-16 items-center shrink-0 animate-marquee whitespace-nowrap text-[12vw] font-black tracking-tighter text-[#2563EB] uppercase leading-none">
             <span>DESIGNNCODE</span>
             <span>DESIGNNCODE</span>
             <span>DESIGNNCODE</span>
@@ -226,7 +226,7 @@ export default function Footer() {
               },
               {
                 title: "How Branding Dictates Business Success",
-                desc: "Learn why branding is more than just a logo—it is the foundation of customer trust, loyalty, and premium pricing power.",
+                desc: "Learn why branding is more than just a logo - it is the foundation of customer trust, loyalty, and premium pricing power.",
                 slug: "branding-and-business-success"
               },
               {

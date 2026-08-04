@@ -49,7 +49,7 @@ export const BLOGS_DETAILS: Record<string, BlogDetail> = {
         {
           heading: "What is Composable Architecture?",
           paragraphs: [
-            "Composable architecture is a development philosophy where systems are built from modular components rather than as a single, monolithic block. Each component—be it content, authentication, or checkout—is selected for its specific strengths.",
+            "Composable architecture is a development philosophy where systems are built from modular components rather than as a single, monolithic block. Each component - be it content, authentication, or checkout - is selected for its specific strengths.",
             "These independent modules communicate via standardized APIs, allowing developers to upgrade, modify, or replace components without affecting the rest of the application ecosystem."
           ]
         },
@@ -135,7 +135,7 @@ export const BLOGS_DETAILS: Record<string, BlogDetail> = {
           ]
         }
       ],
-      conclusion: "Minimalism is not about putting fewer elements on a page—it is about ensuring every detail is purposeful, from spacing variables to color gradients."
+      conclusion: "Minimalism is not about putting fewer elements on a page - it is about ensuring every detail is purposeful, from spacing variables to color gradients."
     }
   },
   "5": {

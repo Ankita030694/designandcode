@@ -301,7 +301,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         id: "market-trust",
         title: "2. Market Trust and Loyalty",
         text: [
-          "Consistent branding builds familiarity, and familiarity breeds trust. When all touchpoints—your social channels, website, customer portals, and packaging—look unified, it signals that your organization is stable and professional."
+          "Consistent branding builds familiarity, and familiarity breeds trust. When all touchpoints - your social channels, website, customer portals, and packaging - look unified, it signals that your organization is stable and professional."
         ]
       },
       {

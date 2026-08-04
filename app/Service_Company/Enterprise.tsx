@@ -232,7 +232,7 @@ export default function EnterpriseServicePage() {
                 Conclusion
               </h3>
               <p>
-                Modern enterprise architecture isn&apos;t built overnight—it is intentionally designed. By pairing composable systems with robust security and automated pipelines, we empower enterprises to innovate faster, scale globally, and outperform competition.
+                Modern enterprise architecture isn&apos;t built overnight - it is intentionally designed. By pairing composable systems with robust security and automated pipelines, we empower enterprises to innovate faster, scale globally, and outperform competition.
               </p>
             </div>
 

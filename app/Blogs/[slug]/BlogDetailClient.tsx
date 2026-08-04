@@ -167,7 +167,7 @@ function AMABlogLayout() {
             <section id="core-web-vitals" className="scroll-mt-28 space-y-4">
               <h2 className="text-2xl font-bold text-zinc-900">3. Optimizing for Core Web Vitals</h2>
               <p className="text-zinc-600 leading-relaxed text-[15px] sm:text-[16px]">
-                Google's search algorithm heavily weighs page speed and user experience metrics. Core Web Vitals—including Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS)—determine your organic search rankings.
+                Google's search algorithm heavily weighs page speed and user experience metrics. Core Web Vitals - including Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS) - determine your organic search rankings.
               </p>
               <p className="text-zinc-600 leading-relaxed text-[15px] sm:text-[16px]">
                 By leveraging server components, lazy loading assets, optimizing web font downloads, and removing heavy dependencies (such as jQuery or unneeded plugins), we build websites that regularly score 95+ on Lighthouse audits.

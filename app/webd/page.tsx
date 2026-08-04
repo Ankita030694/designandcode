@@ -184,11 +184,11 @@ export default function WebDevelopmentService() {
     strategise: {
       badge: "Strategise",
       heading: "Architecture With Intent.",
-      description: "Strategies that turn your architecture into an asset—not a liability you're stuck maintaining.",
+      description: "Strategies that turn your architecture into an asset - not a liability you're stuck maintaining.",
       cards: [
         {
           title: "Headless Development Consulting",
-          description: "Future-proof, headless architecture that's built to last—and actually manageable.",
+          description: "Future-proof, headless architecture that's built to last - and actually manageable.",
           image: "/webd/11.avif"
         },
         {
@@ -252,7 +252,7 @@ export default function WebDevelopmentService() {
   const currentTab = tabContent[activeTab] || tabContent.strategise;
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FCFCFD]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#F4F8FF]">
       {/* ── Web Development Service Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         {/* Background glow effects */}
@@ -283,7 +283,7 @@ export default function WebDevelopmentService() {
 
           {/* Subtitle */}
           <p className="text-zinc-500 text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed mb-10 mt-2">
-            Architecture that gives you agility now and resilience later. Composable done right—without the 50-vendor sprawl.
+            Architecture that gives you agility now and resilience later. Composable done right - without the 50-vendor sprawl.
           </p>
 
           {/* Action CTA Button */}
@@ -452,7 +452,7 @@ export default function WebDevelopmentService() {
             },
             {
               title: "Microservices Integration",
-              description: "Modular services that integrate cleanly—not the tangle you're used to.",
+              description: "Modular services that integrate cleanly - not the tangle you're used to.",
               image: "/webd2/23.avif",
             },
           ].map((card, idx) => (
