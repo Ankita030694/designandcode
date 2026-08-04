@@ -331,7 +331,7 @@ function AMABlogLayout() {
             {/* Widget 2: CTA Card - Connect with Us */}
             <div className="bg-zinc-950 rounded-3xl p-6 border border-zinc-850 shadow-xl flex flex-col relative overflow-hidden text-white select-none">
               <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#D2A02A]/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-[#0C1833]/10 rounded-full blur-2xl pointer-events-none" />
               
               <div className="relative z-10 space-y-4">
                 <h3 className="text-lg font-bold tracking-tight">Connect with Us</h3>
@@ -542,8 +542,8 @@ function BlogDetailContent() {
             {/* Card 2: CTA Card - Pipeline Growth */}
             {/* Styled using colors from the website layout: Deep zinc/gradient slate with hover effects */}
             <div className="bg-zinc-950 rounded-3xl p-6 sm:p-7 border border-zinc-850 shadow-xl flex flex-col gap-4 select-none relative overflow-hidden">
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#0C1833]/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-[#0C1833]/10 rounded-full blur-2xl pointer-events-none" />
               
               <div className="relative z-10">
                 <h3 className="text-white text-lg font-bold tracking-tight mb-2">

@@ -264,7 +264,7 @@ export default function AboutUs() {
             {/* Three Cards in a Row */}
             <div className="grid grid-cols-3 gap-8 items-stretch">
               {/* Card 1: Royal Blue */}
-              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 -1px 0px 0px rgba(0,0,0,0.15) inset, 0 8px 16px rgba(37,99,235,0.18), 0 30px 60px rgba(37,99,235,0.22), 0 60px 80px rgba(37,99,235,0.12)'}}>
+              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.08) inset, 0 -1px 0px 0px rgba(0,0,0,0.25) inset, 0 8px 16px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.40), 0 60px 80px rgba(12,24,51,0.22)'}}>
                 {/* Layer Stack Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -303,7 +303,7 @@ export default function AboutUs() {
               </div>
 
               {/* Card 3: Royal Blue */}
-              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 -1px 0px 0px rgba(0,0,0,0.15) inset, 0 8px 16px rgba(37,99,235,0.18), 0 30px 60px rgba(37,99,235,0.22), 0 60px 80px rgba(37,99,235,0.12)'}}>
+              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.08) inset, 0 -1px 0px 0px rgba(0,0,0,0.25) inset, 0 8px 16px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.40), 0 60px 80px rgba(12,24,51,0.22)'}}>
                 {/* Scale/Resize Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -352,7 +352,7 @@ export default function AboutUs() {
               }}
             >
               {/* Card 1: Royal Blue */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 55%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 6px 12px rgba(37,99,235,0.15), 0 20px 40px rgba(37,99,235,0.2), 0 40px 60px rgba(37,99,235,0.1)'}}>
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 55%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.08) inset, 0 6px 12px rgba(12,24,51,0.30), 0 20px 40px rgba(12,24,51,0.38), 0 40px 60px rgba(12,24,51,0.20)'}}>
                 {/* Layer Stack Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -391,7 +391,7 @@ export default function AboutUs() {
               </div>
 
               {/* Card 3: Royal Blue */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 55%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 6px 12px rgba(37,99,235,0.15), 0 20px 40px rgba(37,99,235,0.2), 0 40px 60px rgba(37,99,235,0.1)'}}>
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 55%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.08) inset, 0 6px 12px rgba(12,24,51,0.30), 0 20px 40px rgba(12,24,51,0.38), 0 40px 60px rgba(12,24,51,0.20)'}}>
                 {/* Scale/Resize Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -413,7 +413,7 @@ export default function AboutUs() {
             <div className="mt-4 flex justify-center">
               <div className="relative w-[120px] h-[3px] bg-zinc-200 rounded-full overflow-hidden">
                 <div
-                  className="absolute top-0 bottom-0 bg-[#2563EB] rounded-full transition-transform duration-100 ease-out"
+                  className="absolute top-0 bottom-0 bg-[#0C1833] rounded-full transition-transform duration-100 ease-out"
                   style={{
                     width: "40px",
                     transform: `translateX(${(scrollProgress / 100) * 80}px)`

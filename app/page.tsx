@@ -23,8 +23,8 @@ const services = [
     title: "UI/UX Design",
     description: "Expert Design Partners (and good listeners)",
     href: "/Service/ui_ux",
-    accent: "from-blue-400/30 via-blue-500/10 to-transparent",
-    iconBg: "from-blue-500 to-blue-700",
+    accent: "from-[#0C1833]/30 via-[#0C1833]/10 to-transparent",
+    iconBg: "from-[#0C1833] to-[#0a1428]",
     image: "/Design.svg",
     icon: (
       <svg viewBox="0 0 48 48" className="w-14 h-14 drop-shadow-lg" fill="none">
@@ -615,20 +615,20 @@ export default function Home() {
 
           {/* Bento-box Grid Version */}
           <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2">
-            {/* Card 1 (Col Span: 3 | Royal Blue): 3.2x increase */}
-            <div className="col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
+            {/* Card 1 (Col Span: 3 | #0C1833): 3.2x increase */}
+            <div className="col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
               <div className="flex flex-col">
-                <span className="text-3xl md:text-4xl font-regular tracking-tight text-black leading-tight">3.2x</span>
-                <span className="text-3xl md:text-4xl font-regular tracking-tight text-black leading-tight">increase</span>
-                <span className="text-black/80 text-xs font-regular mt-1.5">in organic website traffic</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-white leading-tight">3.2x</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-white leading-tight">increase</span>
+                <span className="text-white/70 text-xs font-regular mt-1.5">in organic website traffic</span>
               </div>
-              <div className="mt-6 border-t border-white/20 pt-3">
+              <div className="mt-6 border-t border-white/10 pt-3">
                 <SlotMachineLogo logos={logoPool1} staggerDelay={0} align="left" />
               </div>
             </div>
 
-            {/* Card 2 (Col Span: 3 | Royal Blue): Logo slot-machine */}
-            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
+            {/* Card 2 (Col Span: 3 | #0C1833): Logo slot-machine */}
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
               <SlotMachineLogo logos={logoPool2} staggerDelay={400} align="center" logoClassName="scale-[1.1]" />
             </div>
 
@@ -648,8 +648,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Card 4 (Col Span: 3 | Royal Blue): Logo slot-machine */}
-            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
+            {/* Card 4 (Col Span: 3 | #0C1833): Logo slot-machine */}
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
               <SlotMachineLogo logos={logoPool3} staggerDelay={800} align="center" logoClassName="scale-[1.1]" />
             </div>
 
@@ -684,14 +684,14 @@ export default function Home() {
 
           {/* Mobile Carousel & Testimonials Version */}
           <div className="block md:hidden space-y-4">
-            {/* Card 1 Mobile: Royal Blue */}
-            <div className="rounded-3xl p-6 flex flex-col justify-between min-h-[220px]" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
+            {/* Card 1 Mobile: #0C1833 */}
+            <div className="rounded-3xl p-6 flex flex-col justify-between min-h-[220px]" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
               <div className="flex flex-col">
-                <span className="text-3xl font-regular tracking-tight text-black leading-tight">3.2x</span>
-                <span className="text-3xl font-regular tracking-tight text-black leading-tight">increase</span>
-                <span className="text-black/80 text-xs font-regular mt-1.5">in organic website traffic</span>
+                <span className="text-3xl font-regular tracking-tight text-white leading-tight">3.2x</span>
+                <span className="text-3xl font-regular tracking-tight text-white leading-tight">increase</span>
+                <span className="text-white/70 text-xs font-regular mt-1.5">in organic website traffic</span>
               </div>
-              <div className="mt-6 border-t border-white/20 pt-3">
+              <div className="mt-6 border-t border-white/10 pt-3">
                 <SlotMachineLogo logos={logoPool1} staggerDelay={0} align="left" />
               </div>
             </div>
