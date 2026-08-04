@@ -159,7 +159,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
   }
 
   return (
-    <div className="relative w-full flex flex-col items-center py-10 overflow-hidden select-none">
+    <div className="relative w-full flex flex-col items-center py-10 overflow-hidden select-none -mt-20">
       {/* Title */}
       <h2 className="text-2xl sm:text-4xl font-medium tracking-tight text-zinc-900 mb-16 text-center">
         What People Say

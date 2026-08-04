@@ -262,9 +262,9 @@ export default function AboutUs() {
             </div>
 
             {/* Three Cards in a Row */}
-            <div className="grid grid-cols-3 gap-6 items-stretch">
+            <div className="grid grid-cols-3 gap-8 items-stretch">
               {/* Card 1: Royal Blue */}
-              <div className="rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_20px_50px_rgba(37,99,235,0.25)] hover:shadow-[0_30px_60px_rgba(37,99,235,0.38)] hover:scale-[1.02] hover:-translate-y-2 transition-all duration-300 ease-out select-none">
+              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 -1px 0px 0px rgba(0,0,0,0.15) inset, 0 8px 16px rgba(37,99,235,0.18), 0 30px 60px rgba(37,99,235,0.22), 0 60px 80px rgba(37,99,235,0.12)'}}>
                 {/* Layer Stack Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -274,17 +274,17 @@ export default function AboutUs() {
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-semibold text-xl tracking-tight mb-2 uppercase leading-none">
                     Consistent Branding
                   </h3>
-                  <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
+                  <p className="text-xs font-medium opacity-90 leading-relaxed max-w-[220px]">
                     Ensure every campaign aligns with your brand's identity.
                   </p>
                 </div>
               </div>
 
               {/* Card 2: Middle - Yellow */}
-              <div className="rounded-[24px] bg-[#FACC15] text-[#08302c] p-6 flex flex-col justify-between h-[224px] border border-[#fde047]/30 shadow-[0_20px_50px_rgba(250,204,21,0.25)] hover:shadow-[0_30px_60px_rgba(250,204,21,0.38)] hover:scale-[1.02] hover:-translate-y-2 transition-all duration-300 ease-out select-none">
+              <div className="rounded-[28px] text-[#1a2e05] p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #fde68a 0%, #FACC15 50%, #eab308 100%)', border: '1px solid rgba(255,255,255,0.35)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.4) inset, 0 -1px 0px 0px rgba(0,0,0,0.1) inset, 0 8px 16px rgba(250,204,21,0.2), 0 30px 60px rgba(250,204,21,0.28), 0 60px 80px rgba(250,204,21,0.15)'}}>
                 {/* Nodes/Connections Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-[#08302c]">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -293,17 +293,17 @@ export default function AboutUs() {
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-semibold text-xl tracking-tight mb-2 uppercase leading-none">
                     Automation & Precision
                   </h3>
-                  <p className="text-xs opacity-90 leading-relaxed max-w-[220px]">
+                  <p className="text-xs font-medium opacity-90 leading-relaxed max-w-[220px]">
                     Effortlessly manage and personalize campaigns.
                   </p>
                 </div>
               </div>
 
               {/* Card 3: Royal Blue */}
-              <div className="rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_20px_50px_rgba(37,99,235,0.25)] hover:shadow-[0_30px_60px_rgba(37,99,235,0.38)] hover:scale-[1.02] hover:-translate-y-2 transition-all duration-300 ease-out select-none">
+              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 -1px 0px 0px rgba(0,0,0,0.15) inset, 0 8px 16px rgba(37,99,235,0.18), 0 30px 60px rgba(37,99,235,0.22), 0 60px 80px rgba(37,99,235,0.12)'}}>
                 {/* Scale/Resize Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -311,10 +311,10 @@ export default function AboutUs() {
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-semibold text-xl tracking-tight mb-2 uppercase leading-none">
                     Scalable Solutions
                   </h3>
-                  <p className="text-xs font-semibold opacity-90 leading-relaxed max-w-[220px]">
+                  <p className="text-xs font-medium opacity-90 leading-relaxed max-w-[220px]">
                     Managing complex campaigns across multiple locations.
                   </p>
                 </div>
@@ -352,7 +352,7 @@ export default function AboutUs() {
               }}
             >
               {/* Card 1: Royal Blue */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_15px_35px_rgba(37,99,235,0.2)] select-none">
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 55%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 6px 12px rgba(37,99,235,0.15), 0 20px 40px rgba(37,99,235,0.2), 0 40px 60px rgba(37,99,235,0.1)'}}>
                 {/* Layer Stack Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -372,7 +372,7 @@ export default function AboutUs() {
               </div>
 
               {/* Card 2: Yellow */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#FACC15] text-[#08302c] p-6 flex flex-col justify-between h-[224px] border border-[#fde047]/30 shadow-[0_15px_35px_rgba(250,204,21,0.2)] select-none">
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-[#1a2e05] p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #fde68a 0%, #FACC15 55%, #eab308 100%)', border: '1px solid rgba(255,255,255,0.35)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.4) inset, 0 6px 12px rgba(250,204,21,0.18), 0 20px 40px rgba(250,204,21,0.25), 0 40px 60px rgba(250,204,21,0.12)'}}>
                 {/* Nodes/Connections Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-[#08302c]">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -391,7 +391,7 @@ export default function AboutUs() {
               </div>
 
               {/* Card 3: Royal Blue */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[24px] bg-[#2563EB] text-white p-6 flex flex-col justify-between h-[224px] border border-[#3b82f6]/30 shadow-[0_15px_35px_rgba(37,99,235,0.2)] select-none">
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 55%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 2px 0px 0px rgba(255,255,255,0.15) inset, 0 6px 12px rgba(37,99,235,0.15), 0 20px 40px rgba(37,99,235,0.2), 0 40px 60px rgba(37,99,235,0.1)'}}>
                 {/* Scale/Resize Icon */}
                 <div className="w-10 h-10 flex items-center justify-start text-white">
                   <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">

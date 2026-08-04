@@ -615,46 +615,32 @@ export default function Home() {
 
           {/* Bento-box Grid Version */}
           <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2">
-            {/* Card 1 (Col Span: 3 | Blue Bg): 1.5x increase in qualified meetings */}
-            <div className="col-span-12 md:col-span-3 bg-[#EBF2FF] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+            {/* Card 1 (Col Span: 3 | Royal Blue): 3.2x increase */}
+            <div className="col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
               <div className="flex flex-col">
-                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
-                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
-                <span className="text-zinc-700 text-xs font-regular mt-1.5">in organic website traffic</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-black leading-tight">3.2x</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-black leading-tight">increase</span>
+                <span className="text-black/80 text-xs font-regular mt-1.5">in organic website traffic</span>
               </div>
-              <div className="mt-6 border-t border-black/10 pt-3">
+              <div className="mt-6 border-t border-white/20 pt-3">
                 <SlotMachineLogo logos={logoPool1} staggerDelay={0} align="left" />
               </div>
             </div>
 
-            {/* Card 2 (Col Span: 3 | Glassy Teal Bg): Ouster centered logo slot-machine */}
-            <div className="relative overflow-hidden col-span-12 md:col-span-3 bg-gradient-to-br from-teal-400/25 via-teal-500/10 to-teal-600/20 backdrop-blur-md border border-teal-200/30 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.45),_0_8px_32px_rgba(20,184,166,0.12)] hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.6),_0_12px_40px_rgba(20,184,166,0.2)] transition-all duration-500 group">
-              {/* Glossy Diagonal Reflection Highlight */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 opacity-80 pointer-events-none" />
-              {/* Inner 3D Glow Rim */}
-              <div className="absolute inset-[1px] rounded-[23px] bg-gradient-to-br from-teal-300/10 via-transparent to-transparent pointer-events-none" />
+            {/* Card 2 (Col Span: 3 | Royal Blue): Logo slot-machine */}
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
               <SlotMachineLogo logos={logoPool2} staggerDelay={400} align="center" logoClassName="scale-[1.1]" />
             </div>
 
-            {/* Card 3 (Col Span: 6 | White Bg): Zoë McKenzie Checkr testimonial */}
-            <div className="col-span-12 md:col-span-6 bg-white border border-zinc-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
-              <p className="text-zinc-800 font-regular text-md leading-relaxed md:text-lg">
-                "We chose DesignnCode for their commitment to partnership. They were willing to build with us, experiment, and learn what works. We didn&apos;t know what was possible at first, but the quality of the output now is incredibly impressive."
+            {/* Card 3 (Col Span: 6 | White): Zoë McKenzie testimonial */}
+            <div className="col-span-12 md:col-span-6 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: '#ffffff', border: '1px solid rgba(0,0,0,0.06)'}}>
+              <p className="text-zinc-800 font-medium text-md leading-relaxed md:text-lg">
+                &ldquo;We chose DesignnCode for their commitment to partnership. They were willing to build with us, experiment, and learn what works. We didn&apos;t know what was possible at first, but the quality of the output now is incredibly impressive.&rdquo;
               </p>
-              <div className="mt-6 pt-4 border-t border-dotted border-zinc-200 flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200/80 bg-zinc-100 flex-shrink-0">
-                    <Image
-                      src="/jennifer.png"
-                      alt="Zoë McKenzie"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-zinc-950 text-xs leading-tight">Zoë McKenzie</p>
-                    <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Director of RevOps Technology at Checkr</p>
-                  </div>
+              <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between flex-wrap gap-4">
+                <div>
+                  <p className="font-semibold text-zinc-900 text-xs leading-tight">Zoë McKenzie</p>
+                  <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Director of RevOps Technology at Checkr</p>
                 </div>
                 <div className="flex-shrink-0 flex items-center scale-90 origin-right">
                   <ClientLogo1 />
@@ -662,34 +648,20 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Card 4 (Col Span: 3 | Glassy Teal Bg): Rho centered logo slot-machine */}
-            <div className="relative overflow-hidden col-span-12 md:col-span-3 bg-gradient-to-br from-teal-400/25 via-teal-500/10 to-teal-600/20 backdrop-blur-md border border-teal-200/30 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.45),_0_8px_32px_rgba(20,184,166,0.12)] hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.6),_0_12px_40px_rgba(20,184,166,0.2)] transition-all duration-500 group">
-              {/* Glossy Diagonal Reflection Highlight */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 opacity-80 pointer-events-none" />
-              {/* Inner 3D Glow Rim */}
-              <div className="absolute inset-[1px] rounded-[23px] bg-gradient-to-br from-teal-300/10 via-transparent to-transparent pointer-events-none" />
+            {/* Card 4 (Col Span: 3 | Royal Blue): Logo slot-machine */}
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
               <SlotMachineLogo logos={logoPool3} staggerDelay={800} align="center" logoClassName="scale-[1.1]" />
             </div>
 
-            {/* Card 5 (Col Span: 6 | White Bg): Mark Deacon canibuild testimonial */}
-            <div className="col-span-12 md:col-span-6 bg-white border border-zinc-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
-              <p className="text-zinc-800 font-regular text-md leading-relaxed md:text-lg">
-                "DesignnCode became the execution layer behind our inbound and outbound motions. It made our sales operation leaner, more efficient, and easier to scale."
+            {/* Card 5 (Col Span: 6 | White): Mark Deacon testimonial */}
+            <div className="col-span-12 md:col-span-6 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: '#ffffff', border: '1px solid rgba(0,0,0,0.06)'}}>
+              <p className="text-zinc-800 font-medium text-md leading-relaxed md:text-lg">
+                &ldquo;DesignnCode became the execution layer behind our inbound and outbound motions. It made our sales operation leaner, more efficient, and easier to scale.&rdquo;
               </p>
-              <div className="mt-6 pt-4 border-t border-dotted border-zinc-200 flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200/80 bg-zinc-100 flex-shrink-0">
-                    <Image
-                      src="/charlie.png"
-                      alt="Mark Deacon"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-zinc-950 text-xs leading-tight">Mark Deacon</p>
-                    <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Chief Revenue Operations Officer</p>
-                  </div>
+              <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between flex-wrap gap-4">
+                <div>
+                  <p className="font-semibold text-zinc-900 text-xs leading-tight">Mark Deacon</p>
+                  <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Chief Revenue Operations Officer</p>
                 </div>
                 <div className="flex-shrink-0 flex items-center scale-90 origin-right">
                   <ClientLogo2 />
@@ -697,12 +669,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Card 6 (Col Span: 3 | Warm Sand Bg): $1M+ pipeline generated in first 3 months */}
-            <div className="col-span-12 md:col-span-3 bg-[#FFF9E6] rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full shadow-sm hover:shadow-md transition-shadow duration-300">
+            {/* Card 6 (Col Span: 3 | Yellow): 150%+ more leads */}
+            <div className="col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #fde68a 0%, #FACC15 50%, #eab308 100%)', border: '1px solid rgba(255,255,255,0.35)'}}>
               <div className="flex flex-col">
-                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
-                <span className="text-3xl md:text-4xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
-                <span className="text-zinc-700 text-xs font-regular mt-1.5">within 90 days</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-[#1a2e05] leading-tight">150%+</span>
+                <span className="text-3xl md:text-4xl font-regular tracking-tight text-[#1a2e05] leading-tight">more leads</span>
+                <span className="text-[#1a2e05]/70 text-xs font-regular mt-1.5">within 90 days</span>
               </div>
               <div className="mt-6 border-t border-black/10 pt-3">
                 <SlotMachineLogo logos={logoPool4} staggerDelay={1200} align="left" />
@@ -712,55 +684,45 @@ export default function Home() {
 
           {/* Mobile Carousel & Testimonials Version */}
           <div className="block md:hidden space-y-4">
-            {/* Card 1: 3.2x increase ... */}
-            <div className="bg-[#EBF2FF] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+            {/* Card 1 Mobile: Royal Blue */}
+            <div className="rounded-3xl p-6 flex flex-col justify-between min-h-[220px]" style={{background: 'linear-gradient(160deg, #4f8ef7 0%, #2563EB 50%, #1d4ed8 100%)', border: '1px solid rgba(255,255,255,0.18)'}}>
               <div className="flex flex-col">
-                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">3.2x</span>
-                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">increase</span>
-                <span className="text-zinc-700 text-xs font-regular mt-1.5">in organic website traffic</span>
+                <span className="text-3xl font-regular tracking-tight text-black leading-tight">3.2x</span>
+                <span className="text-3xl font-regular tracking-tight text-black leading-tight">increase</span>
+                <span className="text-black/80 text-xs font-regular mt-1.5">in organic website traffic</span>
               </div>
-              <div className="mt-6 border-t border-black/10 pt-3">
+              <div className="mt-6 border-t border-white/20 pt-3">
                 <SlotMachineLogo logos={logoPool1} staggerDelay={0} align="left" />
               </div>
             </div>
 
-            {/* Card 6: 150%+ more leads ... */}
-            <div className="bg-[#FFF9E6] rounded-3xl p-6 flex flex-col justify-between min-h-[220px] shadow-sm">
+            {/* Card 6 Mobile: Yellow */}
+            <div className="rounded-3xl p-6 flex flex-col justify-between min-h-[220px]" style={{background: 'linear-gradient(160deg, #fde68a 0%, #FACC15 50%, #eab308 100%)', border: '1px solid rgba(255,255,255,0.35)'}}>
               <div className="flex flex-col">
-                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">150%+</span>
-                <span className="text-3xl font-regular tracking-tight text-zinc-950 leading-tight">more leads</span>
-                <span className="text-zinc-700 text-xs font-regular mt-1.5">within 90 days</span>
+                <span className="text-3xl font-regular tracking-tight text-[#1a2e05] leading-tight">150%+</span>
+                <span className="text-3xl font-regular tracking-tight text-[#1a2e05] leading-tight">more leads</span>
+                <span className="text-[#1a2e05]/70 text-xs font-regular mt-1.5">within 90 days</span>
               </div>
               <div className="mt-6 border-t border-black/10 pt-3">
                 <SlotMachineLogo logos={logoPool4} staggerDelay={400} align="left" />
               </div>
             </div>
 
-            {/* Testimonial Slider Card */}
-            <div className="bg-white border border-zinc-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[260px] shadow-sm">
-              <p className="text-zinc-800 font-regular text-md leading-relaxed">
-                "{mobileTestimonials[activeTestimonial].quote}"
+            {/* Testimonial Slider Card - White */}
+            <div className="rounded-3xl p-6 flex flex-col justify-between min-h-[260px]" style={{background: '#ffffff', border: '1px solid rgba(0,0,0,0.06)'}}>
+              <p className="text-zinc-800 font-medium text-md leading-relaxed">
+                &ldquo;{mobileTestimonials[activeTestimonial].quote}&rdquo;
               </p>
               
-              <div className="mt-6 pt-4 border-t border-dotted border-zinc-200 flex flex-col gap-4">
+              <div className="mt-6 pt-4 border-t border-zinc-100 flex flex-col gap-4">
                 <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200/80 bg-zinc-100 flex-shrink-0">
-                      <Image
-                        src={mobileTestimonials[activeTestimonial].avatar}
-                        alt={mobileTestimonials[activeTestimonial].name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-zinc-950 text-xs leading-tight">
-                        {mobileTestimonials[activeTestimonial].name}
-                      </p>
-                      <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">
-                        {mobileTestimonials[activeTestimonial].role}
-                      </p>
-                    </div>
+                  <div>
+                    <p className="font-semibold text-zinc-900 text-xs leading-tight">
+                      {mobileTestimonials[activeTestimonial].name}
+                    </p>
+                    <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">
+                      {mobileTestimonials[activeTestimonial].role}
+                    </p>
                   </div>
                   <div className="flex-shrink-0 flex items-center scale-90 origin-right">
                     {mobileTestimonials[activeTestimonial].logo}
