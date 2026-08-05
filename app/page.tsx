@@ -356,16 +356,18 @@ function HowWeHelpSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const card2Ref = useRef<HTMLDivElement>(null);
   const card3Ref = useRef<HTMLDivElement>(null);
+  const card4Ref = useRef<HTMLDivElement>(null);
+  const card5Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current || !card2Ref.current || !card3Ref.current) return;
+    if (!sectionRef.current || !card2Ref.current || !card3Ref.current || !card4Ref.current || !card5Ref.current) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top+=75",
-          end: "+=1500",
+          end: "+=2400",
           pin: true,
           pinSpacing: true,
           scrub: 0.6,
@@ -373,16 +375,30 @@ function HowWeHelpSection() {
         },
       });
 
-      // Animate Card 2 sliding up over Card 1 from below (completely hidden initially)
+      // Animate Card 2 sliding up over Card 1
       tl.fromTo(
         card2Ref.current,
         { yPercent: 135, opacity: 0 },
         { yPercent: 0, opacity: 1, ease: "power1.inOut", duration: 1 }
       );
 
-      // Animate Card 3 sliding up over Card 2 from below (completely hidden initially)
+      // Animate Card 3 sliding up over Card 2
       tl.fromTo(
         card3Ref.current,
+        { yPercent: 135, opacity: 0 },
+        { yPercent: 0, opacity: 1, ease: "power1.inOut", duration: 1 }
+      );
+
+      // Animate Card 4 sliding up over Card 3
+      tl.fromTo(
+        card4Ref.current,
+        { yPercent: 135, opacity: 0 },
+        { yPercent: 0, opacity: 1, ease: "power1.inOut", duration: 1 }
+      );
+
+      // Animate Card 5 sliding up over Card 4
+      tl.fromTo(
+        card5Ref.current,
         { yPercent: 135, opacity: 0 },
         { yPercent: 0, opacity: 1, ease: "power1.inOut", duration: 1 }
       );
@@ -410,7 +426,7 @@ function HowWeHelpSection() {
           {/* Sub-stats / Highlights */}
           <div className="pt-4 sm:pt-6 border-t border-zinc-200/80 grid grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <span className="block text-2xl sm:text-4xl font-bold text-zinc-950">3</span>
+              <span className="block text-2xl sm:text-4xl font-bold text-zinc-950">5</span>
               <span className="text-[10px] sm:text-xs text-zinc-500 font-medium uppercase tracking-wider mt-0.5 sm:mt-1 block">Core Disciplines</span>
             </div>
             <div>
@@ -421,31 +437,30 @@ function HowWeHelpSection() {
         </div>
 
         {/* Right Column: Stacked Card Container */}
-        <div className="lg:col-span-7 relative h-[470px] sm:h-[500px] lg:h-[520px] w-full flex items-center justify-center overflow-hidden rounded-3xl">
+        <div className="lg:col-span-7 relative h-[510px] sm:h-[510px] lg:h-[520px] w-full flex items-center justify-center overflow-hidden rounded-3xl">
 
           {/* Card 1: Royal Blue #0C1833 (Base Card) */}
-          <div className="absolute inset-0 z-10 rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between text-white border border-white/10 shadow-2xl overflow-hidden" style={{ background: '#0C1833' }}>
+          <div className="absolute inset-0 z-10 rounded-3xl p-5 sm:p-7 lg:p-10 flex flex-col justify-between text-white border border-white/10 shadow-2xl overflow-hidden" style={{ background: '#0C1833' }}>
             <div>
-              <div className="flex items-center justify-between mb-3 sm:mb-5">
+              <div className="flex items-center justify-between mb-2 sm:mb-4">
                 <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-blue-200/80 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">01 / Service</span>
-                
               </div>
-              <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white uppercase mb-2 sm:mb-4">
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white uppercase mb-1.5 sm:mb-3">
                 UI/UX Design
               </h3>
-              <p className="text-blue-100/90 text-xs sm:text-sm lg:text-base leading-relaxed mb-4 sm:mb-6">
+              <p className="text-blue-100/90 text-xs sm:text-sm lg:text-base leading-snug sm:leading-relaxed mb-3 sm:mb-5">
                 We craft intuitive, human-centered interfaces that captivate users, elevate brand perception, and turn casual visitors into loyal customers.
               </p>
 
               {/* Service Pointers */}
-              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-white/15 pt-3 sm:pt-5">
+              <div className="space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5 border-t border-white/15 pt-2.5 sm:pt-4">
                 {[
                   "User Research, Architecture & Wireframing",
                   "Pixel-perfect High-Fidelity UI Design",
                   "Interactive Prototypes & Motion Systems",
                   "Scalable Enterprise Design Systems"
                 ].map((pointer, i) => (
-                  <div key={i} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-blue-50 font-medium">
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs lg:text-sm text-blue-50 font-medium">
                     <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/15 flex items-center justify-center text-[10px] sm:text-xs text-blue-200">✓</span>
                     <span>{pointer}</span>
                   </div>
@@ -454,7 +469,7 @@ function HowWeHelpSection() {
             </div>
 
             {/* Card CTA */}
-            <div className="pt-3 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
+            <div className="pt-2.5 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
               <Link
                 href="/Service/ui_ux"
                 className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-white text-zinc-950 text-xs sm:text-sm font-bold shadow-md hover:bg-blue-50 hover:gap-4 transition-all cursor-pointer"
@@ -468,28 +483,27 @@ function HowWeHelpSection() {
           </div>
 
           {/* Card 2: Solid Yellow #FACC15 (Animates over Card 1) */}
-          <div ref={card2Ref} className="absolute inset-0 z-20 rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between text-[#1a2e05] border border-black/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#FACC15' }}>
+          <div ref={card2Ref} className="absolute inset-0 z-20 rounded-3xl p-5 sm:p-7 lg:p-10 flex flex-col justify-between text-[#1a2e05] border border-black/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#FACC15' }}>
             <div>
-              <div className="flex items-center justify-between mb-3 sm:mb-5">
+              <div className="flex items-center justify-between mb-2 sm:mb-4">
                 <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#1a2e05]/70 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/10 border border-black/10">02 / Service</span>
-                
               </div>
-              <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#1a2e05] uppercase mb-2 sm:mb-4">
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#1a2e05] uppercase mb-1.5 sm:mb-3">
                 Performance Marketing
               </h3>
-              <p className="text-[#1a2e05]/90 text-xs sm:text-sm lg:text-base leading-relaxed mb-4 sm:mb-6">
+              <p className="text-[#1a2e05]/90 text-xs sm:text-sm lg:text-base leading-snug sm:leading-relaxed mb-3 sm:mb-5">
                 Data-backed growth marketing campaigns focused on what matters most — measurable ROI, targeted customer acquisition, and sustainable revenue.
               </p>
 
               {/* Service Pointers */}
-              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-black/10 pt-3 sm:pt-5">
+              <div className="space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5 border-t border-black/10 pt-2.5 sm:pt-4">
                 {[
                   "Targeted Conversion Rate Optimization (CRO)",
                   "Omnichannel Paid Ads (Meta, Google, LinkedIn)",
                   "Personalised Insights & Attribution Analytics",
                   "High-converting Landing Page Funnels"
                 ].map((pointer, i) => (
-                  <div key={i} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[#1a2e05] font-semibold">
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs lg:text-sm text-[#1a2e05] font-semibold">
                     <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-black/10 flex items-center justify-center text-[10px] sm:text-xs text-[#1a2e05]">✓</span>
                     <span>{pointer}</span>
                   </div>
@@ -498,7 +512,7 @@ function HowWeHelpSection() {
             </div>
 
             {/* Card CTA */}
-            <div className="pt-3 sm:pt-4 border-t border-black/10 flex items-center justify-between mt-auto">
+            <div className="pt-2.5 sm:pt-4 border-t border-black/10 flex items-center justify-between mt-auto">
               <Link
                 href="/marketing"
                 className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-zinc-950 text-white text-xs sm:text-sm font-bold shadow-md hover:bg-zinc-800 hover:gap-4 transition-all cursor-pointer"
@@ -512,28 +526,27 @@ function HowWeHelpSection() {
           </div>
 
           {/* Card 3: Royal Blue #0C1833 (Animates over Card 2) */}
-          <div ref={card3Ref} className="absolute inset-0 z-30 rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between text-white border border-white/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#0C1833' }}>
+          <div ref={card3Ref} className="absolute inset-0 z-30 rounded-3xl p-5 sm:p-7 lg:p-10 flex flex-col justify-between text-white border border-white/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#0C1833' }}>
             <div>
-              <div className="flex items-center justify-between mb-3 sm:mb-5">
+              <div className="flex items-center justify-between mb-2 sm:mb-4">
                 <span className="text-[10px] sm:text-xs font-mono font-medium tracking-widest text-blue-200/80 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">03 / Service</span>
-                
               </div>
-              <h3 className="text-xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white uppercase mb-2 sm:mb-4">
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white uppercase mb-1.5 sm:mb-3">
                 Web Development
               </h3>
-              <p className="text-blue-100/90 text-xs sm:text-sm lg:text-base leading-relaxed mb-4 sm:mb-6">
+              <p className="text-blue-100/90 text-xs sm:text-sm lg:text-base leading-snug sm:leading-relaxed mb-3 sm:mb-5">
                 Engineering lightning-fast, highly scalable web apps and custom digital platforms built with cutting-edge modern technology stacks.
               </p>
 
               {/* Service Pointers */}
-              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-white/15 pt-3 sm:pt-5">
+              <div className="space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5 border-t border-white/15 pt-2.5 sm:pt-4">
                 {[
                   "Next.js & React High-Performance App Engineering",
                   "Custom Headless Shopify & E-Commerce Stores",
                   "Cloud Infrastructure & Custom API Integrations",
                   "Sub-second Page Load & Technical SEO"
                 ].map((pointer, i) => (
-                  <div key={i} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-blue-50 font-medium">
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs lg:text-sm text-blue-50 font-medium">
                     <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/15 flex items-center justify-center text-[10px] sm:text-xs text-blue-200">✓</span>
                     <span>{pointer}</span>
                   </div>
@@ -542,12 +555,98 @@ function HowWeHelpSection() {
             </div>
 
             {/* Card CTA */}
-            <div className="pt-3 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
+            <div className="pt-2.5 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
               <Link
                 href="/webd"
                 className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-white text-zinc-950 text-xs sm:text-sm font-bold shadow-md hover:bg-blue-50 hover:gap-4 transition-all cursor-pointer"
               >
                 <span>Build Your Platform</span>
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 4: Solid Yellow #FACC15 (Animates over Card 3) */}
+          <div ref={card4Ref} className="absolute inset-0 z-40 rounded-3xl p-5 sm:p-7 lg:p-10 flex flex-col justify-between text-[#1a2e05] border border-black/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#FACC15' }}>
+            <div>
+              <div className="flex items-center justify-between mb-2 sm:mb-4">
+                <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#1a2e05]/70 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/10 border border-black/10">04 / Service</span>
+              </div>
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#1a2e05] uppercase mb-1.5 sm:mb-3">
+                Shopify Development
+              </h3>
+              <p className="text-[#1a2e05]/90 text-xs sm:text-sm lg:text-base leading-snug sm:leading-relaxed mb-3 sm:mb-5">
+                Building high-converting, custom Shopify & e-commerce stores designed for seamless user checkout and rapid sales scaling.
+              </p>
+
+              {/* Service Pointers */}
+              <div className="space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5 border-t border-black/10 pt-2.5 sm:pt-4">
+                {[
+                  "Custom Shopify Theme & Liquid Development",
+                  "Headless Storefronts & Sub-second Checkout",
+                  "App Integration & Payment Gateway Setup",
+                  "Mobile-first Store Optimization"
+                ].map((pointer, i) => (
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs lg:text-sm text-[#1a2e05] font-semibold">
+                    <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-black/10 flex items-center justify-center text-[10px] sm:text-xs text-[#1a2e05]">✓</span>
+                    <span>{pointer}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Card CTA */}
+            <div className="pt-2.5 sm:pt-4 border-t border-black/10 flex items-center justify-between mt-auto">
+              <Link
+                href="/ecommerce"
+                className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-zinc-950 text-white text-xs sm:text-sm font-bold shadow-md hover:bg-zinc-800 hover:gap-4 transition-all cursor-pointer"
+              >
+                <span>Explore E-Commerce</span>
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 5: Royal Blue #0C1833 (Animates over Card 4) */}
+          <div ref={card5Ref} className="absolute inset-0 z-50 rounded-3xl p-5 sm:p-7 lg:p-10 flex flex-col justify-between text-white border border-white/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#0C1833' }}>
+            <div>
+              <div className="flex items-center justify-between mb-2 sm:mb-4">
+                <span className="text-[10px] sm:text-xs font-mono font-medium tracking-widest text-blue-200/80 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">05 / Service</span>
+              </div>
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white uppercase mb-1.5 sm:mb-3">
+                SEO & Organic Growth
+              </h3>
+              <p className="text-blue-100/90 text-xs sm:text-sm lg:text-base leading-snug sm:leading-relaxed mb-3 sm:mb-5">
+                Dominating organic search results with data-backed technical SEO, keyword strategy, and high-authority content execution.
+              </p>
+
+              {/* Service Pointers */}
+              <div className="space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5 border-t border-white/15 pt-2.5 sm:pt-4">
+                {[
+                  "Technical SEO & Core Web Vitals Optimization",
+                  "On-Page Keyword & Content Architecture",
+                  "Authority Backlink & Off-Page Strategy",
+                  "Real-time Analytics & Ranking Reports"
+                ].map((pointer, i) => (
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs lg:text-sm text-blue-50 font-medium">
+                    <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/15 flex items-center justify-center text-[10px] sm:text-xs text-blue-200">✓</span>
+                    <span>{pointer}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Card CTA */}
+            <div className="pt-2.5 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
+              <Link
+                href="/marketing"
+                className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-white text-zinc-950 text-xs sm:text-sm font-bold shadow-md hover:bg-blue-50 hover:gap-4 transition-all cursor-pointer"
+              >
+                <span>Boost Rankings</span>
                 <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
@@ -783,7 +882,7 @@ export default function Home() {
 
 
       {/* ── Why Choose Us ── */}
-      <section className="relative bg-[#FFFFFF] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
+      <section className="relative bg-[#FFFFFF] pt-24 pb-8 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Staggered Stats & Dots */}
@@ -843,12 +942,12 @@ export default function Home() {
       </section>
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#FFFFFF] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
+      <section className="relative bg-[#FFFFFF] px-6 sm:px-8 lg:px-12 overflow-hidden mt-2 md:-mt-14 sm:-mt-16 z-10 py-4">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
           <div className="relative z-10 pt-8 pb-14 flex flex-col items-center">
-            <h2 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-900 text-center mt-6 md:-mt-24">
+            <h2 className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-zinc-900 text-center mt-6">
               <span>Why clients</span>
 
               <span className="relative inline-flex items-center mx-1 sm:mx-2 group">
