@@ -746,7 +746,7 @@ export default function Home() {
 
         {/* Orbiting circular ring & logos */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-          <div className="relative w-[740px] h-[740px] md:w-[800px] md:h-[800px] lg:w-[850px] lg:h-[850px] shrink-0 rounded-full border-2 border-zinc-200 border-t-transparent md:border-t-zinc-200 flex items-center justify-center [--orbit-radius:370px] md:[--orbit-radius:400px] lg:[--orbit-radius:425px]">
+          <div className="relative w-[666px] h-[666px] md:w-[800px] md:h-[800px] lg:w-[850px] lg:h-[850px] shrink-0 rounded-full border-2 border-zinc-200 border-t-transparent md:border-t-zinc-200 flex items-center justify-center [--orbit-radius:333px] md:[--orbit-radius:400px] lg:[--orbit-radius:425px]">
             {/* Orbiting Ring */}
             <div className="absolute inset-0 animate-orbit">
               {[
