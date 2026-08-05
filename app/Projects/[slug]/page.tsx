@@ -50,7 +50,7 @@ export default async function ProjectDetailPage({
   const copy = getProjectCopy(project);
 
   return (
-    <main className="relative flex flex-col min-h-screen pt-20 bg-[#F4F8FF]">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FFFFFF]">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         

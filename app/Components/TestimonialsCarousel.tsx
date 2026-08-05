@@ -210,10 +210,10 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
         {/* Carousel Visual Viewport */}
         <div className="relative w-full h-[310px] overflow-visible">
           {/* Gradient Overlay Fade Left */}
-          <div className="absolute left-0 top-0 bottom-0 w-1/6 md:w-1/4 bg-gradient-to-r from-[#F4F8FF] via-[#F4F8FF]/80 to-transparent pointer-events-none z-20" />
+          <div className="absolute left-0 top-0 bottom-0 w-1/6 md:w-1/4 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent pointer-events-none z-20" />
           
           {/* Gradient Overlay Fade Right */}
-          <div className="absolute right-0 top-0 bottom-0 w-1/6 md:w-1/4 bg-gradient-to-l from-[#F4F8FF] via-[#F4F8FF]/80 to-transparent pointer-events-none z-20" />
+          <div className="absolute right-0 top-0 bottom-0 w-1/6 md:w-1/4 bg-gradient-to-l from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent pointer-events-none z-20" />
 
           {/* Slider Row */}
           <div

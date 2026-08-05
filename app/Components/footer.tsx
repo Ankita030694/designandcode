@@ -8,7 +8,7 @@ export default function Footer() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <footer className="w-full bg-[#F4F8FF] border-t border-zinc-100/50 pt-16 pb-12 px-6 sm:px-8 lg:px-12">
+    <footer className="w-full bg-[#FFFFFF] border-t border-zinc-100/50 pt-16 pb-12 px-6 sm:px-8 lg:px-12">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Top Section: Logo & Signature */}
         <div className="flex flex-col items-center text-center gap-4 mb-10">

@@ -106,74 +106,139 @@ const projects = PROJECTS_DATA.slice(0, 4).map((project, idx) => ({
   ...project,
   stagger: idx % 2 === 1,
 }));
-const ClientLogo1 = () => (
+
+const ClientLogo1 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/Logo_Primary_Logo 1.png"
+    src="/Logo_Client/Frame 371.svg"
     alt="Client Logo 1"
-    className="h-[55px] max-w-[200px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const ClientLogo2 = () => (
+const ClientLogo2 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/Logo_Lockup__1_-removebg-preview 1.png"
+    src="/Logo_Client/Frame 372.svg"
     alt="Client Logo 2"
-    className="h-[55px] max-w-[200px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const ClientLogo3 = () => (
+const ClientLogo3 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/Anyadha-removebg-preview 1.png"
+    src="/Logo_Client/Frame 373.svg"
     alt="Client Logo 3"
-    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const ClientLogo4 = () => (
+const ClientLogo4 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/foire_logo_1_-01-removebg-preview 1.png"
+    src="/Logo_Client/Frame 374.svg"
     alt="Client Logo 4"
-    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const ClientLogo5 = () => (
+const ClientLogo5 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/transparent-D0veniAb__1_-removebg-preview 1.png"
+    src="/Logo_Client/Frame 375.svg"
     alt="Client Logo 5"
-    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const ClientLogo6 = () => (
+const ClientLogo6 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/Asset_1_2x_1-removebg-preview 1.png"
+    src="/Logo_Client/Frame 376.svg"
     alt="Client Logo 6"
-    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const ClientLogo7 = () => (
+const ClientLogo7 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/logo-01_400x200-removebg-preview 1.png"
+    src="/Logo_Client/Frame 377.svg"
     alt="Client Logo 7"
-    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const ClientLogo8 = () => (
+const ClientLogo8 = ({ dark = false }: { dark?: boolean }) => (
   <img
-    src="/LOGO DESIGNNCODE/Group_7-removebg-preview 1.png"
+    src="/Logo_Client/Frame 378.svg"
     alt="Client Logo 8"
-    className="h-[42px] max-w-[156px] object-contain md:brightness-0 select-none shrink-0"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
   />
 );
 
-const logoPool1 = [<ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />];
-const logoPool2 = [<ClientLogo1 key="l1" />, <ClientLogo3 key="l3" />, <ClientLogo5 key="l5" />, <ClientLogo7 key="l7" />];
-const logoPool3 = [<ClientLogo2 key="l2" />, <ClientLogo4 key="l4" />, <ClientLogo6 key="l6" />, <ClientLogo8 key="l8" />];
-const logoPool4 = [<ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />, <ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />, <ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />];
+const ClientLogo9 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 379.svg"
+    alt="Client Logo 9"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const ClientLogo10 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 380.svg"
+    alt="Client Logo 10"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const ClientLogo11 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 381.svg"
+    alt="Client Logo 11"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const ClientLogo12 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 382.svg"
+    alt="Client Logo 12"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const ClientLogo13 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 383.svg"
+    alt="Client Logo 13"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const ClientLogo14 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 384.svg"
+    alt="Client Logo 14"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const ClientLogo15 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 385.svg"
+    alt="Client Logo 15"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const ClientLogo16 = ({ dark = false }: { dark?: boolean }) => (
+  <img
+    src="/Logo_Client/Frame 386.svg"
+    alt="Client Logo 16"
+    className={`h-[54px] max-w-[195px] object-contain select-none shrink-0 ${dark ? "brightness-0 opacity-80" : ""}`}
+  />
+);
+
+const logoPool1 = [<ClientLogo1 key="l1" />, <ClientLogo2 key="l2" />, <ClientLogo3 key="l3" />, <ClientLogo4 key="l4" />];
+const logoPool2 = [<ClientLogo5 key="l5" />, <ClientLogo6 key="l6" />, <ClientLogo7 key="l7" />, <ClientLogo8 key="l8" />];
+const logoPool3 = [<ClientLogo9 key="l9" />, <ClientLogo10 key="l10" />, <ClientLogo11 key="l11" />, <ClientLogo12 key="l12" />];
+const logoPool4 = [<ClientLogo13 key="l13" dark />, <ClientLogo14 key="l14" dark />, <ClientLogo15 key="l15" dark />, <ClientLogo16 key="l16" dark />];
 
 const mobileTestimonials = [
   {
@@ -181,14 +246,14 @@ const mobileTestimonials = [
     name: "Zoë McKenzie",
     role: "Director of RevOps Technology at Checkr",
     avatar: "/jennifer.png",
-    logo: <ClientLogo1 />
+    logo: <ClientLogo1 dark />
   },
   {
     quote: "Designncode became the execution layer behind our inbound and outbound motions. It made our sales operation leaner, more efficient, and easier to scale.",
     name: "Mark Deacon",
     role: "Chief Revenue Operations Officer at canibuild",
     avatar: "/charlie.png",
-    logo: <ClientLogo2 />
+    logo: <ClientLogo5 dark />
   }
 ];
 
@@ -226,7 +291,7 @@ function SlotMachineLogo({
       return () => clearInterval(timer);
     }, staggerDelay);
 
-    return () => clearTimeout(startTimeout);
+    return () => clearInterval(startTimeout);
   }, [logos.length, interval, staggerDelay]);
 
   const handleTransitionEnd = () => {
@@ -237,19 +302,19 @@ function SlotMachineLogo({
   };
 
   return (
-    <div className={`relative h-[62px] overflow-hidden w-full flex ${align === "left" ? "justify-start" : "justify-center"}`}>
+    <div className={`relative h-[74px] overflow-hidden w-full flex ${align === "left" ? "justify-start" : "justify-center"}`}>
       <div
         className="flex flex-col w-full"
         style={{
           transition: isTransitioning ? "transform 700ms cubic-bezier(0.76, 0, 0.24, 1)" : "none",
-          transform: `translateY(-${index * 62}px)`,
+          transform: `translateY(-${index * 74}px)`,
         }}
         onTransitionEnd={handleTransitionEnd}
       >
         {displayLogos.map((logo, idx) => (
           <div
             key={idx}
-            className={`h-[62px] w-full flex items-center ${align === "left" ? "justify-start" : "justify-center"} flex-shrink-0`}
+            className={`h-[74px] w-full flex items-center ${align === "left" ? "justify-start" : "justify-center"} flex-shrink-0`}
           >
             <div className={`${logoClassName} flex items-center justify-center`}>
               {logo}
@@ -286,6 +351,215 @@ function SectionDivider() {
 }
 
 
+
+function HowWeHelpSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const card2Ref = useRef<HTMLDivElement>(null);
+  const card3Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !card2Ref.current || !card3Ref.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top+=75",
+          end: "+=1500",
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.6,
+          anticipatePin: 1,
+        },
+      });
+
+      // Animate Card 2 sliding up over Card 1 from below (completely hidden initially)
+      tl.fromTo(
+        card2Ref.current,
+        { yPercent: 135, opacity: 0 },
+        { yPercent: 0, opacity: 1, ease: "power1.inOut", duration: 1 }
+      );
+
+      // Animate Card 3 sliding up over Card 2 from below (completely hidden initially)
+      tl.fromTo(
+        card3Ref.current,
+        { yPercent: 135, opacity: 0 },
+        { yPercent: 0, opacity: 1, ease: "power1.inOut", duration: 1 }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="relative bg-[#FFFFFF] py-10 sm:py-16 px-4 sm:px-8 lg:px-12 border-t border-zinc-100/60 overflow-hidden">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        
+        {/* Left Column: Header & Copy */}
+        <div className="lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-8 select-none">
+          <div className="space-y-3 sm:space-y-6">
+            
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-zinc-950 uppercase leading-[0.98]">
+              TURNING IDEAS INTO IMPACT.
+            </h2>
+            <p className="text-zinc-500 text-xs sm:text-base lg:text-lg leading-relaxed max-w-md hidden sm:block">
+              From concept to launch and beyond. We partner with ambitious brands to craft exceptional digital experiences, drive measurable growth, and build scalable technology.
+            </p>
+          </div>
+
+          {/* Sub-stats / Highlights */}
+          <div className="pt-4 sm:pt-6 border-t border-zinc-200/80 grid grid-cols-2 gap-4 sm:gap-6">
+            <div>
+              <span className="block text-2xl sm:text-4xl font-bold text-zinc-950">3</span>
+              <span className="text-[10px] sm:text-xs text-zinc-500 font-medium uppercase tracking-wider mt-0.5 sm:mt-1 block">Core Disciplines</span>
+            </div>
+            <div>
+              <span className="block text-2xl sm:text-4xl font-bold text-zinc-950">100%</span>
+              <span className="text-[10px] sm:text-xs text-zinc-500 font-medium uppercase tracking-wider mt-0.5 sm:mt-1 block">Tailored Execution</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Stacked Card Container */}
+        <div className="lg:col-span-7 relative h-[470px] sm:h-[500px] lg:h-[520px] w-full flex items-center justify-center overflow-hidden rounded-3xl">
+
+          {/* Card 1: Royal Blue #0C1833 (Base Card) */}
+          <div className="absolute inset-0 z-10 rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between text-white border border-white/10 shadow-2xl overflow-hidden" style={{ background: '#0C1833' }}>
+            <div>
+              <div className="flex items-center justify-between mb-3 sm:mb-5">
+                <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-blue-200/80 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">01 / Service</span>
+                
+              </div>
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white uppercase mb-2 sm:mb-4">
+                UI/UX Design
+              </h3>
+              <p className="text-blue-100/90 text-xs sm:text-sm lg:text-base leading-relaxed mb-4 sm:mb-6">
+                We craft intuitive, human-centered interfaces that captivate users, elevate brand perception, and turn casual visitors into loyal customers.
+              </p>
+
+              {/* Service Pointers */}
+              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-white/15 pt-3 sm:pt-5">
+                {[
+                  "User Research, Architecture & Wireframing",
+                  "Pixel-perfect High-Fidelity UI Design",
+                  "Interactive Prototypes & Motion Systems",
+                  "Scalable Enterprise Design Systems"
+                ].map((pointer, i) => (
+                  <div key={i} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-blue-50 font-medium">
+                    <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/15 flex items-center justify-center text-[10px] sm:text-xs text-blue-200">✓</span>
+                    <span>{pointer}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Card CTA */}
+            <div className="pt-3 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
+              <Link
+                href="/Service/ui_ux"
+                className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-white text-zinc-950 text-xs sm:text-sm font-bold shadow-md hover:bg-blue-50 hover:gap-4 transition-all cursor-pointer"
+              >
+                <span>Explore UI/UX</span>
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 2: Solid Yellow #FACC15 (Animates over Card 1) */}
+          <div ref={card2Ref} className="absolute inset-0 z-20 rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between text-[#1a2e05] border border-black/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#FACC15' }}>
+            <div>
+              <div className="flex items-center justify-between mb-3 sm:mb-5">
+                <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#1a2e05]/70 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/10 border border-black/10">02 / Service</span>
+                
+              </div>
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#1a2e05] uppercase mb-2 sm:mb-4">
+                Performance Marketing
+              </h3>
+              <p className="text-[#1a2e05]/90 text-xs sm:text-sm lg:text-base leading-relaxed mb-4 sm:mb-6">
+                Data-backed growth marketing campaigns focused on what matters most — measurable ROI, targeted customer acquisition, and sustainable revenue.
+              </p>
+
+              {/* Service Pointers */}
+              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-black/10 pt-3 sm:pt-5">
+                {[
+                  "Targeted Conversion Rate Optimization (CRO)",
+                  "Omnichannel Paid Ads (Meta, Google, LinkedIn)",
+                  "Personalised Insights & Attribution Analytics",
+                  "High-converting Landing Page Funnels"
+                ].map((pointer, i) => (
+                  <div key={i} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[#1a2e05] font-semibold">
+                    <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-black/10 flex items-center justify-center text-[10px] sm:text-xs text-[#1a2e05]">✓</span>
+                    <span>{pointer}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Card CTA */}
+            <div className="pt-3 sm:pt-4 border-t border-black/10 flex items-center justify-between mt-auto">
+              <Link
+                href="/marketing"
+                className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-zinc-950 text-white text-xs sm:text-sm font-bold shadow-md hover:bg-zinc-800 hover:gap-4 transition-all cursor-pointer"
+              >
+                <span>Discover Marketing</span>
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 3: Royal Blue #0C1833 (Animates over Card 2) */}
+          <div ref={card3Ref} className="absolute inset-0 z-30 rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between text-white border border-white/10 shadow-2xl overflow-hidden opacity-0" style={{ background: '#0C1833' }}>
+            <div>
+              <div className="flex items-center justify-between mb-3 sm:mb-5">
+                <span className="text-[10px] sm:text-xs font-mono font-medium tracking-widest text-blue-200/80 uppercase px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 border border-white/15">03 / Service</span>
+                
+              </div>
+              <h3 className="text-xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white uppercase mb-2 sm:mb-4">
+                Web Development
+              </h3>
+              <p className="text-blue-100/90 text-xs sm:text-sm lg:text-base leading-relaxed mb-4 sm:mb-6">
+                Engineering lightning-fast, highly scalable web apps and custom digital platforms built with cutting-edge modern technology stacks.
+              </p>
+
+              {/* Service Pointers */}
+              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-white/15 pt-3 sm:pt-5">
+                {[
+                  "Next.js & React High-Performance App Engineering",
+                  "Custom Headless Shopify & E-Commerce Stores",
+                  "Cloud Infrastructure & Custom API Integrations",
+                  "Sub-second Page Load & Technical SEO"
+                ].map((pointer, i) => (
+                  <div key={i} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-blue-50 font-medium">
+                    <span className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/15 flex items-center justify-center text-[10px] sm:text-xs text-blue-200">✓</span>
+                    <span>{pointer}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Card CTA */}
+            <div className="pt-3 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
+              <Link
+                href="/webd"
+                className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-white text-zinc-950 text-xs sm:text-sm font-bold shadow-md hover:bg-blue-50 hover:gap-4 transition-all cursor-pointer"
+              >
+                <span>Build Your Platform</span>
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ─── Page ─── */
 
@@ -364,7 +638,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#F4F8FF]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#FFFFFF]">
       {/* ── 1. Hero with Background Video ── */}
       <section
         className="relative w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
@@ -440,7 +714,7 @@ export default function Home() {
       </section>
 
       {/* ── 1.2 Tools Marquee Section ── */}
-      <section className="relative w-full bg-[#F4F8FF] py-10 overflow-hidden select-none z-10">
+      <section className="relative w-full bg-[#FFFFFF] py-10 overflow-hidden select-none z-10">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400 mb-6 text-center">
             Core technologies & tools we use
@@ -509,7 +783,7 @@ export default function Home() {
 
 
       {/* ── Why Choose Us ── */}
-      <section className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
+      <section className="relative bg-[#FFFFFF] py-24 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-200/40 z-10 -mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Staggered Stats & Dots */}
@@ -569,7 +843,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. Testimonials (Why clients trust) ── */}
-      <section className="relative bg-[#F4F8FF] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
+      <section className="relative bg-[#FFFFFF] px-6 sm:px-8 lg:px-12 overflow-hidden -mt-30 z-10 py-10">
         <div className="max-w-6xl mx-auto">
           <SectionDivider />
 
@@ -616,7 +890,7 @@ export default function Home() {
           {/* Bento-box Grid Version */}
           <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-2">
             {/* Card 1 (Col Span: 3 | #0C1833): 3.2x increase */}
-            <div className="col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
+            <div className="col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
               <div className="flex flex-col">
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-white leading-tight">3.2x</span>
                 <span className="text-3xl md:text-4xl font-regular tracking-tight text-white leading-tight">increase</span>
@@ -628,8 +902,8 @@ export default function Home() {
             </div>
 
             {/* Card 2 (Col Span: 3 | #0C1833): Logo slot-machine */}
-            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
-              <SlotMachineLogo logos={logoPool2} staggerDelay={400} align="center" logoClassName="scale-[1.1]" />
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
+              <SlotMachineLogo logos={logoPool2} staggerDelay={400} align="center" logoClassName="scale-[1.65]" />
             </div>
 
             {/* Card 3 (Col Span: 6 | White): Zoë McKenzie testimonial */}
@@ -643,14 +917,14 @@ export default function Home() {
                   <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Director of RevOps Technology at Checkr</p>
                 </div>
                 <div className="flex-shrink-0 flex items-center scale-90 origin-right">
-                  <ClientLogo1 />
+                  <ClientLogo1 dark />
                 </div>
               </div>
             </div>
 
             {/* Card 4 (Col Span: 3 | #0C1833): Logo slot-machine */}
-            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
-              <SlotMachineLogo logos={logoPool3} staggerDelay={800} align="center" logoClassName="scale-[1.1]" />
+            <div className="relative overflow-hidden col-span-12 md:col-span-3 rounded-3xl p-6 flex flex-col justify-center items-center min-h-[240px] h-full" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
+              <SlotMachineLogo logos={logoPool3} staggerDelay={800} align="center" logoClassName="scale-[1.65]" />
             </div>
 
             {/* Card 5 (Col Span: 6 | White): Mark Deacon testimonial */}
@@ -664,7 +938,7 @@ export default function Home() {
                   <p className="text-zinc-500 text-[10px] mt-0.5 leading-snug">Chief Revenue Operations Officer</p>
                 </div>
                 <div className="flex-shrink-0 flex items-center scale-90 origin-right">
-                  <ClientLogo2 />
+                  <ClientLogo5 dark />
                 </div>
               </div>
             </div>
@@ -685,7 +959,7 @@ export default function Home() {
           {/* Mobile Carousel & Testimonials Version */}
           <div className="block md:hidden space-y-4">
             {/* Card 1 Mobile: #0C1833 */}
-            <div className="rounded-3xl p-6 flex flex-col justify-between min-h-[220px]" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 8px 32px rgba(12,24,51,0.35), 0 30px 60px rgba(12,24,51,0.25)'}}>
+            <div className="rounded-3xl p-6 flex flex-col justify-between min-h-[220px]" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
               <div className="flex flex-col">
                 <span className="text-3xl font-regular tracking-tight text-white leading-tight">3.2x</span>
                 <span className="text-3xl font-regular tracking-tight text-white leading-tight">increase</span>
@@ -762,7 +1036,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. Our Work ── */}
-      <section className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 -mt-5">
+      <section className="relative bg-[#FFFFFF] py-24 px-6 sm:px-8 lg:px-12 -mt-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-16">
             <div className="max-w-xl">
@@ -829,77 +1103,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 4. How We Help ── */}
-      <section className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 -mt-15">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col items-center text-center mb-16">
-            
-            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-zinc-900 mb-5">How We Help</h2>
-            <p className="text-zinc-500 text-lg sm:text-xl max-w-2xl leading-relaxed">
-              From concept to launch and beyond. We partner with you to bring ideas to life and deliver results{" "}
-              <span className="inline-block bg-zinc-100 text-zinc-800 px-2.5 py-0.5 rounded-md font-medium">
-                you can measure
-              </span>
-              .
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="relative w-full max-w-[400px] bg-white rounded-2xl border border-zinc-100/80 overflow-hidden flex flex-col items-center text-center px-6 pt-10 pb-6 border-2 hover:border-zinc-300 hover:shadow-md transition-all duration-300 group cursor-pointer"
-              >
-                <div className="relative w-full h-full min-h-[200px] flex items-center justify-center">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover -translate-y-10 group-hover:scale-[1.03] transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-zinc-900 mb-2 -mt-4 group-hover:text-black transition-colors">{service.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{service.description}</p>
-              </Link>
-            ))}
-          </div>
-
-          {/* Infinite scrolling carousel of 6 feature pointers */}
-          <div className="w-full overflow-hidden marquee-container ">
-            <div className="relative flex w-full overflow-x-hidden">
-              <div className="flex gap-8 items-center shrink-0 animate-marquee pr-8 whitespace-nowrap">
-                {[
-                  ...services.flatMap((s) => s.features),
-                  ...services.flatMap((s) => s.features)
-                ].map((feature, i) => (
-                  <div
-                    key={i}
-                    className="flex gap-4 items-center bg-white rounded-2xl border border-zinc-100/80 px-6 py-4 shadow-xs min-w-[280px] sm:min-w-[320px]"
-                  >
-                    <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center shadow-xs relative">
-                      <Image
-                        src={feature.image}
-                        alt={feature.title}
-                        width={20}
-                        height={20}
-                        className="object-contain"
-                      />
-                    </span>
-                    <div className="whitespace-normal">
-                      <p className="font-semibold text-zinc-900 text-[14px] leading-tight">{feature.title}</p>
-                      <p className="text-zinc-500 text-[12px] mt-0.5 leading-snug">{feature.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── 4. How We Help (GSAP ScrollTrigger Pinned 3D Cards Section) ── */}
+      <HowWeHelpSection />
 
       {/* ── 5. Flow Section ── */}
-      <section ref={flowSectionRef} className="relative bg-[#F4F8FF] py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
+      <section ref={flowSectionRef} className="relative bg-[#FFFFFF] py-24 px-6 sm:px-8 lg:px-12 border-t border-zinc-100/50 -mt-15">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
@@ -921,75 +1129,123 @@ export default function Home() {
           </div>
 
           {/* 4-Step Process Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border-t border-zinc-200/40 md:border-t-0">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 pt-4">
             {/* Step 1: Discover */}
-            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
-              <div className="space-y-6 md:mt-48">
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+            <div className="flow-step-card group cursor-pointer relative flex flex-col justify-between py-8 px-6 md:px-8 rounded-2xl border border-zinc-200/60 bg-white/60 hover:bg-white hover:border-zinc-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
+              {/* Top hover accent line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-zinc-900 via-[#2563EB] to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Corner glow */}
+              <div className="absolute -bottom-10 -right-10 w-36 h-36 bg-[#2563EB]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="space-y-6 md:mt-48 relative z-10">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-semibold text-zinc-400 group-hover:text-[#2563EB] transition-colors">01</span>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase group-hover:translate-x-1 group-hover:text-black transition-all duration-300">
                     Discover
                   </h3>
-                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                  <p className="text-zinc-500 group-hover:text-zinc-700 text-sm sm:text-[14px] leading-relaxed transition-colors duration-300">
                     Understanding your challenge, your audience, and what success looks like for you.
                   </p>
                 </div>
-                <div className="space-y-3">
-                  <span className="text-xs font-bold text-zinc-900 block">25%</span>
-                  <div className="w-[25%] h-[5px] bg-black rounded-full" />
+                <div className="space-y-3 pt-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-bold text-zinc-900 group-hover:text-[#2563EB] transition-colors block">25%</span>
+                  </div>
+                  <div className="w-full bg-zinc-100 h-[5px] rounded-full overflow-hidden">
+                    <div className="w-[25%] group-hover:w-[38%] h-full bg-zinc-900 group-hover:bg-[#2563EB] rounded-full transition-all duration-500 ease-out" />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Step 2: Design */}
-            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
-              <div className="space-y-6 md:mt-32">
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+            <div className="flow-step-card group cursor-pointer relative flex flex-col justify-between py-8 px-6 md:px-8 rounded-2xl border border-zinc-200/60 bg-white/60 hover:bg-white hover:border-zinc-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
+              {/* Top hover accent line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-zinc-900 via-[#2563EB] to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Corner glow */}
+              <div className="absolute -bottom-10 -right-10 w-36 h-36 bg-[#2563EB]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="space-y-6 md:mt-32 relative z-10">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-semibold text-zinc-400 group-hover:text-[#2563EB] transition-colors">02</span>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase group-hover:translate-x-1 group-hover:text-black transition-all duration-300">
                     Design
                   </h3>
-                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                  <p className="text-zinc-500 group-hover:text-zinc-700 text-sm sm:text-[14px] leading-relaxed transition-colors duration-300">
                     Ideas take shape. We explore directions, test concepts, and refine until it feels right.
                   </p>
                 </div>
-                <div className="space-y-3">
-                  <span className="text-xs font-bold text-zinc-900 block">50%</span>
-                  <div className="w-[50%] h-[5px] bg-black rounded-full" />
+                <div className="space-y-3 pt-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-bold text-zinc-900 group-hover:text-[#2563EB] transition-colors block">50%</span>
+                  </div>
+                  <div className="w-full bg-zinc-100 h-[5px] rounded-full overflow-hidden">
+                    <div className="w-[50%] group-hover:w-[62%] h-full bg-zinc-900 group-hover:bg-[#2563EB] rounded-full transition-all duration-500 ease-out" />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Step 3: Build */}
-            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80 border-b border-zinc-200/40 md:border-b-0">
-              <div className="space-y-6 md:mt-16">
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+            <div className="flow-step-card group cursor-pointer relative flex flex-col justify-between py-8 px-6 md:px-8 rounded-2xl border border-zinc-200/60 bg-white/60 hover:bg-white hover:border-zinc-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
+              {/* Top hover accent line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-zinc-900 via-[#2563EB] to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Corner glow */}
+              <div className="absolute -bottom-10 -right-10 w-36 h-36 bg-[#2563EB]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="space-y-6 md:mt-16 relative z-10">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-semibold text-zinc-400 group-hover:text-[#2563EB] transition-colors">03</span>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase group-hover:translate-x-1 group-hover:text-black transition-all duration-300">
                     Build
                   </h3>
-                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                  <p className="text-zinc-500 group-hover:text-zinc-700 text-sm sm:text-[14px] leading-relaxed transition-colors duration-300">
                     We develop the final product with attention to every detail and technical precision.
                   </p>
                 </div>
-                <div className="space-y-3">
-                  <span className="text-xs font-bold text-zinc-900 block">75%</span>
-                  <div className="w-[75%] h-[5px] bg-black rounded-full" />
+                <div className="space-y-3 pt-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-bold text-zinc-900 group-hover:text-[#2563EB] transition-colors block">75%</span>
+                  </div>
+                  <div className="w-full bg-zinc-100 h-[5px] rounded-full overflow-hidden">
+                    <div className="w-[75%] group-hover:w-[88%] h-full bg-zinc-900 group-hover:bg-[#2563EB] rounded-full transition-all duration-500 ease-out" />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Step 4: Launch */}
-            <div className="flow-step-card flex flex-col py-8 px-6 md:px-8 border-l border-zinc-200/80">
-              <div className="space-y-6 md:mt-0">
-                <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase">
+            <div className="flow-step-card group cursor-pointer relative flex flex-col justify-between py-8 px-6 md:px-8 rounded-2xl border border-zinc-200/60 bg-white/60 hover:bg-white hover:border-zinc-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
+              {/* Top hover accent line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-zinc-900 via-[#2563EB] to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Corner glow */}
+              <div className="absolute -bottom-10 -right-10 w-36 h-36 bg-[#2563EB]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="space-y-6 md:mt-0 relative z-10">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-semibold text-zinc-400 group-hover:text-[#2563EB] transition-colors">04</span>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 uppercase group-hover:translate-x-1 group-hover:text-black transition-all duration-300">
                     Launch
                   </h3>
-                  <p className="text-zinc-500 text-sm sm:text-[14px] leading-relaxed">
+                  <p className="text-zinc-500 group-hover:text-zinc-700 text-sm sm:text-[14px] leading-relaxed transition-colors duration-300">
                     We manage the launch, provide training if needed, and ensure a smooth transition.
                   </p>
                 </div>
-                <div className="space-y-3">
-                  <span className="text-xs font-bold text-zinc-900 block">100%</span>
-                  <div className="w-full h-[5px] bg-black rounded-full" />
+                <div className="space-y-3 pt-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-bold text-zinc-900 group-hover:text-[#2563EB] transition-colors block">100%</span>
+                  </div>
+                  <div className="w-full bg-zinc-100 h-[5px] rounded-full overflow-hidden">
+                    <div className="w-full h-full bg-zinc-900 group-hover:bg-[#2563EB] rounded-full transition-all duration-500 ease-out" />
+                  </div>
                 </div>
               </div>
             </div>

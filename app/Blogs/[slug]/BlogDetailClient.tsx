@@ -430,7 +430,7 @@ function BlogDetailContent() {
   }
 
   return (
-    <main className="relative flex flex-col min-h-screen bg-[#FAFAFC] pt-20">
+    <main className="relative flex flex-col min-h-screen bg-[#FFFFFF] pt-20">
       {/* ─── HERO IMAGE BANNER ─── */}
       <div className="relative w-full h-[220px] sm:h-[320px] md:h-[420px] lg:h-[480px] overflow-hidden bg-zinc-900 border-b border-zinc-200/50">
         <Image

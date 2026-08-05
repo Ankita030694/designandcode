@@ -318,7 +318,7 @@ export default function UiUxDesignService() {
   const currentTab = tabContent[activeTab] || tabContent.define;
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#F4F8FF]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FFFFFF]">
       {/* ── UI/UX Service Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-24 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-140px)] overflow-hidden">
         {/* Background glow effects */}
