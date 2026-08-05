@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,700&family=Instrument+Serif:ital@1&display=swap');
 @import "tailwindcss";
 @plugin "../node_modules/@tailwindcss/typography";
 
@@ -194,6 +195,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
 }
 
 @utility dotted-bottom-border {
@@ -202,4 +204,35 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   padding-bottom: 4px; /* spacing above the border line */
+}
+
+/* Custom premium styles for rotating logo orbit */
+.font-premium-serif {
+  font-family: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit 50s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 50s linear infinite;
 }

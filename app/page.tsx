@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import SpecularButton from "@/components/SpecularButton";
 import Footer from "./Components/footer";
 import CTA from "./Components/cta";
 import FAQ from "./Components/FAQ";
@@ -738,146 +737,105 @@ export default function Home() {
 
   return (
     <main className="relative flex flex-col flex-1 overflow-hidden pt-0 bg-[#FFFFFF]">
-      {/* ── 1. Hero with Background Video ── */}
+      {/* ── 1. Hero Section with Orbiting Logos ── */}
       <section
-        className="relative w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-20 px-6 sm:px-12 lg:px-20 overflow-hidden bg-black text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] z-20 [--hero-br:28px] md:[--hero-br:42px]"
-        style={{
-          borderBottomLeftRadius: "var(--hero-br-active)",
-          borderBottomRightRadius: "var(--hero-br-active)",
-          // @ts-ignore
-          "--hero-br-active": `calc(var(--hero-br) * ${1 - Math.min(scrollY / 300, 1)})`
-        } as React.CSSProperties}
+        className="relative w-full min-h-screen flex flex-col justify-center items-center pt-32 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden bg-[#FFFFFF] text-zinc-900 z-20"
       >
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 brightness-[0.85]"
-        >
-          <source src="/Hero_VOD.webm" type="video/webm" />
-        </video>
+        {/* Top subtle gradient blend overlay */}
+        <div className="absolute top-0 left-0 right-0 h-28 md:h-40 bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent pointer-events-none z-30" />
 
-        {/* Subtle Dark Overlay */}
-        <div className="absolute inset-0 bg-black/35 pointer-events-none z-0" />
+        {/* Orbiting circular ring & logos */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <div className="relative w-[740px] h-[740px] md:w-[800px] md:h-[800px] lg:w-[850px] lg:h-[850px] shrink-0 rounded-full border-2 border-zinc-200 border-t-transparent md:border-t-zinc-200 flex items-center justify-center [--orbit-radius:370px] md:[--orbit-radius:400px] lg:[--orbit-radius:425px]">
+            {/* Orbiting Ring */}
+            <div className="absolute inset-0 animate-orbit">
+              {[
+                "/Tools_Color/1.svg",
+                "/Tools_Color/2.svg",
+                "/Tools_Color/3.svg",
+                "/Tools_Color/4.svg",
+                "/Tools_Color/5.svg",
+                "/Tools_Color/6.svg",
+                "/Tools_Color/7.svg",
+                "/Tools_Color/75.svg",
+                "/Tools_Color/76.svg",
+                "/Tools_Color/78.svg",
+                "/Tools_Color/79.svg",
+                "/Tools_Color/80.svg",
+              ].map((src, idx, arr) => {
+                const angle = (idx * 360) / arr.length;
+                return (
+                  <div
+                    key={idx}
+                    className="absolute top-1/2 left-1/2 -ml-12 -mt-12 md:-ml-14 md:-mt-14 lg:-ml-16 lg:-mt-16"
+                    style={{
+                      transform: `rotate(${angle}deg) translate(0, var(--orbit-radius)) rotate(-${angle}deg)`,
+                    }}
+                  >
+                    {/* Logo Card with Counter-Rotation */}
+                    <div className="animate-orbit-reverse  flex items-center justify-center p-1.5 md:p-2 w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 hover:scale-115 hover:shadow-[0_12px_35px_rgba(0,0,0,0.1)] transition-all duration-300 pointer-events-auto cursor-pointer">
+                      <Image
+                        src={src}
+                        alt=""
+                        width={96}
+                        height={96}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
 
         {/* Content Container */}
-        <div className="relative z-10 flex flex-col justify-center items-center flex-1 max-w-4xl mx-auto w-full text-center">
-          {/* Badge / Kicker */}
-          <div className="flex items-center justify-center gap-2 mb-6 select-none animate-fade-in-up">
-            <span className="text-xs sm:text-sm font-regular tracking-wider uppercase text-white/95 flex items-center gap-2">
-              <span>🌅</span> HELPED +200 FOUNDERS RISE THEIR BRANDS
-            </span>
-          </div>
+        <div className="relative z-10 flex flex-col justify-center items-center flex-1 max-w-5xl mx-auto w-full text-center select-none">
+          
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-medium tracking-tight leading-[1.05] text-center text-white max-w-4xl animate-fade-in-up [animation-delay:200ms] mb-8">
-            We build design on <br />
-            clarity, speed, and <span className="text-[#facc15] font-medium">care.</span>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[74px] font-medium tracking-tight leading-[1.2] sm:leading-[1.1] text-center text-[#0C1833] max-w-5xl animate-fade-in-up [animation-delay:300ms] mb-8 font-sans">
+            Agency that makes your <br className="sm:hidden" /> 
+            <span className="text-[#fff200] font-premium-serif italic font-normal tracking-wide">designs & ideas</span>
+            <span className="inline-flex items-center justify-center bg-white p-1 rounded-[10px] md:rounded-[18px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-zinc-200/80 mx-2 md:mx-3 align-middle transform -rotate-3 hover:rotate-0 hover:scale-110 transition-all duration-300 w-9 h-9 md:w-16 md:h-16 shrink-0 pointer-events-auto">
+              <div className="w-full h-full bg-gradient-to-tr from-[#0C1833] to-[#fff200] rounded-[6px] md:rounded-[12px] flex items-center justify-center p-1 md:p-2">
+                <img 
+                  src="/Hero%20Icon.svg"
+                  alt="Hero Icon"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </span>
+            <span className="text-[#fff200] font-premium-serif italic font-normal tracking-wide">unstoppable</span>
           </h1>
 
           {/* Description & Buttons */}
-          <div className="max-w-2xl mx-auto text-center flex flex-col items-center animate-fade-in-up [animation-delay:400ms]">
-            <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed font-light max-w-xl mx-auto">
-              We create thoughtful work through a refined process, guided by clear thinking and a deep respect for time.
+          <div className="max-w-2xl mx-auto text-center flex flex-col items-center animate-fade-in-up [animation-delay:500ms]">
+            <p className="text-[#0C1833]/55 text-sm sm:text-base md:text-lg leading-relaxed font-normal max-w-xl mx-auto mb-10">
+              We design high-converting websites, build powerful digital products, and craft unforgettable brand experiences that help businesses grow faster.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 select-none w-full sm:w-auto">
-              <SpecularButton
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 select-none w-full sm:w-auto pointer-events-auto">
+              <Link
                 href="/ContactUs"
-                variant="primary"
-                className="w-[80%] sm:w-auto px-6 py-2.5 text-center"
-                baseColor="#18181b"
-                textColor="#ffffff"
-                lineColor="#ffffff"
-                radius={9999}
-                intensity={1.2}
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#0C1833] text-white text-sm md:text-base font-semibold hover:bg-zinc-850 hover:scale-102 hover:shadow-lg active:scale-98 transition-all duration-200 cursor-pointer shadow-md w-[80%] sm:w-auto shrink-0"
               >
-                Start a Project
-              </SpecularButton>
-              <SpecularButton
+                <span>Start Your Project</span>
+                <span className="text-base font-normal">↗</span>
+              </Link>
+              <Link
                 href="/Projects"
-                variant="secondary"
-                className="w-[80%] sm:w-auto px-6 py-2.5 text-center"
-                baseColor="#18181b"
-                textColor="#ffffff"
-                lineColor="#ffffff"
-                radius={9999}
-                intensity={1.2}
+                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white text-[#0C1833] border border-zinc-200 text-sm md:text-base font-semibold hover:bg-zinc-50 hover:border-zinc-300 hover:scale-102 hover:shadow-sm active:scale-98 transition-all duration-200 cursor-pointer shadow-sm w-[80%] sm:w-auto shrink-0"
               >
-                Explore Projects
-              </SpecularButton>
+                <span>View Our Work</span>
+              </Link>
             </div>
           </div>
         </div>
+        {/* Bottom subtle gradient blend overlay to prevent sharp edgy division */}
+        <div className="absolute bottom-0 left-0 right-0 h-28 md:h-44 bg-gradient-to-t from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent pointer-events-none z-30" />
       </section>
 
-      {/* ── 1.2 Tools Marquee Section ── */}
-      <section className="relative w-full bg-[#FFFFFF] py-10 overflow-hidden select-none z-10">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400 mb-6 text-center">
-            Core technologies & tools we use
-          </p>
-          <div className="relative flex w-full max-w-full overflow-hidden">
-            <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap">
-              {[
-                "/Tools_Color/1.svg",
-                "/Tools_Color/2.svg",
-                "/Tools_Color/3.svg",
-                "/Tools_Color/4.svg",
-                "/Tools_Color/5.svg",
-                "/Tools_Color/6.svg",
-                "/Tools_Color/7.svg",
-                "/Tools_Color/75.svg",
-                "/Tools_Color/76.svg",
-                "/Tools_Color/77.svg",
-                "/Tools_Color/78.svg",
-                "/Tools_Color/79.svg",
-                "/Tools_Color/80.svg",
-                "/Tools_Color/81.svg",
-                "/Tools_Color/82.svg",
-              ].map((src, i) => (
-                <Image
-                  key={i}
-                  src={src}
-                  alt={`Tool Logo ${i + 1}`}
-                  width={150}
-                  height={48}
-                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
-                />
-              ))}
-            </div>
-            <div className="flex gap-10 items-center shrink-0 animate-marquee pr-10 whitespace-nowrap" aria-hidden="true">
-              {[
-                "/Tools_Color/1.svg",
-                "/Tools_Color/2.svg",
-                "/Tools_Color/3.svg",
-                "/Tools_Color/4.svg",
-                "/Tools_Color/5.svg",
-                "/Tools_Color/6.svg",
-                "/Tools_Color/7.svg",
-                "/Tools_Color/75.svg",
-                "/Tools_Color/76.svg",
-                "/Tools_Color/77.svg",
-                "/Tools_Color/78.svg",
-                "/Tools_Color/79.svg",
-                "/Tools_Color/80.svg",
-                "/Tools_Color/81.svg",
-                "/Tools_Color/82.svg",
-              ].map((src, i) => (
-                <Image
-                  key={`dup-${i}`}
-                  src={src}
-                  alt=""
-                  width={150}
-                  height={48}
-                  className="h-10 sm:h-12 w-auto max-w-[130px] sm:max-w-[160px] object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+
 
 
 
@@ -1144,17 +1102,12 @@ export default function Home() {
                 Brands from around the world. Projects of every shape and size. Each one built to perform.
               </p>
             </div>
-            <SpecularButton
+            <Link
               href="/Projects"
-              className="flex-shrink-0 self-start px-6 py-2.5"
-              baseColor="#18181b"
-              textColor="#ffffff"
-              lineColor="#ffffff"
-              radius={9999}
-              intensity={1.2}
+              className="flex-shrink-0 self-start px-6 py-2.5 rounded-full bg-zinc-950 text-white text-sm font-semibold hover:bg-zinc-800 transition-colors shadow-sm select-none"
             >
               View All Projects
-            </SpecularButton>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
