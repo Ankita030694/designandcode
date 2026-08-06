@@ -181,10 +181,10 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
         <div className="hidden md:block absolute left-4 md:left-8 z-30">
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-2xl bg-white border border-zinc-150 flex items-center justify-center shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer group"
+            className="w-12 h-12 rounded-2xl bg-white  flex items-center justify-center shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer group"
             aria-label="Previous testimonial"
           >
-            <div className="w-8 h-8 rounded-full bg-[#FF3E1D] group-hover:bg-[#E03126] transition-colors flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-[#0C1833] group-hover:bg-[#0C1833] transition-colors flex items-center justify-center">
               <svg className="w-4 h-4 text-white fill-none stroke-current" strokeWidth="3" viewBox="0 0 24 24">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
@@ -196,10 +196,10 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
         <div className="hidden md:block absolute right-4 md:right-8 z-30">
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-2xl bg-white border border-zinc-150 flex items-center justify-center shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer group"
+            className="w-12 h-12 rounded-2xl bg-white  flex items-center justify-center shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer group"
             aria-label="Next testimonial"
           >
-            <div className="w-8 h-8 rounded-full bg-[#FF3E1D] group-hover:bg-[#E03126] transition-colors flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-[#0C1833] group-hover:bg-[#0C1833] transition-colors flex items-center justify-center">
               <svg className="w-4 h-4 text-white fill-none stroke-current" strokeWidth="3" viewBox="0 0 24 24">
                 <polyline points="9 6 15 12 9 18" />
               </svg>

@@ -80,6 +80,7 @@ export default function Footer() {
               <h4 className="text-md font-medium text-black">Services</h4>
               <ul className="flex flex-col gap-2.5">
                 {[
+                  { label: "All Services", href: "/Service" },
                   { label: "Web Development", href: "/webd" },
                   { label: "UI/UX Design", href: "/Service/ui_ux" },
                   { label: "Performance Marketing", href: "/marketing" }

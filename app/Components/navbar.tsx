@@ -10,6 +10,7 @@ const navItems = [
     bgColor: "#f4f4f5", // zinc-100
     textColor: "#18181b", // zinc-900
     links: [
+      { label: "All Services", href: "/Service", ariaLabel: "All services overview" },
       { label: "UI/UX Design", href: "/Service/ui_ux", ariaLabel: "UI/UX Design services" },
       { label: "Web Development", href: "/webd", ariaLabel: "Web Development services" },
       { label: "Performance Marketing", href: "/marketing", ariaLabel: "Performance Marketing services" }
