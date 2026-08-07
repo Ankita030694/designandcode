@@ -12,8 +12,9 @@ const navItems = [
     links: [
       { label: "All Services", href: "/Service", ariaLabel: "All services overview" },
       { label: "UI/UX Design", href: "/Service/ui_ux", ariaLabel: "UI/UX Design services" },
-      { label: "Web Development", href: "/webd", ariaLabel: "Web Development services" },
-      { label: "Performance Marketing", href: "/marketing", ariaLabel: "Performance Marketing services" }
+      { label: "Web Development", href: "/Service/web_dev", ariaLabel: "Web Development services" },
+      { label: "Performance Marketing", href: "/Service/perf_marketing", ariaLabel: "Performance Marketing services" },
+      { label: "SEO & Organic Growth", href: "/Service/seo", ariaLabel: "SEO & Organic Growth services" }
     ]
   },
   {

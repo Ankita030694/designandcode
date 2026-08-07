@@ -81,9 +81,10 @@ export default function Footer() {
               <ul className="flex flex-col gap-2.5">
                 {[
                   { label: "All Services", href: "/Service" },
-                  { label: "Web Development", href: "/webd" },
                   { label: "UI/UX Design", href: "/Service/ui_ux" },
-                  { label: "Performance Marketing", href: "/marketing" }
+                  { label: "Web Development", href: "/Service/web_dev" },
+                  { label: "Performance Marketing", href: "/Service/perf_marketing" },
+                  { label: "SEO & Organic Growth", href: "/Service/seo" }
                 ].map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="text-md text-zinc-500 hover:text-zinc-900 transition-colors">

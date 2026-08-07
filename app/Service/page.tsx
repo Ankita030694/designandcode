@@ -50,7 +50,7 @@ export default function ServicesPage() {
       subtitle: "What if Technology wasn't an obstacle?",
       description: "Beautifully built, hyper-fast, and scalable websites designed to convert. We build lightweight Next.js websites, headless architectures, and custom web applications optimized for growth.",
       tags: ["React & Next.js", "Headless CMS", "Shopify E-Commerce", "API Integrations", "Speed Optimization"],
-      href: "/webd",
+      href: "/Service/web_dev",
     },
     {
       id: "shopify-dev",
@@ -66,7 +66,7 @@ export default function ServicesPage() {
       subtitle: "Bring your users into focus.",
       description: "Data-driven marketing managed with precision to deliver efficient growth and measurable returns. We help you target, acquire, and convert high-intent customers.",
       tags: ["Google Ads", "Meta Ads (FB/IG)", "Search Engine Marketing", "CRO Strategy", "Attribution & Tracking"],
-      href: "/marketing",
+      href: "/Service/perf_marketing",
     },
     {
       id: "seo",
@@ -74,7 +74,7 @@ export default function ServicesPage() {
       subtitle: "Dominating organic search results",
       description: "Dominating organic search results with data-backed technical SEO, keyword strategy, and high-authority content execution.",
       tags: ["Technical SEO", "Content Architecture", "Backlink Strategy", "Analytics & Reports", "Core Web Vitals"],
-      href: "/marketing",
+      href: "/Service/seo",
     }
   ];
 

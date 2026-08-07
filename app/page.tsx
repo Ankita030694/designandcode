@@ -50,7 +50,7 @@ const services = [
   {
     title: "Performance Marketing",
     description: "Bring your users into focus.",
-    href: "/marketing",
+    href: "/Service/perf_marketing",
     accent: "from-violet-400/30 via-violet-500/10 to-transparent",
     iconBg: "from-violet-500 to-purple-700",
     image: "/Data.svg",
@@ -76,7 +76,7 @@ const services = [
   {
     title: "Web Development",
     description: "What if Technology wasn't an obstacle?",
-    href: "/webd",
+    href: "/Service/web_dev",
     accent: "from-fuchsia-400/30 via-fuchsia-500/10 to-transparent",
     iconBg: "from-fuchsia-500 to-pink-700",
     image: "/Web.svg",
@@ -513,7 +513,7 @@ function HowWeHelpSection() {
             {/* Card CTA */}
             <div className="pt-2.5 sm:pt-4 border-t border-black/10 flex items-center justify-between mt-auto">
               <Link
-                href="/marketing"
+                href="/Service/perf_marketing"
                 className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-zinc-950 text-white text-xs sm:text-sm font-bold shadow-md hover:bg-zinc-800 hover:gap-4 transition-all cursor-pointer"
               >
                 <span>Discover Marketing</span>
@@ -556,7 +556,7 @@ function HowWeHelpSection() {
             {/* Card CTA */}
             <div className="pt-2.5 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
               <Link
-                href="/webd"
+                href="/Service/web_dev"
                 className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-white text-zinc-950 text-xs sm:text-sm font-bold shadow-md hover:bg-blue-50 hover:gap-4 transition-all cursor-pointer"
               >
                 <span>Build Your Platform</span>
@@ -642,7 +642,7 @@ function HowWeHelpSection() {
             {/* Card CTA */}
             <div className="pt-2.5 sm:pt-4 border-t border-white/15 flex items-center justify-between mt-auto">
               <Link
-                href="/marketing"
+                href="/Service/seo"
                 className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl bg-white text-zinc-950 text-xs sm:text-sm font-bold shadow-md hover:bg-blue-50 hover:gap-4 transition-all cursor-pointer"
               >
                 <span>Boost Rankings</span>
