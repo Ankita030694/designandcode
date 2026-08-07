@@ -83,6 +83,7 @@ export default function Footer() {
                   { label: "All Services", href: "/Service" },
                   { label: "UI/UX Design", href: "/Service/ui_ux" },
                   { label: "Web Development", href: "/Service/web_dev" },
+                  { label: "Shopify Development", href: "/ecommerce" },
                   { label: "Performance Marketing", href: "/Service/perf_marketing" },
                   { label: "SEO & Organic Growth", href: "/Service/seo" }
                 ].map((link) => (

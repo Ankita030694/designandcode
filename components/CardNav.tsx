@@ -53,7 +53,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
   const calculateHeight = () => {
     const navEl = navRef.current;
-    if (!navEl) return 260;
+    if (!navEl) return 300;
 
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) {
@@ -83,7 +83,7 @@ const CardNav: React.FC<CardNavProps> = ({
         return topBar + contentHeight + padding;
       }
     }
-    return 260;
+    return 300;
   };
 
   const createTimeline = () => {
@@ -244,29 +244,77 @@ const CardNav: React.FC<CardNavProps> = ({
               <div className="nav-card-label font-normal tracking-[-0.5px] text-[18px] md:text-[22px]">
                 {item.label}
               </div>
-              <div className="nav-card-links mt-auto flex flex-col gap-[2px]">
-                {item.links?.map((lnk, i) => (
-                  <Link
-                    key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
-                    href={lnk.href}
-                    onClick={() => {
-                      onExpandedChange?.(false);
-                      if (propIsExpanded === undefined) {
-                        setIsExpandedLocal(false);
-                      }
-                    }}
-                    aria-label={lnk.ariaLabel}
-                    tabIndex={isExpanded ? 0 : -1}
-                  >
-                    <svg className="w-4 h-4 nav-card-link-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <line x1="7" y1="17" x2="17" y2="7" />
-                      <polyline points="7 7 17 7 17 17" />
-                    </svg>
-                    {lnk.label}
-                  </Link>
-                ))}
-              </div>
+              {item.label === 'Services' ? (
+                <div className="nav-card-links mt-auto flex flex-col gap-3">
+                  {/* "All Services" link at the top (over all the links) */}
+                  {item.links?.filter(lnk => lnk.label === 'All Services').map((lnk, i) => (
+                    <Link
+                      key={`${lnk.label}-${i}`}
+                      className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 font-bold text-[14px] md:text-[15px] pb-1.5 border-b border-zinc-200 w-full mb-1"
+                      href={lnk.href}
+                      onClick={() => {
+                        onExpandedChange?.(false);
+                        if (propIsExpanded === undefined) {
+                          setIsExpandedLocal(false);
+                        }
+                      }}
+                      aria-label={lnk.ariaLabel}
+                      tabIndex={isExpanded ? 0 : -1}
+                    >
+                      <svg className="w-3.5 h-3.5 nav-card-link-icon shrink-0 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                      </svg>
+                      {lnk.label}
+                    </Link>
+                  ))}
+
+                  {/* Other services as pills in rows (2-3 per row, wrapping) */}
+                  <div className="flex flex-wrap gap-2">
+                    {item.links?.filter(lnk => lnk.label !== 'All Services').map((lnk, i) => (
+                      <Link
+                        key={`${lnk.label}-${i}`}
+                        className="nav-card-link inline-flex items-center justify-center no-underline cursor-pointer transition-all duration-200 hover:bg-zinc-100 hover:scale-[1.02] text-[12px] md:text-[13px] px-3.5 py-1.5 rounded-full bg-white border border-zinc-200/80 text-zinc-800 font-semibold shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
+                        href={lnk.href}
+                        onClick={() => {
+                          onExpandedChange?.(false);
+                          if (propIsExpanded === undefined) {
+                            setIsExpandedLocal(false);
+                          }
+                        }}
+                        aria-label={lnk.ariaLabel}
+                        tabIndex={isExpanded ? 0 : -1}
+                      >
+                        {lnk.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="nav-card-links mt-auto flex flex-col gap-[2px]">
+                  {item.links?.map((lnk, i) => (
+                    <Link
+                      key={`${lnk.label}-${i}`}
+                      className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
+                      href={lnk.href}
+                      onClick={() => {
+                        onExpandedChange?.(false);
+                        if (propIsExpanded === undefined) {
+                          setIsExpandedLocal(false);
+                        }
+                      }}
+                      aria-label={lnk.ariaLabel}
+                      tabIndex={isExpanded ? 0 : -1}
+                    >
+                      <svg className="w-4 h-4 nav-card-link-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                      </svg>
+                      {lnk.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
