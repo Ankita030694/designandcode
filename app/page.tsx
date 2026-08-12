@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PROJECTS_DATA } from "./data/projects";
 import EyeFollower from "./Components/EyeFollower";
+import Footer from "./Components/footer";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -272,12 +273,12 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: STATS & STATEMENT */}
-      <section className="relative min-h-screen w-full py-20 flex flex-col justify-between bg-[#FAF9F6] border-t border-zinc-200/50 overflow-hidden font-sans select-none" style={{
+      <section className="relative min-h-screen w-full py-20 flex flex-col justify-between bg-[#FAF9F6] border-t border-[#0d2ed2] overflow-hidden font-sans select-none" style={{
         backgroundImage: `
-          linear-gradient(to right, rgba(0, 149, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(0, 149, 255, 0.06) 1px, transparent 1px)
+          linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
         `,
-        backgroundSize: "44px 44px",
+        backgroundSize: "80px 80px",
         backgroundAttachment: "fixed"
       }}>
         {/* Absolute Doodles & Graffiti */}
@@ -404,10 +405,14 @@ export default function Home() {
           {/* Pinned Start a Project Button */}
           <div className="relative mt-10 transform rotate-3 hover:scale-105 transition-transform duration-200">
             {/* Red Pushpin */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 z-10 flex items-center justify-center text-red-500 drop-shadow-sm">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M16 12V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v8l-2 2v2h5.2v4.8l.8.8.8-.8V18H18v-2l-2-2z" />
-              </svg>
+            <div className="absolute -top-6 left-[46%] -translate-x-1/2 w-8 h-8 z-10 flex items-center justify-center drop-shadow-md">
+              <Image 
+                src="/pin.png" 
+                alt="Pin" 
+                width={32} 
+                height={32} 
+                className="object-contain"
+              />
             </div>
             
             <button className="bg-white border border-zinc-200/80 rounded-xl px-7 py-3 shadow-md hover:shadow-lg text-zinc-900 font-extrabold text-sm tracking-wide select-none cursor-pointer">
@@ -422,7 +427,15 @@ export default function Home() {
           {/* Card 1: 8+ Years */}
           <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform -rotate-2 hover:scale-[1.02] hover:-rotate-1 transition-all duration-300">
             {/* Pushpin */}
-            <div className="absolute top-3 left-3 w-2.5 h-2.5 bg-rose-500 rounded-full shadow-xs" />
+            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+              <Image 
+                src="/pin.png" 
+                alt="Pin" 
+                width={24} 
+                height={24} 
+                className="object-contain"
+              />
+            </div>
             
             {/* Folder Flap */}
             <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
@@ -442,7 +455,15 @@ export default function Home() {
           {/* Card 2: 40+ Projects */}
           <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform -rotate-1 hover:scale-[1.02] hover:rotate-0 transition-all duration-300">
             {/* Pushpin */}
-            <div className="absolute top-3 left-3 w-2.5 h-2.5 bg-rose-500 rounded-full shadow-xs" />
+            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+              <Image 
+                src="/pin.png" 
+                alt="Pin" 
+                width={24} 
+                height={24} 
+                className="object-contain"
+              />
+            </div>
             
             {/* Folder Flap */}
             <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
@@ -462,7 +483,15 @@ export default function Home() {
           {/* Card 3: 12+ Industries */}
           <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform rotate-1 hover:scale-[1.02] hover:rotate-0 transition-all duration-300">
             {/* Pushpin */}
-            <div className="absolute top-3 left-3 w-2.5 h-2.5 bg-rose-500 rounded-full shadow-xs" />
+            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+              <Image 
+                src="/pin.png" 
+                alt="Pin" 
+                width={24} 
+                height={24} 
+                className="object-contain"
+              />
+            </div>
             
             {/* Folder Flap */}
             <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
@@ -482,7 +511,15 @@ export default function Home() {
           {/* Card 4: 100% Framer */}
           <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform rotate-2 hover:scale-[1.02] hover:rotate-1 transition-all duration-300">
             {/* Pushpin */}
-            <div className="absolute top-3 left-3 w-2.5 h-2.5 bg-rose-500 rounded-full shadow-xs" />
+            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+              <Image 
+                src="/pin.png" 
+                alt="Pin" 
+                width={24} 
+                height={24} 
+                className="object-contain"
+              />
+            </div>
             
             {/* Folder Flap */}
             <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
@@ -648,7 +685,741 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* SECTION 4: SERVICES (WHERE I CAN HELP YOU) */}
+      <section className="relative min-h-screen w-full py-24 flex flex-col justify-center bg-[#FAF9F6] border-t border-[#0d2ed2] overflow-hidden font-sans select-none" style={{
+        backgroundImage: `
+          linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
+        `,
+        backgroundSize: "80px 80px",
+        backgroundAttachment: "fixed",
+        clipPath: "inset(0)"
+      }}>
+        {/* Fixed background doodles (Stick with grid while scrolling) */}
+        {/* Row 1 Doodles */}
+        <div className="fixed top-[15%] right-[10%] w-24 h-24 text-rose-300/60 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M50,30 C35,10 10,25 10,50 C10,75 50,90 50,90 C50,90 90,75 90,50 C90,25 65,10 50,30 Z" />
+          </svg>
+        </div>
+
+        <div className="fixed top-[20%] left-[10%] w-20 h-16 text-zinc-300/50 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+          </svg>
+        </div>
+
+        {/* Row 2 Doodles */}
+        <div className="fixed top-[45%] left-[8%] w-20 h-20 text-amber-300/60 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M50,10 L50,90 M10,50 L90,50 M22,22 L78,78 M22,78 L78,22" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+
+        <div className="fixed top-[50%] right-[12%] w-16 h-16 text-amber-300/50 pointer-events-none select-none z-10 animate-pulse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M12 2v20M2 12h20M5.75 5.75l12.5 12.5M5.75 19.25l12.5-12.5" />
+          </svg>
+        </div>
+
+        {/* Row 3 Doodles */}
+        <div className="fixed top-[75%] right-[8%] w-28 h-28 text-blue-300/50 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+            <path d="M20,50 Q35,25 60,30 Q85,35 70,60 Q55,85 30,70 Z" />
+            <path d="M35,60 Q45,35 70,40 Q90,45 80,65 Q70,85 45,75 Z" />
+          </svg>
+        </div>
+
+        <div className="fixed top-[80%] left-[8%] w-24 h-12 text-blue-300/50 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 40" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10,30 Q25,10 40,30 T70,30 T100,30" />
+            <path d="M15,35 Q30,15 45,35 T75,35 T105,35" />
+          </svg>
+        </div>
+
+        {/* Hand-Drawn Arrow pointing to first card */}
+        <div className="absolute top-[280px] left-[15%] md:left-[22%] w-16 h-16 text-rose-500/80 pointer-events-none select-none z-20 hidden md:block">
+          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10,10 Q25,12 35,30" />
+            <path d="M28,28 L35,30 L37,23" />
+          </svg>
+        </div>
+
+        {/* Floating cloud near Brand Identity card */}
+        <div className="absolute top-[560px] left-[4%] w-12 h-10 text-zinc-400/60 pointer-events-none select-none z-20">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+          </svg>
+        </div>
+
+        {/* Sparkle/Star near Framer Builds card */}
+        <div className="absolute bottom-[240px] right-[4%] w-8 h-8 text-[#5BD4A3]/75 pointer-events-none select-none z-20 animate-pulse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M12 2v20M2 12h20M5.75 5.75l12.5 12.5M5.75 19.25l12.5-12.5" />
+          </svg>
+        </div>
+
+        {/* ── STATEMENT/TITLE CONTAINER ── */}
+        <div className="relative z-20 flex flex-col items-center text-center max-w-4xl mx-auto px-6 mb-16 select-none">
+          
+          
+
+          {/* Services Sticker (Pinned with clip) */}
+          <div className="relative mb-6 transform -rotate-12 bg-[#e0f2fe] border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer">
+            {/* Paperclip */}
+            <div className="absolute -top-3.5 left-3 text-zinc-400">
+              <svg className="w-4 h-6 transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            
+            {/* Yellow Loop Doodle */}
+            <div className="absolute -top-5 left-12 w-6 h-6 text-amber-400 pointer-events-none select-none">
+              <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M5,15 C10,5 20,5 25,15 C20,25 10,25 5,15 Z" strokeLinecap="round" />
+              </svg>
+            </div>
+            {/* Blue Pushpin representation */}
+            <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-blue-500 rounded-full border border-white shadow-xs" />
+            
+            {/* Book icon */}
+            <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            <span className="pl-1">Services</span>
+          </div>
+
+          <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
+            WHERE I<br />CAN HELP YOU
+          </h2>
+        </div>
+
+        {/* ── SERVICES LIST ── */}
+        <div className="relative z-20 w-full max-w-5xl mx-auto flex flex-col gap-4 px-6 select-none">
+          
+          {/* Card 1: UI/UX Design */}
+          <Link 
+            href="/Service/ui_ux"
+            className="bg-[#F0F7FF] hover:bg-[#E5F1FF] border border-[#D5E6FA]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex-1 flex flex-col gap-2">
+              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+                UI/UX Design
+              </span>
+              <span className="text-zinc-500 font-semibold text-sm">
+                Expert Design Partners (and good listeners)
+              </span>
+              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                We translate complex ideas into intuitive, beautiful, and conversion-focused digital interfaces. Aligned with your brand vision and powered by industry-leading UX best practices.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {["User Research", "Wireframing & Prototyping", "Interface Design", "Design Systems", "Mobile & Web Apps"].map(tag => (
+                  <span key={tag} className="text-[11px] font-bold text-[#4B7DBE] bg-white border border-[#D5E6FA] px-2.5 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
+              {/* Back offset shadow circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
+              {/* Front main circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-[#6CA2F1] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+                  <path d="M13 13l6 6" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Card 2: Web Development */}
+          <Link 
+            href="/Service/web_dev"
+            className="bg-[#FDF2F2] hover:bg-[#FBEAEA] border border-[#F3DBDB]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex-1 flex flex-col gap-2">
+              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+                Web Development
+              </span>
+              <span className="text-zinc-500 font-semibold text-sm">
+                What if Technology wasn&apos;t an obstacle?
+              </span>
+              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                Beautifully built, hyper-fast, and scalable websites designed to convert. We build lightweight Next.js websites, headless architectures, and custom web applications optimized for growth.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {["React & Next.js", "Headless CMS", "Shopify E-Commerce", "API Integrations", "Speed Optimization"].map(tag => (
+                  <span key={tag} className="text-[11px] font-bold text-[#BE7070] bg-white border border-[#F3DBDB] px-2.5 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
+              {/* Back offset shadow circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
+              {/* Front main circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-[#E59A9A] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <line x1="3" y1="9" x2="21" y2="9" />
+                  <line x1="9" y1="21" x2="9" y2="9" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Card 3: Shopify Development */}
+          <Link 
+            href="/ecommerce"
+            className="bg-[#ECFDF5] hover:bg-[#D1FAE5] border border-[#BCEFD5]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex-1 flex flex-col gap-2">
+              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+                Shopify Development
+              </span>
+              <span className="text-zinc-500 font-semibold text-sm">
+                High-Converting E-Commerce Stores
+              </span>
+              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                Building high-converting, custom Shopify & e-commerce stores designed for seamless user checkout and rapid sales scaling.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {["Liquid Dev", "Custom Themes", "App Integrations", "Headless Shopify", "Checkout Optimization"].map(tag => (
+                  <span key={tag} className="text-[11px] font-bold text-[#3BA67D] bg-white border border-[#BCEFD5] px-2.5 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
+              {/* Back offset shadow circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
+              {/* Front main circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-[#5BD4A3] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Card 4: Performance Marketing */}
+          <Link 
+            href="/Service/perf_marketing"
+            className="bg-[#FEFCE8] hover:bg-[#FEF9C3] border border-[#F3EFA2]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex-1 flex flex-col gap-2">
+              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+                Performance Marketing
+              </span>
+              <span className="text-zinc-500 font-semibold text-sm">
+                Bring your users into focus.
+              </span>
+              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                Data-driven marketing managed with precision to deliver efficient growth and measurable returns. We help you target, acquire, and convert high-intent customers.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {["Google Ads", "Meta Ads (FB/IG)", "Search Engine Marketing", "CRO Strategy", "Attribution & Tracking"].map(tag => (
+                  <span key={tag} className="text-[11px] font-bold text-[#B5A133] bg-white border border-[#F3EFA2] px-2.5 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
+              {/* Back offset shadow circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
+              {/* Front main circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-[#F3DB5D] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Card 5: SEO & Organic Growth */}
+          <Link 
+            href="/Service/seo"
+            className="bg-[#F5F3FF] hover:bg-[#EDE9FE] border border-[#DFDAFA]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex-1 flex flex-col gap-2">
+              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+                SEO & Organic Growth
+              </span>
+              <span className="text-zinc-500 font-semibold text-sm">
+                Dominating organic search results
+              </span>
+              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                Dominating organic search results with data-backed technical SEO, keyword strategy, and high-authority content execution.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {["Technical SEO", "Content Architecture", "Backlink Strategy", "Analytics & Reports", "Core Web Vitals"].map(tag => (
+                  <span key={tag} className="text-[11px] font-bold text-[#7768CD] bg-white border border-[#DFDAFA] px-2.5 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
+              {/* Back offset shadow circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
+              {/* Front main circle */}
+              <div className="absolute w-10 h-10 rounded-full bg-[#9C8DF6] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  <line x1="11" y1="8" x2="11" y2="14" />
+                  <line x1="8" y1="11" x2="14" y2="11" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+        </div>
+      </section>
+
+      {/* SECTION 5: REVIEWS (CLIENTS LIKED THE PIXELS) */}
+      <section className="relative min-h-screen w-full py-24 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
+        backgroundImage: `
+          linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
+        `,
+        backgroundSize: "80px 80px",
+        backgroundAttachment: "fixed",
+        clipPath: "inset(0)"
+      }}>
+        {/* Fixed background doodles — same positions, sticks with grid on scroll */}
+        {/* Row 1 */}
+        <div className="fixed top-[15%] right-[10%] w-24 h-24 text-rose-300/60 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M50,30 C35,10 10,25 10,50 C10,75 50,90 50,90 C50,90 90,75 90,50 C90,25 65,10 50,30 Z" />
+          </svg>
+        </div>
+        <div className="fixed top-[20%] left-[10%] w-20 h-16 text-zinc-300/50 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+          </svg>
+        </div>
+        {/* Row 2 */}
+        <div className="fixed top-[45%] left-[8%] w-20 h-20 text-amber-300/60 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M50,10 L50,90 M10,50 L90,50 M22,22 L78,78 M22,78 L78,22" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+        <div className="fixed top-[50%] right-[12%] w-16 h-16 text-amber-300/50 pointer-events-none select-none z-10 animate-pulse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M12 2v20M2 12h20M5.75 5.75l12.5 12.5M5.75 19.25l12.5-12.5" />
+          </svg>
+        </div>
+        {/* Row 3 */}
+        <div className="fixed top-[75%] right-[8%] w-28 h-28 text-blue-300/50 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+            <path d="M20,50 Q35,25 60,30 Q85,35 70,60 Q55,85 30,70 Z" />
+            <path d="M35,60 Q45,35 70,40 Q90,45 80,65 Q70,85 45,75 Z" />
+          </svg>
+        </div>
+        <div className="fixed top-[80%] left-[8%] w-24 h-12 text-blue-300/50 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 40" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M10,30 Q25,10 40,30 T70,30 T100,30" />
+            <path d="M15,35 Q30,15 45,35 T75,35 T105,35" />
+          </svg>
+        </div>
+
+        {/* ── HEADING CONTAINER ── */}
+        <div className="relative z-20 flex flex-col items-center text-center max-w-4xl mx-auto px-6 mb-16 select-none">
+          
+
+          {/* Reviews Sticker */}
+          <div className="relative mb-6 transform rotate-[-8deg] bg-sky-100 border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer">
+            {/* Paperclip */}
+            <div className="absolute -top-3.5 left-3 text-zinc-400">
+              <svg className="w-4 h-6" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" />
+              </svg>
+            </div>
+            {/* Blue dot */}
+            <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-blue-500 rounded-full border border-white" />
+            {/* Camera icon */}
+            <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+            <span className="pl-1">Reviews</span>
+          </div>
+
+          <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
+            CLIENTS LIKED<br />THE PIXELS
+          </h2>
+        </div>
+
+        {/* ── TESTIMONIAL CARDS ── */}
+        <div className="relative z-20 w-full max-w-6xl mx-auto px-6 select-none">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+            {/* Card 1 – Sarah M. */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-lg relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
+              {/* Pin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
+                <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
+              </div>
+              {/* Folded corner */}
+              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
+                <svg viewBox="0 0 56 56" fill="none">
+                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
+                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
+                </svg>
+              </div>
+
+              {/* Profile */}
+              <div className="flex items-center gap-3 mt-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
+                  <Image src="/jennifer.png" alt="Sarah M." width={40} height={40} className="object-cover w-full h-full" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Sarah M.</span>
+                  <span className="text-xs text-zinc-400 font-medium">Founder</span>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p className="text-xl font-regular text-zinc-950 leading-snug tracking-tight">
+                &ldquo;The website finally feels like our brand.&rdquo;
+              </p>
+
+              {/* Stars */}
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                ))}
+              </div>
+
+              {/* Logo */}
+              <div className="flex items-center gap-1.5 mt-auto">
+                <div className="w-4 h-4 text-blue-600">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
+                </div>
+                <span className="text-xs font-bold text-zinc-500">Fitas</span>
+              </div>
+
+              {/* Detail text */}
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                She turned our idea into a polished website that felt premium, and easy to understand.
+              </p>
+            </div>
+
+            {/* Card 2 – Daniel R. (shifted down) */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-lg relative overflow-hidden flex flex-col gap-4 transform rotate-[5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 md:mt-16">
+              {/* Pin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
+                <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
+              </div>
+              {/* Folded corner */}
+              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
+                <svg viewBox="0 0 56 56" fill="none">
+                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
+                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
+                </svg>
+              </div>
+
+              {/* Profile */}
+              <div className="flex items-center gap-3 mt-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
+                  <Image src="/dewey.png" alt="Daniel R." width={40} height={40} className="object-cover w-full h-full" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Daniel R.</span>
+                  <span className="text-xs text-zinc-400 font-medium">Product Lead</span>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p className="text-xl font-regular text-zinc-950 leading-snug tracking-tight">
+                &ldquo;The flow became much easier to use.&rdquo;
+              </p>
+
+              {/* Stars */}
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                ))}
+              </div>
+
+              {/* Logo */}
+              <div className="flex items-center gap-1.5 mt-auto">
+                <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+                <span className="text-xs font-bold text-zinc-500">Bond</span>
+              </div>
+
+              {/* Detail text */}
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                She cleaned up the user journey, and made the product feel more focused and professional.
+              </p>
+            </div>
+
+            {/* Card 3 – Ayesha K. */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-lg relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
+              {/* Pin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
+                <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
+              </div>
+              {/* Folded corner */}
+              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
+                <svg viewBox="0 0 56 56" fill="none">
+                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
+                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
+                </svg>
+              </div>
+
+              {/* Profile */}
+              <div className="flex items-center gap-3 mt-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
+                  <Image src="/ankita.png" alt="Ayesha K." width={40} height={40} className="object-cover w-full h-full" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Ayesha K.</span>
+                  <span className="text-xs text-zinc-400 font-medium">Creative Director</span>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p className="text-xl font-regular text-zinc-950 leading-snug tracking-tight">
+                &ldquo;Sharp design without overcomplicating it.&rdquo;
+              </p>
+
+              {/* Stars */}
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                ))}
+              </div>
+
+              {/* Logo */}
+              <div className="flex items-center gap-1.5 mt-auto">
+                <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
+                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z" /></svg>
+                </div>
+                <span className="text-xs font-bold text-zinc-500">Arsha.</span>
+              </div>
+
+              {/* Detail text */}
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                The final design looked modern, but still felt practical. Everything was ready to hand off.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: FAQ (ANSWER BEFORE WE STARTS) */}
+      <section className="relative min-h-screen w-full py-24 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
+        backgroundImage: `
+          linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
+        `,
+        backgroundSize: "80px 80px",
+        backgroundAttachment: "fixed",
+        clipPath: "inset(0)"
+      }}>
+        {/* ── Fixed background doodles (same positions = sticks with grid) ── */}
+        <div className="fixed top-[15%] right-[10%] w-24 h-24 text-rose-300 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M50,30 C35,10 10,25 10,50 C10,75 50,90 50,90 C50,90 90,75 90,50 C90,25 65,10 50,30 Z" />
+          </svg>
+        </div>
+        <div className="fixed top-[20%] left-[10%] w-20 h-16 text-zinc-300 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+          </svg>
+        </div>
+        <div className="fixed top-[45%] left-[8%] w-20 h-20 text-amber-300 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M50,10 L50,90 M10,50 L90,50 M22,22 L78,78 M22,78 L78,22" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+        <div className="fixed top-[50%] right-[12%] w-16 h-16 text-amber-300 pointer-events-none select-none z-10 animate-pulse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M12 2v20M2 12h20M5.75 5.75l12.5 12.5M5.75 19.25l12.5-12.5" />
+          </svg>
+        </div>
+        <div className="fixed top-[75%] right-[8%] w-28 h-28 text-blue-300 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+            <path d="M20,50 Q35,25 60,30 Q85,35 70,60 Q55,85 30,70 Z" />
+            <path d="M35,60 Q45,35 70,40 Q90,45 80,65 Q70,85 45,75 Z" />
+          </svg>
+        </div>
+        <div className="fixed top-[80%] left-[8%] w-24 h-12 text-blue-300/50 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 100 40" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M10,30 Q25,10 40,30 T70,30 T100,30" />
+            <path d="M15,35 Q30,15 45,35 T75,35 T105,35" />
+          </svg>
+        </div>
+
+        {/* Extra fixed doodles specific to FAQ section feel */}
+        <div className="fixed top-[30%] right-[5%] w-10 h-14 text-blue-400/60 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 24 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M12 2C9 2 6 4.5 6 8c0 3 2 5 4 6.5v2.5h4V14.5c2-1.5 4-3.5 4-6.5 0-3.5-3-6-6-6z" />
+            <line x1="9" y1="28" x2="15" y2="28" />
+            <line x1="10" y1="31" x2="14" y2="31" />
+          </svg>
+        </div>
+        <div className="fixed top-[62%] left-[4%] w-8 h-8 text-[#5BD4A3]/70 pointer-events-none select-none z-10">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.5 2l15 10.5-6.5 2.5 4.5 4.5-2.5 2.5-4.5-4.5-6 6z" />
+          </svg>
+        </div>
+
+        {/* ── ABSOLUTE LAYOUT: heading + scattered pills all in one tall container ── */}
+        <div className="relative z-20 w-full" style={{ height: "680px" }}>
+
+          
+
+          {/* FAQs sticker – floats near heading */}
+          <div className="absolute left-1/2 top-[2%] transform -translate-x-[60%] -translate-y-2 rotate-[-6deg] bg-sky-100 border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer z-30">
+            <div className="absolute -top-3.5 left-3 text-zinc-400">
+              <svg className="w-4 h-6" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" />
+              </svg>
+            </div>
+            <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-blue-500 rounded-full border border-white" />
+            <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            <span className="pl-1">FAQs</span>
+          </div>
+
+          {/* Central Heading */}
+          <div className="absolute inset-x-0 top-[14%] flex flex-col items-center text-center select-none pointer-events-none">
+            <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[56px] tracking-tight uppercase leading-[1.05] max-w-3xl">
+              ANSWER BEFORE<br />WE STARTS
+            </h2>
+          </div>
+
+          {/* ── Absolutely placed FAQ pills ── */}
+
+          {/* Top-left: What can you design? */}
+          <div className="absolute left-[3%] top-[5%] w-[260px] sm:w-[290px] mx-30">
+            <FAQPill
+              question="What can you design?"
+              answer="I design websites, mobile apps, brand identities, and digital products — from wireframes to pixel-perfect Figma files."
+              color="bg-[#FBDDE0]"
+            />
+          </div>
+
+          {/* Top-right: Do you build in Framer? */}
+          <div className="absolute right-[3%] top-[2%] w-[260px] sm:w-[290px] mx-30">
+            <FAQPill
+              question="Do you build in Framer?"
+              answer="Yes! I build fully responsive, production-ready websites in Framer — no code required on your end."
+              color="bg-[#D9F2C4]"
+            />
+          </div>
+
+          {/* Middle-left: How fast can we start? */}
+          <div className="absolute left-[2%] top-[48%] w-[240px] sm:w-[270px] mx-35 -mt-10">
+            <FAQPill
+              question="How fast can we start?"
+              answer="Usually within 3–5 days of onboarding. I keep a limited client load to ensure dedicated focus for every project."
+              color="bg-[#C4DCF5]"
+            />
+          </div>
+
+          {/* Centered below heading: Do you only design visuals? */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-[38%] w-[280px] sm:w-[320px] z-30 mt-20">
+            <FAQPill
+              question="Do you only design visuals?"
+              answer="No — I also help with UX flows, content hierarchy, copy suggestions, design systems, and hand-off specs for developer integration."
+              color="bg-[#D9F2C4]"
+            />
+          </div>
+
+          {/* Middle-right: What do you need from me? */}
+          <div className="absolute right-[2%] top-[50%] w-[240px] sm:w-[270px] mx-35 -mt-10">
+            <FAQPill
+              question="What do you need from me?"
+              answer="A brief, your brand references, and access to any existing assets. I'll handle the rest and check in regularly."
+              color="bg-[#FEFBCC]"
+            />
+          </div>
+
+        </div>
+      </section>
       <EyeFollower />
+      <Footer />
     </main>
+  );
+}
+
+/* ── FAQ Pill: absolutely positioned, smooth CSS max-height animation, no layout shift ── */
+function FAQPill({
+  question,
+  answer,
+  color,
+}: {
+  question: string;
+  answer: string;
+  color: string;
+}) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div
+      className={`${color} border border-zinc-200/40 rounded-2xl px-5 py-3.5 shadow-md cursor-pointer w-full select-none`}
+      style={{ transition: "box-shadow 0.2s" }}
+      onClick={() => setOpen(!open)}
+    >
+      {/* Question row */}
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-zinc-900 font-semibold text-sm sm:text-base leading-snug">{question}</span>
+        {/* + button that rotates to × */}
+        <div
+          className="w-6 h-6 rounded-full border border-zinc-400/60 flex items-center justify-center flex-shrink-0"
+          style={{
+            transform: open ? "rotate(45deg)" : "rotate(0deg)",
+            transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)"
+          }}
+        >
+          <svg className="w-3.5 h-3.5 text-zinc-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </div>
+      </div>
+      {/* Answer — animates via max-height, NO layout shift because pill is absolutely positioned */}
+      <div
+        style={{
+          maxHeight: open ? "200px" : "0px",
+          overflow: "hidden",
+          transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+      >
+        <div className="border-t border-zinc-200/60 mt-3 pt-3">
+          <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">{answer}</p>
+        </div>
+      </div>
+    </div>
   );
 }
