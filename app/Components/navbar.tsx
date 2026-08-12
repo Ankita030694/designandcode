@@ -35,10 +35,11 @@ export default function Navbar() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  if (pathname?.startsWith("/admin")) {
-    return null;
-  }
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -62,6 +63,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, isMenuOpen]);
+
+  if (!mounted) {
+    return null;
+  }
+
+  if (pathname?.startsWith("/admin") || pathname === "/") {
+    return null;
+  }
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${

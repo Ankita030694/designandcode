@@ -7,7 +7,7 @@ import CircularText from "@/components/CircularText";
 export default function GlobalContactWidget() {
   const pathname = usePathname();
 
-  if (pathname?.startsWith("/admin")) {
+  if (pathname?.startsWith("/admin") || pathname === "/") {
     return null;
   }
 
