@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer
-      className="w-full relative overflow-hidden -mt-50"
+      className="w-full relative overflow-hidden mt-0 md:-mt-50"
       style={{
         backgroundImage: "url('/Footer BG BG.jpg')",
         backgroundSize: "cover",

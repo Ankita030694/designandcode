@@ -9,6 +9,19 @@ import Footer from "./Components/footer";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
+
+  const handleReviewScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const container = e.currentTarget;
+    const scrollLeft = container.scrollLeft;
+    // Account for padding and offsets by dividing by actual scroll width per card
+    const cardWidth = container.scrollWidth / 3;
+    const newIndex = Math.round(scrollLeft / cardWidth);
+    if (newIndex !== activeReviewIndex && newIndex >= 0 && newIndex <= 2) {
+      setActiveReviewIndex(newIndex);
+    }
+  };
+
   const dropupProjects = PROJECTS_DATA.slice(0, 3);
   const storyboardProjects = [
     {
@@ -998,8 +1011,9 @@ export default function Home() {
         </div>
       </section>
 
+    <div className="bg-[#FAF9F6] w-full">
       {/* SECTION 5: REVIEWS (CLIENTS LIKED THE PIXELS) */}
-      <section className="relative min-h-screen w-full py-24 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
+      <section className="relative min-h-screen w-full py-24 md:py-24 pt-24 pb-12 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
         backgroundImage: `
           linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
@@ -1073,12 +1087,12 @@ export default function Home() {
           </h2>
         </div>
 
-        {/* ── TESTIMONIAL CARDS ── */}
-        <div className="relative z-20 w-full max-w-6xl mx-auto px-6 select-none">
+        {/* ── TESTIMONIAL CARDS (Desktop View: hidden on mobile) ── */}
+        <div className="hidden md:block relative z-20 w-full max-w-6xl mx-auto px-6 select-none">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
             {/* Card 1 – Sarah M. */}
-            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-lg relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
@@ -1129,7 +1143,7 @@ export default function Home() {
             </div>
 
             {/* Card 2 – Daniel R. (shifted down) */}
-            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-lg relative overflow-hidden flex flex-col gap-4 transform rotate-[5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 md:mt-16">
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 transform rotate-[5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 md:mt-16">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
@@ -1180,7 +1194,7 @@ export default function Home() {
             </div>
 
             {/* Card 3 – Ayesha K. */}
-            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-lg relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
@@ -1232,10 +1246,196 @@ export default function Home() {
 
           </div>
         </div>
+
+        {/* ── TESTIMONIAL CARDS CAROUSEL (Mobile View: block md:hidden) ── */}
+        <div className="block md:hidden relative z-20 w-full select-none">
+          <div 
+            id="mobile-reviews-carousel"
+            className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory px-8 pb-6"
+            onScroll={handleReviewScroll}
+          >
+            {/* Card 1 – Sarah M. */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 snap-center w-[calc(100vw-64px)] flex-shrink-0">
+              {/* Pin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
+                <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
+              </div>
+              {/* Folded corner */}
+              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
+                <svg viewBox="0 0 56 56" fill="none">
+                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
+                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
+                </svg>
+              </div>
+
+              {/* Profile */}
+              <div className="flex items-center gap-3 mt-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
+                  <Image src="/jennifer.png" alt="Sarah M." width={40} height={40} className="object-cover w-full h-full" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Sarah M.</span>
+                  <span className="text-xs text-zinc-400 font-medium">Founder</span>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p className="text-lg font-regular text-zinc-950 leading-snug tracking-tight">
+                &ldquo;The website finally feels like our brand.&rdquo;
+              </p>
+
+              {/* Stars */}
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                ))}
+              </div>
+
+              {/* Logo */}
+              <div className="flex items-center gap-1.5 mt-auto">
+                <div className="w-4 h-4 text-blue-600">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
+                </div>
+                <span className="text-xs font-bold text-zinc-500">Fitas</span>
+              </div>
+
+              {/* Detail text */}
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                She turned our idea into a polished website that felt premium, and easy to understand.
+              </p>
+            </div>
+
+            {/* Card 2 – Daniel R. */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 snap-center w-[calc(100vw-64px)] flex-shrink-0">
+              {/* Pin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
+                <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
+              </div>
+              {/* Folded corner */}
+              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
+                <svg viewBox="0 0 56 56" fill="none">
+                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
+                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
+                </svg>
+              </div>
+
+              {/* Profile */}
+              <div className="flex items-center gap-3 mt-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
+                  <Image src="/dewey.png" alt="Daniel R." width={40} height={40} className="object-cover w-full h-full" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Daniel R.</span>
+                  <span className="text-xs text-zinc-400 font-medium">Product Lead</span>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p className="text-lg font-regular text-zinc-950 leading-snug tracking-tight">
+                &ldquo;The flow became much easier to use.&rdquo;
+              </p>
+
+              {/* Stars */}
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                ))}
+              </div>
+
+              {/* Logo */}
+              <div className="flex items-center gap-1.5 mt-auto">
+                <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+                <span className="text-xs font-bold text-zinc-500">Bond</span>
+              </div>
+
+              {/* Detail text */}
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                She cleaned up the user journey, and made the product feel more focused and professional.
+              </p>
+            </div>
+
+            {/* Card 3 – Ayesha K. */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 snap-center w-[calc(100vw-64px)] flex-shrink-0">
+              {/* Pin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
+                <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
+              </div>
+              {/* Folded corner */}
+              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
+                <svg viewBox="0 0 56 56" fill="none">
+                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
+                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
+                </svg>
+              </div>
+
+              {/* Profile */}
+              <div className="flex items-center gap-3 mt-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
+                  <Image src="/ankita.png" alt="Ayesha K." width={40} height={40} className="object-cover w-full h-full" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Ayesha K.</span>
+                  <span className="text-xs text-zinc-400 font-medium">Creative Director</span>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <p className="text-lg font-regular text-zinc-950 leading-snug tracking-tight">
+                &ldquo;Sharp design without overcomplicating it.&rdquo;
+              </p>
+
+              {/* Stars */}
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                ))}
+              </div>
+
+              {/* Logo */}
+              <div className="flex items-center gap-1.5 mt-auto">
+                <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
+                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z" /></svg>
+                </div>
+                <span className="text-xs font-bold text-zinc-500">Arsha.</span>
+              </div>
+
+              {/* Detail text */}
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                The final design looked modern, but still felt practical. Everything was ready to hand off.
+              </p>
+            </div>
+          </div>
+
+          {/* Progressive dots */}
+          <div className="flex justify-center items-center gap-2 mt-2">
+            {[0, 1, 2].map((idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  const container = document.getElementById("mobile-reviews-carousel");
+                  if (container) {
+                    const cardWidth = container.scrollWidth / 3;
+                    container.scrollTo({
+                      left: idx * cardWidth,
+                      behavior: "smooth"
+                    });
+                  }
+                  setActiveReviewIndex(idx);
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeReviewIndex === idx ? "w-6 bg-zinc-950" : "w-2 bg-zinc-300"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* SECTION 6: FAQ (ANSWER BEFORE WE STARTS) */}
-      <section className="relative min-h-screen w-full py-24 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
+      <section className="relative min-h-screen w-full py-24 md:py-24 pt-12 pb-24 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
         backgroundImage: `
           linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
@@ -1293,10 +1493,8 @@ export default function Home() {
           </svg>
         </div>
 
-        {/* ── ABSOLUTE LAYOUT: heading + scattered pills all in one tall container ── */}
-        <div className="relative z-20 w-full" style={{ height: "680px" }}>
-
-          
+        {/* ── ABSOLUTE LAYOUT: heading + scattered pills all in one tall container (Desktop only) ── */}
+        <div className="hidden md:block relative z-20 w-full" style={{ height: "680px" }}>
 
           {/* FAQs sticker – floats near heading */}
           <div className="absolute left-1/2 top-[2%] transform -translate-x-[60%] -translate-y-2 rotate-[-6deg] bg-sky-100 border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer z-30">
@@ -1367,7 +1565,60 @@ export default function Home() {
           </div>
 
         </div>
+
+        {/* ── STACKED LAYOUT: Mobile responsive view (Mobile only) ── */}
+        <div className="block md:hidden relative z-20 w-full px-6 flex flex-col items-center select-none pb-12">
+          {/* FAQs sticker */}
+          <div className="relative mb-6 transform -rotate-12 bg-sky-100 border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 self-start ml-2">
+            <div className="absolute -top-3.5 left-3 text-zinc-400">
+              <svg className="w-4 h-6 transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-blue-500 rounded-full border border-white" />
+            <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            <span className="pl-1">FAQs</span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-zinc-950 font-bold text-[28px] sm:text-3xl tracking-tight uppercase leading-[1.1] text-center mb-8 w-full">
+            ANSWER BEFORE<br />WE STARTS
+          </h2>
+
+          {/* Stacked FAQ Cards */}
+          <div className="flex flex-col gap-4 w-full max-w-[480px]">
+            <MobileFAQPill
+              question="What can you design?"
+              answer="I design websites, mobile apps, brand identities, and digital products — from wireframes to pixel-perfect Figma files."
+              color="bg-[#FDDDE0]"
+            />
+            <MobileFAQPill
+              question="Do you build in framer?"
+              answer="Yes! I build fully responsive, production-ready websites in Framer — no code required on your end."
+              color="bg-[#E5FF7F]"
+            />
+            <MobileFAQPill
+              question="What do you need from me?"
+              answer="A brief, your brand references, and access to any existing assets. I'll handle the rest and check in regularly."
+              color="bg-[#FEFBCC]"
+            />
+            <MobileFAQPill
+              question="How fast can we start?"
+              answer="Usually within 3–5 days of onboarding. I keep a limited client load to ensure dedicated focus for every project."
+              color="bg-[#C4DCF5]"
+            />
+            <MobileFAQPill
+              question="Do you only design visuals?"
+              answer="No — I also help with UX flows, content hierarchy, copy suggestions, design systems, and hand-off specs for developer integration."
+              color="bg-[#C2F5D9]"
+            />
+          </div>
+        </div>
+
       </section>
+    </div>
       <EyeFollower />
       <Footer />
     </main>
@@ -1418,6 +1669,52 @@ function FAQPill({
       >
         <div className="border-t border-zinc-200/60 mt-3 pt-3">
           <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">{answer}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Mobile FAQ Pill: stacked layout, solid box shadows, custom responsiveness ── */
+function MobileFAQPill({
+  question,
+  answer,
+  color,
+}: {
+  question: string;
+  answer: string;
+  color: string;
+}) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div
+      className={`${color} border border-zinc-900/10 rounded-2xl px-5 py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] cursor-pointer w-full select-none transition-all duration-200`}
+      onClick={() => setOpen(!open)}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-zinc-900 font-extrabold text-[15px] sm:text-base leading-snug">{question}</span>
+        <div
+          className="w-6 h-6 rounded-full border border-zinc-900/20 flex items-center justify-center flex-shrink-0 bg-white/20"
+          style={{
+            transform: open ? "rotate(45deg)" : "rotate(0deg)",
+            transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)"
+          }}
+        >
+          <svg className="w-3.5 h-3.5 text-zinc-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </div>
+      </div>
+      <div
+        style={{
+          maxHeight: open ? "200px" : "0px",
+          overflow: "hidden",
+          transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+      >
+        <div className="border-t border-zinc-900/10 mt-3 pt-3">
+          <p className="text-[13px] sm:text-sm text-zinc-800 leading-relaxed font-semibold">{answer}</p>
         </div>
       </div>
     </div>
