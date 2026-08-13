@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden bg-zinc-950 font-sans scroll-smooth">
       {/* SECTION 1: HERO */}
-      <section className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden z-10">
+      <section className="relative min-h-[85vh] md:min-h-screen w-full flex flex-col justify-between overflow-hidden z-10 pt-24 pb-20 md:pt-0 md:pb-0">
         {/* 1. Background Image (Green hills and sky) */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -94,78 +94,78 @@ export default function Home() {
         </div>
 
         {/* 3. Headline & Stickers Section */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-6xl mx-auto px-6 py-12 select-none">
-          <div className="relative py-12">
+        <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-6xl mx-auto px-6 py-6 md:py-12 select-none">
+          <div className="relative py-6 md:py-12 max-w-full">
             
             {/* A. UI/UX Design Sticker (Top-Right of Headline) */}
             <div 
-              className="absolute top-[-30px] right-[40px] sm:right-[120px] z-30 flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[6deg] hover:scale-105 hover:rotate-[2deg] transition-all duration-300 cursor-pointer mt-15 -mx-50"
+              className="absolute -top-6 right-2 sm:right-[120px] z-30 flex items-center gap-2 bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[6deg] hover:scale-105 hover:rotate-[2deg] transition-all duration-300 cursor-pointer"
               style={{ transformOrigin: "center" }}
             >
               {/* Paperclip graphic */}
               <div className="absolute -top-3.5 left-4 pointer-events-none">
-                <svg className="w-5 h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg className="w-4 h-7 sm:w-5 sm:h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               {/* Icon circle */}
-              <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
-                <svg className="w-3 h-3 text-white fill-white" viewBox="0 0 24 24">
+              <div className="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center">
+                <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white fill-white" viewBox="0 0 24 24">
                   <path d="M4 2l18 10-7 3 5 5-3 3-5-5-3 7L4 2z" />
                 </svg>
               </div>
-              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-1">UI/UX Design</span>
+              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-0.5">UI/UX Design</span>
               {/* Folded corner peel effect */}
-              <div className="absolute top-0 right-0 w-3 h-3 bg-green-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
+              <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
             </div>
 
             {/* B. Illustration Sticker (Center of Headline, overlapping) */}
             <div 
-              className="absolute top-[85px] right-[30px] sm:right-[150px] z-40 flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[-4deg] hover:scale-105 hover:rotate-0 transition-all duration-300 cursor-pointer"
+              className="absolute top-[70px] right-0 sm:right-[150px] z-40 flex items-center gap-2 bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[-4deg] hover:scale-105 hover:rotate-0 transition-all duration-300 cursor-pointer"
               style={{ transformOrigin: "center" }}
             >
               {/* Paperclip graphic */}
               <div className="absolute -top-3.5 left-4 pointer-events-none">
-                <svg className="w-5 h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg className="w-4 h-7 sm:w-5 sm:h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               {/* Icon circle */}
-              <div className="w-5 h-5 rounded-full bg-fuchsia-500 flex items-center justify-center">
+              <div className="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-fuchsia-500 flex items-center justify-center">
                 <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                   <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-1">Illustration</span>
+              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-0.5">Illustration</span>
               {/* Folded corner peel effect */}
-              <div className="absolute top-0 right-0 w-3 h-3 bg-fuchsia-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
+              <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-fuchsia-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
             </div>
 
             {/* C. 3D Design Sticker (Left side of Headline, overlapping) */}
             <div 
-              className="absolute bottom-[80px] left-[10px] sm:left-[80px] z-30 flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[-6deg] hover:scale-105 hover:rotate-[-2deg] transition-all duration-300 cursor-pointer"
+              className="absolute -bottom-5 left-0 sm:left-[80px] z-30 flex items-center gap-2 bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[-6deg] hover:scale-105 hover:rotate-[-2deg] transition-all duration-300 cursor-pointer"
               style={{ transformOrigin: "center" }}
             >
               {/* Paperclip graphic */}
               <div className="absolute -top-3.5 left-4 pointer-events-none">
-                <svg className="w-5 h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg className="w-4 h-7 sm:w-5 sm:h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               {/* Icon circle */}
-              <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
+              <div className="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-blue-500 flex items-center justify-center">
                 <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                   <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-1">3D Design</span>
+              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-0.5">3D Design</span>
               {/* Folded corner peel effect */}
-              <div className="absolute top-0 right-0 w-3 h-3 bg-blue-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
+              <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
             </div>
 
             {/* Main Typography Heading */}
-            <h1 className="text-5xl sm:text-7xl md:text-[84px] font-bold tracking-tight text-white leading-[0.9] max-w-5xl">
+            <h1 className="text-4xl sm:text-7xl md:text-[84px] font-bold tracking-tight text-white leading-[0.9] max-w-5xl">
               DESIGN THAT<br />
               MAKES PEOPLE<br />
               LOOK TWICE
@@ -174,18 +174,18 @@ export default function Home() {
         </div>
 
         {/* 4. Bottom Elements (Left Text and Right Case Study Card) */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-8 md:pb-10 select-none gap-8">
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-4 md:pb-10 select-none gap-4 md:gap-8">
           
           {/* Left: Tagline */}
-          <div className="flex-1 max-w-[340px] flex items-start gap-3 text-white leading-relaxed mb-0">
-            <span className="text-white text-lg font-bold">—</span>
+          <div className="flex-1 max-w-[300px] sm:max-w-[340px] flex items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
+            <span className="text-white text-base md:text-lg font-bold">—</span>
             <div className="flex flex-col">
-              <span className="text-[22px] font-medium text-white leading-snug">Not just visuals. I make digital things look alive</span>
+              <span className="text-base sm:text-lg md:text-[22px] font-medium text-white leading-snug">Not just visuals. I make digital things look alive</span>
             </div>
           </div>
 
           {/* Right: Stacked case study card layout with dropup fanning animation */}
-          <div className="flex justify-end relative w-full max-w-[280px] h-24 z-40 mb-0">
+          <div className="flex justify-center md:justify-end relative w-full max-w-[270px] sm:max-w-[280px] h-20 sm:h-24 z-40 mb-0">
             <div 
               className="relative group w-full h-full cursor-pointer select-none"
               onMouseEnter={() => setIsOpen(true)}
@@ -195,9 +195,9 @@ export default function Home() {
               {/* Card 3: Aerolume (Back Layer) */}
               <Link 
                 href="/Projects/aerolume"
-                className={`absolute inset-x-0 bottom-0 h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
+                className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
                   isOpen 
-                    ? "z-30 translate-y-[-208px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
+                    ? "z-30 translate-y-[-170px] sm:translate-y-[-208px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
                     : "z-10 translate-y-4 scale-90 bg-white/5 border border-white/5 opacity-40 pointer-events-none"
                 }`}
                 onClick={(e) => e.stopPropagation()}
@@ -212,7 +212,7 @@ export default function Home() {
                   </span>
                 </div>
                 
-                <div className={`relative w-14 h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                <div className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <Image 
                     src="/project/Aerolume.svg" 
                     alt="Aerolume" 
@@ -225,9 +225,9 @@ export default function Home() {
               {/* Card 2: Adorna Casa (Middle Layer) */}
               <Link 
                 href="/Projects/adorna-casa"
-                className={`absolute inset-x-0 bottom-0 h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
+                className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
                   isOpen 
-                    ? "z-30 translate-y-[-104px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
+                    ? "z-30 translate-y-[-85px] sm:translate-y-[-104px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
                     : "z-20 translate-y-2 scale-95 bg-white/10 border border-white/10 opacity-70 pointer-events-none"
                 }`}
                 onClick={(e) => e.stopPropagation()}
@@ -242,7 +242,7 @@ export default function Home() {
                   </span>
                 </div>
                 
-                <div className={`relative w-14 h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                <div className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <Image 
                     src="/project/Adorna_casa.svg" 
                     alt="Adorna Casa" 
@@ -255,7 +255,7 @@ export default function Home() {
               {/* Card 1: AMA Legal Solutions (Front Layer, Always Visible) */}
               <Link 
                 href="/Projects/ama"
-                className={`absolute inset-x-0 bottom-0 h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card z-40 bg-white/15 backdrop-blur-md border border-white/20 ${
+                className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card z-40 bg-white/15 backdrop-blur-md border border-white/20 ${
                   isOpen ? "-translate-y-1 hover:bg-white/20" : ""
                 }`}
                 onClick={(e) => e.stopPropagation()}
@@ -270,7 +270,7 @@ export default function Home() {
                   </span>
                 </div>
                 
-                <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0">
                   <Image 
                     src="/project/AMA.svg" 
                     alt="AMA Legal Solutions" 
