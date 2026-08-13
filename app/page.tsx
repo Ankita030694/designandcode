@@ -174,20 +174,20 @@ export default function Home() {
         </div>
 
         {/* 4. Bottom Elements (Left Text and Right Case Study Card) */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-60 items-end px-6 pb-8 md:pb-12 select-none">
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-8 md:pb-10 select-none gap-8">
           
           {/* Left: Tagline */}
-          <div className="md:col-span-3 flex items-start gap-3 text-white leading-relaxed mb-4 md:mb-10">
+          <div className="flex-1 max-w-[340px] flex items-start gap-3 text-white leading-relaxed mb-0">
             <span className="text-white text-lg font-bold">—</span>
             <div className="flex flex-col">
-              <span className="text-[25px] font-medium text-white">Not just visuals. I make digital things look alive</span>
+              <span className="text-[22px] font-medium text-white leading-snug">Not just visuals. I make digital things look alive</span>
             </div>
           </div>
 
           {/* Right: Stacked case study card layout with dropup fanning animation */}
-          <div className="md:col-span-3 flex justify-end relative h-24 z-40">
+          <div className="flex justify-end relative w-full max-w-[280px] h-24 z-40 mb-0">
             <div 
-              className="relative group w-full max-w-[280px] h-full cursor-pointer select-none"
+              className="relative group w-full h-full cursor-pointer select-none"
               onMouseEnter={() => setIsOpen(true)}
               onMouseLeave={() => setIsOpen(false)}
               onClick={() => setIsOpen(!isOpen)}
@@ -297,14 +297,7 @@ export default function Home() {
         {/* Absolute Doodles & Graffiti */}
         
         {/* Top-Left: Eyes & Pink Circle */}
-        <div className="absolute top-[8%] left-[5%] flex gap-1.5 pointer-events-none select-none">
-          <div className="w-5 h-5 rounded-full border-[1.8px] border-zinc-900 bg-white relative flex items-center justify-center">
-            <div className="w-1.5 h-1.5 bg-zinc-900 rounded-full absolute top-1.5 left-1.5" />
-          </div>
-          <div className="w-5 h-5 rounded-full border-[1.8px] border-zinc-900 bg-white relative flex items-center justify-center">
-            <div className="w-1.5 h-1.5 bg-zinc-900 rounded-full absolute top-1.5 left-1.5" />
-          </div>
-        </div>
+        
 
         <div 
           className="absolute top-[12%] left-[10%] w-8 h-8 rounded-full pointer-events-none select-none opacity-85" 
@@ -405,12 +398,12 @@ export default function Home() {
             <span className="pl-2">About</span>
           </div>
 
-          <h2 className="text-zinc-950 font-extrabold text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
-            I MAKE DESIGNS<br />PEOPLE REMEMBER
+          <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
+            WE MAKE DESIGNS<br />PEOPLE REMEMBER
           </h2>
 
           <p className="text-zinc-800 text-base sm:text-xl md:text-[22px] font-medium leading-relaxed max-w-2xl text-center mt-6 select-none">
-            I design clean websites, apps, and brand systems<br />
+            We design clean websites, apps, and brand systems<br />
             that help ideas look sharper, feel trusted<br />
             <span className="font-bold text-zinc-900">— and work with purpose.</span>
           </p>
