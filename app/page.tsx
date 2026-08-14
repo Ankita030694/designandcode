@@ -11,6 +11,14 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
   const [activeStatIndex, setActiveStatIndex] = useState(0);
+  const [openServices, setOpenServices] = useState<Record<number, boolean>>({});
+
+  const toggleService = (idx: number) => {
+    setOpenServices(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
 
   const handleReviewScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
@@ -80,7 +88,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden bg-zinc-950 font-sans scroll-smooth">
       {/* SECTION 1: HERO */}
-      <section className="relative min-h-[85vh] md:min-h-screen w-full flex flex-col justify-between overflow-hidden z-10 pt-24 pb-20 md:pt-0 md:pb-0">
+      <section className="relative min-h-[100vh] md:min-h-screen w-full flex flex-col justify-between overflow-hidden z-10 pt-24 pb-20 md:pt-0 md:pb-0">
         {/* 1. Background Image (Green hills and sky) */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -94,11 +102,33 @@ export default function Home() {
           <div className="absolute inset-0 bg-slate-900/10 pointer-events-none" />
         </div>
 
+        {/* Mobile-Only Interactive Doodles */}
+        {/* Top-Right Sparkle */}
+        <div className="absolute top-[18%] right-[10%] w-9 h-9 text-[#bef264]/70 pointer-events-none select-none block md:hidden z-20 animate-pulse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M12 2v20M2 12h20M5.75 5.75l12.5 12.5M5.75 19.25l12.5-12.5" />
+          </svg>
+        </div>
+
+        {/* Top-Left Ribbon Wavy Scribble */}
+        <div className="absolute top-[22%] left-[8%] w-18 h-7 text-rose-400/60 pointer-events-none select-none block md:hidden z-20">
+          <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round">
+            <path d="M5,10 Q15,5 25,12 T45,8 T65,13 T85,7" />
+          </svg>
+        </div>
+
+        {/* Center-Left Loop */}
+        <div className="absolute bottom-[35%] left-[8%] w-10 h-10 text-sky-400/70 pointer-events-none select-none block md:hidden z-20">
+          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+            <path d="M10,25 Q20,10 30,15 T35,30 T20,35 Z" />
+          </svg>
+        </div>
+
         {/* 3. Headline & Stickers Section */}
         <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-6xl mx-auto px-6 py-6 md:py-12 select-none">
           <div className="relative py-6 md:py-12 max-w-full">
             {/* Main Typography Heading */}
-            <h1 className="text-4xl sm:text-7xl md:text-[84px] font-bold tracking-tight text-white leading-[0.9] max-w-5xl">
+            <h1 className="text-5xl sm:text-7xl md:text-[84px] font-bold tracking-tight text-white leading-[0.9] max-w-5xl">
               DESIGN THAT<br />
               MAKES PEOPLE<br />
               LOOK TWICE
@@ -130,7 +160,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-4 md:pb-10 select-none gap-4 md:gap-8">
           
           {/* Left: Tagline */}
-          <div className="flex-1 max-w-[300px] sm:max-w-[340px] flex items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
+          <div className="hidden md:flex flex-1 max-w-[300px] sm:max-w-[340px] items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
             <span className="text-white text-base md:text-lg font-bold">—</span>
             <div className="flex flex-col">
               <span className="text-base sm:text-lg md:text-[22px] font-medium text-white leading-snug">Not just visuals. I make digital things look alive</span>
@@ -289,12 +319,7 @@ export default function Home() {
           </svg>
         </div>
 
-        {/* Near Heading Yellow Loop */}
-        <div className="absolute top-[17%] right-[30%] w-10 h-10 text-amber-400/80 pointer-events-none select-none">
-          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path d="M10,25 Q20,10 30,15 T35,30 T20,35 Z" strokeLinecap="round" />
-          </svg>
-        </div>
+        
 
         {/* Middle-Right Pen Nib */}
         <div className="absolute top-[18%] right-[18%] w-8 h-8 text-zinc-800/70 pointer-events-none select-none">
@@ -305,10 +330,45 @@ export default function Home() {
           </svg>
         </div>
 
+        {/* NEW DOODLE 1: Rotating Blue Flower/Star (Top Left) */}
+        <div className="absolute top-[13%] left-[4%] w-8 h-8 text-sky-400 pointer-events-none select-none z-10 opacity-75">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M12 2v20M2 12h20M5 5l14 14M5 19L14 5" />
+            <circle cx="12" cy="12" r="3" fill="currentColor" />
+          </svg>
+        </div>
 
+        {/* NEW DOODLE 2: Pink Hand-drawn Heart (Top Right) */}
+        <div className="absolute top-[11%] right-[15%] w-7 h-7 text-pink-400 pointer-events-none select-none z-10 opacity-80">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
 
-        {/* Light Bulb & Cursor Sticker (Bottom Right area) */}
-        <div className="absolute bottom-[35%] right-[5%] flex items-center gap-2 pointer-events-none select-none rotate-[-6deg]">
+        {/* NEW DOODLE 3: Yellow Zigzag Ribbon (Middle Left) */}
+        <div className="absolute top-[28%] left-[2%] w-16 h-6 text-amber-300 pointer-events-none select-none z-10 opacity-75">
+          <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M5,15 L20,5 L35,15 L50,5 L65,15 L80,5 L95,15" />
+          </svg>
+        </div>
+
+        {/* NEW DOODLE 4: Purple Lightning Bolt (Middle Right) */}
+        <div className="absolute top-[29%] right-[3%] w-6 h-8 text-purple-400 pointer-events-none select-none z-10 opacity-75">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+
+        {/* NEW DOODLE 5: Orange Crown Outline (Above Heading Center) */}
+        <div className="absolute top-[5%] left-[50%] -translate-x-1/2 w-10 h-8 text-orange-400 pointer-events-none select-none z-10 opacity-80">
+          <svg viewBox="0 0 50 30" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M5,25 L10,5 L20,15 L30,5 L40,15 L45,25 Z" />
+          </svg>
+        </div>
+
+        
+        {/* Light Bulb & Cursor Sticker (Relocated to Hero Top-Right, Mobile Only) */}
+        <div className="absolute top-[34%] right-[4%] flex items-center gap-2 pointer-events-none select-none rotate-[-6deg] block md:hidden z-10">
           {/* Bulb Icon */}
           <div className="w-8 h-8 bg-orange-100 border border-orange-200 rounded-lg flex items-center justify-center shadow-sm text-orange-500">
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -323,15 +383,15 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Yellow scribble lines (Left bottom margin) */}
-        <div className="absolute bottom-[20%] left-[2%] w-16 h-6 text-amber-300 pointer-events-none select-none opacity-80">
+        {/* Yellow scribble lines (Relocated to Hero Left, Mobile Only) */}
+        <div className="absolute top-[26%] left-[2%] w-16 h-6 text-amber-300 pointer-events-none select-none opacity-80 block md:hidden z-10">
           <svg viewBox="0 0 80 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
             <path d="M5,10 C15,12 25,8 35,12 C45,10 55,14 65,10" />
           </svg>
         </div>
 
-        {/* Yellow scribble lines (Right middle margin) */}
-        <div className="absolute top-[42%] right-[10%] w-24 h-6 text-amber-300 pointer-events-none select-none opacity-80">
+        {/* Yellow scribble lines (Relocated to Hero Right, Mobile Only) */}
+        <div className="absolute top-[38%] right-[12%] w-24 h-6 text-amber-300 pointer-events-none select-none opacity-80 block md:hidden z-10">
           <svg viewBox="0 0 80 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
             <path d="M5,10 C15,12 25,8 35,12 C45,10 55,14 65,10" />
           </svg>
@@ -361,27 +421,10 @@ export default function Home() {
             <span className="font-bold text-zinc-900">— and work with purpose.</span>
           </p>
 
-          {/* Pinned Start a Project Button */}
-          <div className="relative mt-10 transform rotate-3 hover:scale-105 transition-transform duration-200">
-            {/* Red Pushpin */}
-            <div className="absolute -top-6 left-[46%] -translate-x-1/2 w-8 h-8 z-10 flex items-center justify-center drop-shadow-md">
-              <Image 
-                src="/pin.png" 
-                alt="Pin" 
-                width={32} 
-                height={32} 
-                className="object-contain"
-              />
-            </div>
-            
-            <button className="bg-white border border-zinc-200/80 rounded-xl px-7 py-3 shadow-md hover:shadow-lg text-zinc-900 font-extrabold text-sm tracking-wide select-none cursor-pointer">
-              Start a project
-            </button>
-          </div>
         </div>
 
         {/* ── STATS CARDS ── */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto pb-28 select-none">
+        <div className="relative z-20 w-full max-w-7xl mx-auto pb-10 md:pb-28 select-none">
           <div 
             id="mobile-stats-carousel"
             className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 overflow-x-auto sm:overflow-x-visible scrollbar-none snap-x snap-mandatory sm:snap-none"
@@ -537,7 +580,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 3: PROJECTS THAT TELL STORIES */}
-      <section className="relative min-h-screen w-full py-24 flex flex-col justify-center overflow-hidden z-10">
+      <section className="relative min-h-screen w-full py-12 md:py-24 flex flex-col justify-center overflow-hidden z-10">
         {/* Background Image (Same as Hero section) */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -684,7 +727,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: SERVICES (WHERE I CAN HELP YOU) */}
-      <section className="relative min-h-screen w-full py-24 flex flex-col justify-center bg-[#FAF9F6] border-t border-[#0d2ed2] overflow-hidden font-sans select-none" style={{
+      <section className="relative md:min-h-screen w-full py-12 md:py-24 flex flex-col justify-center bg-[#FAF9F6] border-t border-[#0d2ed2] overflow-hidden font-sans select-none" style={{
         backgroundImage: `
           linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
@@ -786,7 +829,6 @@ export default function Home() {
               <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
               <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
             </svg>
-            <span className="pl-1">Services</span>
           </div>
 
           <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
@@ -800,37 +842,60 @@ export default function Home() {
           {/* Card 1: UI/UX Design */}
           <Link 
             href="/Service/ui_ux"
-            className="bg-[#F0F7FF] hover:bg-[#E5F1FF] border border-[#D5E6FA]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
-            onClick={(e) => e.stopPropagation()}
+            className="bg-[#F0F7FF] hover:bg-[#E5F1FF] border border-[#D5E6FA]/60 rounded-2xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => {
+              if (window.innerWidth < 768) {
+                e.preventDefault();
+                toggleService(1);
+              }
+            }}
           >
-            <div className="flex-1 flex flex-col gap-2">
-              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+            {/* Header (Always Visible) */}
+            <div className="w-full flex items-center justify-between">
+              <span className="text-zinc-900 font-bold text-xl md:text-2xl tracking-tight">
                 UI/UX Design
               </span>
-              <span className="text-zinc-500 font-semibold text-sm">
-                Expert Design Partners (and good listeners)
-              </span>
-              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                We translate complex ideas into intuitive, beautiful, and conversion-focused digital interfaces. Aligned with your brand vision and powered by industry-leading UX best practices.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mt-3">
-                {["User Research", "Wireframing & Prototyping", "Interface Design", "Design Systems", "Mobile & Web Apps"].map(tag => (
-                  <span key={tag} className="text-[11px] font-bold text-[#4B7DBE] bg-white border border-[#D5E6FA] px-2.5 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              
+              {/* Logo / Icon on Right */}
+              <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
+                {/* Back offset shadow circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-300/50 translate-x-1 translate-y-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300" />
+                {/* Front main circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#6CA2F1] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+                    <path d="M13 13l6 6" />
+                  </svg>
+                </div>
               </div>
             </div>
-            
-            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
-              {/* Back offset shadow circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
-              {/* Front main circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-[#6CA2F1] text-white flex items-center justify-center border border-white/50 shadow-xs">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
-                  <path d="M13 13l6 6" />
-                </svg>
+
+            {/* Dropdown Content */}
+            <div className={`grid transition-all duration-300 ease-in-out w-full ${openServices[1] ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 md:grid-rows-[1fr] md:opacity-100 md:mt-0"}`}>
+              <div className="overflow-hidden flex flex-col gap-2">
+                <span className="text-zinc-500 font-semibold text-sm">
+                  Expert Design Partners (and good listeners)
+                </span>
+                <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                  We translate complex ideas into intuitive, beautiful, and conversion-focused digital interfaces. Aligned with your brand vision and powered by industry-leading UX best practices.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {["User Research", "Wireframing & Prototyping", "Interface Design", "Design Systems", "Mobile & Web Apps"].map(tag => (
+                    <span key={tag} className="text-[11px] font-bold text-[#4B7DBE] bg-white border border-[#D5E6FA] px-2.5 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Mobile-Only CTA Link */}
+                <div className="block md:hidden mt-4 pt-4 border-t border-[#D5E6FA]/40">
+                  <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#4B7DBE] hover:underline">
+                    View Service Details
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </Link>
@@ -838,38 +903,61 @@ export default function Home() {
           {/* Card 2: Web Development */}
           <Link 
             href="/Service/web_dev"
-            className="bg-[#FDF2F2] hover:bg-[#FBEAEA] border border-[#F3DBDB]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
-            onClick={(e) => e.stopPropagation()}
+            className="bg-[#FDF2F2] hover:bg-[#FBEAEA] border border-[#F3DBDB]/60 rounded-2xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => {
+              if (window.innerWidth < 768) {
+                e.preventDefault();
+                toggleService(2);
+              }
+            }}
           >
-            <div className="flex-1 flex flex-col gap-2">
-              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+            {/* Header (Always Visible) */}
+            <div className="w-full flex items-center justify-between">
+              <span className="text-zinc-900 font-bold text-xl md:text-2xl tracking-tight">
                 Web Development
               </span>
-              <span className="text-zinc-500 font-semibold text-sm">
-                What if Technology wasn&apos;t an obstacle?
-              </span>
-              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Beautifully built, hyper-fast, and scalable websites designed to convert. We build lightweight Next.js websites, headless architectures, and custom web applications optimized for growth.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mt-3">
-                {["React & Next.js", "Headless CMS", "Shopify E-Commerce", "API Integrations", "Speed Optimization"].map(tag => (
-                  <span key={tag} className="text-[11px] font-bold text-[#BE7070] bg-white border border-[#F3DBDB] px-2.5 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              
+              {/* Logo / Icon on Right */}
+              <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
+                {/* Back offset shadow circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-300/50 translate-x-1 translate-y-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300" />
+                {/* Front main circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#E59A9A] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="9" y1="21" x2="9" y2="9" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
-              {/* Back offset shadow circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
-              {/* Front main circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-[#E59A9A] text-white flex items-center justify-center border border-white/50 shadow-xs">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <line x1="3" y1="9" x2="21" y2="9" />
-                  <line x1="9" y1="21" x2="9" y2="9" />
-                </svg>
+            {/* Dropdown Content */}
+            <div className={`grid transition-all duration-300 ease-in-out w-full ${openServices[2] ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 md:grid-rows-[1fr] md:opacity-100 md:mt-0"}`}>
+              <div className="overflow-hidden flex flex-col gap-2">
+                <span className="text-zinc-500 font-semibold text-sm">
+                  What if Technology wasn&apos;t an obstacle?
+                </span>
+                <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                  Beautifully built, hyper-fast, and scalable websites designed to convert. We build lightweight Next.js websites, headless architectures, and custom web applications optimized for growth.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {["React & Next.js", "Headless CMS", "Shopify E-Commerce", "API Integrations", "Speed Optimization"].map(tag => (
+                    <span key={tag} className="text-[11px] font-bold text-[#BE7070] bg-white border border-[#F3DBDB] px-2.5 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Mobile-Only CTA Link */}
+                <div className="block md:hidden mt-4 pt-4 border-t border-[#F3DBDB]/40">
+                  <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#BE7070] hover:underline">
+                    View Service Details
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </Link>
@@ -877,38 +965,61 @@ export default function Home() {
           {/* Card 3: Shopify Development */}
           <Link 
             href="/ecommerce"
-            className="bg-[#ECFDF5] hover:bg-[#D1FAE5] border border-[#BCEFD5]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
-            onClick={(e) => e.stopPropagation()}
+            className="bg-[#ECFDF5] hover:bg-[#D1FAE5] border border-[#BCEFD5]/60 rounded-2xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => {
+              if (window.innerWidth < 768) {
+                e.preventDefault();
+                toggleService(3);
+              }
+            }}
           >
-            <div className="flex-1 flex flex-col gap-2">
-              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+            {/* Header (Always Visible) */}
+            <div className="w-full flex items-center justify-between">
+              <span className="text-zinc-900 font-bold text-xl md:text-2xl tracking-tight">
                 Shopify Development
               </span>
-              <span className="text-zinc-500 font-semibold text-sm">
-                High-Converting E-Commerce Stores
-              </span>
-              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Building high-converting, custom Shopify & e-commerce stores designed for seamless user checkout and rapid sales scaling.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mt-3">
-                {["Liquid Dev", "Custom Themes", "App Integrations", "Headless Shopify", "Checkout Optimization"].map(tag => (
-                  <span key={tag} className="text-[11px] font-bold text-[#3BA67D] bg-white border border-[#BCEFD5] px-2.5 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              
+              {/* Logo / Icon on Right */}
+              <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
+                {/* Back offset shadow circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-300/50 translate-x-1 translate-y-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300" />
+                {/* Front main circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#5BD4A3] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
-              {/* Back offset shadow circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
-              {/* Front main circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-[#5BD4A3] text-white flex items-center justify-center border border-white/50 shadow-xs">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <path d="M16 10a4 4 0 0 1-8 0" />
-                </svg>
+            {/* Dropdown Content */}
+            <div className={`grid transition-all duration-300 ease-in-out w-full ${openServices[3] ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 md:grid-rows-[1fr] md:opacity-100 md:mt-0"}`}>
+              <div className="overflow-hidden flex flex-col gap-2">
+                <span className="text-zinc-500 font-semibold text-sm">
+                  High-Converting E-Commerce Stores
+                </span>
+                <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                  Building high-converting, custom Shopify & e-commerce stores designed for seamless user checkout and rapid sales scaling.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {["Liquid Dev", "Custom Themes", "App Integrations", "Headless Shopify", "Checkout Optimization"].map(tag => (
+                    <span key={tag} className="text-[11px] font-bold text-[#3BA67D] bg-white border border-[#BCEFD5] px-2.5 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Mobile-Only CTA Link */}
+                <div className="block md:hidden mt-4 pt-4 border-t border-[#BCEFD5]/40">
+                  <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#3BA67D] hover:underline">
+                    View Service Details
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </Link>
@@ -916,38 +1027,61 @@ export default function Home() {
           {/* Card 4: Performance Marketing */}
           <Link 
             href="/Service/perf_marketing"
-            className="bg-[#FEFCE8] hover:bg-[#FEF9C3] border border-[#F3EFA2]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
-            onClick={(e) => e.stopPropagation()}
+            className="bg-[#FEFCE8] hover:bg-[#FEF9C3] border border-[#F3EFA2]/60 rounded-2xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => {
+              if (window.innerWidth < 768) {
+                e.preventDefault();
+                toggleService(4);
+              }
+            }}
           >
-            <div className="flex-1 flex flex-col gap-2">
-              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+            {/* Header (Always Visible) */}
+            <div className="w-full flex items-center justify-between">
+              <span className="text-zinc-900 font-bold text-xl md:text-2xl tracking-tight">
                 Performance Marketing
               </span>
-              <span className="text-zinc-500 font-semibold text-sm">
-                Bring your users into focus.
-              </span>
-              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Data-driven marketing managed with precision to deliver efficient growth and measurable returns. We help you target, acquire, and convert high-intent customers.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mt-3">
-                {["Google Ads", "Meta Ads (FB/IG)", "Search Engine Marketing", "CRO Strategy", "Attribution & Tracking"].map(tag => (
-                  <span key={tag} className="text-[11px] font-bold text-[#B5A133] bg-white border border-[#F3EFA2] px-2.5 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              
+              {/* Logo / Icon on Right */}
+              <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
+                {/* Back offset shadow circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-300/50 translate-x-1 translate-y-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300" />
+                {/* Front main circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#F3DB5D] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
-              {/* Back offset shadow circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
-              {/* Front main circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-[#F3DB5D] text-white flex items-center justify-center border border-white/50 shadow-xs">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10" />
-                  <line x1="12" y1="20" x2="12" y2="4" />
-                  <line x1="6" y1="20" x2="6" y2="14" />
-                </svg>
+            {/* Dropdown Content */}
+            <div className={`grid transition-all duration-300 ease-in-out w-full ${openServices[4] ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 md:grid-rows-[1fr] md:opacity-100 md:mt-0"}`}>
+              <div className="overflow-hidden flex flex-col gap-2">
+                <span className="text-zinc-500 font-semibold text-sm">
+                  Bring your users into focus.
+                </span>
+                <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                  Data-driven marketing managed with precision to deliver efficient growth and measurable returns. We help you target, acquire, and convert high-intent customers.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {["Google Ads", "Meta Ads (FB/IG)", "Search Engine Marketing", "CRO Strategy", "Attribution & Tracking"].map(tag => (
+                    <span key={tag} className="text-[11px] font-bold text-[#B5A133] bg-white border border-[#F3EFA2] px-2.5 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Mobile-Only CTA Link */}
+                <div className="block md:hidden mt-4 pt-4 border-t border-[#F3EFA2]/40">
+                  <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#B5A133] hover:underline">
+                    View Service Details
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </Link>
@@ -955,39 +1089,61 @@ export default function Home() {
           {/* Card 5: SEO & Organic Growth */}
           <Link 
             href="/Service/seo"
-            className="bg-[#F5F3FF] hover:bg-[#EDE9FE] border border-[#DFDAFA]/60 rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
-            onClick={(e) => e.stopPropagation()}
+            className="bg-[#F5F3FF] hover:bg-[#EDE9FE] border border-[#DFDAFA]/60 rounded-2xl p-6 md:p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer hover:-translate-y-0.5 hover:scale-[1.005]"
+            onClick={(e) => {
+              if (window.innerWidth < 768) {
+                e.preventDefault();
+                toggleService(5);
+              }
+            }}
           >
-            <div className="flex-1 flex flex-col gap-2">
-              <span className="text-zinc-900 font-bold text-2xl tracking-tight">
+            {/* Header (Always Visible) */}
+            <div className="w-full flex items-center justify-between">
+              <span className="text-zinc-900 font-bold text-xl md:text-2xl tracking-tight">
                 SEO & Organic Growth
               </span>
-              <span className="text-zinc-500 font-semibold text-sm">
-                Dominating organic search results
-              </span>
-              <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Dominating organic search results with data-backed technical SEO, keyword strategy, and high-authority content execution.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mt-3">
-                {["Technical SEO", "Content Architecture", "Backlink Strategy", "Analytics & Reports", "Core Web Vitals"].map(tag => (
-                  <span key={tag} className="text-[11px] font-bold text-[#7768CD] bg-white border border-[#DFDAFA] px-2.5 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+              
+              {/* Logo / Icon on Right */}
+              <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
+                {/* Back offset shadow circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-300/50 translate-x-1 translate-y-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform duration-300" />
+                {/* Front main circle */}
+                <div className="absolute w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#9C8DF6] text-white flex items-center justify-center border border-white/50 shadow-xs">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    <line x1="11" y1="8" x2="11" y2="14" />
+                    <line x1="8" y1="11" x2="14" y2="11" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="relative w-12 h-12 flex-shrink-0 flex items-center justify-center self-end md:self-center">
-              {/* Back offset shadow circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-zinc-300/50 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
-              {/* Front main circle */}
-              <div className="absolute w-10 h-10 rounded-full bg-[#9C8DF6] text-white flex items-center justify-center border border-white/50 shadow-xs">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  <line x1="11" y1="8" x2="11" y2="14" />
-                  <line x1="8" y1="11" x2="14" y2="11" />
-                </svg>
+            {/* Dropdown Content */}
+            <div className={`grid transition-all duration-300 ease-in-out w-full ${openServices[5] ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 md:grid-rows-[1fr] md:opacity-100 md:mt-0"}`}>
+              <div className="overflow-hidden flex flex-col gap-2">
+                <span className="text-zinc-500 font-semibold text-sm">
+                  Dominating organic search results
+                </span>
+                <p className="text-zinc-600 text-sm max-w-2xl mt-1">
+                  Dominating organic search results with data-backed technical SEO, keyword strategy, and high-authority content execution.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {["Technical SEO", "Content Architecture", "Backlink Strategy", "Analytics & Reports", "Core Web Vitals"].map(tag => (
+                    <span key={tag} className="text-[11px] font-bold text-[#7768CD] bg-white border border-[#DFDAFA] px-2.5 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {/* Mobile-Only CTA Link */}
+                <div className="block md:hidden mt-4 pt-4 border-t border-[#DFDAFA]/40">
+                  <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#7768CD] hover:underline">
+                    View Service Details
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </Link>
@@ -997,12 +1153,13 @@ export default function Home() {
 
     <div className="bg-[#FAF9F6] w-full">
       {/* SECTION 5: REVIEWS (CLIENTS LIKED THE PIXELS) */}
-      <section className="relative min-h-screen w-full py-24 md:py-24 pt-24 pb-12 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
+      <section className="relative md:min-h-screen w-full py-12 md:py-24 pt-12 md:pt-24 pb-12 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
         backgroundImage: `
           linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
         `,
         backgroundSize: "80px 80px",
+        backgroundPosition: "0 -1px",
         backgroundAttachment: "fixed",
         clipPath: "inset(0)"
       }}>
@@ -1419,12 +1576,13 @@ export default function Home() {
       </section>
 
       {/* SECTION 6: FAQ (ANSWER BEFORE WE STARTS) */}
-      <section className="relative min-h-screen w-full py-24 md:py-24 pt-12 pb-24 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
+      <section className="relative md:min-h-screen w-full py-12 md:py-24 pt-12 md:pt-12 pb-12 flex flex-col justify-center bg-[#FAF9F6] overflow-hidden font-sans select-none" style={{
         backgroundImage: `
           linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
         `,
         backgroundSize: "80px 80px",
+        backgroundPosition: "0 -1px",
         backgroundAttachment: "fixed",
         clipPath: "inset(0)"
       }}>

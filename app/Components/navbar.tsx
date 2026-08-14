@@ -7,6 +7,11 @@ import Link from "next/link";
 
 const navItems = [
   {
+    label: "Home",
+    href: "/",
+    imageSrc: "/Home.svg",
+  },
+  {
     label: "About Us",
     href: "/About_us",
     imageSrc: "/About US.jpg",
@@ -75,7 +80,7 @@ export default function Navbar() {
         >
           {navItems.map((item, index) => {
             // Check if current route is active
-            const isActive = pathname.startsWith(item.href);
+            const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             
             // Magnification math
             let scale = 1;

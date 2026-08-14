@@ -47,7 +47,7 @@ export default function EyeFollower() {
 
       // Position the eye group at the mouse cursor
       // We offset by 15px so the eyes hover slightly offset from the exact tip of the cursor
-      
+      containerRef.current.style.transform = `translate3d(${currentPos.current.x + 15}px, ${currentPos.current.y + 15}px, 0)`;
 
       // Animate pupils inside the eyes to look at the cursor
       const animatePupil = (pupilRef: React.RefObject<HTMLDivElement | null>) => {
@@ -99,7 +99,7 @@ export default function EyeFollower() {
   return (
     <div
       ref={containerRef}
-      className="fixed top-0 left-0 z-50 pointer-events-none flex gap-1.5 select-none transition-opacity duration-300 ease-out rotate-[12deg]"
+      className="fixed top-0 left-0 z-50 pointer-events-none hidden md:flex gap-1.5 select-none transition-opacity duration-300 ease-out rotate-[12deg]"
       style={{ willChange: "transform, opacity" }}
     >
       {/* Left eyeball */}
