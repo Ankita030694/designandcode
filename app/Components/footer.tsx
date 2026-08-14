@@ -17,21 +17,20 @@ export default function Footer() {
     >
       {/* ── Inner card with meadow photo ── */}
       <div
-        className="relative w-full max-w-[1500px] mx-auto rounded-3xl overflow-hidden"
+        className="relative w-full max-w-[1500px] mx-auto rounded-3xl overflow-hidden flex flex-col justify-between min-h-[580px] sm:min-h-[620px]"
         style={{
           backgroundImage: "url('/Footer Bg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight: "620px",
         }}
       >
         {/* Dark overlay for text legibility */}
-        <div className="absolute inset-0 bg-black/20 rounded-3xl" />
+        <div className="absolute inset-0 bg-black/20 rounded-3xl pointer-events-none" />
 
-        {/* ── TOP ROW: Socials left · Tagline right ── */}
+        {/* ── TOP ROW: Socials left ── */}
         <div className="relative z-10 flex items-start justify-between px-8 pt-8">
           {/* Social icons */}
-          <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3">
             {/* Instagram */}
             <Link
               href="https://www.instagram.com/design_n_code"
@@ -78,22 +77,14 @@ export default function Footer() {
               </svg>
             </Link>
           </div>
-
-          {/* Tagline */}
-          <div className="text-right text-white">
-            <p className="text-sm font-light opacity-90">&mdash; Have an idea?</p>
-            <p className="text-sm font-medium leading-snug max-w-[200px] ml-auto">
-              Let&apos;s turn it into a sharp digital experience.
-            </p>
-          </div>
         </div>
 
-        {/* ── HEADING ── */}
-        <div className="relative z-10 px-8 pt-4 pb-20 mt-55">
-          <div className="relative inline-block">
+        {/* ── HEADING & MOBILE CTA ── */}
+        <div className="relative z-10 px-8 pb-8 md:pb-16 mt-auto flex flex-col items-start text-left">
+          <div className="relative inline-block text-left">
             {/* Main heading */}
             <h2
-              className="text-white font-black text-5xl sm:text-6xl md:text-[70px] leading-[0.95] tracking-tight uppercase mt-8"
+              className="text-white font-black text-4xl sm:text-6xl md:text-[70px] leading-[0.95] tracking-tight uppercase text-left"
               style={{ textShadow: "0 2px 24px rgba(0,0,0,0.25)" }}
             >
               LET&apos;S BUILD<br />
@@ -101,10 +92,38 @@ export default function Footer() {
               MEMORABLE
             </h2>
           </div>
+
+          {/* Mobile CTA below text */}
+          <div className="mt-6 block md:hidden">
+            <Link
+              href="/ContactUs"
+              className="bg-white text-zinc-900 font-medium text-lg px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 active:scale-95 transition-all duration-200 select-none inline-block text-left"
+            >
+              Let&apos;s chat
+            </Link>
+          </div>
         </div>
 
-        {/* ── Let's chat CTA — bottom-right of photo card ── */}
-        <div className="absolute bottom-8 right-8 z-20">
+        {/* ── Navigation links inside inner card ── */}
+        <nav className="absolute md:bottom-24 md:right-8 md:top-auto md:left-auto top-8 left-8 z-20 flex items-center gap-4 sm:gap-7 select-none flex-wrap">
+          {[
+            { label: "HOME",       href: "/" },
+            { label: "ABOUT US",   href: "/About_us" },
+            { label: "SERVICES",   href: "/Service" },
+            { label: "PROJECTS",   href: "/Projects" },
+          ].map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-white/95 font-bold text-xs tracking-widest hover:text-white transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* ── Desktop CTA — bottom-right of photo card ── */}
+        <div className="hidden md:block absolute bottom-8 right-8 z-20">
           <Link
             href="/ContactUs"
             className="bg-white text-zinc-900 font-medium text-xl px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 hover:scale-105 active:scale-95 transition-all duration-200 select-none inline-block"
@@ -113,38 +132,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-
-      {/* ── BOTTOM BAR: brand left · nav links right ── */}
-      <div className="w-full max-w-[1200px] mx-auto mt-5 flex items-center justify-between px-2 flex-wrap">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/LOGO.svg"
-            alt="Designncode Logo"
-            width={130}
-            height={38}
-            className="h-9 w-auto object-contain"
-          />
-        </Link>
-
-        <nav className="flex items-center gap-5 flex-wrap -mx-35">
-          {[
-            { label: "ABOUT",    href: "/About_us" },
-            { label: "SERVICES", href: "/Service" },
-            { label: "PROJECTS", href: "/Projects" },
-            { label: "REVIEWS",  href: "/#reviews" },
-            { label: "FAQS",     href: "/#faqs" },
-          ].map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-zinc-700 font-semibold text-xs tracking-widest hover:text-zinc-950 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-         
-        </nav>
-      </div>
+      {/* Bottom bar removed */}
     </footer>
   );
 }

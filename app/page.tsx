@@ -34,54 +34,44 @@ export default function Home() {
   const dropupProjects = PROJECTS_DATA.slice(0, 3);
   const storyboardProjects = [
     {
-      title: "WaxyWeb",
-      category: "Branding & Website",
-      platform: "Figma",
-      year: "2026",
-      image: "/E-Commerce.png",
-      clipColor: "text-blue-500",
-      rotation: "rotate-[-3deg] hover:rotate-[0deg]",
-      link: "/Projects/waxyweb"
-    },
-    {
-      title: "Krem",
-      category: "Website Design",
+      title: "Bloom Cafes",
+      category: "Specialty Coffee",
       platform: "Figma",
       year: "2026",
       image: "/project/Bloom.svg",
       clipColor: "text-rose-500",
       rotation: "rotate-[2.5deg] hover:rotate-[0deg]",
-      link: "/Projects/krem"
+      link: "/Projects/bloom"
     },
     {
-      title: "Sunoma",
-      category: "Branding",
+      title: "Bunt India",
+      category: "Haute Couture",
       platform: "Figma",
       year: "2026",
       image: "/project/Bunt.svg",
       clipColor: "text-amber-500",
       rotation: "rotate-[-1.5deg] hover:rotate-[0deg]",
-      link: "/Projects/sunoma"
+      link: "/Projects/bunt"
     },
     {
-      title: "Wild Pup",
-      category: "Branding & Website",
+      title: "Kitchun",
+      category: "SaaS",
       platform: "Framer",
       year: "2026",
       image: "/project/Kitchun.svg",
       clipColor: "text-green-500",
       rotation: "rotate-[3deg] hover:rotate-[0deg]",
-      link: "/Projects/wild-pup"
+      link: "/Projects/kitchun"
     },
     {
-      title: "Miro",
-      category: "Brand Identity",
+      title: "Aerolume",
+      category: "Architectural Lighting",
       platform: "Photoshop",
       year: "2026",
       image: "/project/Aerolume.svg",
       clipColor: "text-purple-500",
       rotation: "rotate-[-2.5deg] hover:rotate-[0deg]",
-      link: "/Projects/miro"
+      link: "/Projects/aerolume"
     }
   ];
 
@@ -613,69 +603,15 @@ export default function Home() {
         </div>
 
         {/* ── PROJECTS GRID & FLEX ── */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto flex flex-col gap-10 select-none pb-12">
+        <div className="relative z-20 w-full max-w-6xl mx-auto flex flex-col gap-10 select-none pb-12">
           
-          {/* Row 1: 3 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
-            {storyboardProjects.slice(0, 3).map((project) => (
+          {/* 2x2 Grid of 4 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+            {storyboardProjects.map((project) => (
               <Link 
                 href={project.link}
                 key={project.title}
                 className="w-full"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className={`relative bg-white border border-zinc-200/80 rounded-2xl p-3.5 shadow-xl transition-all duration-300 ${project.rotation} w-full flex flex-col justify-between select-none`}>
-                  
-                  {/* Paperclip */}
-                  <div className={`absolute -top-4 left-1/2 -translate-x-1/2 z-30 drop-shadow-md ${project.clipColor}`}>
-                    <svg className="w-5 h-8 transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-
-                  {/* macOS traffic light buttons */}
-                  <div className="flex gap-1.5 mb-2.5 px-1">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5C5C]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFCC00]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#32CD32]" />
-                  </div>
-
-                  {/* Image Preview Container */}
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-zinc-150 bg-zinc-900 w-full">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover scale-105"
-                    />
-                  </div>
-
-                  {/* Bottom Text bar */}
-                  <div className="flex items-center justify-between pt-3 px-1">
-                    <span className="text-sm font-extrabold text-zinc-950 uppercase tracking-wide">
-                      {project.title}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-[9px] font-bold text-zinc-500 uppercase">
-                      <span>{project.category}</span>
-                      <span>•</span>
-                      <span>{project.platform}</span>
-                      <span>•</span>
-                      <span>{project.year}</span>
-                    </div>
-                  </div>
-
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Row 2: 2 Cards (Centered) */}
-          <div className="flex flex-col md:flex-row justify-center gap-8 px-6">
-            {storyboardProjects.slice(3, 5).map((project) => (
-              <Link 
-                href={project.link}
-                key={project.title}
-                className="w-full md:w-[31.5%]"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className={`relative bg-white border border-zinc-200/80 rounded-2xl p-3.5 shadow-xl transition-all duration-300 ${project.rotation} w-full flex flex-col justify-between select-none`}>
