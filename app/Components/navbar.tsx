@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import CircularText from "@/components/CircularText";
 
 const navItems = [
   {
@@ -57,7 +56,7 @@ export default function Navbar() {
             alt="Designncode Logo" 
             width={120} 
             height={35} 
-            className="h-8 w-auto dark:invert" 
+            className="h-8 w-auto" 
             priority
           />
         </Link>
@@ -139,27 +138,6 @@ export default function Navbar() {
               </Link>
             );
           })}
-        </div>
-
-        {/* Right Bottom Content: Circular Contact Widget (Floated above on mobile to prevent collision) */}
-        <div className="pointer-events-auto absolute right-0 bottom-16 md:bottom-0 flex items-center justify-center">
-          <Link
-            href="/ContactUs"
-            className="relative block group cursor-pointer"
-            aria-label="Contact Us"
-          >
-            <CircularText
-              text="CAN WE CONNECT TODAY? • "
-              spinDuration={8}
-              onHover="speedUp"
-              className="w-14 h-14 md:w-24 md:h-24 text-[5px] md:text-[8px] uppercase font-bold text-white tracking-wider bg-[#25d366] backdrop-blur-md rounded-full shadow-lg border border-[#25d366]/40 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:bg-[#25d366] hover:border-[#25d366]/50 hover:shadow-xl"
-              radius={20}
-            />
-            {/* Center Dot */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-white rounded-full animate-pulse group-hover:scale-125 transition-transform duration-300" />
-            </div>
-          </Link>
         </div>
       </div>
     </>

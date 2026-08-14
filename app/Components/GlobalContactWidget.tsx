@@ -2,32 +2,35 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import CircularText from "@/components/CircularText";
+import Image from "next/image";
 
 export default function GlobalContactWidget() {
   const pathname = usePathname();
 
-  if (pathname?.startsWith("/admin") || pathname === "/") {
+  // Hide on admin panel pages
+  if (pathname?.startsWith("/admin")) {
     return null;
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 pointer-events-none">
+    <div className="fixed bottom-6 right-6 z-55 pointer-events-auto select-none">
       <Link
-        href="/ContactUs"
-        className="pointer-events-auto relative block group cursor-pointer"
-        aria-label="Contact Us"
+        href="https://wa.me/919220721921?text=Hello%20DesignNCode"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative block group cursor-pointer"
+        aria-label="WhatsApp Contact"
       >
-        <CircularText
-          text="CAN WE CONNECT TODAY? • "
-          spinDuration={8}
-          onHover="speedUp"
-          className="w-20 h-20 sm:w-24 sm:h-24 text-[6px] sm:text-[8px] uppercase font-bold text-white tracking-wider bg-[#25d366] backdrop-blur-md rounded-full shadow-lg border border-[#25d366]/40 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:bg-[#25d366] hover:border-[#25d366]/50 hover:shadow-xl"
-          radius={30}
-        />
-        {/* Center Dot */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse group-hover:scale-125 transition-transform duration-300" />
+        {/* WhatsApp Logo Container - Green circle with white WhatsApp logo PNG */}
+        <div className="w-12 h-12 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-lg border border-[#25D366]/40 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl">
+          <div className="relative w-7 h-7 md:w-10 md:h-10">
+            <Image
+              src="/whatsapp.png"
+              alt="WhatsApp Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
       </Link>
     </div>

@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/navbar";
-import Link from "next/link";
-import CircularText from "@/components/CircularText";
+import GlobalContactWidget from "./Components/GlobalContactWidget";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -78,6 +77,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col relative bg-[#FFFFFF]">
         <Navbar />
         {children}
+        <GlobalContactWidget />
       </body>
     </html>
   );

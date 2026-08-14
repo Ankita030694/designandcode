@@ -10,6 +10,7 @@ import Footer from "./Components/footer";
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
+  const [activeStatIndex, setActiveStatIndex] = useState(0);
 
   const handleReviewScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
@@ -96,80 +97,32 @@ export default function Home() {
         {/* 3. Headline & Stickers Section */}
         <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-6xl mx-auto px-6 py-6 md:py-12 select-none">
           <div className="relative py-6 md:py-12 max-w-full">
-            
-            {/* A. UI/UX Design Sticker (Top-Right of Headline) */}
-            <div 
-              className="absolute -top-6 right-2 sm:right-[120px] z-30 flex items-center gap-2 bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[6deg] hover:scale-105 hover:rotate-[2deg] transition-all duration-300 cursor-pointer"
-              style={{ transformOrigin: "center" }}
-            >
-              {/* Paperclip graphic */}
-              <div className="absolute -top-3.5 left-4 pointer-events-none">
-                <svg className="w-4 h-7 sm:w-5 sm:h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              {/* Icon circle */}
-              <div className="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center">
-                <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white fill-white" viewBox="0 0 24 24">
-                  <path d="M4 2l18 10-7 3 5 5-3 3-5-5-3 7L4 2z" />
-                </svg>
-              </div>
-              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-0.5">UI/UX Design</span>
-              {/* Folded corner peel effect */}
-              <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
-            </div>
-
-            {/* B. Illustration Sticker (Center of Headline, overlapping) */}
-            <div 
-              className="absolute top-[70px] right-0 sm:right-[150px] z-40 flex items-center gap-2 bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[-4deg] hover:scale-105 hover:rotate-0 transition-all duration-300 cursor-pointer"
-              style={{ transformOrigin: "center" }}
-            >
-              {/* Paperclip graphic */}
-              <div className="absolute -top-3.5 left-4 pointer-events-none">
-                <svg className="w-4 h-7 sm:w-5 sm:h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              {/* Icon circle */}
-              <div className="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-fuchsia-500 flex items-center justify-center">
-                <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-0.5">Illustration</span>
-              {/* Folded corner peel effect */}
-              <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-fuchsia-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
-            </div>
-
-            {/* C. 3D Design Sticker (Left side of Headline, overlapping) */}
-            <div 
-              className="absolute -bottom-5 left-0 sm:left-[80px] z-30 flex items-center gap-2 bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-xl border border-zinc-200/50 rotate-[-6deg] hover:scale-105 hover:rotate-[-2deg] transition-all duration-300 cursor-pointer"
-              style={{ transformOrigin: "center" }}
-            >
-              {/* Paperclip graphic */}
-              <div className="absolute -top-3.5 left-4 pointer-events-none">
-                <svg className="w-4 h-7 sm:w-5 sm:h-8 text-zinc-400 drop-shadow-md transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 10v12a6 6 0 1012 0V8a4 4 0 00-8 0v12a2 2 0 004 0V10" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              {/* Icon circle */}
-              <div className="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-blue-500 flex items-center justify-center">
-                <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <span className="text-xs sm:text-sm font-bold text-zinc-900 pr-0.5">3D Design</span>
-              {/* Folded corner peel effect */}
-              <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-700 rounded-bl-sm shadow-xs" style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }} />
-            </div>
-
             {/* Main Typography Heading */}
             <h1 className="text-4xl sm:text-7xl md:text-[84px] font-bold tracking-tight text-white leading-[0.9] max-w-5xl">
               DESIGN THAT<br />
               MAKES PEOPLE<br />
               LOOK TWICE
             </h1>
+
+            {/* Pinned Start a Project Button in Hero Section */}
+            <div className="relative mt-8 md:mt-12 inline-block transform rotate-3 hover:scale-105 transition-transform duration-200 pointer-events-auto">
+              {/* Red Pushpin */}
+              <div className="absolute -top-6 left-[46%] -translate-x-1/2 w-8 h-8 z-10 flex items-center justify-center drop-shadow-md">
+                <Image 
+                  src="/pin.png" 
+                  alt="Pin" 
+                  width={32} 
+                  height={32} 
+                  className="object-contain"
+                />
+              </div>
+              
+              <Link href="/ContactUs">
+                <button className="bg-white border border-zinc-200/80 rounded-xl px-7 py-3 shadow-md hover:shadow-lg text-zinc-900 font-extrabold text-sm tracking-wide select-none cursor-pointer">
+                  Start a project
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -428,118 +381,156 @@ export default function Home() {
         </div>
 
         {/* ── STATS CARDS ── */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 pb-28 select-none">
-          
-          {/* Card 1: 8+ Years */}
-          <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform -rotate-2 hover:scale-[1.02] hover:-rotate-1 transition-all duration-300">
-            {/* Pushpin */}
-            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
-              <Image 
-                src="/pin.png" 
-                alt="Pin" 
-                width={24} 
-                height={24} 
-                className="object-contain"
-              />
-            </div>
-            
-            {/* Folder Flap */}
-            <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
-              <path d="M0 0 H40 V40 Z" fill="#0f172a" />
-              <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
-            </svg>
+        <div className="relative z-20 w-full max-w-7xl mx-auto pb-28 select-none">
+          <div 
+            id="mobile-stats-carousel"
+            className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 overflow-x-auto sm:overflow-x-visible scrollbar-none snap-x snap-mandatory sm:snap-none"
+            onScroll={(e) => {
+              const container = e.currentTarget;
+              const scrollLeft = container.scrollLeft;
+              // Divide scrollLeft by width of one card (including gap/margins) to get active index
+              const cardWidth = container.scrollWidth / 4;
+              const newIndex = Math.round(scrollLeft / cardWidth);
+              if (newIndex !== activeStatIndex && newIndex >= 0 && newIndex <= 3) {
+                setActiveStatIndex(newIndex);
+              }
+            }}
+          >
+            {/* Card 1: 8+ Years */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform -rotate-2 hover:scale-[1.02] hover:-rotate-1 transition-all duration-300 snap-center min-w-[calc(100vw-48px)] sm:min-w-0">
+              {/* Pushpin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+                <Image 
+                  src="/pin.png" 
+                  alt="Pin" 
+                  width={24} 
+                  height={24} 
+                  className="object-contain"
+                />
+              </div>
+              
+              {/* Folder Flap */}
+              <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
+                <path d="M0 0 H40 V40 Z" fill="#0f172a" />
+                <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
+              </svg>
 
-            <div className="mt-2 flex flex-col">
-              <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">8+</span>
-              <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Years of Experience</span>
+              <div className="mt-2 flex flex-col">
+                <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">8+</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Years of Experience</span>
+              </div>
+              <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
+                Designing websites, apps, and digital products with a clear focus on usability.
+              </p>
             </div>
-            <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-              Designing websites, apps, and digital products with a clear focus on usability.
-            </p>
+
+            {/* Card 2: 40+ Projects */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform -rotate-1 hover:scale-[1.02] hover:rotate-0 transition-all duration-300 snap-center min-w-[calc(100vw-48px)] sm:min-w-0">
+              {/* Pushpin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+                <Image 
+                  src="/pin.png" 
+                  alt="Pin" 
+                  width={24} 
+                  height={24} 
+                  className="object-contain"
+                />
+              </div>
+              
+              {/* Folder Flap */}
+              <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
+                <path d="M0 0 H40 V40 Z" fill="#0f172a" />
+                <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
+              </svg>
+
+              <div className="mt-2 flex flex-col">
+                <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">40+</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Projects Designed</span>
+              </div>
+              <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
+                From landing pages to complete Framer websites, responsive and robust.
+              </p>
+            </div>
+
+            {/* Card 3: 12+ Industries */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform rotate-1 hover:scale-[1.02] hover:rotate-0 transition-all duration-300 snap-center min-w-[calc(100vw-48px)] sm:min-w-0">
+              {/* Pushpin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+                <Image 
+                  src="/pin.png" 
+                  alt="Pin" 
+                  width={24} 
+                  height={24} 
+                  className="object-contain"
+                />
+              </div>
+              
+              {/* Folder Flap */}
+              <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
+                <path d="M0 0 H40 V40 Z" fill="#0f172a" />
+                <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
+              </svg>
+
+              <div className="mt-2 flex flex-col">
+                <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">12+</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Industries explored</span>
+              </div>
+              <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
+                Worked across SaaS, fintech, AI, agencies, finance, and service businesses.
+              </p>
+            </div>
+
+            {/* Card 4: 100% Framer */}
+            <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform rotate-2 hover:scale-[1.02] hover:rotate-1 transition-all duration-300 snap-center min-w-[calc(100vw-48px)] sm:min-w-0">
+              {/* Pushpin */}
+              <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
+                <Image 
+                  src="/pin.png" 
+                  alt="Pin" 
+                  width={24} 
+                  height={24} 
+                  className="object-contain"
+                />
+              </div>
+              
+              {/* Folder Flap */}
+              <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
+                <path d="M0 0 H40 V40 Z" fill="#0f172a" />
+                <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
+              </svg>
+
+              <div className="mt-2 flex flex-col">
+                <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">100%</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Framer Native</span>
+              </div>
+              <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
+                Responsive Framer websites designed, built, and published with perfection.
+              </p>
+            </div>
           </div>
 
-          {/* Card 2: 40+ Projects */}
-          <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform -rotate-1 hover:scale-[1.02] hover:rotate-0 transition-all duration-300">
-            {/* Pushpin */}
-            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
-              <Image 
-                src="/pin.png" 
-                alt="Pin" 
-                width={24} 
-                height={24} 
-                className="object-contain"
+          {/* Progress dots below stats cards - visible on mobile only */}
+          <div className="flex sm:hidden justify-center items-center gap-2 mt-6">
+            {[0, 1, 2, 3].map((idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  const container = document.getElementById("mobile-stats-carousel");
+                  if (container) {
+                    const cardWidth = container.scrollWidth / 4;
+                    container.scrollTo({
+                      left: idx * cardWidth,
+                      behavior: "smooth"
+                    });
+                  }
+                  setActiveStatIndex(idx);
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeStatIndex === idx ? "w-6 bg-[#0d2ed2]" : "w-2 bg-zinc-300"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
               />
-            </div>
-            
-            {/* Folder Flap */}
-            <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
-              <path d="M0 0 H40 V40 Z" fill="#0f172a" />
-              <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
-            </svg>
-
-            <div className="mt-2 flex flex-col">
-              <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">40+</span>
-              <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Projects Designed</span>
-            </div>
-            <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-              From landing pages to complete Framer websites, responsive and robust.
-            </p>
-          </div>
-
-          {/* Card 3: 12+ Industries */}
-          <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform rotate-1 hover:scale-[1.02] hover:rotate-0 transition-all duration-300">
-            {/* Pushpin */}
-            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
-              <Image 
-                src="/pin.png" 
-                alt="Pin" 
-                width={24} 
-                height={24} 
-                className="object-contain"
-              />
-            </div>
-            
-            {/* Folder Flap */}
-            <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
-              <path d="M0 0 H40 V40 Z" fill="#0f172a" />
-              <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
-            </svg>
-
-            <div className="mt-2 flex flex-col">
-              <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">12+</span>
-              <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Industries explored</span>
-            </div>
-            <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-              Worked across SaaS, fintech, AI, agencies, finance, and service businesses.
-            </p>
-          </div>
-
-          {/* Card 4: 100% Framer */}
-          <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between h-48 transform rotate-2 hover:scale-[1.02] hover:rotate-1 transition-all duration-300">
-            {/* Pushpin */}
-            <div className="absolute top-2 left-2 w-6 h-6 z-10 select-none pointer-events-none drop-shadow-md">
-              <Image 
-                src="/pin.png" 
-                alt="Pin" 
-                width={24} 
-                height={24} 
-                className="object-contain"
-              />
-            </div>
-            
-            {/* Folder Flap */}
-            <svg className="absolute top-0 right-0 w-9 h-9 pointer-events-none" viewBox="0 0 40 40" fill="none">
-              <path d="M0 0 H40 V40 Z" fill="#0f172a" />
-              <path d="M0 0 L40 40 H0 Z" fill="#bef264" />
-            </svg>
-
-            <div className="mt-2 flex flex-col">
-              <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">100%</span>
-              <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Framer Native</span>
-            </div>
-            <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-              Responsive Framer websites designed, built, and published with perfection.
-            </p>
+            ))}
           </div>
         </div>
 

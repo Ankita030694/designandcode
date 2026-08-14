@@ -88,16 +88,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── HEADING + SKILL STICKERS ── */}
+        {/* ── HEADING ── */}
         <div className="relative z-10 px-8 pt-4 pb-20 mt-55">
           <div className="relative inline-block">
-
-            {/* UI/UX Design sticker — floats top-left */}
-            <div className="absolute -top-2 left-0 z-20 -rotate-6 bg-violet-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md select-none pointer-events-none whitespace-nowrap">
-              <span className="w-2 h-2 rounded-full bg-white/60 inline-block flex-shrink-0" />
-              UI/UX Design
-            </div>
-
             {/* Main heading */}
             <h2
               className="text-white font-black text-5xl sm:text-6xl md:text-[70px] leading-[0.95] tracking-tight uppercase mt-8"
@@ -107,23 +100,6 @@ export default function Footer() {
               SOMETHING<br />
               MEMORABLE
             </h2>
-
-            {/* Illustration sticker — floats right of heading */}
-            <div className="absolute top-[44%] right-[-110px] sm:right-[-150px] z-20 rotate-3 bg-[#ccf071] text-zinc-900 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md select-none pointer-events-none whitespace-nowrap mx-15">
-              <svg className="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M12 20h9" />
-                <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
-              </svg>
-              Illustration
-            </div>
-
-            {/* 3D Design sticker — floats bottom-left */}
-            <div className="absolute -bottom-2 left-0 z-20 -rotate-2 bg-violet-400 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md select-none pointer-events-none whitespace-nowrap">
-              <svg className="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
-              </svg>
-              3D Design
-            </div>
           </div>
         </div>
 
