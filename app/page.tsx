@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { PROJECTS_DATA } from "./data/projects";
 import ServicesSection from "./Components/ServicesSection";
-import Reviews from "./Components/Reviews";
 import FAQ from "./Components/FAQ";
 import Footer from "./Components/footer";
 
@@ -250,126 +249,6 @@ export default function Home() {
         backgroundSize: "80px 80px",
         backgroundAttachment: "fixed"
       }}>
-        {/* Absolute Doodles & Graffiti */}
-        
-        {/* Top-Left: Eyes & Pink Circle */}
-        
-
-        <div 
-          className="absolute top-[12%] left-[10%] w-8 h-8 rounded-full pointer-events-none select-none opacity-85" 
-          style={{ 
-            backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 2.5px, #f43f5e 2.5px, #f43f5e 5px)" 
-          }} 
-        />
-
-        {/* Top-Left Blue Scribble */}
-        <div className="absolute top-[9%] left-[23%] w-24 h-6 text-blue-400/80 pointer-events-none select-none">
-          <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M5,10 Q15,5 25,12 T45,8 T65,13 T85,7" />
-          </svg>
-        </div>
-
-        {/* Top-Right Blue Wavy Crowns */}
-        <div className="absolute top-[8%] right-[6%] w-24 h-16 text-sky-400/70 pointer-events-none select-none">
-          <svg viewBox="0 0 80 40" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M10,20 C15,10 20,10 25,20 C30,10 35,10 40,20 C45,10 50,10 55,20" />
-            <path d="M15,30 C20,20 25,20 30,30 C35,20 40,20 45,30 C50,20 55,20 60,30" />
-          </svg>
-        </div>
-
-        {/* Middle-Left Cloud */}
-        <div className="absolute top-[28%] left-[16%] w-10 h-8 text-zinc-600/60 pointer-events-none select-none">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
-          </svg>
-        </div>
-
-        {/* Left Green Double crescent Doodle */}
-        <div className="absolute top-[34%] left-[6%] w-36 h-36 text-lime-400/80 pointer-events-none select-none">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path d="M20,50 Q35,25 60,30 Q85,35 70,60 Q55,85 30,70 Z" strokeLinecap="round" />
-            <path d="M35,60 Q45,35 70,40 Q90,45 80,65 Q70,85 45,75 Z" strokeLinecap="round" />
-          </svg>
-        </div>
-
-        
-
-        {/* Middle-Right Pen Nib */}
-        <div className="absolute top-[18%] right-[18%] w-8 h-8 text-zinc-800/70 pointer-events-none select-none">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M12 2L4 10v4l4 4h8l4-4v-4L12 2z" />
-            <path d="M12 2v10" />
-            <circle cx="12" cy="14" r="1.2" fill="currentColor" />
-          </svg>
-        </div>
-
-        {/* NEW DOODLE 1: Rotating Blue Flower/Star (Top Left) */}
-        <div className="absolute top-[13%] left-[4%] w-8 h-8 text-sky-400 pointer-events-none select-none z-10 opacity-75">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <path d="M12 2v20M2 12h20M5 5l14 14M5 19L14 5" />
-            <circle cx="12" cy="12" r="3" fill="currentColor" />
-          </svg>
-        </div>
-
-        {/* NEW DOODLE 2: Pink Hand-drawn Heart (Top Right) */}
-        <div className="absolute top-[11%] right-[15%] w-7 h-7 text-pink-400 pointer-events-none select-none z-10 opacity-80">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-        </div>
-
-        {/* NEW DOODLE 3: Yellow Zigzag Ribbon (Middle Left) */}
-        <div className="absolute top-[28%] left-[2%] w-16 h-6 text-amber-300 pointer-events-none select-none z-10 opacity-75">
-          <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M5,15 L20,5 L35,15 L50,5 L65,15 L80,5 L95,15" />
-          </svg>
-        </div>
-
-        {/* NEW DOODLE 4: Purple Lightning Bolt (Middle Right) */}
-        <div className="absolute top-[29%] right-[3%] w-6 h-8 text-purple-400 pointer-events-none select-none z-10 opacity-75">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-          </svg>
-        </div>
-
-        {/* NEW DOODLE 5: Orange Crown Outline (Above Heading Center) */}
-        <div className="absolute top-[5%] left-[50%] -translate-x-1/2 w-10 h-8 text-orange-400 pointer-events-none select-none z-10 opacity-80">
-          <svg viewBox="0 0 50 30" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M5,25 L10,5 L20,15 L30,5 L40,15 L45,25 Z" />
-          </svg>
-        </div>
-
-        
-        {/* Light Bulb & Cursor Sticker (Relocated to Hero Top-Right, Mobile Only) */}
-        <div className="absolute top-[34%] right-[4%] flex items-center gap-2 pointer-events-none select-none rotate-[-6deg] block md:hidden z-10">
-          {/* Bulb Icon */}
-          <div className="w-8 h-8 bg-orange-100 border border-orange-200 rounded-lg flex items-center justify-center shadow-sm text-orange-500">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-              <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1c-.37.26-.59.69-.59 1.15V16h-4.52v-1.75c0-.46-.22-.89-.59-1.15C7.79 12.18 7 10.66 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.66-.79 3.18-2.15 4.1z" />
-            </svg>
-          </div>
-          {/* Cursor SVG */}
-          <div className="w-5 h-5 text-purple-600 fill-purple-600 transform -rotate-12">
-            <svg viewBox="0 0 24 24">
-              <path d="M4.5 2l15 10.5-6.5 2.5 4.5 4.5-2.5 2.5-4.5-4.5-6 6z" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Yellow scribble lines (Relocated to Hero Left, Mobile Only) */}
-        <div className="absolute top-[26%] left-[2%] w-16 h-6 text-amber-300 pointer-events-none select-none opacity-80 block md:hidden z-10">
-          <svg viewBox="0 0 80 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-            <path d="M5,10 C15,12 25,8 35,12 C45,10 55,14 65,10" />
-          </svg>
-        </div>
-
-        {/* Yellow scribble lines (Relocated to Hero Right, Mobile Only) */}
-        <div className="absolute top-[38%] right-[12%] w-24 h-6 text-amber-300 pointer-events-none select-none opacity-80 block md:hidden z-10">
-          <svg viewBox="0 0 80 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-            <path d="M5,10 C15,12 25,8 35,12 C45,10 55,14 65,10" />
-          </svg>
-        </div>
-
         {/* ── STATEMENT CONTAINER ── */}
         <div className="relative z-20 flex-grow flex flex-col justify-center items-center text-center max-w-4xl mx-auto px-6 pt-16 pb-12 select-none">
           
@@ -648,10 +527,7 @@ export default function Home() {
       {/* SECTION 4: SERVICES */}
       <ServicesSection />
 
-      {/* SECTION 5: REVIEWS (CLIENTS LIKED THE PIXELS) */}
-      <Reviews />
-
-      {/* SECTION 6: FAQ (ANSWER BEFORE WE STARTS) */}
+      {/* SECTION 5: FAQ (ANSWER BEFORE WE STARTS) */}
       <FAQ />
       <Footer />
     </main>

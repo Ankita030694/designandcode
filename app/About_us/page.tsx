@@ -67,6 +67,11 @@ const teamMembers = [
     role: "Designer & Frontend Developer",
     imageSrc: "/Zaib.jpeg",
   },
+  {
+    name: "Piyush",
+    role: "SDE Intern",
+    imageSrc: "/Piyush.jpeg",
+  },
 ];
 
 const statsItems = [
@@ -494,12 +499,13 @@ export default function AboutUs() {
         </div>
 
         {/* Team Grid (Portrait Cards Style) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {teamMembers.map((member, index) => {
             const teamAccents = [
               { border: "hover:border-sky-400", badge: "bg-sky-400/20 text-sky-200 border-sky-400/30" },
               { border: "hover:border-rose-400", badge: "bg-rose-400/20 text-rose-200 border-rose-400/30" },
-              { border: "hover:border-emerald-400", badge: "bg-emerald-400/20 text-emerald-200 border-emerald-400/30" }
+              { border: "hover:border-emerald-400", badge: "bg-emerald-400/20 text-emerald-200 border-emerald-400/30" },
+              { border: "hover:border-amber-400", badge: "bg-amber-400/20 text-amber-200 border-amber-400/30" }
             ];
             const accent = teamAccents[index % teamAccents.length];
 
@@ -514,7 +520,7 @@ export default function AboutUs() {
                   alt="Card background"
                   fill
                   className="object-cover absolute inset-0 z-0 transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
 
                 {/* Background Image */}
@@ -523,7 +529,7 @@ export default function AboutUs() {
                   alt={member.name}
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 relative z-10"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
 
                 {/* Bottom Vignette Overlay */}

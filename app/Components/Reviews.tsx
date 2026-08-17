@@ -20,61 +20,24 @@ export default function Reviews() {
   return (
     <div className="bg-transparent w-full">
       {/* REVIEWS SECTION (CLIENTS LIKED THE PIXELS) */}
-      <section
-        className="relative w-full pt-16 md:pt-24 pb-36 md:pb-60 flex flex-col justify-start bg-transparent overflow-hidden font-sans select-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(24, 69, 247, 0.25) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(24, 69, 247, 0.25) 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
-          backgroundPosition: "0 -1px",
-          backgroundAttachment: "fixed",
-          clipPath: "inset(0)",
-        }}
-      >
-        {/* Fixed background doodles — same positions, sticks with grid on scroll */}
-        {/* Row 1 */}
-        <div className="fixed top-[15%] right-[10%] w-24 h-24 text-rose-300/60 pointer-events-none select-none z-10">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M50,30 C35,10 10,25 10,50 C10,75 50,90 50,90 C50,90 90,75 90,50 C90,25 65,10 50,30 Z" />
-          </svg>
-        </div>
-        <div className="fixed top-[20%] left-[10%] w-20 h-16 text-zinc-300/50 pointer-events-none select-none z-10">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
-          </svg>
-        </div>
-        {/* Row 2 */}
-        <div className="fixed top-[45%] left-[8%] w-20 h-20 text-amber-300/60 pointer-events-none select-none z-10">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M50,10 L50,90 M10,50 L90,50 M22,22 L78,78 M22,78 L78,22" />
-            <circle cx="50" cy="50" r="8" fill="currentColor" />
-          </svg>
-        </div>
-        <div className="fixed top-[50%] right-[12%] w-16 h-16 text-amber-300/50 pointer-events-none select-none z-10 animate-pulse">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M12 2v20M2 12h20M5.75 5.75l12.5 12.5M5.75 19.25l12.5-12.5" />
-          </svg>
-        </div>
-        {/* Row 3 */}
-        <div className="fixed top-[75%] right-[8%] w-28 h-28 text-blue-300/50 pointer-events-none select-none z-10">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-            <path d="M20,50 Q35,25 60,30 Q85,35 70,60 Q55,85 30,70 Z" />
-            <path d="M35,60 Q45,35 70,40 Q90,45 80,65 Q70,85 45,75 Z" />
-          </svg>
-        </div>
-        <div className="fixed top-[80%] left-[8%] w-24 h-12 text-blue-300/50 pointer-events-none select-none z-10">
-          <svg viewBox="0 0 100 40" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M10,30 Q25,10 40,30 T70,30 T100,30" />
-            <path d="M15,35 Q30,15 45,35 T75,35 T105,35" />
-          </svg>
+      <section className="relative w-full pt-12 md:pt-16 pb-24 md:pb-40 flex flex-col justify-start overflow-hidden font-sans select-none z-10">
+        {/* Background Image (Countryside Green hills and sky) */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero.jpg"
+            alt="Countryside background"
+            fill
+            priority
+            className="object-cover object-center select-none"
+          />
+          {/* Soft atmospheric overlay for text legibility */}
+          <div className="absolute inset-0 bg-slate-900/10 pointer-events-none" />
         </div>
 
         {/* ── HEADING CONTAINER ── */}
         <div className="relative z-20 flex flex-col items-center text-center max-w-4xl mx-auto px-6 mb-16 select-none">
           {/* Reviews Sticker */}
-          <div className="relative mb-6 transform rotate-[-8deg] bg-sky-100 border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer">
+          <div className="relative mb-6 transform rotate-[-8deg] bg-sky-50 border border-sky-100 shadow-md rounded-xl px-5 py-2 text-sky-600 font-extrabold text-sm flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer">
             {/* Paperclip */}
             <div className="absolute -top-3.5 left-3 text-zinc-400">
               <svg className="w-4 h-6" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -84,14 +47,14 @@ export default function Reviews() {
             {/* Blue dot */}
             <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-blue-500 rounded-full border border-white" />
             {/* Camera icon */}
-            <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-4 h-4 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
               <circle cx="12" cy="13" r="4" />
             </svg>
             <span className="pl-1">Reviews</span>
           </div>
 
-          <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
+          <h2 className="text-white font-extrabold text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none drop-shadow-md">
             CLIENTS LIKED<br />THE PIXELS
           </h2>
         </div>
