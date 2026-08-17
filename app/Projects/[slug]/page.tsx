@@ -23,13 +23,16 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found | Designncode",
+      title: "Case Studies | UI/UX & Web Design Projects | DesignNCode",
+      description: "Explore DesignNCode case studies covering UI/UX design, web development, e-commerce and digital products, from strategy to final execution.",
+      keywords: ["UI/UX design case studies", "Case Studies", "UI/UX design", "web development", "e-commerce", "digital products"],
     };
   }
 
   return {
-    title: `${project.title} - Project Showcase | Designncode`,
-    description: project.description,
+    title: `${project.title} | Case Studies | DesignNCode`,
+    description: project.description || "Explore DesignNCode case studies covering UI/UX design, web development, e-commerce and digital products, from strategy to final execution.",
+    keywords: ["UI/UX design case studies", project.title, "Case Studies", "UI/UX design", "web development", "e-commerce"],
   };
 }
 

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shopify Development Services | DesignNCode",
-  description: "High-converting custom Shopify & e-commerce stores designed for seamless user checkout and rapid sales scaling.",
+  title: "Shopify Development Agency | E-commerce | DesignNCode",
+  description: "DesignNCode builds high-converting Shopify stores with custom themes, responsive design, integrations and optimized e-commerce experiences.",
+  keywords: ["Shopify development agency", "Shopify", "E-commerce", "custom themes", "e-commerce store development", "Shopify store setup"],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

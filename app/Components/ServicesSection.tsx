@@ -62,8 +62,11 @@ export default function ServicesSection() {
         </div>
 
         <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
-          WHERE I<br />CAN HELP YOU
+          WHAT WE DO
         </h2>
+        <p className="text-zinc-700 text-base sm:text-lg font-medium leading-relaxed max-w-2xl text-center mt-4 select-none">
+          We bring design, development and digital growth together under one roof, helping businesses move from ideas to impactful digital experiences.
+        </p>
       </div>
 
       {/* ── SERVICES LIST ── */}
@@ -117,20 +120,21 @@ export default function ServicesSection() {
           >
             <div className="overflow-hidden flex flex-col gap-2">
               <span className="text-zinc-500 font-semibold text-sm">
-                Expert Design Partners (and good listeners)
+                Design experiences people love to use
               </span>
               <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                We translate complex ideas into intuitive, beautiful, and conversion-focused digital
-                interfaces. Aligned with your brand vision and powered by industry-leading UX best
-                practices.
+                We create intuitive and visually engaging experiences for websites, mobile apps and digital products. Our UI/UX design process combines user research, wireframing, prototyping and interface design to make digital products enjoyable to use.
               </p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {[
                   "User Research",
-                  "Wireframing & Prototyping",
-                  "Interface Design",
+                  "UX Strategy",
+                  "Wireframing",
+                  "UI Design",
+                  "Prototyping",
                   "Design Systems",
-                  "Mobile & Web Apps",
+                  "Mobile App Design",
+                  "Web App Design",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -144,7 +148,7 @@ export default function ServicesSection() {
               {/* Mobile-Only CTA Link */}
               <div className="block md:hidden mt-4 pt-4 border-t border-[#D5E6FA]/40">
                 <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#4B7DBE] hover:underline">
-                  View Service Details
+                  Explore UI/UX Design
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -210,20 +214,20 @@ export default function ServicesSection() {
           >
             <div className="overflow-hidden flex flex-col gap-2">
               <span className="text-zinc-500 font-semibold text-sm">
-                What if Technology wasn&apos;t an obstacle?
+                Fast, modern websites built to perform
               </span>
               <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Beautifully built, hyper-fast, and scalable websites designed to convert. We build
-                lightweight Next.js websites, headless architectures, and custom web applications
-                optimized for growth.
+                We develop responsive, scalable and high-performance websites that bring great design to life. From business websites and landing pages to custom web applications, we use React and Next.js to build fast, accessible experiences.
               </p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {[
-                  "React & Next.js",
-                  "Headless CMS",
-                  "Shopify E-Commerce",
+                  "React Development",
+                  "Next.js Development",
+                  "Custom Web Development",
+                  "Responsive Websites",
+                  "Web Applications",
                   "API Integrations",
-                  "Speed Optimization",
+                  "Performance Optimization",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -237,7 +241,7 @@ export default function ServicesSection() {
               {/* Mobile-Only CTA Link */}
               <div className="block md:hidden mt-4 pt-4 border-t border-[#F3DBDB]/40">
                 <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#BE7070] hover:underline">
-                  View Service Details
+                  Explore Web Development
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -303,19 +307,20 @@ export default function ServicesSection() {
           >
             <div className="overflow-hidden flex flex-col gap-2">
               <span className="text-zinc-500 font-semibold text-sm">
-                High-Converting E-Commerce Stores
+                E-commerce experiences built for conversions
               </span>
               <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Building high-converting, custom Shopify & e-commerce stores designed for seamless user
-                checkout and rapid sales scaling.
+                We design and develop Shopify stores that make shopping simpler, faster and more engaging. From custom themes and product pages to integrations and conversion optimization, we create stores built for sales.
               </p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {[
-                  "Liquid Dev",
-                  "Custom Themes",
+                  "Shopify Store Design",
+                  "Custom Shopify Themes",
+                  "Shopify Development",
+                  "Liquid Development",
                   "App Integrations",
-                  "Headless Shopify",
-                  "Checkout Optimization",
+                  "Product Experience",
+                  "Conversion Optimization",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -329,7 +334,7 @@ export default function ServicesSection() {
               {/* Mobile-Only CTA Link */}
               <div className="block md:hidden mt-4 pt-4 border-t border-[#BCEFD5]/40">
                 <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#3BA67D] hover:underline">
-                  View Service Details
+                  Explore Shopify Development
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -395,19 +400,19 @@ export default function ServicesSection() {
           >
             <div className="overflow-hidden flex flex-col gap-2">
               <span className="text-zinc-500 font-semibold text-sm">
-                Bring your users into focus.
+                Turn digital traffic into real business growth
               </span>
               <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Data-driven marketing managed with precision to deliver efficient growth and
-                measurable returns. We help you target, acquire, and convert high-intent customers.
+                We help brands reach the right audience and turn attention into measurable results through data-driven performance marketing, paid campaigns, conversion rate optimization and analytics.
               </p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {[
                   "Google Ads",
-                  "Meta Ads (FB/IG)",
-                  "Search Engine Marketing",
-                  "CRO Strategy",
-                  "Attribution & Tracking",
+                  "Meta Ads",
+                  "Paid Campaigns",
+                  "Conversion Rate Optimization",
+                  "Analytics",
+                  "Tracking & Attribution",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -421,7 +426,7 @@ export default function ServicesSection() {
               {/* Mobile-Only CTA Link */}
               <div className="block md:hidden mt-4 pt-4 border-t border-[#F3EFA2]/40">
                 <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#B5A133] hover:underline">
-                  View Service Details
+                  Explore Performance Marketing
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -488,19 +493,20 @@ export default function ServicesSection() {
           >
             <div className="overflow-hidden flex flex-col gap-2">
               <span className="text-zinc-500 font-semibold text-sm">
-                Dominating organic search results
+                Get found by the right people
               </span>
               <p className="text-zinc-600 text-sm max-w-2xl mt-1">
-                Dominating organic search results with data-backed technical SEO, keyword strategy,
-                and high-authority content execution.
+                A great website needs visibility. Our SEO services help businesses improve their search presence, attract relevant traffic and build sustainable organic growth through technical SEO, keyword strategy, and content architecture.
               </p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {[
                   "Technical SEO",
-                  "Content Architecture",
-                  "Backlink Strategy",
-                  "Analytics & Reports",
+                  "Keyword Research",
+                  "On-Page SEO",
+                  "SEO Audits",
+                  "Content Strategy",
                   "Core Web Vitals",
+                  "SEO Analytics",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -514,7 +520,7 @@ export default function ServicesSection() {
               {/* Mobile-Only CTA Link */}
               <div className="block md:hidden mt-4 pt-4 border-t border-[#DFDAFA]/40">
                 <span className="inline-flex items-center gap-1 text-sm font-extrabold text-[#7768CD] hover:underline">
-                  View Service Details
+                  Explore SEO Services
                   <svg
                     className="w-4 h-4"
                     fill="none"

@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://designncode.com'),
   title: {
-    default: "DesignNCode | Premium Digital Agency",
-    template: "%s | DesignNCode",
+    default: "UI/UX Design & Web Development Agency | DesignNCode",
+    template: "%s",
   },
-  description: "Transforming Ideas into Digital Reality. We specialize in UI/UX design, Web Development, and Performance Marketing to scale your business.",
-  keywords: ["Digital Agency", "UI/UX Design", "Web Development", "Performance Marketing", "SEO", "DesignNCode", "App Development"],
+  description: "DesignNCode creates high-converting websites, UI/UX designs, Shopify stores and digital products built for performance, SEO and growth.",
+  keywords: ["UI/UX design and web development agency", "UI/UX Design", "Web Development", "Shopify stores", "digital products", "SEO", "growth", "performance"],
   authors: [{ name: "DesignNCode Team" }],
   creator: "DesignNCode",
   publisher: "DesignNCode",
@@ -42,22 +42,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://designncode.com",
-    title: "DesignNCode | Premium Digital Agency",
-    description: "Transforming Ideas into Digital Reality. We specialize in UI/UX design, Web Development, and Performance Marketing to scale your business.",
+    title: "UI/UX Design & Web Development Agency | DesignNCode",
+    description: "DesignNCode creates high-converting websites, UI/UX designs, Shopify stores and digital products built for performance, SEO and growth.",
     siteName: "DesignNCode",
     images: [
       {
         url: "/LOGO.svg",
         width: 1200,
         height: 630,
-        alt: "DesignNCode - Digital Agency",
+        alt: "DesignNCode - UI/UX Design & Web Development Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DesignNCode | Premium Digital Agency",
-    description: "Transforming Ideas into Digital Reality. We specialize in UI/UX design, Web Development, and Performance Marketing.",
+    title: "UI/UX Design & Web Development Agency | DesignNCode",
+    description: "DesignNCode creates high-converting websites, UI/UX designs, Shopify stores and digital products built for performance, SEO and growth.",
     images: ["/LOGO.svg"],
   },
   icons: {

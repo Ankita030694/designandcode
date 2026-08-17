@@ -80,8 +80,8 @@ export default function ShopifyDevelopmentService() {
 
   const capabilities = [
     {
-      title: "Theme & Liquid Development",
-      description: "Crafting customized Shopify Liquid templates from scratch. Optimized for speed, branding, and layout consistency without bloated apps.",
+      title: "Custom Shopify Theme Development",
+      description: "We create custom Shopify themes that reflect your brand while keeping the storefront fast, responsive and easy to manage.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -89,8 +89,8 @@ export default function ShopifyDevelopmentService() {
       ),
     },
     {
-      title: "Headless Shopify Storefronts",
-      description: "Decoupling backend commerce pipelines from frontend layouts. We build Next.js storefronts that fetch products via Shopify Storefront APIs.",
+      title: "Headless Shopify Development",
+      description: "We build modern headless storefronts using technologies such as Next.js and Shopify APIs for greater flexibility and performance.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -98,8 +98,8 @@ export default function ShopifyDevelopmentService() {
       ),
     },
     {
-      title: "Custom App & API Integrations",
-      description: "Connecting third-party logistics (3PL), ERP systems, CRM pipelines, and payment providers to Shopify through secure webhooks.",
+      title: "Shopify App & API Integrations",
+      description: "We connect your Shopify store with CRMs, ERPs, payment platforms, logistics systems and other business tools.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
@@ -107,8 +107,8 @@ export default function ShopifyDevelopmentService() {
       ),
     },
     {
-      title: "Checkout & Conversion Tuning",
-      description: "Optimizing conversion funnels by setting up Shop Pay, streamlining dynamic pricing, and minimizing input fields for checkout speed.",
+      title: "Checkout & Conversion Optimization",
+      description: "We simplify shopping journeys, improve product discovery and reduce friction throughout the cart and checkout experience.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -116,8 +116,8 @@ export default function ShopifyDevelopmentService() {
       ),
     },
     {
-      title: "Core Web Vitals Optimization",
-      description: "Improving page speeds by auditing third-party scripts, lazy loading media, compressing images, and minimizing critical CSS payloads.",
+      title: "Shopify Performance Optimization",
+      description: "We audit scripts, images, apps and frontend code to improve loading speed and Core Web Vitals.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -125,8 +125,8 @@ export default function ShopifyDevelopmentService() {
       ),
     },
     {
-      title: "Multi-Channel Catalog Syncing",
-      description: "Setting up real-time inventory management across POS terminals, social media platforms, and distribution channels to avoid overselling.",
+      title: "Multi-Channel Catalog Management",
+      description: "We help connect product catalogs and inventory across relevant sales channels to create a more consistent commerce operation.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18" />
@@ -137,34 +137,37 @@ export default function ShopifyDevelopmentService() {
 
   const deepDiveItems = [
     {
-      title: "Architecture & Data Mapping",
-      description: "We review your e-commerce dependencies, outline third-party API configurations, and model custom metafield structures.",
+      title: "Store Architecture & Data Mapping",
+      description: "We review your e-commerce data needs, map custom metafield models, and plan key API integration requirements.",
       bullets: [
-        "Mapping custom Shopify metafields and data objects for clean catalog structures",
-        "Detailing custom app requirements and third-party API webhook endpoints",
-        "Selecting optimal headless vs. Liquid hosting configurations based on traffic needs",
+        "Shopify data structure",
+        "Metafield planning",
+        "API mapping",
+        "Integration requirements",
       ],
-      tags: ["Metafield Design", "API Mappings", "Hosting Models"],
+      tags: ["Shopify Architecture", "APIs", "Metafields"],
     },
     {
-      title: "Theme & Storefront Engineering",
-      description: "Our developers build fast, accessible storefront layouts, prioritizing high-fidelity product imagery and smooth cart drawer scripts.",
+      title: "Theme & Storefront Development",
+      description: "Our developers engineer responsive theme templates and custom shopping components designed for maximum speed.",
       bullets: [
-        "Semantic Liquid / Tailwind component structures with zero unnecessary app script drag",
-        "Framer Motion or GSAP micro-animations for interactive cart additions and product views",
-        "Mobile-first responsive design ensuring thumb-friendly checkout actions",
+        "Custom theme development",
+        "Product and collection templates",
+        "Responsive storefront",
+        "Cart and shopping interactions",
       ],
-      tags: ["Liquid / Next.js", "Cart Animations", "Mobile UI"],
+      tags: ["Shopify Liquid", "Next.js", "Mobile UX"],
     },
     {
-      title: "Performance Audits & Store Launch",
-      description: "We optimize all third-party scripts, set up checkout funnel tracking, and coordinate sitemaps before launch.",
+      title: "Optimization & Store Launch",
+      description: "We execute comprehensive performance audits, verify analytics tracking, and streamline checkout operations before launch.",
       bullets: [
-        "Auditing and script-tag-bundling third-party review, marketing, and chat widgets",
-        "Validating conversion tracking APIs and GA4 purchase funnel events",
-        "Sitemap setup, canonical configurations, and domain launch routing checklists",
+        "Speed optimization",
+        "Conversion tracking",
+        "Checkout testing",
+        "SEO and sitemap setup",
       ],
-      tags: ["PageSpeed Tuning", "GA4 Attribution", "Launch Checklists"],
+      tags: ["Performance", "CRO", "Analytics"],
     },
   ];
 
@@ -189,21 +192,23 @@ export default function ShopifyDevelopmentService() {
 
   return (
     <ServiceSlugPage
-      tag="E-Commerce Service"
-      title="High-Converting Shopify Development"
-      introParagraph="We build fast, secure, and fully customized Shopify storefronts. Optimized for high-intent shoppers, fast checkout transitions, and seamless integrations."
+      tag="Shopify Development Services"
+      title="HIGH-CONVERTING SHOPIFY DEVELOPMENT"
+      introParagraph="We design and develop fast, flexible Shopify stores built around better shopping experiences, smoother checkout journeys and higher conversions."
       heroGraphic={heroGraphic}
-      overviewHeading="Fast Storefronts. Higher Conversion Rates."
-      overviewDescription="In retail, every fraction of a second directly impacts your conversion rate. Bloated themes and unoptimized third-party apps cause customer drop-off. We develop custom Liquid themes and headless storefronts on modern architectures, delivering sub-second edge rendering, seamless checkouts, and absolute catalog reliability."
-      capabilitiesTitle="Our Shopify Engineering Capabilities"
-      capabilitiesIntro="We use a detailed development strategy to build custom themes, manage headless architectures, and integrate core operations APIs."
+      overviewHeading="FAST STORES. BETTER SHOPPING EXPERIENCES."
+      overviewDescription="Your online store should make buying simple. We build custom Shopify experiences that combine strong e-commerce UX, fast performance and scalable technology. From custom Liquid themes to headless Shopify storefronts, we create stores designed around your customers and business goals."
+      capabilitiesTitle="OUR SHOPIFY DEVELOPMENT SERVICES"
+      capabilitiesIntro="We build scalable, high-converting e-commerce experiences with modern Shopify technology."
       capabilities={capabilities}
       capabilitiesOutro="Every storefront is fully optimized for mobile responsiveness and Core Web Vitals."
-      deepDiveTitle="Our E-Commerce Workflow"
-      deepDiveIntro="We follow a systematic workflow from inventory mapping to performance tuning, ensuring high performance at launch."
+      deepDiveTitle="OUR SHOPIFY DEVELOPMENT WORKFLOW"
+      deepDiveIntro="We follow a structured e-commerce workflow from store architecture to optimization and launch."
       deepDiveItems={deepDiveItems}
       faqs={faqs}
       projectTypeFilter="Shopify Store"
+      projectsTitle="E-COMMERCE PROJECTS THAT SELL"
+      projectsSubtitle="Explore selected digital commerce experiences designed to make products easier to discover, understand and purchase."
     />
   );
 }

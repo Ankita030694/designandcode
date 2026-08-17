@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Web Development Agency | React & Next.js | DesignNCode",
   description: "Build fast, responsive and scalable websites with DesignNCode using modern web development technologies including React and Next.js.",
-  keywords: ["web development agency", "React & Next.js", "scalable websites", "React", "Next.js", "frontend engineering"],
+  keywords: ["web development agency", "React", "Next.js", "frontend development", "full stack web development", "responsive websites"],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -56,8 +56,8 @@ export default function PerformanceMarketingService() {
 
   const capabilities = [
     {
-      title: "Paid Search Ads (Google/Bing)",
-      description: "Capturing high-intent customer search traffic through keyword targeting, copy optimization, and bid adjustments.",
+      title: "Google Ads & Paid Search",
+      description: "We target high-intent search queries with optimized campaigns designed to generate qualified traffic and conversions.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <circle cx="11" cy="11" r="8" />
@@ -66,8 +66,8 @@ export default function PerformanceMarketingService() {
       ),
     },
     {
-      title: "Paid Social Ads (Meta/LinkedIn)",
-      description: "Scaling brand discovery and conversions on Instagram, Facebook, and LinkedIn using custom audience segments.",
+      title: "Meta & LinkedIn Advertising",
+      description: "We create targeted paid social campaigns across platforms such as Facebook, Instagram and LinkedIn.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8zm14 14v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" />
@@ -75,8 +75,8 @@ export default function PerformanceMarketingService() {
       ),
     },
     {
-      title: "Custom Landing Pages (CRO)",
-      description: "Developing landing page variations optimized for speed, layout flow, and single CTA conversions to maximize ad spend.",
+      title: "Landing Pages & CRO",
+      description: "We build and optimize campaign landing pages around clear messaging, strong user flows and focused conversion goals.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -85,8 +85,8 @@ export default function PerformanceMarketingService() {
       ),
     },
     {
-      title: "Attribution & GA4 Setup",
-      description: "Setting up server-side tagging, custom Google Analytics 4 dashboards, and conversion APIs for absolute tracking accuracy.",
+      title: "Analytics & Attribution",
+      description: "We connect advertising activity with accurate conversion tracking so you can understand what is driving results.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
@@ -94,8 +94,8 @@ export default function PerformanceMarketingService() {
       ),
     },
     {
-      title: "Creative Auditing & Strategy",
-      description: "Testing ad copy angles, static image layouts, and hook structures to identify creative variations that convert best.",
+      title: "Creative Strategy & Testing",
+      description: "We test different messages, hooks, formats and creative concepts to identify what resonates with your audience.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -103,8 +103,8 @@ export default function PerformanceMarketingService() {
       ),
     },
     {
-      title: "Scale & Budget Strategy",
-      description: "Scaling budgets while maintaining CAC constraints. Balancing top-of-funnel reach with bottom-of-funnel remarketing.",
+      title: "Budget & Campaign Optimization",
+      description: "We continuously analyze campaign performance and allocate budget toward the audiences, creatives and campaigns delivering stronger results.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -115,34 +115,37 @@ export default function PerformanceMarketingService() {
 
   const deepDiveItems = [
     {
-      title: "Audit & Audience Blueprint",
-      description: "We audit your historical ad performance and tracking scripts. We build clear keyword groups and target customer profiles.",
+      title: "Audit & Audience Strategy",
+      description: "We analyze historical marketing data, map competitor positioning, and build target audience personas.",
       bullets: [
-        "Full audit of tracking pixels and attribution pipelines",
-        "Competitor ad creative search and keyword discovery sitemaps",
-        "Audience segment blueprint defining top/bottom funnel setups",
+        "Existing campaign audit",
+        "Keyword research",
+        "Audience segmentation",
+        "Competitor research",
       ],
-      tags: ["Pixel Audit", "Keyword Research", "Targeting Setup"],
+      tags: ["Campaign Audit", "Keyword Research", "Audience Strategy"],
     },
     {
-      title: "Creative Deployment & Copywriting",
-      description: "We write conversion-focused ad copy and design optimized landing pages to receive ad traffic without latency.",
+      title: "Creative & Campaign Deployment",
+      description: "We develop high-converting copy, design compelling visual assets, and launch focused multi-channel ad campaigns.",
       bullets: [
-        "Writing search ad copy and responsive display variations",
-        "Developing lightweight landing pages styled for your conversions",
-        "Deploying ad variations across Google Ads and Meta platforms",
+        "Search ad copy",
+        "Social ad concepts",
+        "Landing pages",
+        "Campaign setup",
       ],
-      tags: ["Copywriting", "Landing Pages", "Asset Assembly"],
+      tags: ["Ad Copy", "Creative", "Landing Pages"],
     },
     {
-      title: "Budget Optimization & Attribution",
-      description: "We monitor campaign attribution models, scaling winning ad variables while shutting down low-converting segments.",
+      title: "Optimization & Attribution",
+      description: "We verify attribution tracking accuracy, analyze performance metrics, and scale winning campaigns systematically.",
       bullets: [
-        "Weekly conversion audits mapping offline sales conversions",
-        "Custom ROAS attribution dashboards connecting client leads",
-        "Automated budget rules scaling conversions under CAC limits",
+        "Conversion tracking",
+        "Performance reporting",
+        "Budget optimization",
+        "Campaign scaling strategy",
       ],
-      tags: ["ROAS Tuning", "Budget Scaling", "Attribution Reports"],
+      tags: ["ROAS", "Attribution", "Budget Optimization"],
     },
   ];
 
@@ -167,21 +170,23 @@ export default function PerformanceMarketingService() {
 
   return (
     <ServiceSlugPage
-      tag="Growth Service"
-      title="Precision Performance Marketing"
-      introParagraph="We manage multi-channel paid ad campaigns focused on measurable growth. Engineered to scale budgets while lowering customer acquisition costs."
+      tag="Performance Marketing Services"
+      title="PERFORMANCE MARKETING THAT DRIVES GROWTH"
+      introParagraph="We create data-driven paid advertising campaigns designed to attract the right audience, increase conversions and improve return on ad spend across Google, Meta and other high-intent channels."
       heroGraphic={heroGraphic}
-      overviewHeading="Bring Your Customers into Focus."
-      overviewDescription="Paid ads fail when ad clicks lead to slow, generic landing pages. We build end-to-end growth campaigns, aligning targeted copywriting with hyper-fast landing page layouts. This decreases bounce rates, increases conversion numbers, and improves your return on ad spend (ROAS)."
-      capabilitiesTitle="Our Marketing Capabilities"
-      capabilitiesIntro="We use a data-driven strategy to deploy search, social, and remarketing campaigns that capture and convert high-value clients."
+      overviewHeading="TURN AD SPEND INTO MEASURABLE GROWTH."
+      overviewDescription="Clicks mean very little if they do not lead to meaningful business results. We connect paid advertising with conversion-focused landing pages, creative strategy and accurate attribution to create a complete performance marketing system. Every campaign is measured against the metrics that matter to your business."
+      capabilitiesTitle="OUR PERFORMANCE MARKETING SERVICES"
+      capabilitiesIntro="We engineer high-ROI performance marketing systems across search, social, and conversion funnels."
       capabilities={capabilities}
       capabilitiesOutro="Every campaign is backed by live attribution dashboards showing customer journeys."
-      deepDiveTitle="Our Marketing Workflow"
-      deepDiveIntro="We follow a systematic workflow from tracking audit to automated scaling, ensuring absolute efficiency of ad spend."
+      deepDiveTitle="OUR PERFORMANCE MARKETING WORKFLOW"
+      deepDiveIntro="We follow a structured growth process from audit to creative deployment and attribution optimization."
       deepDiveItems={deepDiveItems}
       faqs={faqs}
       projectTypeFilter="All"
+      projectsTitle="CAMPAIGNS BUILT AROUND RESULTS"
+      projectsSubtitle="Explore selected digital campaigns and conversion experiences designed to turn attention into measurable business growth."
     />
   );
 }

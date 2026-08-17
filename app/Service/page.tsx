@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "../Components/footer";
-import Reviews from "../Components/Reviews";
+import FAQ from "../Components/FAQ";
 import ServicesSection from "../Components/ServicesSection";
 import FeaturedProjects from "../Components/FeaturedProjects";
+
+export const metadata: Metadata = {
+  title: "Digital Design & Development Services | DesignNCode",
+  description: "Explore DesignNCode services including UI/UX design, web development, Shopify, SEO, e-commerce and performance marketing for growing brands.",
+  keywords: ["digital design and development services", "UI/UX design", "web development", "Shopify", "SEO", "e-commerce", "performance marketing"],
+};
 
 export default function ServicesPage() {
   return (
@@ -17,11 +24,11 @@ export default function ServicesPage() {
               <div className="relative">
                 <div className="absolute -top-7 right-8 md:right-28 rotate-[-3deg] z-20">
                   <span className="inline-block bg-sky-100 text-sky-800 border border-sky-200 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-sm tracking-wider uppercase whitespace-nowrap">
-                    Design & code under one roof
+                    DESIGN &amp; CODE UNDER ONE ROOF
                   </span>
                 </div>
-                <h1 className="text-6xl sm:text-7xl md:text-8xl font-medium tracking-tight leading-none text-zinc-950 select-none">
-                  What We Do
+                <h1 className="text-6xl sm:text-7xl md:text-8xl font-medium tracking-tight leading-none text-zinc-950 select-none uppercase">
+                  WHAT WE DO
                 </h1>
               </div>
 
@@ -29,12 +36,12 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row sm:items-start gap-6 mt-4">
                 <div className="shrink-0 self-start">
                   <span className="inline-block bg-rose-100 text-rose-800 border border-rose-200 px-6 py-3.5 rounded-full text-sm font-bold tracking-wider uppercase shadow-xs select-none">
-                    Senior specialists
+                    SENIOR SPECIALISTS
                   </span>
                 </div>
                 <div className="flex-1">
                   <p className="text-base sm:text-lg text-zinc-600 leading-relaxed font-normal">
-                    <strong className="font-bold text-zinc-900">India-born, globally trusted</strong> – we've designed and developed premium digital products and generated substantial growth for our clients, backed by a world-class team built to improve the bottom line.
+                    <strong className="font-bold text-zinc-900">India-born, globally trusted</strong>, we design and build high-performing digital experiences that help ambitious brands grow. From UI/UX design and web development to Shopify, SEO and performance marketing, our senior specialists bring strategy, creativity and technology together to build digital products that make an impact.
                   </p>
                 </div>
               </div>
@@ -78,13 +85,13 @@ export default function ServicesPage() {
       {/* Featured Projects Section */}
       <FeaturedProjects />
 
-      {/* Reviews Section */}
-      <div className="pb-12 md:pb-20">
-        <Reviews />
-      </div>
+      {/* FAQ Section */}
+      <FAQ />
 
-      {/* Footer Section */}
-      <Footer />
+      {/* Gap before Footer */}
+      <div className="mt-15">
+        <Footer />
+      </div>
     </main>
   );
 }

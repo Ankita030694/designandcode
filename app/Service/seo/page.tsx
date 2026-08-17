@@ -49,8 +49,8 @@ export default function SeoService() {
 
   const capabilities = [
     {
-      title: "Technical SEO Auditing",
-      description: "Resolving redirect chains, indexing bugs, server crawl logs, sitemap configurations, and crawler accessibility issues.",
+      title: "Technical SEO Audits",
+      description: "We identify crawlability, indexing, redirects, sitemap, canonical and technical issues that can limit search performance.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -59,8 +59,8 @@ export default function SeoService() {
       ),
     },
     {
-      title: "Keyword & Search Intent Map",
-      description: "Mapping search intent categories (informational, transactional, commercial) to match queries with conversion pages.",
+      title: "Keyword Research & Search Intent",
+      description: "We identify relevant search opportunities and map keywords to the pages and content that can best satisfy user intent.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -68,8 +68,8 @@ export default function SeoService() {
       ),
     },
     {
-      title: "On-Page Schema & Metadata",
-      description: "Integrating JSON-LD schema markings (Articles, FAQs, LocalBusiness, Products) directly into page HTML header logic.",
+      title: "On-Page SEO & Metadata",
+      description: "We optimize page structure, headings, metadata, internal links and content to make pages clearer for users and search engines.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 4z" />
@@ -77,8 +77,17 @@ export default function SeoService() {
       ),
     },
     {
-      title: "Speed Optimization & Core Vitals",
-      description: "Tuning script bundle payloads, lazy loading assets, and minimizing server response times to hit perfect mobile SEO metrics.",
+      title: "Schema & Structured Data",
+      description: "We implement relevant structured data to help search engines better understand your website and its content.",
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+          <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
+        </svg>
+      ),
+    },
+    {
+      title: "Core Web Vitals & Speed Optimization",
+      description: "We improve loading performance, responsiveness and visual stability to create a better experience for both users and search engines.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -86,20 +95,11 @@ export default function SeoService() {
       ),
     },
     {
-      title: "Link Building & Authority Scaling",
-      description: "Securing high-authority editorial mentions, partner backlinks, and directory registrations to boost root domain search scores.",
+      title: "Link Building & Authority",
+      description: "We develop ethical authority-building strategies designed to strengthen your website's credibility and organic visibility.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-        </svg>
-      ),
-    },
-    {
-      title: "Ranking Tracking & Reports",
-      description: "Providing automated dashboards tracking keyword positions, click volumes, impression numbers, and domain authority score trends.",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-          <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
         </svg>
       ),
     },
@@ -107,34 +107,37 @@ export default function SeoService() {
 
   const deepDiveItems = [
     {
-      title: "Audit & Opportunity Discovery",
-      description: "We audit historical crawlers' search errors, run keyword competition audits, and identify conversion-focused search gaps.",
+      title: "SEO Audit & Opportunity Discovery",
+      description: "We audit crawlability, search console indexes, and identify competitive keyword opportunities to build search visibility.",
       bullets: [
-        "Index mapping audits on Google Search Console to fix crawl bottlenecks",
-        "Competitor keyword opportunity maps pinpointing rankable keywords",
-        "XML sitemap and canonical logic configuration design reviews",
+        "Technical SEO audit",
+        "Keyword opportunity research",
+        "Competitor analysis",
+        "Search Console review",
       ],
-      tags: ["Technical Audit", "Keyword Maps", "Google Console"],
+      tags: ["Technical Audit", "Keyword Research", "Search Console"],
     },
     {
-      title: "HTML Optimization & Speed Code",
-      description: "We hardcode JSON-LD schema tags, sitemap logic, and optimize code files for search engine indexers.",
+      title: "On-Page & Technical Optimization",
+      description: "We optimize site architecture, metadata tags, structured schema markup, and speed metrics for search engine crawlers.",
       bullets: [
-        "Integrating structured rich schema data profiles directly",
-        "Optimizing page load speeds to pass all Core Web Vitals",
-        "Optimizing header structures (H1, H2, canonicals) in Next.js models",
+        "Metadata optimization",
+        "Heading structure",
+        "Schema implementation",
+        "Performance optimization",
       ],
-      tags: ["Technical SEO", "Schema Markup", "Core Web Vitals"],
+      tags: ["Technical SEO", "Schema", "Core Web Vitals"],
     },
     {
-      title: "Content Scale & Link Acquisition",
-      description: "We write conversion-focused articles and configure link acquisitions to grow root domain authority.",
+      title: "Content & Authority Growth",
+      description: "We develop content frameworks and ethical link acquisition strategies to scale domain authority and organic rankings.",
       bullets: [
-        "Developing structured informational content modules to capture informational terms",
-        "Outbound content outreach securing backlink mentions on authority sites",
-        "Weekly position tracking reviews mapping conversions to lead targets",
+        "SEO content strategy",
+        "Content optimization",
+        "Authority building",
+        "Ranking and traffic reports",
       ],
-      tags: ["Content Strategy", "Link Outreach", "Rank Reports"],
+      tags: ["Content Strategy", "Link Building", "Rank Tracking"],
     },
   ];
 
@@ -159,21 +162,23 @@ export default function SeoService() {
 
   return (
     <ServiceSlugPage
-      tag="SEO Service"
-      title="SEO & Organic Growth Engineering"
-      introParagraph="We manage data-backed technical SEO and keyword content strategies. Engineered to boost search rankings and drive high-intent organic leads."
+      tag="SEO Services"
+      title="SEO SERVICES FOR SUSTAINABLE ORGANIC GROWTH"
+      introParagraph="We combine technical SEO, search intent research, content strategy and performance optimization to improve organic visibility and attract high-intent traffic to your website."
       heroGraphic={heroGraphic}
-      overviewHeading="Rank Higher. Capture High-Intent Leads."
-      overviewDescription="Unlike paid search ads that stop delivering traffic the moment your ad budget is turned off, SEO compiles compounding search value over time. By optimizing site rendering speeds, structure metadata schema scripts, and building authority backlink pipelines, we place your service pages on Google's first page."
-      capabilitiesTitle="Our SEO Capabilities"
-      capabilitiesIntro="We use a detailed search optimization strategy to improve technical page indexing, keyword maps, and link configurations."
+      overviewHeading="RANK HIGHER. REACH THE RIGHT AUDIENCE."
+      overviewDescription="SEO is not just about ranking for more keywords. It is about being visible when the right people are searching for what your business offers. We build SEO strategies around technical performance, search intent, content structure and website authority to create sustainable organic growth and stronger search visibility."
+      capabilitiesTitle="OUR SEO SERVICES"
+      capabilitiesIntro="We deliver comprehensive search engine optimization strategies built for long-term growth."
       capabilities={capabilities}
       capabilitiesOutro="All search strategies conform fully to Google Webmaster Guidelines."
-      deepDiveTitle="Our SEO Optimization Workflow"
-      deepDiveIntro="We follow a systematic optimization workflow from technical diagnostics to authority link acquisition, ensuring search value grows weekly."
+      deepDiveTitle="OUR SEO OPTIMIZATION WORKFLOW"
+      deepDiveIntro="We follow a structured optimization process from diagnostic auditing to authority and ranking growth."
       deepDiveItems={deepDiveItems}
       faqs={faqs}
       projectTypeFilter="All"
+      projectsTitle="SEO STRATEGIES BUILT FOR LONG-TERM GROWTH"
+      projectsSubtitle="Explore selected digital projects where technical performance, content structure and search visibility work together."
     />
   );
 }

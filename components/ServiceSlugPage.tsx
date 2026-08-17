@@ -41,8 +41,10 @@ export interface ServicePageProps {
   deepDiveIntro?: string;
   deepDiveItems: ServiceSubDetail[];
   
-  faqs: ServiceFAQ[];
-  projectTypeFilter: "Custom Code" | "Shopify Store" | "All";
+  faqs?: ServiceFAQ[];
+  projectTypeFilter?: "Custom Code" | "Shopify Store" | "All";
+  projectsTitle?: string;
+  projectsSubtitle?: string;
 }
 
 export default function ServiceSlugPage({
@@ -59,6 +61,8 @@ export default function ServiceSlugPage({
   deepDiveTitle,
   deepDiveIntro,
   deepDiveItems,
+  projectsTitle,
+  projectsSubtitle,
 }: ServicePageProps) {
   // Scroll to section helper
   const scrollToSection = (id: string) => {
@@ -303,7 +307,12 @@ export default function ServiceSlugPage({
 
       {/* 5. Recent Work Featured Projects Section */}
       <div id="work" className="w-full">
-        <FeaturedProjects stickerText="Projects" title={"PROJECTS THAT\nTELL STORIES"} />
+        <FeaturedProjects stickerText="Projects" title={projectsTitle || "PROJECTS THAT\nTELL STORIES"} />
+        {projectsSubtitle && (
+          <p className="text-zinc-500 text-center text-sm sm:text-base max-w-xl mx-auto -mt-10 mb-12 px-6">
+            {projectsSubtitle}
+          </p>
+        )}
       </div>
 
       {/* 6. Shared FAQ Component */}

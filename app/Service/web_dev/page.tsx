@@ -72,8 +72,8 @@ export default function WebDevelopmentService() {
 
   const capabilities = [
     {
-      title: "React & Next.js Engineering",
-      description: "Developing custom Next.js websites using static compilation, server rendering, and dynamic routing for unbeatable speeds.",
+      title: "React & Next.js Development",
+      description: "We build custom React and Next.js websites with reusable components, dynamic routing and modern rendering strategies.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -81,8 +81,8 @@ export default function WebDevelopmentService() {
       ),
     },
     {
-      title: "Headless CMS Architectures",
-      description: "Decoupling content management from the frontend layout. Use clean editor consoles like Sanity or Strapi without monolithic code drag.",
+      title: "Headless CMS Development",
+      description: "We separate content management from the frontend to create flexible websites that are easier to manage and scale.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -91,7 +91,7 @@ export default function WebDevelopmentService() {
     },
     {
       title: "Custom API Integrations",
-      description: "Connecting third-party services, secure payment gateways, inventory CRMs, and database pipelines via lightweight rest or graph APIs.",
+      description: "We connect websites with payment systems, CRMs, databases, third-party platforms and business tools.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
@@ -99,8 +99,8 @@ export default function WebDevelopmentService() {
       ),
     },
     {
-      title: "Core Web Vitals & Auditing",
-      description: "Optimizing code execution, asset bundling, font layouts, and image sizes to reach perfect scores on Google PageSpeed Insight.",
+      title: "Core Web Vitals Optimization",
+      description: "We optimize code, images, fonts and scripts to improve loading speed, responsiveness and overall website performance.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -108,8 +108,8 @@ export default function WebDevelopmentService() {
       ),
     },
     {
-      title: "Technical SEO Foundation",
-      description: "Integrating search engine metadata, automatic sitemap configurations, canonical configurations, and robots configurations directly into page logic.",
+      title: "Technical SEO Development",
+      description: "We build SEO foundations directly into the website through clean architecture, metadata, sitemaps, canonical URLs and structured data.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
@@ -118,7 +118,7 @@ export default function WebDevelopmentService() {
     },
     {
       title: "Cloud Deployment & CDN",
-      description: "Deploying code on global CDNs like Vercel, Netlify, or AWS, ensuring close-proximity server delivery and near-zero downtime.",
+      description: "We deploy websites using modern hosting and CDN infrastructure for reliable global performance.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
@@ -130,33 +130,36 @@ export default function WebDevelopmentService() {
   const deepDiveItems = [
     {
       title: "Architecture & Data Mapping",
-      description: "We design the backend data schemas and outline API connections. This ensures your CMS structure maps clean fields before writing UI logic.",
+      description: "We design system architecture, plan APIs, and structure content schemas to support fast development and future scaling.",
       bullets: [
-        "Interactive schemas mapping page models in headless CMS consoles",
-        "API pipeline structure diagrams outlining third-party service mappings",
-        "Scalable hosting models and repository configurations",
+        "Technical architecture",
+        "CMS and database structure",
+        "API integration planning",
+        "Hosting and deployment strategy",
       ],
-      tags: ["Data Schemas", "System Architecture", "CMS Models"],
+      tags: ["System Architecture", "CMS", "API Mapping"],
     },
     {
-      title: "High-Performance Engineering",
-      description: "Our developers translate design components into semantic, reusable React components, keeping CSS payloads light.",
+      title: "High-Performance Development",
+      description: "We build component-driven frontends with responsive styling, smooth micro-interactions, and robust content integrations.",
       bullets: [
-        "Next.js App Router code structured for search engine crawlers",
-        "Utility-driven component styling with Tailwind CSS or custom CSS modules",
-        "GSAP and Framer Motion layout configurations for micro-animations",
+        "Responsive frontend development",
+        "Reusable components",
+        "CMS integration",
+        "Animations and interactions",
       ],
-      tags: ["Next.js React", "Tailwind CSS", "GSAP Animations"],
+      tags: ["Next.js", "React", "Tailwind CSS"],
     },
     {
-      title: "Speed Tuning & Launch",
-      description: "We optimize all scripts, image formats, and fonts to ensure absolute page load speeds before deploying globally.",
+      title: "Performance & Launch",
+      description: "We audit Core Web Vitals, implement technical SEO requirements, and configure edge CDN deployments for global speed.",
       bullets: [
-        "Code splitting, tree shaking, and asset caching config checks",
-        "Lighthouse performance validations achieving perfect mobile scores",
-        "Sitemap, schema markup, and search console registration setups",
+        "Performance optimization",
+        "Core Web Vitals checks",
+        "Technical SEO implementation",
+        "Production deployment",
       ],
-      tags: ["Performance Optimization", "Vercel CDN", "Speed Audit"],
+      tags: ["Performance", "SEO", "Deployment"],
     },
   ];
 
@@ -181,21 +184,23 @@ export default function WebDevelopmentService() {
 
   return (
     <ServiceSlugPage
-      tag="Engineering Service"
-      title="High-Performance Next.js Engineering"
-      introParagraph="We build fast, secure, and modular websites using modern headless architectures. Designed to perform, scale, and capture search engine rankings."
+      tag="Web Development Services"
+      title="HIGH-PERFORMANCE WEB DEVELOPMENT SERVICES"
+      introParagraph="We build fast, scalable and SEO-friendly websites using modern technologies such as React and Next.js. Every website is engineered for performance, responsiveness, security and long-term growth."
       heroGraphic={heroGraphic}
-      overviewHeading="Say Goodbye to Slow Page Loads."
-      overviewDescription="In a digital world where every millisecond affects conversion rates, bloated websites cost customers. We engineer custom digital products on composable architectures, delivering sub-second page rendering, absolute security, and a beautiful content-editing experience."
-      capabilitiesTitle="Our Web Engineering Capabilities"
-      capabilitiesIntro="We use a modern stack of Next.js, React, headless APIs, and cloud CDN edge servers to build durable websites that grow with your company."
+      overviewHeading="SAY GOODBYE TO SLOW WEBSITES."
+      overviewDescription="Slow websites lose attention, conversions and search visibility. We build modern websites and web applications using clean, scalable architectures designed for speed, security and usability. From marketing websites to custom web platforms, we combine strong frontend engineering with technical SEO and performance optimization."
+      capabilitiesTitle="OUR WEB DEVELOPMENT SERVICES"
+      capabilitiesIntro="We build complete digital experiences using modern frameworks, flexible content systems and performance-focused development practices."
       capabilities={capabilities}
       capabilitiesOutro="Every website we build is fully responsive, optimized for Core Web Vitals, and secure by design."
-      deepDiveTitle="Our Web Development Workflow"
-      deepDiveIntro="We follow a systematic workflow from data schema definition to code optimization, ensuring absolute performance at launch."
+      deepDiveTitle="OUR WEB DEVELOPMENT WORKFLOW"
+      deepDiveIntro="We follow a structured engineering process from technical architecture to production deployment to ensure maximum reliability and speed."
       deepDiveItems={deepDiveItems}
       faqs={faqs}
       projectTypeFilter="Custom Code"
+      projectsTitle="WEB PROJECTS BUILT TO PERFORM"
+      projectsSubtitle="Explore websites and digital products where thoughtful design meets modern web engineering."
     />
   );
 }

@@ -114,7 +114,7 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-transparent">
+    <main className="relative flex flex-col flex-1 min-h-screen pt-24 bg-transparent">
       {/* ── Main Contact Section ── */}
       <section className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -124,15 +124,33 @@ export default function ContactUs() {
             
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-zinc-900 leading-[1.12] mb-6">
-              Grow your business <br />
-              <span className="text-zinc-900 font-medium">with Designncode</span>
+              LET&apos;S BUILD SOMETHING <br />
+              <span className="text-zinc-900 font-medium">GREAT TOGETHER</span>
             </h1>
 
             {/* Subtitle */}
-            <div className="text-zinc-500 text-base sm:text-md leading-relaxed max-w-xl mb-12 space-y-3">
-              <p>Contact our team to learn how Designncode can help you build stronger connections, modernise tech, and drive sales.</p>
-              <p className="text-zinc-800 font-medium">
-                Call us: <a href="tel:+919220721921" className="hover:text-black transition-colors underline">+91 92207 21921</a>
+            <div className="text-zinc-600 text-base sm:text-md leading-relaxed max-w-xl mb-8 space-y-3">
+              <p className="font-semibold text-zinc-800">
+                Have a website, digital product or e-commerce idea in mind?
+              </p>
+              <p>
+                Talk to the DesignNCode team about UI/UX design, web development, Shopify development, SEO or your next digital project. Tell us what you are building and we will help you find the right way forward.
+              </p>
+              <p className="text-zinc-900 font-semibold pt-1">
+                Call us at:{" "}
+                <a href="tel:+919220721921" className="hover:text-black transition-colors underline">
+                  +91 92207 21921
+                </a>
+              </p>
+            </div>
+
+            {/* Client Logos Header */}
+            <div className="mb-4 mt-2">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-900 mb-1.5">
+                TRUSTED BY BRANDS BUILDING WHAT&apos;S NEXT
+              </h2>
+              <p className="text-xs text-zinc-500 max-w-md leading-relaxed">
+                We work with ambitious businesses, startups and growing brands to create better digital experiences, websites and products.
               </p>
             </div>
 
@@ -227,10 +245,20 @@ export default function ContactUs() {
 
           </div>
 
-          {/* Right Column: Contact Form Card (Matching Image 1:1) */}
+          {/* Right Column: Contact Form Card */}
           <div className="lg:col-span-6 w-full">
             <div className="bg-[#F7F6F3] rounded-[28px] p-6 sm:p-8 md:p-10 shadow-xs border border-zinc-100/60">
               
+              {/* Form Title & Description */}
+              <div className="mb-6 text-left">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 uppercase mb-2">
+                  TELL US ABOUT YOUR PROJECT
+                </h2>
+                <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed">
+                  Have a project in mind? Share a few details with us and our team will get back to you with the next steps.
+                </p>
+              </div>
+
               {formSubmitted ? (
                 <div className="py-16 flex flex-col items-center text-center animate-fade-in">
                   <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-4 shadow-xs">
@@ -248,7 +276,7 @@ export default function ContactUs() {
                   
                   {/* Field 1: Name */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-zinc-600 text-left">
+                    <label className="text-sm font-medium text-zinc-700 text-left">
                       Name
                     </label>
                     <input
@@ -258,14 +286,14 @@ export default function ContactUs() {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Enter your full name"
-                      className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all border border-zinc-100 shadow-2xs"
+                      className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all border border-zinc-100 shadow-2xs"
                     />
                   </div>
 
-                  {/* Field 2: Phone number */}
+                  {/* Field 2: Phone Number */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-zinc-600 text-left">
-                      Phone number
+                    <label className="text-sm font-medium text-zinc-700 text-left">
+                      Phone Number
                     </label>
                     <div className="flex items-center gap-3 relative">
                       
@@ -329,14 +357,14 @@ export default function ContactUs() {
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
                         placeholder="Enter your phone number"
-                        className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all border border-zinc-100 shadow-2xs"
+                        className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all border border-zinc-100 shadow-2xs"
                       />
                     </div>
                   </div>
 
                   {/* Field 3: Email */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-zinc-600 text-left">
+                    <label className="text-sm font-medium text-zinc-700 text-left">
                       Email
                     </label>
                     <input
@@ -345,14 +373,14 @@ export default function ContactUs() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="Enter your email"
-                      className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all border border-zinc-100 shadow-2xs"
+                      placeholder="Enter your email address"
+                      className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all border border-zinc-100 shadow-2xs"
                     />
                   </div>
 
                   {/* Field 4: Service */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-zinc-600 text-left">
+                    <label className="text-sm font-medium text-zinc-700 text-left">
                       Service
                     </label>
                     <select
@@ -365,7 +393,9 @@ export default function ContactUs() {
                       <option value="">Select a service</option>
                       <option value="ui_ux">UI/UX Design</option>
                       <option value="web_dev">Web Development</option>
-                      <option value="marketing">Performance Marketing</option>
+                      <option value="shopify_dev">Shopify Development</option>
+                      <option value="perf_marketing">Performance Marketing</option>
+                      <option value="seo">SEO & Organic Growth</option>
                       <option value="enterprise">Enterprise</option>
                       <option value="startup">Startup</option>
                       <option value="ecommerce">E-commerce</option>
@@ -374,7 +404,7 @@ export default function ContactUs() {
 
                   {/* Field 5: Message */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-zinc-600 text-left">
+                    <label className="text-sm font-medium text-zinc-700 text-left">
                       Message
                     </label>
                     <textarea
@@ -382,23 +412,28 @@ export default function ContactUs() {
                       rows={4}
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Message goes here..."
-                      className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all resize-none border border-zinc-100 shadow-2xs"
+                      placeholder="Tell us a little about your project, goals or requirements"
+                      className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all resize-none border border-zinc-100 shadow-2xs"
                     />
                   </div>
 
                   {/* Field 6: Submit Button */}
                   <SpecularButton
                     type="submit"
-                    className="w-full py-3 mt-2 text-base font-bold"
+                    className="w-full py-3.5 mt-2 text-base font-bold tracking-wide"
                     baseColor="#18181b"
                     textColor="#ffffff"
                     lineColor="#ffffff"
                     radius={9999}
                     intensity={1.2}
                   >
-                    Submit
+                    Send Project Inquiry
                   </SpecularButton>
+
+                  {/* Supporting Text */}
+                  <p className="text-xs text-zinc-500 text-center mt-1 leading-relaxed">
+                    Your project details help us understand your requirements before we start the conversation.
+                  </p>
 
                 </form>
               )}

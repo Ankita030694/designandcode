@@ -27,6 +27,11 @@ const navItems = [
     imageSrc: "/Projects.jpg",
   },
   {
+    label: "Blogs",
+    href: "/Blogs",
+    imageSrc: "/Blogs.png",
+  },
+  {
     label: "Contact",
     href: "/ContactUs",
     imageSrc: "/Contact.jpg",

@@ -100,10 +100,10 @@ export default function Home() {
         <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-6xl mx-auto px-6 py-6 md:py-12 select-none">
           <div className="relative py-6 md:py-12 max-w-full">
             {/* Main Typography Heading */}
-            <h1 className="text-5xl sm:text-7xl md:text-[84px] font-bold tracking-tight text-white leading-[0.9] max-w-5xl">
-              DESIGN THAT<br />
-              MAKES PEOPLE<br />
-              LOOK TWICE
+            <h1 className="text-4xl sm:text-6xl md:text-[76px] font-bold tracking-tight text-white leading-[0.95] max-w-5xl">
+              UI/UX DESIGN &<br />
+              WEB DEVELOPMENT<br />
+              AGENCY
             </h1>
 
             {/* Pinned Start a Project Button in Hero Section */}
@@ -121,7 +121,7 @@ export default function Home() {
               
               <Link href="/ContactUs">
                 <button className="bg-white border border-zinc-200/80 rounded-xl px-7 py-3 shadow-md hover:shadow-lg text-zinc-900 font-extrabold text-sm tracking-wide select-none cursor-pointer">
-                  Start a project
+                  Start a Project
                 </button>
               </Link>
             </div>
@@ -132,10 +132,12 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-4 md:pb-10 select-none gap-4 md:gap-8">
           
           {/* Left: Tagline */}
-          <div className="hidden md:flex flex-1 max-w-[300px] sm:max-w-[340px] items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
+          <div className="hidden md:flex flex-1 max-w-[340px] sm:max-w-[420px] items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
             <span className="text-white text-base md:text-lg font-bold">—</span>
             <div className="flex flex-col">
-              <span className="text-base sm:text-lg md:text-[22px] font-medium text-white leading-snug">Not just visuals. I make digital things look alive</span>
+              <span className="text-sm sm:text-base md:text-[17px] font-medium text-white leading-snug">
+                We design and build high-performing digital experiences that help ambitious brands stand out, connect with customers and grow online.
+              </span>
             </div>
           </div>
 
@@ -264,13 +266,11 @@ export default function Home() {
           </div>
 
           <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none">
-            WE MAKE DESIGNS<br />PEOPLE REMEMBER
+            WE CREATE DIGITAL EXPERIENCES<br />THAT MAKE AN IMPACT
           </h2>
 
-          <p className="text-zinc-800 text-base sm:text-xl md:text-[22px] font-medium leading-relaxed max-w-2xl text-center mt-6 select-none">
-            We design clean websites, apps, and brand systems<br />
-            that help ideas look sharper, feel trusted<br />
-            <span className="font-bold text-zinc-900">— and work with purpose.</span>
+          <p className="text-zinc-800 text-base sm:text-lg md:text-[20px] font-medium leading-relaxed max-w-3xl text-center mt-6 select-none">
+            DesignNCode is a creative UI/UX design and web development agency helping businesses build better digital experiences. We combine user-centered design, modern technology and strategic thinking to create websites, e-commerce stores and digital products that look great, work smoothly and deliver measurable results.
           </p>
 
         </div>
@@ -312,10 +312,10 @@ export default function Home() {
 
               <div className="mt-2 flex flex-col">
                 <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">8+</span>
-                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Years of Experience</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Experience</span>
               </div>
               <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-                Designing websites, apps, and digital products with a clear focus on usability.
+                Years of combined experience creating digital experiences for modern businesses and growing brands.
               </p>
             </div>
 
@@ -340,10 +340,10 @@ export default function Home() {
 
               <div className="mt-2 flex flex-col">
                 <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">40+</span>
-                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Projects Designed</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Projects Delivered</span>
               </div>
               <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-                From landing pages to complete Framer websites, responsive and robust.
+                Websites, digital products, e-commerce stores and user experiences designed and developed for real business needs.
               </p>
             </div>
 
@@ -368,10 +368,10 @@ export default function Home() {
 
               <div className="mt-2 flex flex-col">
                 <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">12+</span>
-                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Industries explored</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Industries</span>
               </div>
               <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-                Worked across SaaS, fintech, AI, agencies, finance, and service businesses.
+                Experience across technology, e-commerce, finance, SaaS, professional services, startups and other growing industries.
               </p>
             </div>
 
@@ -396,10 +396,10 @@ export default function Home() {
 
               <div className="mt-2 flex flex-col">
                 <span className="text-4xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-none">100%</span>
-                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Framer Native</span>
+                <span className="text-sm font-bold text-zinc-800 mt-2 select-none">Performance Built</span>
               </div>
               <p className="text-xs font-medium text-zinc-500 leading-relaxed mt-2 select-none">
-                Responsive Framer websites designed, built, and published with perfection.
+                Scalable, conversion-focused websites, UI/UX systems and digital products built to perform.
               </p>
             </div>
           </div>
@@ -460,7 +460,7 @@ export default function Home() {
           </div>
 
           <h2 className="text-white font-extrabold text-4xl sm:text-5xl md:text-[52px] tracking-tight uppercase leading-[1.05] max-w-3xl text-center select-none drop-shadow-md">
-            PROJECTS THAT<br />TELL STORIES
+            DIGITAL WORK THAT<br />SPEAKS FOR ITSELF
           </h2>
         </div>
 

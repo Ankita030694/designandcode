@@ -55,40 +55,47 @@ const teamMembers = [
   {
     name: "Ankita Malik",
     role: "Co-Founder & Managing Director",
+    bio: "Leading DesignNCode with a focus on business strategy, creative direction and building meaningful digital experiences for ambitious brands.",
     imageSrc: "/Ankita.jpeg",
   },
   {
     name: "Bhavya",
     role: "SDE",
+    bio: "Focused on building reliable and scalable digital solutions while bringing modern development practices to every project.",
     imageSrc: "/Bhavya.jpeg",
   },
   {
     name: "Zaib",
     role: "Designer & Frontend Developer",
+    bio: "Bringing UI/UX design and frontend development together to create interfaces that are visually engaging, responsive and easy to use.",
     imageSrc: "/Zaib.jpeg",
   },
   {
     name: "Piyush",
     role: "SDE Intern",
+    bio: "Supporting development projects while learning and contributing to modern web development and digital product experiences.",
     imageSrc: "/Piyush.jpeg",
   },
 ];
 
 const statsItems = [
   {
-    target: 142,
-    suffix: "",
-    label: "Campaigns / Month",
+    target: 40,
+    suffix: "+",
+    label: "Projects",
+    desc: "Websites, digital products, e-commerce experiences and creative projects delivered for growing businesses.",
   },
   {
-    target: 4,
-    suffix: "M",
-    label: "Impressions",
+    target: 12,
+    suffix: "+",
+    label: "Industries",
+    desc: "Experience across technology, e-commerce, finance, SaaS, professional services and other digital industries.",
   },
   {
-    target: 497,
-    suffix: "",
-    label: "Personalized Ads",
+    target: 100,
+    suffix: "%",
+    label: "Focus on Quality",
+    desc: "Every project receives focused attention across strategy, design, development and final execution.",
   },
 ];
 
@@ -96,22 +103,23 @@ const storyData = {
   kicker: "Our Story",
   title: "Craft that started with a simple promise",
   paragraphs: [
-    "DesignNCode began with a small shared desk and a single belief: building for the web shouldn't feel like a compromise. From our very first line of code, we designed every interaction - from the layout of a landing page to the underlying API structure - around speed, aesthetics, and trust.",
-    "Today, our team of developers and designers covers everything from headless CMS to custom web products, supported by modern frameworks, micro-interactions, and performant marketing operations. But the promise remains unchanged: beautiful design, clean engineering, and digital products that fit your brand goals.",
-    "We measure success in real impacts: a brand that doubles its engagement, a platform that scales smoothly under high loads, a client that partners with us year after year. That's the work we're proudest of."
+    "DesignNCode started with a simple belief: great digital experiences should never be a compromise between design, technology and business goals.",
+    "From our first project, we have focused on creating websites and digital products where every detail has a purpose. From the structure of a landing page to the smallest interaction, we think about usability, performance, visual quality and the people using the product.",
+    "Today, our expertise spans UI/UX design, web development, e-commerce, Shopify, digital products and modern web technologies. We bring designers and developers together to create experiences that are not only visually engaging but also fast, responsive and built to perform.",
+    "For us, success is more than delivering a beautiful interface. It is creating a website that converts, a product that users understand or a digital experience that helps a business move forward. That is the kind of work we are proud to build."
   ],
   cards: [
     {
-      title: "Design first",
-      description: "We prioritize intuitive, gorgeous aesthetics that wow users and represent your brand premiumness."
+      title: "Consistent Branding",
+      description: "We create digital experiences that stay consistent with your brand across websites, products, campaigns and customer touchpoints."
     },
     {
-      title: "Clean engineering",
-      description: "No bloated code or heavy dependencies. We build scalable, lightweight systems optimized for speed."
+      title: "Smart Design & Development",
+      description: "We combine thoughtful UI/UX design with modern development to create experiences that are visually strong, functional and easy to use."
     },
     {
-      title: "Time respected",
-      description: "We value your schedule. Clear communication, transparency, and timely delivery guide our process."
+      title: "Scalable Solutions",
+      description: "We build digital experiences with performance, flexibility and future growth in mind, helping your website or product evolve with your business."
     }
   ]
 };
@@ -185,8 +193,8 @@ export default function AboutUs() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-8">
-            Combining our user-centric philosophy with composable architecture, gorgeous design, and raw innovation, we&apos;re on a quest to change the way sites are built.
+          <p className="text-zinc-600 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed mb-8">
+            We are a creative UI/UX design and web development agency focused on building digital experiences that look great, work seamlessly and help businesses grow. We combine user-centered design, modern technology and strategic thinking to create websites, digital products and e-commerce experiences that people enjoy using.
           </p>
 
           {/* Interactive Orbiting Visuals Area */}
@@ -258,17 +266,20 @@ export default function AboutUs() {
             {/* Header Block */}
             <div className="flex flex-col justify-center text-left pr-4 mb-10">
               <span className="text-xs font-regular tracking-[0.2em] text-[#000000] mb-3">
-                Why Designncode
+                Why DesignNCode
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium uppercase tracking-tight text-[#000000] leading-[1.1]">
-                Trusted by leading businesses with digital & design success
+                Trusted by businesses for digital & design success
               </h2>
+              <p className="text-zinc-600 text-sm sm:text-base font-medium mt-3 max-w-2xl">
+                We believe great digital work comes from combining creative thinking with a clear understanding of business goals.
+              </p>
             </div>
 
             {/* Three Cards in a Row */}
             <div className="grid grid-cols-3 gap-8 items-stretch">
               {/* Card 1: Pastel Sky */}
-              <div className="rounded-[28px] bg-[#e0f2fe]/95 backdrop-blur-sm border border-sky-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[250px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <div className="rounded-[28px] bg-[#e0f2fe]/95 backdrop-blur-sm border border-sky-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[270px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 {/* Layer Stack Icon */}
                 <div className="w-12 h-12 rounded-2xl bg-sky-500/15 text-sky-600 flex items-center justify-center">
                   <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -281,14 +292,14 @@ export default function AboutUs() {
                   <h3 className="font-bold text-xl tracking-tight mb-2 uppercase leading-none text-zinc-900">
                     Consistent Branding
                   </h3>
-                  <p className="text-xs font-medium text-zinc-600 leading-relaxed max-w-[220px]">
-                    Ensure every campaign aligns with your brand&apos;s identity.
+                  <p className="text-xs font-medium text-zinc-600 leading-relaxed">
+                    We create digital experiences that stay consistent with your brand across websites, products, campaigns and customer touchpoints.
                   </p>
                 </div>
               </div>
 
               {/* Card 2: Pastel Rose */}
-              <div className="rounded-[28px] bg-[#ffe4e6]/95 backdrop-blur-sm border border-rose-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[250px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <div className="rounded-[28px] bg-[#ffe4e6]/95 backdrop-blur-sm border border-rose-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[270px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 {/* Nodes/Connections Icon */}
                 <div className="w-12 h-12 rounded-2xl bg-rose-500/15 text-rose-600 flex items-center justify-center">
                   <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -298,16 +309,16 @@ export default function AboutUs() {
                 </div>
                 <div className="text-left">
                   <h3 className="font-bold text-xl tracking-tight mb-2 uppercase leading-none text-zinc-900">
-                    Automation & Precision
+                    Smart Design & Development
                   </h3>
-                  <p className="text-xs font-medium text-zinc-600 leading-relaxed max-w-[220px]">
-                    Effortlessly manage and personalize campaigns.
+                  <p className="text-xs font-medium text-zinc-600 leading-relaxed">
+                    We combine thoughtful UI/UX design with modern development to create experiences that are visually strong, functional and easy to use.
                   </p>
                 </div>
               </div>
 
               {/* Card 3: Pastel Emerald */}
-              <div className="rounded-[28px] bg-[#ecfdf5]/95 backdrop-blur-sm border border-emerald-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[250px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <div className="rounded-[28px] bg-[#ecfdf5]/95 backdrop-blur-sm border border-emerald-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[270px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 {/* Scale/Resize Icon */}
                 <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center">
                   <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -318,8 +329,8 @@ export default function AboutUs() {
                   <h3 className="font-bold text-xl tracking-tight mb-2 uppercase leading-none text-zinc-900">
                     Scalable Solutions
                   </h3>
-                  <p className="text-xs font-medium text-zinc-600 leading-relaxed max-w-[220px]">
-                    Managing complex campaigns across multiple locations.
+                  <p className="text-xs font-medium text-zinc-600 leading-relaxed">
+                    We build digital experiences with performance, flexibility and future growth in mind, helping your website or product evolve with your business.
                   </p>
                 </div>
               </div>
@@ -331,13 +342,14 @@ export default function AboutUs() {
             {/* Header */}
             <div className="flex flex-col justify-center text-left px-6 mb-6">
               <span className="text-xs font-regular tracking-[0.2em] text-[#000000] mb-2">
-                Why Designncode
+                Why DesignNCode
               </span>
               <h2 className="text-3xl font-medium uppercase tracking-tight text-[#000000] leading-[1.1]">
-                Trusted by leading<br />
-                businesses with digital<br />
-                & design success
+                Trusted by businesses for digital & design success
               </h2>
+              <p className="text-zinc-600 text-xs sm:text-sm font-medium mt-2">
+                We believe great digital work comes from combining creative thinking with a clear understanding of business goals.
+              </p>
             </div>
 
             {/* Carousel Container */}
@@ -356,7 +368,7 @@ export default function AboutUs() {
               }}
             >
               {/* Card 1: Pastel Sky */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#e0f2fe]/95 backdrop-blur-sm border border-sky-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[230px] select-none shadow-md">
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#e0f2fe]/95 backdrop-blur-sm border border-sky-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[250px] select-none shadow-md">
                 {/* Layer Stack Icon */}
                 <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-600 flex items-center justify-center">
                   <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -370,13 +382,13 @@ export default function AboutUs() {
                     Consistent Branding
                   </h3>
                   <p className="text-xs text-zinc-600 leading-relaxed">
-                    Ensure every campaign aligns with your brand&apos;s identity.
+                    We create digital experiences that stay consistent with your brand across websites, products, campaigns and customer touchpoints.
                   </p>
                 </div>
               </div>
 
               {/* Card 2: Pastel Rose */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#ffe4e6]/95 backdrop-blur-sm border border-rose-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[230px] select-none shadow-md">
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#ffe4e6]/95 backdrop-blur-sm border border-rose-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[250px] select-none shadow-md">
                 {/* Nodes/Connections Icon */}
                 <div className="w-10 h-10 rounded-xl bg-rose-500/15 text-rose-600 flex items-center justify-center">
                   <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -386,16 +398,16 @@ export default function AboutUs() {
                 </div>
                 <div className="text-left">
                   <h3 className="font-bold text-lg tracking-tight mb-1.5 uppercase leading-none text-zinc-900">
-                    Automation & Precision
+                    Smart Design & Development
                   </h3>
                   <p className="text-xs text-zinc-600 leading-relaxed">
-                    Effortlessly manage and personalize campaigns.
+                    We combine thoughtful UI/UX design with modern development to create experiences that are visually strong, functional and easy to use.
                   </p>
                 </div>
               </div>
 
               {/* Card 3: Pastel Emerald */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#ecfdf5]/95 backdrop-blur-sm border border-emerald-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[230px] select-none shadow-md">
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#ecfdf5]/95 backdrop-blur-sm border border-emerald-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[250px] select-none shadow-md">
                 {/* Scale/Resize Icon */}
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center">
                   <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -407,7 +419,7 @@ export default function AboutUs() {
                     Scalable Solutions
                   </h3>
                   <p className="text-xs text-zinc-600 leading-relaxed">
-                    Managing complex campaigns across multiple locations.
+                    We build digital experiences with performance, flexibility and future growth in mind, helping your website or product evolve with your business.
                   </p>
                 </div>
               </div>
@@ -443,8 +455,11 @@ export default function AboutUs() {
               <div className="h-[2px] bg-gradient-to-r from-sky-400/50 via-rose-400/50 to-amber-400/50 w-full mt-4 mb-4 rounded-full" />
               
               {/* Label */}
-              <p className="text-zinc-500 font-semibold text-[13px] tracking-wider uppercase">
+              <p className="text-zinc-900 font-bold text-base tracking-wide uppercase">
                 {item.label}
+              </p>
+              <p className="text-zinc-500 font-medium text-xs sm:text-sm mt-1.5 leading-relaxed">
+                {item.desc}
               </p>
             </div>
           ))}
@@ -493,8 +508,11 @@ export default function AboutUs() {
             </span>
             <span>team</span>
           </h2>
-          <p className="text-zinc-500 text-sm sm:text-base md:text-lg mt-6 leading-relaxed max-w-2xl mx-auto">
-            It&apos;s not just what we do - it&apos;s who we are. Meet the exceptional people that make it all happen.
+          <h3 className="text-zinc-800 font-bold text-base sm:text-lg uppercase tracking-wider mt-4">
+            IT&apos;S NOT JUST WHAT WE DO. IT&apos;S WHO WE ARE.
+          </h3>
+          <p className="text-zinc-500 text-sm sm:text-base mt-3 leading-relaxed max-w-2xl mx-auto">
+            Behind every DesignNCode project is a team of designers, developers and digital thinkers who care about solving problems and creating work that makes an impact. We bring different skills and perspectives together to turn ideas into useful, memorable and high-performing digital experiences.
           </p>
         </div>
 

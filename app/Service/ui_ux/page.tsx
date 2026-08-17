@@ -58,8 +58,8 @@ export default function UiUxDesignService() {
 
   const capabilities = [
     {
-      title: "User Research & Strategy",
-      description: "Analyzing user behavior, interviewing stakeholders, and building data-backed strategies that align directly with your customer needs.",
+      title: "User Research & UX Strategy",
+      description: "We study user needs, behaviors, pain points and business goals to build a clear product strategy and user experience direction.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <circle cx="11" cy="11" r="8" />
@@ -69,7 +69,7 @@ export default function UiUxDesignService() {
     },
     {
       title: "Wireframing & Prototyping",
-      description: "Building click-through interactive wireframes and interactive prototypes to validate workflows and layouts before writing any code.",
+      description: "We turn ideas into interactive wireframes and prototypes that help validate user flows, content hierarchy and product functionality before development.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -78,8 +78,8 @@ export default function UiUxDesignService() {
       ),
     },
     {
-      title: "High-Fidelity Interface Design",
-      description: "Crafting beautiful, modern, and pixel-perfect layouts designed to reflect your brand's voice and convert casual visitors.",
+      title: "High-Fidelity UI Design",
+      description: "We create polished, modern interfaces with thoughtful typography, visual hierarchy, interactions and brand expression.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -87,8 +87,8 @@ export default function UiUxDesignService() {
       ),
     },
     {
-      title: "Scalable Design Systems",
-      description: "Developing comprehensive component libraries, styles, and asset guides that ensure consistency across all sub-pages and systems.",
+      title: "Design Systems",
+      description: "We build scalable component libraries, styles and design guidelines that maintain consistency across products and screens.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -97,7 +97,7 @@ export default function UiUxDesignService() {
     },
     {
       title: "Mobile-First Design",
-      description: "Ensuring interface compliance with mobile viewports. Layouts optimized for single-thumb scrolling, touch targets, and speed.",
+      description: "We design responsive experiences that work naturally across smartphones, tablets and desktop devices.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <rect x="5" y="2" width="14" height="20" rx="2" />
@@ -106,8 +106,8 @@ export default function UiUxDesignService() {
       ),
     },
     {
-      title: "Usability Testing & Audit",
-      description: "Conducting user testing, heat-map audits, and heuristic evaluations to resolve conversion bottlenecks and optimize usability.",
+      title: "Usability Testing & UX Audits",
+      description: "We identify usability issues, friction points and conversion barriers through structured UX reviews and usability testing.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -119,33 +119,36 @@ export default function UiUxDesignService() {
   const deepDiveItems = [
     {
       title: "Define & Strategize",
-      description: "We align with your team to detail brand requirements, map out comprehensive user journeys, and establish user experience goals.",
+      description: "We align with your team to understand your audience, research competitive benchmarks, and establish a clear information architecture.",
       bullets: [
-        "Interactive stakeholder alignment workshops",
-        "Comprehensive user persona definition and competitor analysis",
-        "Information architecture blueprints and core sitemaps",
+        "User research and stakeholder insights",
+        "User personas and competitor analysis",
+        "User journeys and information architecture",
+        "Sitemap and product structure",
       ],
-      tags: ["Research", "Sitemaps", "Strategy"],
+      tags: ["User Research", "UX Strategy", "Information Architecture"],
     },
     {
       title: "Wireframe & Validate",
-      description: "We compile layout wireframes to test layout flows. This allows us to focus entirely on usability, content priorities, and layouts without getting distracted by color choices.",
+      description: "We create iterative layout wireframes and user journeys to test layout flows, content hierarchy, and interactions early.",
       bullets: [
-        "Low and mid-fidelity interactive layout wireframes",
-        "User flow click-through tests to identify speed bottlenecks",
-        "Layout structure and core checkout/CTA validation",
+        "Interactive wireframes",
+        "User flow prototypes",
+        "Navigation and content hierarchy",
+        "UX usability validation",
       ],
-      tags: ["UX Wireframes", "Prototyping", "Flow Audits"],
+      tags: ["UX Wireframes", "User Flows", "Prototyping"],
     },
     {
-      title: "High-Fidelity UI Design",
-      description: "We apply typography, custom icons, and visual styles to create a cohesive layout that feels premium, premium-quality, and modern.",
+      title: "Design & Handoff",
+      description: "We apply cohesive typography, component systems, and design tokens for pixel-perfect screens and seamless developer handoff.",
       bullets: [
-        "Pixel-perfect high fidelity page visual concepts",
-        "Fully componentized Figma file handover",
-        "Dynamic animations, micro-interactions, and transition guides",
+        "High-fidelity UI designs",
+        "Responsive design systems",
+        "Interactive prototypes",
+        "Developer handoff specifications",
       ],
-      tags: ["Visual Design", "Design Systems", "Figma Design"],
+      tags: ["Visual Design", "Design Systems", "Figma"],
     },
   ];
 
@@ -170,21 +173,23 @@ export default function UiUxDesignService() {
 
   return (
     <ServiceSlugPage
-      tag="Specialist Service"
-      title="UI/UX Design & User Experience"
-      introParagraph="We translate complex product ideas into clean, conversion-focused digital interfaces. Aligned with your brand and engineered for sub-second user comprehension."
+      tag="UI/UX Design Services"
+      title="UI/UX DESIGN SERVICES FOR DIGITAL PRODUCTS"
+      introParagraph="We transform complex ideas into intuitive, conversion-focused digital experiences. From user research and UX strategy to high-fidelity UI design and Figma prototypes, we design products that are easy to understand, use and love."
       heroGraphic={heroGraphic}
-      overviewHeading="User Journeys That Make Sense."
-      overviewDescription="Outstanding interface design goes far beyond visual beauty. It's about designing seamless digital pathways that guide your visitors effortlessly. We identify friction, remove barriers, and create interfaces that feel natural and encourage action."
-      capabilitiesTitle="Our Key UI/UX Capabilities"
-      capabilitiesIntro="We cover all aspects of design, ensuring that sitemaps, wireframes, interface layouts, and developer handoffs are handled with professional precision."
+      overviewHeading="USER EXPERIENCES THAT MAKE SENSE."
+      overviewDescription="Great UI/UX design is about more than creating beautiful screens. It is about understanding how people think, removing friction and creating digital journeys that naturally guide users toward their goals. We combine user research, UX strategy, information architecture and visual design to create websites, mobile apps and digital products that feel intuitive from the first interaction."
+      capabilitiesTitle="OUR KEY UI/UX DESIGN SERVICES"
+      capabilitiesIntro="We cover the complete UX and UI design process, from understanding your users and defining the product structure to creating polished interfaces and developer-ready design systems."
       capabilities={capabilities}
       capabilitiesOutro="We deliver ready-to-develop Figma libraries built directly on standard design system practices."
-      deepDiveTitle="Our End-to-End Design Workflow"
-      deepDiveIntro="We follow a systematic workflow to ensure that the layout, strategy, and design assets are fully aligned with your business goals."
+      deepDiveTitle="OUR END-TO-END UI/UX DESIGN PROCESS"
+      deepDiveIntro="We follow a structured design process from initial research to polished handoff to ensure every screen serves user and business goals."
       deepDiveItems={deepDiveItems}
       faqs={faqs}
       projectTypeFilter="Custom Code"
+      projectsTitle="UI/UX PROJECTS THAT TELL STORIES"
+      projectsSubtitle="Explore selected website, mobile app and digital product designs created to solve real user and business problems."
     />
   );
 }

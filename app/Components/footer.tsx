@@ -80,26 +80,29 @@ export default function Footer() {
         </div>
 
         {/* ── HEADING & MOBILE CTA ── */}
-        <div className="relative z-10 px-8 pb-8 md:pb-16 mt-auto flex flex-col items-start text-left">
+        <div className="relative z-10 px-8 pb-8 md:pb-16 mt-auto flex flex-col items-start text-left max-w-3xl">
           <div className="relative inline-block text-left">
             {/* Main heading */}
             <h2
-              className="text-white font-black text-4xl sm:text-6xl md:text-[70px] leading-[0.95] tracking-tight uppercase text-left"
+              className="text-white font-black text-4xl sm:text-5xl md:text-[62px] leading-[0.95] tracking-tight uppercase text-left"
               style={{ textShadow: "0 2px 24px rgba(0,0,0,0.25)" }}
             >
-              LET&apos;S BUILD<br />
-              SOMETHING<br />
-              MEMORABLE
+              HAVE AN IDEA?<br />
+              LET&apos;S MAKE IT REAL.
             </h2>
           </div>
+
+          <p className="text-white/90 text-sm sm:text-base font-medium leading-relaxed mt-4 max-w-xl text-left drop-shadow-sm">
+            Whether you need a new website, a better digital product, a high-converting Shopify store or a complete digital transformation, we are ready to build it with you. Tell us what you are building. We will help you figure out what comes next.
+          </p>
 
           {/* Mobile CTA below text */}
           <div className="mt-6 block md:hidden">
             <Link
               href="/ContactUs"
-              className="bg-white text-zinc-900 font-medium text-lg px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 active:scale-95 transition-all duration-200 select-none inline-block text-left"
+              className="bg-white text-zinc-900 font-bold text-base px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 active:scale-95 transition-all duration-200 select-none inline-block text-left"
             >
-              Let&apos;s chat
+              Start Your Project
             </Link>
           </div>
         </div>
@@ -126,9 +129,9 @@ export default function Footer() {
         <div className="hidden md:block absolute bottom-8 right-8 z-20">
           <Link
             href="/ContactUs"
-            className="bg-white text-zinc-900 font-medium text-xl px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 hover:scale-105 active:scale-95 transition-all duration-200 select-none inline-block"
+            className="bg-white text-zinc-900 font-bold text-lg px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 hover:scale-105 active:scale-95 transition-all duration-200 select-none inline-block"
           >
-            Let&apos;s chat
+            Start Your Project
           </Link>
         </div>
       </div>

@@ -62,34 +62,27 @@ export default function Reviews() {
         {/* ── TESTIMONIAL CARDS (Desktop View: hidden on mobile) ── */}
         <div className="hidden md:block relative z-20 w-full max-w-6xl mx-auto px-6 select-none">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            {/* Card 1 – Sarah M. */}
+            {/* Card 1 – Anuj Anand Malik (AMA Legal Solutions) */}
             <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
               </div>
-              {/* Folded corner */}
-              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
-                <svg viewBox="0 0 56 56" fill="none">
-                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
-                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
-                </svg>
-              </div>
 
               {/* Profile */}
               <div className="flex items-center gap-3 mt-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
-                  <Image src="/jennifer.png" alt="Sarah M." width={40} height={40} className="object-cover w-full h-full" />
+                  <Image src="/dewey.png" alt="Anuj Anand Malik" width={40} height={40} className="object-cover w-full h-full" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-zinc-900 leading-tight">Sarah M.</span>
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Anuj Anand Malik</span>
                   <span className="text-xs text-zinc-400 font-medium">Founder</span>
                 </div>
               </div>
 
               {/* Quote */}
               <p className="text-xl font-regular text-zinc-950 leading-snug tracking-tight">
-                &ldquo;The website finally feels like our brand.&rdquo;
+                &ldquo;The website finally feels like our brand and establishes trust.&rdquo;
               </p>
 
               {/* Stars */}
@@ -102,49 +95,45 @@ export default function Reviews() {
               </div>
 
               {/* Logo */}
-              <div className="flex items-center gap-1.5 mt-auto">
-                <div className="w-4 h-4 text-blue-600">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                  </svg>
+              <div className="flex items-center gap-2 mt-auto">
+                <div className="relative h-6 w-20 flex-shrink-0">
+                  <Image
+                    src="/LOGO DESIGNNCODE/WhatsApp_Image_2025-09-30_at_10.44.53_c9d9cf5d-removebg-preview 1.png"
+                    alt="AMA Legal Solutions Logo"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
-                <span className="text-xs font-bold text-zinc-500">Fitas</span>
+                <span className="text-xs font-bold text-zinc-600">AMA Legal Solutions</span>
               </div>
 
               {/* Detail text */}
               <p className="text-xs text-zinc-400 leading-relaxed">
-                She turned our idea into a polished website that felt premium, and easy to understand.
+                DesignNCode transformed our legal practice's digital presence into a modern, authoritative platform that brings in high-intent inquiries.
               </p>
             </div>
 
-            {/* Card 2 – Daniel R. (shifted down) */}
+            {/* Card 2 – Aditi Sharma (Anyadha) */}
             <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 transform rotate-[5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300 md:mt-16">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
               </div>
-              {/* Folded corner */}
-              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
-                <svg viewBox="0 0 56 56" fill="none">
-                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
-                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
-                </svg>
-              </div>
 
               {/* Profile */}
               <div className="flex items-center gap-3 mt-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
-                  <Image src="/dewey.png" alt="Daniel R." width={40} height={40} className="object-cover w-full h-full" />
+                  <Image src="/jennifer.png" alt="Aditi Sharma" width={40} height={40} className="object-cover w-full h-full" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-zinc-900 leading-tight">Daniel R.</span>
-                  <span className="text-xs text-zinc-400 font-medium">Product Lead</span>
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Aditi Sharma</span>
+                  <span className="text-xs text-zinc-400 font-medium">Founder</span>
                 </div>
               </div>
 
               {/* Quote */}
               <p className="text-xl font-regular text-zinc-950 leading-snug tracking-tight">
-                &ldquo;The flow became much easier to use.&rdquo;
+                &ldquo;Our Shopify store conversion rate increased significantly.&rdquo;
               </p>
 
               {/* Stars */}
@@ -157,49 +146,45 @@ export default function Reviews() {
               </div>
 
               {/* Logo */}
-              <div className="flex items-center gap-1.5 mt-auto">
-                <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
-                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10" />
-                  </svg>
+              <div className="flex items-center gap-2 mt-auto">
+                <div className="relative h-6 w-16 flex-shrink-0">
+                  <Image
+                    src="/LOGO DESIGNNCODE/Anyadha-removebg-preview 1.png"
+                    alt="Anyadha Logo"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
-                <span className="text-xs font-bold text-zinc-500">Bond</span>
+                <span className="text-xs font-bold text-zinc-600">Anyadha</span>
               </div>
 
               {/* Detail text */}
               <p className="text-xs text-zinc-400 leading-relaxed">
-                She cleaned up the user journey, and made the product feel more focused and professional.
+                They built a high-converting storefront that honors our handloom heritage while providing an effortless mobile shopping journey.
               </p>
             </div>
 
-            {/* Card 3 – Ayesha K. */}
+            {/* Card 3 – Rohan Mehta (Foire) */}
             <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 transform rotate-[-5deg] hover:rotate-0 hover:scale-[1.02] transition-all duration-300">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
               </div>
-              {/* Folded corner */}
-              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
-                <svg viewBox="0 0 56 56" fill="none">
-                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
-                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
-                </svg>
-              </div>
 
               {/* Profile */}
               <div className="flex items-center gap-3 mt-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
-                  <Image src="/ankita.png" alt="Ayesha K." width={40} height={40} className="object-cover w-full h-full" />
+                  <Image src="/ankita.png" alt="Rohan Mehta" width={40} height={40} className="object-cover w-full h-full" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-zinc-900 leading-tight">Ayesha K.</span>
-                  <span className="text-xs text-zinc-400 font-medium">Creative Director</span>
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Rohan Mehta</span>
+                  <span className="text-xs text-zinc-400 font-medium">Co-Founder</span>
                 </div>
               </div>
 
               {/* Quote */}
               <p className="text-xl font-regular text-zinc-950 leading-snug tracking-tight">
-                &ldquo;Sharp design without overcomplicating it.&rdquo;
+                &ldquo;Sharp design and clean code without overcomplicating it.&rdquo;
               </p>
 
               {/* Stars */}
@@ -212,18 +197,21 @@ export default function Reviews() {
               </div>
 
               {/* Logo */}
-              <div className="flex items-center gap-1.5 mt-auto">
-                <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z" />
-                  </svg>
+              <div className="flex items-center gap-2 mt-auto">
+                <div className="relative h-6 w-16 flex-shrink-0">
+                  <Image
+                    src="/LOGO DESIGNNCODE/foire_logo_1_-01-removebg-preview 1.png"
+                    alt="Foire Logo"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
-                <span className="text-xs font-bold text-zinc-500">Arsha.</span>
+                <span className="text-xs font-bold text-zinc-600">Foire</span>
               </div>
 
               {/* Detail text */}
               <p className="text-xs text-zinc-400 leading-relaxed">
-                The final design looked modern, but still felt practical. Everything was ready to hand off.
+                The final design looked modern and premium. Every interaction was thoughtful, clean, and delivered right on schedule.
               </p>
             </div>
           </div>
@@ -236,34 +224,27 @@ export default function Reviews() {
             className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory px-8 pb-6"
             onScroll={handleReviewScroll}
           >
-            {/* Card 1 – Sarah M. */}
+            {/* Card 1 – Anuj Anand Malik (AMA Legal Solutions) */}
             <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 snap-center w-[calc(100vw-64px)] flex-shrink-0">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
               </div>
-              {/* Folded corner */}
-              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
-                <svg viewBox="0 0 56 56" fill="none">
-                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
-                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
-                </svg>
-              </div>
 
               {/* Profile */}
               <div className="flex items-center gap-3 mt-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
-                  <Image src="/jennifer.png" alt="Sarah M." width={40} height={40} className="object-cover w-full h-full" />
+                  <Image src="/dewey.png" alt="Anuj Anand Malik" width={40} height={40} className="object-cover w-full h-full" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-zinc-900 leading-tight">Sarah M.</span>
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Anuj Anand Malik</span>
                   <span className="text-xs text-zinc-400 font-medium">Founder</span>
                 </div>
               </div>
 
               {/* Quote */}
               <p className="text-lg font-regular text-zinc-950 leading-snug tracking-tight">
-                &ldquo;The website finally feels like our brand.&rdquo;
+                &ldquo;The website finally feels like our brand and establishes trust.&rdquo;
               </p>
 
               {/* Stars */}
@@ -276,49 +257,45 @@ export default function Reviews() {
               </div>
 
               {/* Logo */}
-              <div className="flex items-center gap-1.5 mt-auto">
-                <div className="w-4 h-4 text-blue-600">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                  </svg>
+              <div className="flex items-center gap-2 mt-auto">
+                <div className="relative h-6 w-20 flex-shrink-0">
+                  <Image
+                    src="/LOGO DESIGNNCODE/WhatsApp_Image_2025-09-30_at_10.44.53_c9d9cf5d-removebg-preview 1.png"
+                    alt="AMA Legal Solutions Logo"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
-                <span className="text-xs font-bold text-zinc-500">Fitas</span>
+                <span className="text-xs font-bold text-zinc-600">AMA Legal Solutions</span>
               </div>
 
               {/* Detail text */}
               <p className="text-xs text-zinc-400 leading-relaxed">
-                She turned our idea into a polished website that felt premium, and easy to understand.
+                DesignNCode transformed our legal practice's digital presence into a modern, authoritative platform that brings in high-intent inquiries.
               </p>
             </div>
 
-            {/* Card 2 – Daniel R. */}
+            {/* Card 2 – Aditi Sharma (Anyadha) */}
             <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 snap-center w-[calc(100vw-64px)] flex-shrink-0">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
               </div>
-              {/* Folded corner */}
-              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
-                <svg viewBox="0 0 56 56" fill="none">
-                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
-                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
-                </svg>
-              </div>
 
               {/* Profile */}
               <div className="flex items-center gap-3 mt-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
-                  <Image src="/dewey.png" alt="Daniel R." width={40} height={40} className="object-cover w-full h-full" />
+                  <Image src="/jennifer.png" alt="Aditi Sharma" width={40} height={40} className="object-cover w-full h-full" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-zinc-900 leading-tight">Daniel R.</span>
-                  <span className="text-xs text-zinc-400 font-medium">Product Lead</span>
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Aditi Sharma</span>
+                  <span className="text-xs text-zinc-400 font-medium">Founder</span>
                 </div>
               </div>
 
               {/* Quote */}
               <p className="text-lg font-regular text-zinc-950 leading-snug tracking-tight">
-                &ldquo;The flow became much easier to use.&rdquo;
+                &ldquo;Our Shopify store conversion rate increased significantly.&rdquo;
               </p>
 
               {/* Stars */}
@@ -331,49 +308,45 @@ export default function Reviews() {
               </div>
 
               {/* Logo */}
-              <div className="flex items-center gap-1.5 mt-auto">
-                <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
-                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10" />
-                  </svg>
+              <div className="flex items-center gap-2 mt-auto">
+                <div className="relative h-6 w-16 flex-shrink-0">
+                  <Image
+                    src="/LOGO DESIGNNCODE/Anyadha-removebg-preview 1.png"
+                    alt="Anyadha Logo"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
-                <span className="text-xs font-bold text-zinc-500">Bond</span>
+                <span className="text-xs font-bold text-zinc-600">Anyadha</span>
               </div>
 
               {/* Detail text */}
               <p className="text-xs text-zinc-400 leading-relaxed">
-                She cleaned up the user journey, and made the product feel more focused and professional.
+                They built a high-converting storefront that honors our handloom heritage while providing an effortless mobile shopping journey.
               </p>
             </div>
 
-            {/* Card 3 – Ayesha K. */}
+            {/* Card 3 – Rohan Mehta (Foire) */}
             <div className="bg-white border border-zinc-200/70 rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col gap-4 snap-center w-[calc(100vw-64px)] flex-shrink-0">
               {/* Pin */}
               <div className="absolute top-2 left-2 w-6 h-6 z-10 pointer-events-none drop-shadow-md">
                 <Image src="/pin.png" alt="Pin" width={24} height={24} className="object-contain" />
               </div>
-              {/* Folded corner */}
-              <div className="absolute bottom-0 right-0 w-14 h-14 pointer-events-none">
-                <svg viewBox="0 0 56 56" fill="none">
-                  <path d="M0 56 L56 0 L56 56 Z" fill="#0f172a" />
-                  <path d="M0 56 L56 56 L0 0 Z" fill="#fb923c" opacity="0.9" />
-                </svg>
-              </div>
 
               {/* Profile */}
               <div className="flex items-center gap-3 mt-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 flex-shrink-0 bg-zinc-100">
-                  <Image src="/ankita.png" alt="Ayesha K." width={40} height={40} className="object-cover w-full h-full" />
+                  <Image src="/ankita.png" alt="Rohan Mehta" width={40} height={40} className="object-cover w-full h-full" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-zinc-900 leading-tight">Ayesha K.</span>
-                  <span className="text-xs text-zinc-400 font-medium">Creative Director</span>
+                  <span className="text-sm font-bold text-zinc-900 leading-tight">Rohan Mehta</span>
+                  <span className="text-xs text-zinc-400 font-medium">Co-Founder</span>
                 </div>
               </div>
 
               {/* Quote */}
               <p className="text-lg font-regular text-zinc-950 leading-snug tracking-tight">
-                &ldquo;Sharp design without overcomplicating it.&rdquo;
+                &ldquo;Sharp design and clean code without overcomplicating it.&rdquo;
               </p>
 
               {/* Stars */}
@@ -386,18 +359,21 @@ export default function Reviews() {
               </div>
 
               {/* Logo */}
-              <div className="flex items-center gap-1.5 mt-auto">
-                <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z" />
-                  </svg>
+              <div className="flex items-center gap-2 mt-auto">
+                <div className="relative h-6 w-16 flex-shrink-0">
+                  <Image
+                    src="/LOGO DESIGNNCODE/foire_logo_1_-01-removebg-preview 1.png"
+                    alt="Foire Logo"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
-                <span className="text-xs font-bold text-zinc-500">Arsha.</span>
+                <span className="text-xs font-bold text-zinc-600">Foire</span>
               </div>
 
               {/* Detail text */}
               <p className="text-xs text-zinc-400 leading-relaxed">
-                The final design looked modern, but still felt practical. Everything was ready to hand off.
+                The final design looked modern and premium. Every interaction was thoughtful, clean, and delivered right on schedule.
               </p>
             </div>
           </div>

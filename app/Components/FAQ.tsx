@@ -183,53 +183,53 @@ export default function FAQ() {
         {/* Central Heading */}
         <div className="absolute inset-x-0 top-[14%] flex flex-col items-center text-center select-none pointer-events-none">
           <h2 className="text-zinc-950 font-medium text-4xl sm:text-5xl md:text-[56px] tracking-tight uppercase leading-[1.05] max-w-3xl">
-            ANSWER BEFORE<br />WE STARTS
+            FREQUENTLY ASKED<br />QUESTIONS
           </h2>
         </div>
 
         {/* ── Absolutely placed FAQ pills ── */}
 
-        {/* Top-left: What can you design? */}
+        {/* Top-left: What does DesignNCode do? */}
         <div className="absolute left-[3%] top-[5%] w-[260px] sm:w-[290px] mx-30">
           <FAQPill
-            question="What can you design?"
-            answer="I design websites, mobile apps, brand identities, and digital products — from wireframes to pixel-perfect Figma files."
+            question="What does DesignNCode do?"
+            answer="DesignNCode provides UI/UX design, web development, Shopify development, e-commerce design, SEO and performance marketing services for businesses and digital brands."
             color="bg-[#FBDDE0]"
           />
         </div>
 
-        {/* Top-right: Do you build in Framer? */}
+        {/* Top-right: Do you design and develop websites? */}
         <div className="absolute right-[3%] top-[2%] w-[260px] sm:w-[290px] mx-30">
           <FAQPill
-            question="Do you build in Framer?"
-            answer="Yes! I build fully responsive, production-ready websites in Framer — no code required on your end."
+            question="Do you design and develop websites?"
+            answer="Yes. We handle the complete website process from strategy and UX design to UI design, development, testing and launch."
             color="bg-[#D9F2C4]"
           />
         </div>
 
-        {/* Middle-left: How fast can we start? */}
+        {/* Middle-left: Can you redesign an existing website? */}
         <div className="absolute left-[2%] top-[48%] w-[240px] sm:w-[270px] mx-35 -mt-10">
           <FAQPill
-            question="How fast can we start?"
-            answer="Usually within 3–5 days of onboarding. I keep a limited client load to ensure dedicated focus for every project."
+            question="Can you redesign an existing website?"
+            answer="Yes. We can audit your existing website, identify UX and performance issues and redesign the experience to improve usability, visual quality and conversions."
             color="bg-[#C4DCF5]"
           />
         </div>
 
-        {/* Centered below heading: Do you only design visuals? */}
+        {/* Centered below heading: Do you offer Shopify development? */}
         <div className="absolute left-1/2 -translate-x-1/2 top-[38%] w-[280px] sm:w-[320px] z-30 mt-20">
           <FAQPill
-            question="Do you only design visuals?"
-            answer="No — I also help with UX flows, content hierarchy, copy suggestions, design systems, and hand-off specs for developer integration."
+            question="Do you offer Shopify development?"
+            answer="Yes. We design and develop custom Shopify stores, themes and e-commerce experiences focused on usability, performance and conversions."
             color="bg-[#D9F2C4]"
           />
         </div>
 
-        {/* Middle-right: What do you need from me? */}
+        {/* Middle-right: Do you build websites with React and Next.js? */}
         <div className="absolute right-[2%] top-[50%] w-[240px] sm:w-[270px] mx-35 -mt-10">
           <FAQPill
-            question="What do you need from me?"
-            answer="A brief, your brand references, and access to any existing assets. I'll handle the rest and check in regularly."
+            question="Do you build with React & Next.js?"
+            answer="Yes. We use modern technologies including React and Next.js to build fast, scalable and responsive websites and web applications."
             color="bg-[#FEFBCC]"
           />
         </div>
@@ -255,34 +255,34 @@ export default function FAQ() {
 
         {/* Heading */}
         <h2 className="text-zinc-950 font-bold text-[28px] sm:text-3xl tracking-tight uppercase leading-[1.1] text-center mb-8 w-full">
-          ANSWER BEFORE<br />WE STARTS
+          FREQUENTLY ASKED<br />QUESTIONS
         </h2>
 
         {/* Stacked FAQ Cards */}
         <div className="flex flex-col gap-4 w-full max-w-[480px]">
           <MobileFAQPill
-            question="What can you design?"
-            answer="I design websites, mobile apps, brand identities, and digital products — from wireframes to pixel-perfect Figma files."
+            question="What does DesignNCode do?"
+            answer="DesignNCode provides UI/UX design, web development, Shopify development, e-commerce design, SEO and performance marketing services for businesses and digital brands."
             color="bg-[#FDDDE0]"
           />
           <MobileFAQPill
-            question="Do you build in framer?"
-            answer="Yes! I build fully responsive, production-ready websites in Framer — no code required on your end."
+            question="Do you design and develop websites?"
+            answer="Yes. We handle the complete website process from strategy and UX design to UI design, development, testing and launch."
             color="bg-[#E5FF7F]"
           />
           <MobileFAQPill
-            question="What do you need from me?"
-            answer="A brief, your brand references, and access to any existing assets. I'll handle the rest and check in regularly."
+            question="Can you redesign an existing website?"
+            answer="Yes. We can audit your existing website, identify UX and performance issues and redesign the experience to improve usability, visual quality and conversions."
             color="bg-[#FEFBCC]"
           />
           <MobileFAQPill
-            question="How fast can we start?"
-            answer="Usually within 3–5 days of onboarding. I keep a limited client load to ensure dedicated focus for every project."
+            question="Do you offer Shopify development?"
+            answer="Yes. We design and develop custom Shopify stores, themes and e-commerce experiences focused on usability, performance and conversions."
             color="bg-[#C4DCF5]"
           />
           <MobileFAQPill
-            question="Do you only design visuals?"
-            answer="No — I also help with UX flows, content hierarchy, copy suggestions, design systems, and hand-off specs for developer integration."
+            question="Do you build with React & Next.js?"
+            answer="Yes. We use modern technologies including React and Next.js to build fast, scalable and responsive websites and web applications."
             color="bg-[#C2F5D9]"
           />
         </div>
