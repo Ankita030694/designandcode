@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PROJECTS_DATA } from "../../data/projects";
 import { getProjectCopy } from "./projectCopy";
-import CTA from "../../Components/cta";
 import Footer from "../../Components/footer";
 import FAQ from "../../Components/FAQ";
 
@@ -50,7 +49,7 @@ export default async function ProjectDetailPage({
   const copy = getProjectCopy(project);
 
   return (
-    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FFFFFF]">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-transparent">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         
@@ -187,8 +186,6 @@ export default async function ProjectDetailPage({
       </div>
 
       <FAQ />
-      {/* CTA section */}
-      <CTA />
 
       <Footer />
     </main>

@@ -24,7 +24,7 @@ export default function PerformanceMarketingService() {
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col gap-1">
             <span className="text-[9px] uppercase tracking-wider text-white/50 font-mono">ROAS Target</span>
-            <span className="text-lg font-bold text-[#FACC15]">4.8x Achieved</span>
+            <span className="text-lg font-bold text-sky-400">4.8x Achieved</span>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col gap-1">
             <span className="text-[9px] uppercase tracking-wider text-white/50 font-mono">Conversion Rate</span>
@@ -37,12 +37,12 @@ export default function PerformanceMarketingService() {
           {/* Funnel layers */}
           <path d="M10 5h180l-20 15H30L10 5z" fill="#ffffff" fillOpacity="0.05" stroke="#ffffff" strokeWidth="0.8" />
           <path d="M30 20h140l-25 18H55L30 20z" fill="#ffffff" fillOpacity="0.1" stroke="#ffffff" strokeWidth="0.8" />
-          <path d="M55 38h90l-30 18H85L55 38z" fill="#FACC15" />
+          <path d="M55 38h90l-30 18H85L55 38z" fill="#38bdf8" />
           
           {/* Text Labels on funnel */}
           <text x="100" y="13" textAnchor="middle" fill="#ffffff" fontSize="7" fontWeight="bold" opacity="0.6">TRAFFIC</text>
           <text x="100" y="31" textAnchor="middle" fill="#ffffff" fontSize="7" fontWeight="bold" opacity="0.8">ENGAGE</text>
-          <text x="100" y="49" textAnchor="middle" fill="#0C1833" fontSize="7" fontWeight="bold">LEADS</text>
+          <text x="100" y="49" textAnchor="middle" fill="#09090b" fontSize="7" fontWeight="bold">LEADS</text>
         </svg>
       </div>
 

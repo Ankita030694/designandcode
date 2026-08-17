@@ -5,7 +5,7 @@ import Image from "next/image";
 import SpecularButton from "@/components/SpecularButton";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
-import TestimonialsCarousel from "../Components/TestimonialsCarousel";
+import Reviews from "../Components/Reviews";
 import { COUNTRY_CODES } from "../../data/CC";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../lib/firebase";
@@ -114,7 +114,7 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-[#FFFFFF]">
+    <main className="relative flex flex-col flex-1 min-h-screen pt-24 pb-12 bg-transparent">
       {/* ── Main Contact Section ── */}
       <section className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -409,66 +409,15 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* ── Testimonials Section ── */}
-      <section className="relative z-10 w-full max-w-7xl mx-auto py-16 sm:py-24 border-t border-zinc-100/50">
-        <TestimonialsCarousel testimonials={testimonials} />
-      </section>
+      {/* ── Reviews Section ── */}
+      <Reviews />
 
+      {/* ── FAQ Section ── */}
       <FAQ />
+
       {/* Footer component */}
       <Footer />
     </main>
   );
 }
-
-const testimonials = [
-  {
-    category: "Web Development",
-    name: "Kelsey Oliver",
-    role: "Marketing Manager, WPEngine",
-    avatar: "/ankita.png",
-    logo: "/Client_Logo/Clip path group.svg",
-    quote: "Designncode has done so much work with Headless platforms, and we knew the Designncode team was incredibly well-versed in that space. They were one of the first to do it, and they've done it exceptionally well.",
-  },
-  {
-    category: "UI/UX Design",
-    name: "Alex Sterling",
-    role: "Product Lead, Amplifidor",
-    avatar: "/bhavya.png",
-    logo: "/Client_Logo/Group 14.svg",
-    quote: "The design system and atomic components delivered by Designncode transformed our user engagement metrics. Our team was able to ship product updates 3x faster.",
-  },
-  {
-    category: "Data & Analytics",
-    name: "Elena Rostova",
-    role: "Head of Growth, DataFlex",
-    avatar: "/zaib.png",
-    logo: "/Client_Logo/Vector.svg",
-    quote: "Working with Designncode gave us real-time insights into our user funnels. Their technical precision and speed to execution are unmatched in the industry.",
-  },
-  {
-    category: "Enterprise",
-    name: "Marcus Vance",
-    role: "VP of Engineering, Bank Al Etihad",
-    avatar: "/charlie.png",
-    logo: "/Client_Logo/Clip path group-2.svg",
-    quote: "Decoupling our legacy monolith with Designncode's composable architecture guaranteed 99.99% uptime during peak holiday traffic surges without single point of failure.",
-  },
-  {
-    category: "E-Commerce",
-    name: "Sarah Jenkins",
-    role: "Director of Digital, RetailPro",
-    avatar: "/dewey.png",
-    logo: "/Client_Logo/Clip path group-1.svg",
-    quote: "Our headless storefront achieved sub-second mobile page loads and boosted checkout conversion rates by 34% within the first month of launch.",
-  },
-  {
-    category: "Start-Up",
-    name: "David Chen",
-    role: "Co-Founder & CTO, NextGen AI",
-    avatar: "/tayo.png",
-    logo: "/Client_Logo/Clip path group-3.svg",
-    quote: "Designncode turned our napkin sketch into a production-ready MVP in under 6 weeks. They passed our VC technical due diligence with flying colors.",
-  },
-];
 

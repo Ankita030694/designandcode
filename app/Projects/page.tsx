@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import CTA from "../Components/cta";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
 import { PROJECTS_DATA } from "../data/projects";
@@ -18,7 +17,7 @@ export default function ProjectsPage() {
   });
 
   return (
-    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FFFFFF]">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-transparent">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="hero-glow w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bottom-[-100px] right-[-100px] opacity-40" />
@@ -133,8 +132,6 @@ export default function ProjectsPage() {
       </div>
 
       <FAQ />
-      {/* CTA section */}
-      <CTA />
 
       <Footer />
     </main>

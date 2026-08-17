@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../Components/footer";
-import CTA from "../Components/cta";
 import FAQ from "../Components/FAQ";
 
 export default function StartupServicePage() {
@@ -27,9 +26,9 @@ export default function StartupServicePage() {
   }, []);
 
   return (
-    <main className="relative flex flex-col flex-1 bg-white pt-20">
+    <main className="relative flex flex-col flex-1 bg-transparent pt-20">
       {/* ── Hero Section (Matching Image Design) ── */}
-      <section className="relative flex flex-col items-start justify-center py-16 sm:py-24 px-6 sm:px-8 lg:px-12 bg-white">
+      <section className="relative flex flex-col items-start justify-center py-16 sm:py-24 px-6 sm:px-8 lg:px-12 bg-transparent">
         <div className="relative z-10 flex flex-col items-start w-full max-w-5xl mx-auto text-left">
           
           {/* Top Kicker & Category Pills */}
@@ -278,8 +277,6 @@ export default function StartupServicePage() {
       </section>
 
       <FAQ />
-      {/* CTA section */}
-      <CTA />
 
       {/* Footer component */}
       <Footer />

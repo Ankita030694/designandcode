@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import CTA from "../Components/cta";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
 import CurvedLoop from "@/components/CurvedLoop";
@@ -56,17 +55,17 @@ const teamMembers = [
   {
     name: "Ankita Malik",
     role: "Co-Founder & Managing Director",
-    imageSrc: "/ankita.png",
+    imageSrc: "/Ankita.jpeg",
   },
   {
     name: "Bhavya",
     role: "SDE",
-    imageSrc: "/bhavya.png",
+    imageSrc: "/Bhavya.jpeg",
   },
   {
     name: "Zaib",
     role: "Designer & Frontend Developer",
-    imageSrc: "/zaib.png",
+    imageSrc: "/Zaib.jpeg",
   },
 ];
 
@@ -158,7 +157,7 @@ export default function AboutUs() {
   };
 
   return (
-    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-[#FFFFFF]">
+    <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-transparent">
       {/* ── About Us Hero Section ── */}
       <section className="relative flex flex-col items-center justify-center py-20 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
         {/* Background glow effects */}
@@ -175,7 +174,7 @@ export default function AboutUs() {
               </svg>
             </span>{" "}
             the deal with{" "}
-            <span className="relative bg-gradient-to-r from-[#facc15] to-[#2563EB] bg-clip-text text-transparent decoration-blue-500/30 decoration-2 underline-offset-8">
+            <span className="relative bg-gradient-to-r from-sky-500 via-rose-500 to-amber-500 bg-clip-text text-transparent decoration-blue-500/30 decoration-2 underline-offset-8">
               Designncode?
             </span>
           </h1>
@@ -263,58 +262,58 @@ export default function AboutUs() {
 
             {/* Three Cards in a Row */}
             <div className="grid grid-cols-3 gap-8 items-stretch">
-              {/* Card 1: Royal Blue */}
-              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
+              {/* Card 1: Pastel Sky */}
+              <div className="rounded-[28px] bg-[#e0f2fe]/95 backdrop-blur-sm border border-sky-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[250px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 {/* Layer Stack Icon */}
-                <div className="w-10 h-10 flex items-center justify-start text-white">
-                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-12 h-12 rounded-2xl bg-sky-500/15 text-sky-600 flex items-center justify-center">
+                  <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <polygon points="12 2 2 7 12 12 22 7 12 2" />
                     <polyline points="2 17 12 22 22 17" />
                     <polyline points="2 12 12 17 22 12" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-semibold text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-bold text-xl tracking-tight mb-2 uppercase leading-none text-zinc-900">
                     Consistent Branding
                   </h3>
-                  <p className="text-xs font-medium opacity-90 leading-relaxed max-w-[220px]">
-                    Ensure every campaign aligns with your brand's identity.
+                  <p className="text-xs font-medium text-zinc-600 leading-relaxed max-w-[220px]">
+                    Ensure every campaign aligns with your brand&apos;s identity.
                   </p>
                 </div>
               </div>
 
-              {/* Card 2: Middle - Yellow */}
-              <div className="rounded-[28px] text-[#1a2e05] p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #fde68a 0%, #FACC15 50%, #eab308 100%)', border: '1px solid rgba(255,255,255,0.35)'}}>
+              {/* Card 2: Pastel Rose */}
+              <div className="rounded-[28px] bg-[#ffe4e6]/95 backdrop-blur-sm border border-rose-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[250px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 {/* Nodes/Connections Icon */}
-                <div className="w-10 h-10 flex items-center justify-start text-[#08302c]">
-                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-12 h-12 rounded-2xl bg-rose-500/15 text-rose-600 flex items-center justify-center">
+                  <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 8A3 3 0 1018 2A3 3 0 0018 8zM6 15A3 3 0 106 9A3 3 0 006 15zM18 22A3 3 0 1018 16A3 3 0 0018 22z" />
                     <path d="M8.59 13.51l5.83 3.4M14.4 7.1l-5.8 3.4" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-semibold text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-bold text-xl tracking-tight mb-2 uppercase leading-none text-zinc-900">
                     Automation & Precision
                   </h3>
-                  <p className="text-xs font-medium opacity-90 leading-relaxed max-w-[220px]">
+                  <p className="text-xs font-medium text-zinc-600 leading-relaxed max-w-[220px]">
                     Effortlessly manage and personalize campaigns.
                   </p>
                 </div>
               </div>
 
-              {/* Card 3: Royal Blue */}
-              <div className="rounded-[28px] text-white p-7 flex flex-col justify-between h-[240px] select-none cursor-default transition-all duration-500 ease-out hover:-translate-y-3" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 50%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
+              {/* Card 3: Pastel Emerald */}
+              <div className="rounded-[28px] bg-[#ecfdf5]/95 backdrop-blur-sm border border-emerald-200/80 text-zinc-900 p-7 flex flex-col justify-between h-[250px] select-none cursor-default shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 {/* Scale/Resize Icon */}
-                <div className="w-10 h-10 flex items-center justify-start text-white">
-                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center">
+                  <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 5v14M19 12H5M12 5l3 3M12 5L9 8M12 19l3-3M12 19l-3-3" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-semibold text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-bold text-xl tracking-tight mb-2 uppercase leading-none text-zinc-900">
                     Scalable Solutions
                   </h3>
-                  <p className="text-xs font-medium opacity-90 leading-relaxed max-w-[220px]">
+                  <p className="text-xs font-medium text-zinc-600 leading-relaxed max-w-[220px]">
                     Managing complex campaigns across multiple locations.
                   </p>
                 </div>
@@ -351,58 +350,58 @@ export default function AboutUs() {
                 WebkitOverflowScrolling: 'touch'
               }}
             >
-              {/* Card 1: Royal Blue */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 55%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
+              {/* Card 1: Pastel Sky */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#e0f2fe]/95 backdrop-blur-sm border border-sky-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[230px] select-none shadow-md">
                 {/* Layer Stack Icon */}
-                <div className="w-10 h-10 flex items-center justify-start text-white">
-                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-600 flex items-center justify-center">
+                  <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <polygon points="12 2 2 7 12 12 22 7 12 2" />
                     <polyline points="2 17 12 22 22 17" />
                     <polyline points="2 12 12 17 22 12" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-bold text-lg tracking-tight mb-1.5 uppercase leading-none text-zinc-900">
                     Consistent Branding
                   </h3>
-                  <p className="text-xs font-semibold opacity-90 leading-relaxed">
-                    Ensure every campaign aligns with your brand's identity.
+                  <p className="text-xs text-zinc-600 leading-relaxed">
+                    Ensure every campaign aligns with your brand&apos;s identity.
                   </p>
                 </div>
               </div>
 
-              {/* Card 2: Yellow */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-[#1a2e05] p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #fde68a 0%, #FACC15 55%, #eab308 100%)', border: '1px solid rgba(255,255,255,0.35)'}}>
+              {/* Card 2: Pastel Rose */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#ffe4e6]/95 backdrop-blur-sm border border-rose-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[230px] select-none shadow-md">
                 {/* Nodes/Connections Icon */}
-                <div className="w-10 h-10 flex items-center justify-start text-[#08302c]">
-                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-10 h-10 rounded-xl bg-rose-500/15 text-rose-600 flex items-center justify-center">
+                  <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 8A3 3 0 1018 2A3 3 0 0018 8zM6 15A3 3 0 106 9A3 3 0 006 15zM18 22A3 3 0 1018 16A3 3 0 0018 22z" />
                     <path d="M8.59 13.51l5.83 3.4M14.4 7.1l-5.8 3.4" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-bold text-lg tracking-tight mb-1.5 uppercase leading-none text-zinc-900">
                     Automation & Precision
                   </h3>
-                  <p className="text-xs opacity-90 leading-relaxed">
+                  <p className="text-xs text-zinc-600 leading-relaxed">
                     Effortlessly manage and personalize campaigns.
                   </p>
                 </div>
               </div>
 
-              {/* Card 3: Royal Blue */}
-              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] text-white p-6 flex flex-col justify-between h-[224px] select-none" style={{background: 'linear-gradient(160deg, #1a2d52 0%, #0C1833 55%, #080f1e 100%)', border: '1px solid rgba(255,255,255,0.12)'}}>
+              {/* Card 3: Pastel Emerald */}
+              <div className="snap-center shrink-0 w-[82vw] max-w-[280px] rounded-[28px] bg-[#ecfdf5]/95 backdrop-blur-sm border border-emerald-200/80 text-zinc-900 p-6 flex flex-col justify-between h-[230px] select-none shadow-md">
                 {/* Scale/Resize Icon */}
-                <div className="w-10 h-10 flex items-center justify-start text-white">
-                  <svg className="w-8 h-8 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center">
+                  <svg className="w-6 h-6 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 5v14M19 12H5M12 5l3 3M12 5L9 8M12 19l3-3M12 19l-3-3" />
                   </svg>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-black text-xl tracking-tight mb-2 uppercase leading-none">
+                  <h3 className="font-bold text-lg tracking-tight mb-1.5 uppercase leading-none text-zinc-900">
                     Scalable Solutions
                   </h3>
-                  <p className="text-xs font-semibold opacity-90 leading-relaxed">
+                  <p className="text-xs text-zinc-600 leading-relaxed">
                     Managing complex campaigns across multiple locations.
                   </p>
                 </div>
@@ -413,7 +412,7 @@ export default function AboutUs() {
             <div className="mt-4 flex justify-center">
               <div className="relative w-[120px] h-[3px] bg-zinc-200 rounded-full overflow-hidden">
                 <div
-                  className="absolute top-0 bottom-0 bg-[#0C1833] rounded-full transition-transform duration-100 ease-out"
+                  className="absolute top-0 bottom-0 bg-zinc-900 rounded-full transition-transform duration-100 ease-out"
                   style={{
                     width: "40px",
                     transform: `translateX(${(scrollProgress / 100) * 80}px)`
@@ -431,15 +430,15 @@ export default function AboutUs() {
           {statsItems.map((item, index) => (
             <div key={index} className="flex flex-col text-left">
               {/* Number */}
-              <div className="text-[64px] sm:text-[80px] font-medium text-[#08302c] tracking-tight leading-none">
+              <div className="text-[64px] sm:text-[80px] font-bold text-zinc-950 tracking-tight leading-none">
                 <AnimatedCounter target={item.target} suffix={item.suffix} />
               </div>
               
               {/* Horizontal line divider */}
-              <div className="h-[2px] bg-zinc-200 w-full mt-4 mb-4" />
+              <div className="h-[2px] bg-gradient-to-r from-sky-400/50 via-rose-400/50 to-amber-400/50 w-full mt-4 mb-4 rounded-full" />
               
               {/* Label */}
-              <p className="text-[#08302c] font-regular text-[13px] tracking-wider uppercase">
+              <p className="text-zinc-500 font-semibold text-[13px] tracking-wider uppercase">
                 {item.label}
               </p>
             </div>
@@ -496,49 +495,56 @@ export default function AboutUs() {
 
         {/* Team Grid (Portrait Cards Style) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {teamMembers.map((member, index) => (
-            <div 
-              key={index}
-              className="relative rounded-[32px] overflow-hidden aspect-[3/4] shadow-sm border border-zinc-200/20 group cursor-pointer bg-zinc-900"
-            >
-              {/* Starry Sky Card Background */}
-              <Image
-                src="/pexels-kseniya-budko-58499146-7952548.jpg"
-                alt="Card background"
-                fill
-                className="object-cover absolute inset-0 z-0 transition-transform duration-700 ease-out group-hover:scale-102 pointer-events-none"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
+          {teamMembers.map((member, index) => {
+            const teamAccents = [
+              { border: "hover:border-sky-400", badge: "bg-sky-400/20 text-sky-200 border-sky-400/30" },
+              { border: "hover:border-rose-400", badge: "bg-rose-400/20 text-rose-200 border-rose-400/30" },
+              { border: "hover:border-emerald-400", badge: "bg-emerald-400/20 text-emerald-200 border-emerald-400/30" }
+            ];
+            const accent = teamAccents[index % teamAccents.length];
 
-              {/* Background Image */}
-              <Image
-                src={member.imageSrc}
-                alt={member.name}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 relative z-10"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
+            return (
+              <div 
+                key={index}
+                className={`relative rounded-[32px] overflow-hidden aspect-[3/4] shadow-md border border-white/20 ${accent.border} hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 group cursor-pointer bg-zinc-900`}
+              >
+                {/* Starry Sky Card Background */}
+                <Image
+                  src="/pexels-kseniya-budko-58499146-7952548.jpg"
+                  alt="Card background"
+                  fill
+                  className="object-cover absolute inset-0 z-0 transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
 
-              {/* Bottom Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none z-20" />
+                {/* Background Image */}
+                <Image
+                  src={member.imageSrc}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 relative z-10"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
 
-              {/* Info Text Overlay at Bottom-Left */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-30">
-                <h3 className="text-white font-bold text-xl sm:text-2xl tracking-tight leading-none mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-zinc-300 font-medium text-sm">
-                  {member.role}
-                </p>
+                {/* Bottom Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none z-20" />
+
+                {/* Info Text Overlay at Bottom-Left */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-30">
+                  <h3 className="text-white font-bold text-xl sm:text-2xl tracking-tight leading-none mb-2">
+                    {member.name}
+                  </h3>
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md border ${accent.badge}`}>
+                    {member.role}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
       <FAQ />
-      {/* CTA component */}
-      <CTA />
 
       {/* Footer component */}
       <Footer />

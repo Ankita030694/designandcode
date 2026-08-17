@@ -5,7 +5,6 @@ import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 import Image from "next/image";
 import Link from "next/link";
-import CTA from "../Components/cta";
 import Footer from "../Components/footer";
 import FAQ from "../Components/FAQ";
 
@@ -176,7 +175,7 @@ export default function BlogsPage() {
             duration: "15 min read",
             author: {
               name: "Ankita Malik",
-              avatar: "/ankita.png"
+              avatar: "/Ankita.jpeg"
             },
             image: "/Web.svg",
             isFeatured: false
@@ -199,7 +198,7 @@ export default function BlogsPage() {
             duration: "15 min read",
             author: {
               name: "Ankita Malik",
-              avatar: "/ankita.png"
+              avatar: "/Ankita.jpeg"
             },
             image: "/Web.svg",
             isFeatured: false
@@ -242,7 +241,7 @@ export default function BlogsPage() {
   };
 
   return (
-    <main className="relative flex flex-col min-h-screen pt-20 bg-[#FFFFFF]">
+    <main className="relative flex flex-col min-h-screen pt-20 bg-transparent">
       {/* Background glow effects wrapped to avoid blocking sticky behavior */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         
@@ -480,8 +479,6 @@ export default function BlogsPage() {
       </div>
 
       <FAQ />
-      {/* CTA section */}
-      <CTA />
 
       {/* Footer component */}
       <Footer />

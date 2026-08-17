@@ -3,6 +3,8 @@ import { Outfit, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/navbar";
 import GlobalContactWidget from "./Components/GlobalContactWidget";
+import FixedBackgroundGraphics from "./Components/FixedBackgroundGraphics";
+import EyeFollower from "./Components/EyeFollower";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -74,10 +76,12 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col relative bg-[#FFFFFF]">
+      <body className="min-h-full flex flex-col relative bg-[#FAF9F6]">
+        <FixedBackgroundGraphics />
         <Navbar />
         {children}
         <GlobalContactWidget />
+        <EyeFollower />
       </body>
     </html>
   );

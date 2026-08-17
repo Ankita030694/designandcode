@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FAQ from "./Components/FAQ";
-import CTA from "./Components/cta";
 import Footer from "./Components/footer";
 
 export interface ServicePageHeading {
@@ -614,7 +613,7 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
   };
 
   return (
-    <main className="relative flex flex-col min-h-screen bg-white pt-24 text-zinc-900 font-sans">
+    <main className="relative flex flex-col min-h-screen bg-transparent pt-24 text-zinc-900 font-sans">
       <div className="max-w-9xl lg:max-w-[1600px] mx-auto w-full px-6 sm:px-8 py-12">
         {/* Title and Subtitle */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 leading-tight mb-4">
@@ -651,7 +650,7 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
                   onClick={(e) => handleTocClick(e, item.id)}
                   className={`text-sm font-medium border-l-2 pl-3 py-1 transition-all duration-200 ${
                     activeHeadingId === item.id
-                      ? "border-[#D2A02A] text-[#D2A02A] font-semibold bg-zinc-50"
+                      ? "border-sky-500 text-sky-600 font-semibold bg-sky-50/40"
                       : "border-transparent text-zinc-500 hover:text-zinc-900 hover:border-zinc-300"
                   }`}
                 >
@@ -684,7 +683,7 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
                   </p>
                 ))}
                 {sec.bullets && sec.bullets.length > 0 && (
-                  <div className="bg-[#FAF8F5] border-l-4 border-[#D2A02A] p-5 rounded-r-2xl space-y-2 mt-4">
+                  <div className="bg-rose-50/40 border-l-4 border-rose-400 p-5 rounded-r-2xl space-y-2 mt-4">
                     <ul className="list-disc pl-5 text-sm text-zinc-600 space-y-1">
                       {sec.bullets.map((b, idx) => (
                         <li key={idx} dangerouslySetInnerHTML={{ __html: b }} />
@@ -705,7 +704,7 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
                     <div key={idx} className="border-b border-zinc-100 pb-4">
                       <button
                         onClick={() => toggleFaq(idx)}
-                        className="flex justify-between items-center w-full text-left py-2 font-semibold text-zinc-800 hover:text-[#D2A02A] transition-colors"
+                        className="flex justify-between items-center w-full text-left py-2 font-semibold text-zinc-800 hover:text-sky-600 transition-colors"
                       >
                         <span>{item.q}</span>
                         <svg
@@ -743,9 +742,9 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
           <aside className="col-span-1 lg:col-span-3 sticky top-28 space-y-8 self-start">
             
             {/* Widget 1: Connect with Us */}
-            <div className="bg-zinc-950 rounded-3xl p-6 border border-zinc-850 shadow-xl flex flex-col relative overflow-hidden text-white select-none">
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#D2A02A]/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-[#0C1833]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="bg-zinc-950 rounded-3xl p-6 border border-zinc-800 shadow-xl flex flex-col relative overflow-hidden text-white select-none">
+              <div className="absolute -top-12 -right-12 w-28 h-28 bg-sky-400/20 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-rose-400/20 rounded-full blur-2xl pointer-events-none" />
               
               <div className="relative z-10 space-y-4">
                 <h3 className="text-lg font-bold tracking-tight">Connect with Us</h3>
@@ -753,14 +752,14 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
                   Speak with our enterprise solutions specialist to scope out your next project.
                 </p>
                 <div className="space-y-3.5 py-2">
-                  <a href="tel:+919220721921" className="flex items-center gap-3 hover:text-[#D2A02A] transition-colors text-white">
-                    <svg className="w-5 h-5 text-[#D2A02A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <a href="tel:+919220721921" className="flex items-center gap-3 hover:text-sky-400 transition-colors text-white">
+                    <svg className="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <span className="text-sm font-semibold">+91 92207 21921</span>
                   </a>
-                  <a href="mailto:info@designncode.com" className="flex items-center gap-3 hover:text-[#D2A02A] transition-colors text-white">
-                    <svg className="w-5 h-5 text-[#D2A02A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <a href="mailto:info@designncode.com" className="flex items-center gap-3 hover:text-sky-400 transition-colors text-white">
+                    <svg className="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <span className="text-sm font-medium">info@designncode.com</span>
@@ -769,7 +768,7 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
                 <div className="pt-1">
                   <Link
                     href="/ContactUs"
-                    className="w-full block text-center bg-[#D2A02A] text-zinc-950 text-xs sm:text-sm font-bold py-3.5 px-4 rounded-xl hover:bg-[#b88a22] transition-colors shadow-md cursor-pointer"
+                    className="w-full block text-center bg-sky-500 hover:bg-sky-600 text-white text-xs sm:text-sm font-bold py-3.5 px-4 rounded-xl transition-colors shadow-md cursor-pointer"
                   >
                     Request Callback
                   </Link>
@@ -790,7 +789,7 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
                     <li key={s}>
                       <Link
                         href={`/Blogs/${s}`}
-                        className="text-sm font-semibold text-zinc-800 hover:text-[#D2A02A] transition-colors leading-snug block"
+                        className="text-sm font-semibold text-zinc-800 hover:text-rose-600 transition-colors leading-snug block"
                       >
                         {SERVICE_PAGES_DATA[s].title}
                       </Link>
@@ -806,15 +805,15 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
               </h4>
               <div className="space-y-4 text-zinc-700">
                 <div>
-                  <div className="text-2xl font-bold text-[#D2A02A]">150+ Projects</div>
+                  <div className="text-2xl font-bold text-sky-500">150+ Projects</div>
                   <div className="text-xs text-zinc-500 mt-0.5">Delivered globally with custom designs.</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#D2A02A]">45% Faster</div>
+                  <div className="text-2xl font-bold text-rose-500">45% Faster</div>
                   <div className="text-xs text-zinc-500 mt-0.5">Average page loading speed improvement.</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#D2A02A]">98% CSAT</div>
+                  <div className="text-2xl font-bold text-emerald-500">98% CSAT</div>
                   <div className="text-xs text-zinc-500 mt-0.5">Client satisfaction rating year-over-year.</div>
                 </div>
               </div>
@@ -828,7 +827,6 @@ export function AMAServiceLayout({ slug }: { slug: string }) {
 
 
       <FAQ />
-      <CTA />
       <Footer />
     </main>
   );

@@ -4,7 +4,6 @@ import { useEffect, useState, Suspense } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import CTA from "../../Components/cta";
 import Footer from "../../Components/footer";
 import FAQ from "../../Components/FAQ";
 import BlogHTMLRenderer from "../../../components/BlogHTMLRenderer";
@@ -60,7 +59,7 @@ function AMABlogLayout() {
   };
 
   return (
-    <main className="relative flex flex-col min-h-screen bg-white pt-24 text-zinc-900 font-sans">
+    <main className="relative flex flex-col min-h-screen bg-transparent pt-24 text-zinc-900 font-sans">
       {/* Breadcrumbs */}
       <div className="max-w-9xl lg:max-w-[1600px] mx-auto w-full px-6 sm:px-8 py-4 text-xs text-zinc-500 flex items-center gap-2 border-b border-zinc-100">
         <Link href="/" className="hover:text-[#D2A02A] transition-colors">Home</Link>
@@ -297,7 +296,7 @@ function AMABlogLayout() {
               </h4>
               <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4 border border-zinc-200 shadow-xs bg-zinc-100">
                 <Image
-                  src="/ankita.png"
+                  src="/Ankita.jpeg"
                   alt="Ankita Malik"
                   fill
                   className="object-cover"
@@ -371,7 +370,6 @@ function AMABlogLayout() {
 
 
       <FAQ />
-      <CTA />
       <Footer />
     </main>
   );
@@ -430,7 +428,7 @@ function BlogDetailContent() {
   }
 
   return (
-    <main className="relative flex flex-col min-h-screen bg-[#FFFFFF] pt-20">
+    <main className="relative flex flex-col min-h-screen bg-transparent pt-20">
       {/* ─── HERO IMAGE BANNER ─── */}
       <div className="relative w-full h-[220px] sm:h-[320px] md:h-[420px] lg:h-[480px] overflow-hidden bg-zinc-900 border-b border-zinc-200/50">
         <Image
@@ -575,8 +573,6 @@ function BlogDetailContent() {
       </div>
 
       <FAQ />
-      {/* CTA section */}
-      <CTA />
 
       <Footer />
     </main>

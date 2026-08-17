@@ -21,12 +21,12 @@ export default function SeoService() {
       {/* Main Google Search Rankings Illustration */}
       <div className="flex-1 flex flex-col justify-center gap-3.5 py-4">
         {/* Mock Search Result #1 */}
-        <div className="bg-[#FACC15]/10 border border-[#FACC15]/40 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden">
+        <div className="bg-emerald-500/15 border border-emerald-400/40 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden">
           {/* Rank Badge #1 */}
-          <div className="absolute top-0 right-0 bg-[#FACC15] text-[#0C1833] text-[8px] font-bold px-2 py-0.5 rounded-bl font-mono">
+          <div className="absolute top-0 right-0 bg-emerald-400 text-zinc-950 text-[8px] font-bold px-2 py-0.5 rounded-bl font-mono">
             RANK #1
           </div>
-          <span className="text-[9px] text-[#FACC15] font-mono">https://designncode.com/seo</span>
+          <span className="text-[9px] text-emerald-400 font-mono">https://designncode.com/seo</span>
           <span className="text-[11px] font-bold text-white leading-tight">Designncode: Senior Specialists in SEO &amp; Code</span>
           <rect className="w-4/5 h-2.5 bg-white/20 rounded-sm mt-0.5" />
         </div>

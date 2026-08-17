@@ -22,28 +22,28 @@ export default function UiUxDesignService() {
       <div className="flex-1 flex items-center justify-center py-6">
         <svg className="w-full max-h-[170px]" viewBox="0 0 200 120" fill="none">
           {/* Wireframe Mockup Phone */}
-          <rect x="15" y="10" width="55" height="100" rx="8" stroke="#FACC15" strokeWidth="1.5" strokeDasharray="3 3" />
-          <circle cx="42.5" cy="20" r="4" stroke="#FACC15" strokeWidth="1.2" />
-          <rect x="25" y="32" width="35" height="15" rx="3" stroke="#FACC15" strokeWidth="1.2" />
-          <rect x="25" y="54" width="35" height="4" rx="1" fill="#FACC15" opacity="0.4" />
-          <rect x="25" y="62" width="20" height="4" rx="1" fill="#FACC15" opacity="0.4" />
-          <circle cx="42.5" cy="85" r="10" stroke="#FACC15" strokeWidth="1.5" />
-          <path d="M42.5 80 v10 M37.5 85 h10" stroke="#FACC15" strokeWidth="1.2" />
+          <rect x="15" y="10" width="55" height="100" rx="8" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" />
+          <circle cx="42.5" cy="20" r="4" stroke="#38bdf8" strokeWidth="1.2" />
+          <rect x="25" y="32" width="35" height="15" rx="3" stroke="#38bdf8" strokeWidth="1.2" />
+          <rect x="25" y="54" width="35" height="4" rx="1" fill="#38bdf8" opacity="0.4" />
+          <rect x="25" y="62" width="20" height="4" rx="1" fill="#38bdf8" opacity="0.4" />
+          <circle cx="42.5" cy="85" r="10" stroke="#fb7185" strokeWidth="1.5" />
+          <path d="M42.5 80 v10 M37.5 85 h10" stroke="#fb7185" strokeWidth="1.2" />
 
           {/* High Fidelity Screen Mockup */}
-          <rect x="110" y="10" width="75" height="100" rx="8" fill="#1e2937" stroke="#ffffff" strokeWidth="1.5" />
+          <rect x="110" y="10" width="75" height="100" rx="8" fill="#18181b" stroke="#ffffff" strokeWidth="1.5" />
           {/* Screen Top Bar */}
-          <rect x="110" y="10" width="75" height="15" rx="8" fill="#FACC15" />
-          <circle cx="120" cy="17.5" r="2.5" fill="#0C1833" />
+          <rect x="110" y="10" width="75" height="15" rx="8" fill="#fb7185" />
+          <circle cx="120" cy="17.5" r="2.5" fill="#09090b" />
           {/* Hero Banner */}
           <rect x="120" y="35" width="55" height="25" rx="4" fill="#ffffff" fillOpacity="0.1" stroke="#ffffff" strokeWidth="1" />
           {/* Profile icon */}
-          <circle cx="132" cy="47.5" r="5" fill="#FACC15" />
+          <circle cx="132" cy="47.5" r="5" fill="#c084fc" />
           {/* Text lines */}
           <rect x="144" y="42" width="22" height="4" rx="1.5" fill="#ffffff" />
           <rect x="144" y="50" width="15" height="3" rx="1" fill="#ffffff" fillOpacity="0.6" />
           {/* Cards below */}
-          <rect x="120" y="70" width="25" height="25" rx="4" fill="#FACC15" />
+          <rect x="120" y="70" width="25" height="25" rx="4" fill="#4ade80" />
           <rect x="150" y="70" width="25" height="25" rx="4" fill="#ffffff" fillOpacity="0.05" stroke="#ffffff" strokeWidth="0.8" />
         </svg>
       </div>
