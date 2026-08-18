@@ -159,7 +159,7 @@ export default function ContactUs() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
-    countryCode: "+1",
+    countryCode: "+91",
     phoneNumber: "",
     email: "",
     service: "",
@@ -184,16 +184,30 @@ export default function ContactUs() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    if (name === "phoneNumber") {
+      // Allow only numbers
+      const numericValue = value.replace(/\D/g, "");
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+      return;
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate phone number format (only digits, 7 to 15 digits)
+    const cleanPhone = formData.phoneNumber.replace(/\D/g, "");
+    if (!cleanPhone || cleanPhone.length < 7 || cleanPhone.length > 15) {
+      alert("Please enter a valid phone number containing only numbers (7-15 digits).");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       await addDoc(collection(db, "leads"), {
         name: formData.name,
-        phone: `${formData.countryCode} ${formData.phoneNumber}`,
+        phone: `${formData.countryCode} ${cleanPhone}`,
         email: formData.email,
         service: formData.service,
         message: formData.message,
@@ -344,11 +358,24 @@ export default function ContactUs() {
                         {/* Phone Number Input */}
                         <input
                           type="tel"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          maxLength={15}
                           name="phoneNumber"
                           required
                           value={formData.phoneNumber}
                           onChange={handleInputChange}
-                          placeholder="Enter your phone number"
+                          onKeyDown={(e) => {
+                            // Allow navigation keys, editing keys, copy/paste shortcuts
+                            if (
+                              !/^[0-9]$/.test(e.key) &&
+                              !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Enter"].includes(e.key) &&
+                              !(e.ctrlKey || e.metaKey)
+                            ) {
+                              e.preventDefault();
+                            }
+                          }}
+                          placeholder="Enter your phone number (numbers only)"
                           className="w-full px-5 py-3.5 bg-white rounded-2xl text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200 transition-all border border-zinc-100 shadow-2xs"
                         />
                       </div>

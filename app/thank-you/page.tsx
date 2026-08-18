@@ -7,14 +7,23 @@ import FuzzyText from "@/components/FuzzyText";
 export default function ThankYouPage() {
   return (
     <main className="relative flex flex-col items-center justify-center h-[100dvh] max-h-[100dvh] w-full overflow-hidden px-4 select-none">
-      {/* ── Background Countryside Landscape ── */}
+      {/* ── Background Landscape / Hero Image ── */}
       <div className="absolute inset-0 z-0">
+        {/* Mobile Background Image */}
         <Image
-          src="/hero.jpg"
-          alt="Countryside hills and sky"
+          src="/Thankyou mobile 1.svg"
+          alt="Thank You"
           fill
           priority
-          className="object-cover object-center select-none"
+          className="object-cover object-center select-none block sm:hidden"
+        />
+        {/* Desktop / Tablet Background Image */}
+        <Image
+          src="/ThankYou_Img.svg"
+          alt="Thank You"
+          fill
+          priority
+          className="object-cover object-center select-none hidden sm:block"
         />
         {/* Atmospheric vibrant gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-transparent to-slate-950/30 pointer-events-none" />
@@ -86,12 +95,15 @@ export default function ThankYouPage() {
 
         {/* Navigation Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto justify-center">
-          <Link
-            href="/"
-            className="w-full sm:w-auto inline-flex h-[42px] px-6 items-center justify-center rounded-[12px] bg-[#18181b] text-white text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-md hover:shadow-lg"
+          <a
+            href="tel:+919220721921"
+            className="w-full sm:w-auto inline-flex h-[42px] px-6 items-center justify-center gap-2 rounded-[12px] bg-[#18181b] text-white text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-md hover:shadow-lg cursor-pointer"
           >
-            Go Back Home
-          </Link>
+            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Call Us</span>
+          </a>
           <Link
             href="/Projects"
             className="w-full sm:w-auto inline-flex h-[42px] px-6 items-center justify-center rounded-[12px] bg-white border border-zinc-200/80 text-zinc-800 text-sm font-semibold transition-all duration-200 hover:bg-zinc-50 hover:scale-[1.02] active:scale-95 shadow-xs"
