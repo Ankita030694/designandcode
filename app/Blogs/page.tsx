@@ -252,7 +252,7 @@ export default function BlogsPage() {
         {/* ─── Hero Header Section ─── */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-regular tracking-tight text-zinc-900 leading-[1.1] mb-6">
-            Our latest <span className="bg-gradient-to-r from-[#facc15] via-indigo-600 to-violet-600 bg-clip-text text-transparent font-semibold">thoughts</span> & <span className="relative decoration-indigo-500/20 decoration-4 underline-offset-8">discoveries</span>.
+            Our latest <span className="bg-gradient-to-r from-sky-500 via-rose-500 to-amber-500 bg-clip-text text-transparent font-semibold">thoughts</span> & <span className="relative decoration-rose-500/20 decoration-4 underline-offset-8">discoveries</span>.
           </h1>
           <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed">
             Delve into composable architecture guidelines, industry-leading design systems strategies, headless technology deep-dives, and insights from our team.

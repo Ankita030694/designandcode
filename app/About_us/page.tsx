@@ -172,14 +172,14 @@ export default function AboutUs() {
   return (
     <main className="relative flex flex-col flex-1 overflow-hidden pt-20 bg-transparent">
       {/* ── About Us Hero Section ── */}
-      <section className="relative flex flex-col items-center justify-center py-20 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
+      <section className="relative flex flex-col items-center justify-center pt-8 pb-24 sm:pt-12 sm:pb-16 lg:pt-8 lg:pb-12 px-6 sm:px-8 lg:px-12 min-h-[calc(100vh-80px)] overflow-hidden">
         {/* Background glow effects */}
        
 
-        <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto text-center px-4 sm:px-6">
+        <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto text-center px-4 sm:px-6 -mt-8 sm:-mt-10 lg:-mt-14">
           
           {/* Header Title */}
-          <h1 className="text-4xl sm:text-6xl md:text-6xl font-medium text-zinc-900 tracking-tight leading-tight max-w-4xl mb-4">
+          <h1 className="text-4xl sm:text-6xl md:text-6xl font-medium text-zinc-900 tracking-tight leading-tight max-w-4xl mb-3 sm:mb-4">
             What&apos;s{" "}
             <span className="inline-flex items-center align-middle mx-1.5 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-950 p-2 rounded-xl shadow-md border border-zinc-800 w-10 h-10 sm:w-12 sm:h-12 justify-center">
               <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 24 24">
@@ -193,12 +193,12 @@ export default function AboutUs() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-zinc-600 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed mb-8">
-            We are a creative UI/UX design and web development agency focused on building digital experiences that look great, work seamlessly and help businesses grow. We combine user-centered design, modern technology and strategic thinking to create websites, digital products and e-commerce experiences that people enjoy using.
+          <p className="text-zinc-600 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed mb-6 sm:mb-8">
+            We create beautiful, seamless digital experiences through UI/UX design, web development, and smart strategy that help businesses grow.
           </p>
 
           {/* Interactive Orbiting Visuals Area */}
-          <div className="relative w-full max-w-2xl aspect-[16/9] flex items-center justify-center select-none">
+          <div className="relative w-full max-w-2xl aspect-[16/9] flex items-center justify-center select-none -mt-2 sm:-mt-3">
             <Image
               src="/About us.png"
               alt="About Us Illustration"
@@ -246,7 +246,7 @@ export default function AboutUs() {
           </div>
 
           {/* Right Column */}
-          <div className="w-full md:w-[50%] flex flex-col gap-6 text-zinc-500 text-sm sm:text-base leading-relaxed font-light">
+          <div className="w-full md:w-[50%] flex flex-col gap-6 text-black text-md sm:text-base leading-relaxed font-light">
             {storyData.paragraphs.map((p, index) => (
               <p key={index}>{p}</p>
             ))}
