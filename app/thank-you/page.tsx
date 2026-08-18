@@ -62,7 +62,7 @@ export default function ThankYouPage() {
           <FuzzyText
             fontSize="clamp(2.8rem, 8vw, 4.8rem)"
             fontWeight={900}
-            gradient={["#2563EB", "#FACC15"]}
+            gradient={["#0094FF", "#7B73C4", "#BE5A88", "#FF234E", "#FF6E38", "#FFA82E", "#FFD600"]}
             enableHover={true}
             baseIntensity={0.15}
             hoverIntensity={0.6}

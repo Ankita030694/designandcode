@@ -166,7 +166,6 @@ export default function ContactUs() {
     message: "",
   });
 
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCcOpen, setIsCcOpen] = useState(false);
   const [ccSearch, setCcSearch] = useState("");
@@ -202,7 +201,6 @@ export default function ContactUs() {
         status: "new"
       });
 
-      setFormSubmitted(true);
       router.push("/thank-you");
     } catch (error) {
       console.error("Error adding document: ", error);
@@ -266,20 +264,7 @@ export default function ContactUs() {
                   </p>
                 </div>
 
-                {formSubmitted ? (
-                  <div className="py-16 flex flex-col items-center text-center animate-fade-in">
-                    <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-4 shadow-xs">
-                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold text-zinc-900">Thank you!</h3>
-                    <p className="text-zinc-500 text-sm mt-2 max-w-xs leading-relaxed">
-                      Your message has been sent successfully. Our team will get back to you within 24 hours.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                     
                     {/* Field 1: Name */}
                     <div className="flex flex-col gap-2">
@@ -444,7 +429,6 @@ export default function ContactUs() {
                     </p>
 
                   </form>
-                )}
 
               </div>
             </div>

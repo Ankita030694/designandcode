@@ -62,7 +62,7 @@ export default function NotFound() {
           <FuzzyText
             fontSize="clamp(4.5rem, 14vw, 7rem)"
             fontWeight={900}
-            gradient={["#2563EB", "#FACC15"]}
+            gradient={["#0094FF", "#7B73C4", "#BE5A88", "#FF234E", "#FF6E38", "#FFA82E", "#FFD600"]}
             enableHover={true}
             baseIntensity={0.15}
             hoverIntensity={0.6}
