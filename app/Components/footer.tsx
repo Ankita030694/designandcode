@@ -6,18 +6,17 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer
-      className="w-full relative overflow-hidden mt-0 md:-mt-50"
+      className="w-full relative overflow-hidden mt-0 md:-mt-50 px-4 sm:px-6 pt-12 pb-24 md:pb-8"
       style={{
         backgroundImage: "url('/Footer BG BG.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        padding: "48px 24px 32px",
       }}
     >
       {/* ── Inner card with meadow photo ── */}
       <div
-        className="relative w-full max-w-[1500px] mx-auto rounded-3xl overflow-hidden flex flex-col justify-between min-h-[580px] sm:min-h-[620px]"
+        className="relative w-full max-w-[1500px] mx-auto rounded-3xl overflow-hidden flex flex-col justify-between min-h-[620px] sm:min-h-[620px]"
         style={{
           backgroundImage: "url('/Footer Bg.jpg')",
           backgroundSize: "cover",
@@ -80,7 +79,7 @@ export default function Footer() {
         </div>
 
         {/* ── HEADING & MOBILE CTA ── */}
-        <div className="relative z-10 px-8 pb-8 md:pb-16 mt-auto flex flex-col items-start text-left max-w-3xl">
+        <div className="relative z-10 px-6 sm:px-8 pb-20 sm:pb-24 md:pb-16 mt-auto flex flex-col items-start text-left max-w-3xl">
           <div className="relative inline-block text-left">
             {/* Main heading */}
             <h2
@@ -100,7 +99,7 @@ export default function Footer() {
           <div className="mt-6 block md:hidden">
             <Link
               href="/ContactUs"
-              className="bg-white text-zinc-900 font-bold text-base px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 active:scale-95 transition-all duration-200 select-none inline-block text-left"
+              className="bg-white text-zinc-900 font-bold text-base px-7 py-3.5 rounded-full shadow-xl hover:bg-zinc-100 active:scale-95 transition-all duration-200 select-none inline-block text-left"
             >
               Start Your Project
             </Link>
