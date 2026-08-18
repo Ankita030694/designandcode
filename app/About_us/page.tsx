@@ -198,9 +198,9 @@ export default function AboutUs() {
           </p>
 
           {/* Interactive Orbiting Visuals Area */}
-          <div className="relative w-full max-w-2xl aspect-[16/9] flex items-center justify-center select-none -mt-2 sm:-mt-3">
+          <div className="relative w-full max-w-2xl aspect-[16/9] flex items-center justify-center select-none -mt-2 sm:-mt-3 md:p-[10px]">
             <Image
-              src="/About us.png"
+              src="/About us New.svg"
               alt="About Us Illustration"
               fill
               className="object-contain"
@@ -222,7 +222,7 @@ export default function AboutUs() {
 
 
       {/* ── Our Story Section ── */}
-      <section className="relative w-full max-w-7xl mx-auto py-16 px-6 sm:px-8 lg:px-12 z-10">
+      <section className="relative w-full max-w-7xl mx-auto -mt-10 sm:mt-0 pt-2 pb-16 sm:py-16 px-6 sm:px-8 lg:px-12 z-10">
         {/* Top block: left kicker/title, right paragraphs */}
         <div className="flex flex-col md:flex-row justify-between gap-12 md:gap-16">
           {/* Left Column */}

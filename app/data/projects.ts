@@ -251,5 +251,29 @@ export const PROJECTS_DATA: Project[] = [
     image: "/project/The_fat_cookie.svg",
     projectType: "Shopify Store",
     url: "https://thefatcookiechef.com/"
+  },
+  {
+    slug: "trivora-jewels",
+    title: "Trivora Jewels",
+    description: "A luxury fine jewellery brand offering handcrafted gold, diamond, and bespoke artisanal jewelry collections.",
+    tags: ["Fine Jewellery", "Luxury E-Commerce", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-amber-600/10 via-yellow-500/5 to-amber-600/10",
+    mockupAccent: "from-amber-500 to-yellow-400",
+    image: "/Trivaro.jpg",
+    projectType: "Shopify Store",
+    url: "https://trivorajewels.com/"
+  },
+  {
+    slug: "purifi",
+    title: "Purifi",
+    description: "An advanced smart air purification and wellness technology brand engineered for modern homes and commercial spaces.",
+    tags: ["Smart Wellness", "Clean Tech", "Shopify Store"],
+    flag: "🇺🇸",
+    bg: "from-sky-500/10 via-teal-400/5 to-sky-500/10",
+    mockupAccent: "from-sky-400 to-teal-400",
+    image: "/E-Commerce.png",
+    projectType: "Shopify Store",
+    url: "#"
   }
 ];

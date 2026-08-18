@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function EyeFollower() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,50 +10,49 @@ export default function EyeFollower() {
   const mousePos = useRef({ x: -100, y: -100 });
   const cursorPos = useRef({ x: -100, y: -100 });
   
-  const isVisible = useRef(false);
   const isHovered = useRef(false);
   const isMouseDown = useRef(false);
-  const hasMoved = useRef(false);
+  const isEnabled = useRef(false);
 
   useEffect(() => {
-    // Disable on touch / coarse pointer devices
     if (typeof window === "undefined") return;
-    const isTouch =
-      window.matchMedia("(pointer: coarse)").matches ||
-      !window.matchMedia("(hover: hover)").matches;
-    if (isTouch) return;
 
-    const onMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      
-      if (!hasMoved.current) {
-        hasMoved.current = true;
-        cursorPos.current = { x: clientX, y: clientY };
-        mousePos.current = { x: clientX, y: clientY };
-        isVisible.current = true;
+    const onPointerMove = (e: PointerEvent) => {
+      // If it's a direct touch event on mobile, keep custom cursor hidden
+      if (e.pointerType === "touch") {
         if (containerRef.current) {
-          containerRef.current.style.opacity = "1";
+          containerRef.current.style.opacity = "0";
         }
-      } else {
-        mousePos.current = { x: clientX, y: clientY };
+        return;
       }
-    };
 
-    const onMouseEnter = () => {
-      isVisible.current = true;
+      const { clientX, clientY } = e;
+      mousePos.current = { x: clientX, y: clientY };
+
+      if (!isEnabled.current) {
+        isEnabled.current = true;
+        cursorPos.current = { x: clientX, y: clientY };
+      }
+
       if (containerRef.current) {
         containerRef.current.style.opacity = "1";
       }
     };
 
+    const onMouseEnter = () => {
+      if (containerRef.current && isEnabled.current) {
+        containerRef.current.style.opacity = "1";
+      }
+    };
+
     const onMouseLeave = () => {
-      isVisible.current = false;
       if (containerRef.current) {
         containerRef.current.style.opacity = "0";
       }
     };
 
-    const onMouseDown = () => {
+    const onPointerDown = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
       isMouseDown.current = true;
       if (cursorSvgRef.current) {
         cursorSvgRef.current.style.transform = isHovered.current
@@ -62,7 +61,8 @@ export default function EyeFollower() {
       }
     };
 
-    const onMouseUp = () => {
+    const onPointerUp = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
       isMouseDown.current = false;
       if (cursorSvgRef.current) {
         cursorSvgRef.current.style.transform = isHovered.current
@@ -71,7 +71,7 @@ export default function EyeFollower() {
       }
     };
 
-    // Detect interactive / clickable elements on the page
+    // Detect interactive elements for hover scale
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
@@ -92,28 +92,25 @@ export default function EyeFollower() {
       }
     };
 
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointerup", onPointerUp);
     window.addEventListener("mouseenter", onMouseEnter);
     window.addEventListener("mouseleave", onMouseLeave);
-    window.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mouseup", onMouseUp);
     window.addEventListener("mouseover", onMouseOver);
 
     let animationFrameId: number;
 
     const renderLoop = () => {
-      if (!containerRef.current) {
-        animationFrameId = requestAnimationFrame(renderLoop);
-        return;
+      if (containerRef.current && isEnabled.current) {
+        // Smooth lerp follow
+        const lerpFactor = 0.5;
+        cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * lerpFactor;
+        cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * lerpFactor;
+
+        // Position accurately with tip at cursor point
+        containerRef.current.style.transform = `translate3d(${cursorPos.current.x}px, ${cursorPos.current.y}px, 0)`;
       }
-
-      // Smooth lerp for ultra-responsive, buttery smooth cursor follow
-      const lerpFactor = 0.45;
-      cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * lerpFactor;
-      cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * lerpFactor;
-
-      // Translate so the cursor tip aligns accurately with (x, y)
-      containerRef.current.style.transform = `translate3d(${cursorPos.current.x - 2}px, ${cursorPos.current.y - 2}px, 0)`;
 
       animationFrameId = requestAnimationFrame(renderLoop);
     };
@@ -121,11 +118,11 @@ export default function EyeFollower() {
     animationFrameId = requestAnimationFrame(renderLoop);
 
     return () => {
-      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerup", onPointerUp);
       window.removeEventListener("mouseenter", onMouseEnter);
       window.removeEventListener("mouseleave", onMouseLeave);
-      window.removeEventListener("mousedown", onMouseDown);
-      window.removeEventListener("mouseup", onMouseUp);
       window.removeEventListener("mouseover", onMouseOver);
       cancelAnimationFrame(animationFrameId);
     };
@@ -135,30 +132,31 @@ export default function EyeFollower() {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className="fixed top-0 left-0 z-[99999] pointer-events-none select-none opacity-0 transition-opacity duration-150 ease-out hidden md:block"
+      className="fixed top-0 left-0 z-[999999] pointer-events-none select-none opacity-0 transition-opacity duration-150 ease-out"
       style={{
-        width: 26,
-        height: 26,
+        width: 28,
+        height: 28,
         willChange: "transform, opacity",
       }}
     >
       <svg
         ref={cursorSvgRef}
-        viewBox="0 0 26 26"
-        width="26"
-        height="26"
+        viewBox="0 0 24 24"
+        width="28"
+        height="28"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-[0_2px_6px_rgba(0,122,255,0.4)] transition-transform duration-150 ease-out"
-        style={{ transformOrigin: "top left" }}
+        className="w-full h-full drop-shadow-[0_2px_8px_rgba(0,122,255,0.5)] transition-transform duration-150 ease-out"
+        style={{ transformOrigin: "0 0" }}
       >
-        {/* Custom Blue Figma/Live Cursor Pointer */}
+        {/* Vibrant Blue Figma Pointer */}
         <path
-          d="M4.03 2.57C3.33 2.07 2.36 2.57 2.36 3.44V21.4C2.36 22.37 3.52 22.86 4.22 22.18L8.85 17.65C9.17 17.34 9.6 17.17 10.05 17.17H17.75C18.72 17.17 19.22 16.01 18.54 15.31L4.03 2.57Z"
-          fill="#0084FF"
+          d="M3 2L20.5 11.5L11.5 13.5L8 21.5L3 2Z"
+          fill="#007AFF"
           stroke="#FFFFFF"
-          strokeWidth="1.4"
+          strokeWidth="1.5"
           strokeLinejoin="round"
+          strokeLinecap="round"
         />
       </svg>
     </div>

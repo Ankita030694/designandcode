@@ -16,44 +16,44 @@ export default function Home() {
   const dropupProjects = PROJECTS_DATA.slice(0, 3);
   const storyboardProjects = [
     {
-      title: "Bloom Cafes",
-      category: "Specialty Coffee",
-      platform: "Figma",
+      title: "AMA Legal Solutions",
+      category: "Legal Services",
+      platform: "Next.js",
       year: "2026",
-      image: "/project/Bloom.svg",
-      clipColor: "text-rose-500",
-      rotation: "rotate-[2.5deg] hover:rotate-[0deg]",
-      link: "/Projects/bloom"
+      image: "/project/AMA.svg",
+      clipColor: "text-teal-500",
+      rotation: "rotate-[-2deg] hover:rotate-[0deg]",
+      link: "/Projects/ama"
     },
     {
-      title: "Bunt India",
-      category: "Haute Couture",
-      platform: "Figma",
+      title: "Trivora Jewels",
+      category: "Fine Jewellery",
+      platform: "Shopify",
       year: "2026",
-      image: "/project/Bunt.svg",
+      image: "/Trivaro.jpg",
       clipColor: "text-amber-500",
-      rotation: "rotate-[-1.5deg] hover:rotate-[0deg]",
-      link: "/Projects/bunt"
+      rotation: "rotate-[2.5deg] hover:rotate-[0deg]",
+      link: "/Projects/trivora-jewels"
     },
     {
-      title: "Kitchun",
-      category: "SaaS",
-      platform: "Framer",
+      title: "HONK",
+      category: "Mobility & Transit",
+      platform: "UI/UX",
       year: "2026",
-      image: "/project/Kitchun.svg",
-      clipColor: "text-green-500",
+      image: "/project/HONK.svg",
+      clipColor: "text-sky-500",
       rotation: "rotate-[3deg] hover:rotate-[0deg]",
-      link: "/Projects/kitchun"
+      link: "/Projects/honk"
     },
     {
-      title: "Aerolume",
-      category: "Architectural Lighting",
-      platform: "Photoshop",
+      title: "The Fat Cookie Chef",
+      category: "Gourmet Bakery",
+      platform: "Shopify",
       year: "2026",
-      image: "/project/Aerolume.svg",
-      clipColor: "text-purple-500",
-      rotation: "rotate-[-2.5deg] hover:rotate-[0deg]",
-      link: "/Projects/aerolume"
+      image: "/project/The_fat_cookie.svg",
+      clipColor: "text-rose-500",
+      rotation: "rotate-[2deg] hover:rotate-[0deg]",
+      link: "/Projects/the-fat-cookie"
     }
   ];
 
@@ -149,9 +149,9 @@ export default function Home() {
               onMouseLeave={() => setIsOpen(false)}
               onClick={() => setIsOpen(!isOpen)}
             >
-              {/* Card 3: Aerolume (Back Layer) */}
+              {/* Card 3: HONK (Back Layer) */}
               <Link 
-                href="/Projects/aerolume"
+                href="/Projects/honk"
                 className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
                   isOpen 
                     ? "z-30 translate-y-[-170px] sm:translate-y-[-208px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
@@ -161,8 +161,8 @@ export default function Home() {
               >
                 <div className={`flex flex-col justify-between h-full py-0.5 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <div className="flex flex-col">
-                    <span className="text-[8px] font-mono font-bold tracking-wider text-white/50 uppercase">Shopify Store</span>
-                    <span className="text-xs font-bold text-white mt-0.5 tracking-wide">Aerolume</span>
+                    <span className="text-[8px] font-mono font-bold tracking-wider text-white/50 uppercase">UI/UX Design</span>
+                    <span className="text-xs font-bold text-white mt-0.5 tracking-wide">HONK</span>
                   </div>
                   <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-white/70 group-hover/card:text-white mt-1">
                     View Project ↗
@@ -171,17 +171,17 @@ export default function Home() {
                 
                 <div className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <Image 
-                    src="/project/Aerolume.svg" 
-                    alt="Aerolume" 
+                    src="/project/HONK.svg" 
+                    alt="HONK" 
                     fill 
                     className="object-cover scale-105" 
                   />
                 </div>
               </Link>
 
-              {/* Card 2: Adorna Casa (Middle Layer) */}
+              {/* Card 2: Trivora Jewels (Middle Layer) */}
               <Link 
-                href="/Projects/adorna-casa"
+                href="/Projects/trivora-jewels"
                 className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
                   isOpen 
                     ? "z-30 translate-y-[-85px] sm:translate-y-[-104px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
@@ -192,7 +192,7 @@ export default function Home() {
                 <div className={`flex flex-col justify-between h-full py-0.5 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <div className="flex flex-col">
                     <span className="text-[8px] font-mono font-bold tracking-wider text-white/50 uppercase">Shopify Store</span>
-                    <span className="text-xs font-bold text-white mt-0.5 tracking-wide">Adorna Casa</span>
+                    <span className="text-xs font-bold text-white mt-0.5 tracking-wide">Trivora Jewels</span>
                   </div>
                   <span className="inline-flex items-center gap-0.5 text-[9px] font-bold text-white/70 group-hover/card:text-white mt-1">
                     View Project ↗
@@ -201,8 +201,8 @@ export default function Home() {
                 
                 <div className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <Image 
-                    src="/project/Adorna_casa.svg" 
-                    alt="Adorna Casa" 
+                    src="/Trivaro.jpg" 
+                    alt="Trivora Jewels" 
                     fill 
                     className="object-cover scale-105" 
                   />

@@ -237,8 +237,8 @@ body {
   animation: orbit-reverse 50s linear infinite;
 }
 
-/* Hide default OS cursor on desktop (fine pointer devices) */
-@media (hover: hover) and (pointer: fine) {
+/* Hide default OS cursor on mouse/hover devices */
+@media (hover: hover) {
   html, body, a, button, input, textarea, select, [role="button"], * {
     cursor: none !important;
   }
