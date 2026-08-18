@@ -54,25 +54,25 @@ const AnimatedCounter = ({ target, suffix = "", duration = 1500 }: { target: num
 const teamMembers = [
   {
     name: "Ankita Malik",
-    role: "Co-Founder & Managing Director",
+    role: "Founder & Web Developer",
     bio: "Leading DesignNCode with a focus on business strategy, creative direction and building meaningful digital experiences for ambitious brands.",
     imageSrc: "/Ankita.jpeg",
   },
   {
     name: "Bhavya",
-    role: "SDE",
+    role: "Software Developer",
     bio: "Focused on building reliable and scalable digital solutions while bringing modern development practices to every project.",
     imageSrc: "/Bhavya.jpeg",
   },
   {
     name: "Zaib",
-    role: "Designer & Frontend Developer",
+    role: "UI/UX Designer & Frontend Developer",
     bio: "Bringing UI/UX design and frontend development together to create interfaces that are visually engaging, responsive and easy to use.",
     imageSrc: "/Zaib.jpeg",
   },
   {
     name: "Piyush",
-    role: "SDE Intern",
+    role: "Junior Software Developer",
     bio: "Supporting development projects while learning and contributing to modern web development and digital product experiences.",
     imageSrc: "/Piyush.jpeg",
   },

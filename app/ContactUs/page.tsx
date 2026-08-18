@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import SpecularButton from "@/components/SpecularButton";
 import Footer from "../Components/footer";
@@ -155,6 +156,7 @@ const BrandsLogos = () => (
 );
 
 export default function ContactUs() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     countryCode: "+1",
@@ -165,6 +167,7 @@ export default function ContactUs() {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCcOpen, setIsCcOpen] = useState(false);
   const [ccSearch, setCcSearch] = useState("");
 
@@ -187,6 +190,7 @@ export default function ContactUs() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       await addDoc(collection(db, "leads"), {
         name: formData.name,
@@ -199,20 +203,11 @@ export default function ContactUs() {
       });
 
       setFormSubmitted(true);
-      setTimeout(() => {
-        setFormSubmitted(false);
-        setFormData({
-          name: "",
-          countryCode: "+1",
-          phoneNumber: "",
-          email: "",
-          service: "",
-          message: "",
-        });
-      }, 4000);
+      router.push("/thank-you");
     } catch (error) {
       console.error("Error adding document: ", error);
       alert("Failed to submit the form. Please try again later.");
+      setIsSubmitting(false);
     }
   };
 
@@ -432,14 +427,15 @@ export default function ContactUs() {
                     {/* Field 6: Submit Button */}
                     <SpecularButton
                       type="submit"
-                      className="w-full py-3.5 mt-2 text-base font-bold tracking-wide"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 mt-2 text-base font-bold tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
                       baseColor="#18181b"
                       textColor="#ffffff"
                       lineColor="#ffffff"
                       radius={9999}
                       intensity={1.2}
                     >
-                      Send Project Inquiry
+                      {isSubmitting ? "Sending Inquiry..." : "Send Project Inquiry"}
                     </SpecularButton>
 
                     {/* Supporting Text */}

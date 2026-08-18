@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FuzzyText from "@/components/FuzzyText";
 
-export default function NotFound() {
+export default function ThankYouPage() {
   return (
     <main className="relative flex flex-col items-center justify-center h-[100dvh] max-h-[100dvh] w-full overflow-hidden px-4 select-none">
       {/* ── Background Countryside Landscape ── */}
@@ -57,10 +57,10 @@ export default function NotFound() {
           />
         </div>
 
-        {/* Glitchy/fuzzy 404 text */}
+        {/* Glitchy/fuzzy Thank You! text */}
         <div className="mb-3 select-none cursor-pointer flex justify-center w-full overflow-hidden">
           <FuzzyText
-            fontSize="clamp(4.5rem, 14vw, 7rem)"
+            fontSize="clamp(2.8rem, 8vw, 4.8rem)"
             fontWeight={900}
             gradient={["#2563EB", "#FACC15"]}
             enableHover={true}
@@ -70,18 +70,18 @@ export default function NotFound() {
             glitchInterval={2500}
             clickEffect={true}
           >
-            404
+            Thank You!
           </FuzzyText>
         </div>
 
         {/* Heading */}
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 mb-2">
-          Lost in Space?
+          We&apos;ve Got Your Message!
         </h1>
 
         {/* Description */}
         <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed max-w-sm mb-6">
-          The page you are looking for doesn&apos;t exist or has been relocated. Let&apos;s get you back on track.
+          Thank you for reaching out to DesignNCode. Our team will review your inquiry and get back to you within 24 hours.
         </p>
 
         {/* Navigation Action Buttons */}
@@ -93,10 +93,10 @@ export default function NotFound() {
             Go Back Home
           </Link>
           <Link
-            href="/ContactUs"
+            href="/Projects"
             className="w-full sm:w-auto inline-flex h-[42px] px-6 items-center justify-center rounded-[12px] bg-white border border-zinc-200/80 text-zinc-800 text-sm font-semibold transition-all duration-200 hover:bg-zinc-50 hover:scale-[1.02] active:scale-95 shadow-xs"
           >
-            Contact Us
+            Explore Projects
           </Link>
         </div>
       </div>
