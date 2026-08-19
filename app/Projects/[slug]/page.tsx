@@ -94,10 +94,6 @@ export default async function ProjectDetailPage({
                 {tag}
               </span>
             ))}
-            <span className="px-3.5 py-1.5 rounded-full bg-white border border-zinc-200 text-zinc-700 text-xs font-medium shadow-[0_2px_6px_rgba(0,0,0,0.03)] flex items-center gap-1.5">
-              <span>Origin:</span>
-              <span className="text-sm leading-none" title="Country">{project.flag}</span>
-            </span>
           </div>
         </div>
 
