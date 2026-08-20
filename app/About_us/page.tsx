@@ -56,25 +56,25 @@ const teamMembers = [
     name: "Ankita Malik",
     role: "Founder & Web Developer",
     bio: "Leading DesignNCode with a focus on business strategy, creative direction and building meaningful digital experiences for ambitious brands.",
-    imageSrc: "/Ankita.jpeg",
+    imageSrc: "/Ankita.webp",
   },
   {
     name: "Bhavya",
     role: "Software Developer",
     bio: "Focused on building reliable and scalable digital solutions while bringing modern development practices to every project.",
-    imageSrc: "/Bhavya.jpeg",
+    imageSrc: "/Bhavya.webp",
   },
   {
     name: "Zaib",
     role: "UI/UX Designer & Frontend Developer",
     bio: "Bringing UI/UX design and frontend development together to create interfaces that are visually engaging, responsive and easy to use.",
-    imageSrc: "/Zaib.jpeg",
+    imageSrc: "/Zaib.webp",
   },
   {
     name: "Piyush",
     role: "Junior Software Developer",
     bio: "Supporting development projects while learning and contributing to modern web development and digital product experiences.",
-    imageSrc: "/Piyush.jpeg",
+    imageSrc: "/Piyush.webp",
   },
 ];
 
@@ -534,9 +534,11 @@ export default function AboutUs() {
               >
                 {/* Starry Sky Card Background */}
                 <Image
-                  src="/pexels-kseniya-budko-58499146-7952548.jpg"
+                  src="/pexels-kseniya-budko-58499146-7952548.webp"
                   alt="Card background"
                   fill
+                  loading="lazy"
+                  quality={80}
                   className="object-cover absolute inset-0 z-0 transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />

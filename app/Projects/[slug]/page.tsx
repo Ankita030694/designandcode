@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PROJECTS_DATA } from "../../data/projects";
 import { getProjectCopy } from "./projectCopy";
@@ -64,6 +65,7 @@ export default async function ProjectDetailPage({
         <div className="mb-10 sm:mb-14">
           <Link
             href="/Projects"
+            prefetch={true}
             className="inline-flex items-center gap-2 text-zinc-500 hover:text-zinc-900 transition-colors text-sm font-medium group"
           >
             <svg
@@ -105,9 +107,14 @@ export default async function ProjectDetailPage({
           {/* Capsule Card wrapper */}
           <div className="relative z-10 bg-white/70 backdrop-blur-md rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 md:p-12  shadow-[0_15px_50px_rgba(0,0,0,0.04)] flex items-center justify-center overflow-hidden">
             <div className="relative w-full overflow-hidden rounded-xl  bg-white shadow-xs">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={1040}
+                height={780}
+                quality={85}
+                priority
+                sizes="(max-width: 1024px) 100vw, 900px"
                 className="w-full h-auto object-contain transition-transform duration-700 hover:scale-[1.01]"
               />
             </div>

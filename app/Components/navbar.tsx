@@ -24,7 +24,7 @@ const navItems = [
   {
     label: "Projects",
     href: "/Projects",
-    imageSrc: "/Projects.jpg",
+    imageSrc: "/Projects.webp",
   },
   {
     label: "Blogs",
@@ -60,7 +60,7 @@ export default function Navbar() {
     <>
       {/* Top Middle Logo */}
       <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto select-none">
-        <Link href="/" className="block transition-transform duration-300 hover:scale-105">
+        <Link href="/" prefetch={true} className="block transition-transform duration-300 hover:scale-105">
           <Image 
             src="/LOGO.svg" 
             alt="Designncode Logo" 
@@ -102,6 +102,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
+                prefetch={true}
                 className="relative flex flex-col items-center group cursor-pointer"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}

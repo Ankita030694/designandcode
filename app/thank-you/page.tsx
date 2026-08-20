@@ -11,18 +11,22 @@ export default function ThankYouPage() {
       <div className="absolute inset-0 z-0">
         {/* Mobile Background Image */}
         <Image
-          src="/Thankyou mobile 1.svg"
+          src="/Thankyou mobile 1.webp"
           alt="Thank You"
           fill
           priority
+          quality={85}
+          sizes="(max-width: 640px) 100vw, 1px"
           className="object-cover object-center select-none block sm:hidden"
         />
         {/* Desktop / Tablet Background Image */}
         <Image
-          src="/ThankYou_Img.svg"
+          src="/ThankYou_Img.webp"
           alt="Thank You"
           fill
           priority
+          quality={85}
+          sizes="(min-width: 641px) 100vw, 1px"
           className="object-cover object-center select-none hidden sm:block"
         />
         {/* Atmospheric vibrant gradient overlay */}
@@ -106,6 +110,7 @@ export default function ThankYouPage() {
           </a>
           <Link
             href="/Projects"
+            prefetch={true}
             className="w-full sm:w-auto inline-flex h-[42px] px-6 items-center justify-center rounded-[12px] bg-white border border-zinc-200/80 text-zinc-800 text-sm font-semibold transition-all duration-200 hover:bg-zinc-50 hover:scale-[1.02] active:scale-95 shadow-xs"
           >
             Explore Projects

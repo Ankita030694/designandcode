@@ -223,13 +223,18 @@ export default function EcommerceServicePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {shopifyProjects.map((project) => (
-            <Link href={`/Projects/${project.slug}`} key={project.slug} className="group block cursor-pointer">
+            <Link href={`/Projects/${project.slug}`} prefetch={true} key={project.slug} className="group block cursor-pointer">
               <article>
                 <div className={`relative rounded-[28px] bg-gradient-to-br ${project.bg} overflow-hidden border border-zinc-200/60 shadow-xs transition-transform duration-500 group-hover:scale-[1.01] group-hover:shadow-md aspect-[16/10] flex items-center justify-center p-6`}>
                   <div className="relative w-full h-full flex items-center justify-center">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={600}
+                      height={375}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      quality={85}
+                      loading="lazy"
                       className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </div>

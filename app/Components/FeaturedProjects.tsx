@@ -21,7 +21,7 @@ const DEFAULT_PROJECTS: StoryboardProject[] = [
     category: "Legal Services",
     platform: "Next.js",
     year: "2026",
-    image: "/project/AMA.svg",
+    image: "/project/AMA.webp",
     clipColor: "text-teal-500",
     rotation: "rotate-[-2deg] hover:rotate-[0deg]",
     link: "/Projects/ama",
@@ -31,7 +31,7 @@ const DEFAULT_PROJECTS: StoryboardProject[] = [
     category: "Fine Jewellery",
     platform: "Shopify",
     year: "2026",
-    image: "/Trivaro.jpg",
+    image: "/Trivaro.webp",
     clipColor: "text-amber-500",
     rotation: "rotate-[2.5deg] hover:rotate-[0deg]",
     link: "/Projects/trivora-jewels",
@@ -41,7 +41,7 @@ const DEFAULT_PROJECTS: StoryboardProject[] = [
     category: "Mobility & Transit",
     platform: "UI/UX",
     year: "2026",
-    image: "/project/HONK.svg",
+    image: "/project/HONK.webp",
     clipColor: "text-sky-500",
     rotation: "rotate-[3deg] hover:rotate-[0deg]",
     link: "/Projects/honk",
@@ -51,7 +51,7 @@ const DEFAULT_PROJECTS: StoryboardProject[] = [
     category: "Gourmet Bakery",
     platform: "Shopify",
     year: "2026",
-    image: "/project/The_fat_cookie.svg",
+    image: "/project/The_fat_cookie.webp",
     clipColor: "text-rose-500",
     rotation: "rotate-[2deg] hover:rotate-[0deg]",
     link: "/Projects/the-fat-cookie",
@@ -99,6 +99,7 @@ export default function FeaturedProjects({
           {projects.map((project) => (
             <Link
               href={project.link}
+              prefetch={true}
               key={project.title}
               className="w-full"
               onClick={(e) => e.stopPropagation()}
@@ -138,6 +139,9 @@ export default function FeaturedProjects({
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={85}
+                    loading="lazy"
                     className="object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>

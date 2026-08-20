@@ -20,7 +20,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇺🇸",
     bg: "from-teal-500/10 via-emerald-400/5 to-teal-500/10",
     mockupAccent: "from-teal-400 to-emerald-400",
-    image: "/project/AMA.svg",
+    image: "/project/AMA.webp",
     projectType: "Custom Code",
     url: "https://www.amalegalsolutions.com/"
   },
@@ -32,7 +32,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇹",
     bg: "from-amber-500/10 via-orange-400/5 to-amber-500/10",
     mockupAccent: "from-amber-400 to-orange-400",
-    image: "/project/Adorna_casa.svg",
+    image: "/project/Adorna_casa.webp",
     projectType: "Shopify Store",
     url: "https://adornocasa.com/"
   },
@@ -44,7 +44,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇩🇪",
     bg: "from-blue-500/10 via-indigo-400/5 to-blue-500/10",
     mockupAccent: "from-blue-400 to-indigo-400",
-    image: "/project/Aerolume.svg",
+    image: "/project/Aerolume.webp",
     projectType: "Shopify Store",
     url: "https://aerolume.in/"
   },
@@ -56,7 +56,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-purple-500/10 via-pink-400/5 to-purple-500/10",
     mockupAccent: "from-purple-400 to-pink-400",
-    image: "/project/Anyadha.svg",
+    image: "/project/Anyadha.webp",
     projectType: "Shopify Store",
     url: "https://anyadha.in/"
   },
@@ -68,7 +68,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇨🇦",
     bg: "from-green-500/10 via-emerald-400/5 to-green-500/10",
     mockupAccent: "from-green-400 to-emerald-400",
-    image: "/project/Bloom.svg",
+    image: "/project/Bloom.webp",
     projectType: "Shopify Store",
     url: "https://bloomcafes.com/"
   },
@@ -80,7 +80,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇬🇧",
     bg: "from-cyan-500/10 via-sky-400/5 to-cyan-500/10",
     mockupAccent: "from-cyan-400 to-sky-400",
-    image: "/project/Botai.svg",
+    image: "/project/Botai.webp",
     projectType: "Custom Code",
     url: "https://www.bo-tai.co.in/"
   },
@@ -92,7 +92,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇫🇷",
     bg: "from-rose-500/10 via-fuchsia-400/5 to-rose-500/10",
     mockupAccent: "from-rose-400 to-fuchsia-400",
-    image: "/project/Bunt.svg",
+    image: "/project/Bunt.webp",
     projectType: "Shopify Store",
     url: "https://buntindia.com/"
   },
@@ -104,7 +104,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇺🇸",
     bg: "from-indigo-500/10 via-blue-400/5 to-indigo-500/10",
     mockupAccent: "from-indigo-400 to-blue-400",
-    image: "/project/Credsettle.svg",
+    image: "/project/Credsettle.webp",
     projectType: "Custom Code",
     url: "https://www.credsettle.com/"
   },
@@ -116,7 +116,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-amber-500/10 via-yellow-400/5 to-amber-500/10",
     mockupAccent: "from-amber-400 to-yellow-400",
-    image: "/project/Delhi House.svg",
+    image: "/project/Delhi House.webp",
     projectType: "Custom Code",
     url: "https://houseofnihalkhera.com/"
   },
@@ -128,7 +128,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-amber-500/10 via-yellow-400/5 to-amber-500/10",
     mockupAccent: "from-amber-400 to-yellow-400",
-    image: "/project/Delhi House.svg",
+    image: "/project/Delhi House.webp",
     projectType: "Custom Code",
     url: "https://www.delhihousecafe.com/"
   },
@@ -140,7 +140,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇦🇪",
     bg: "from-red-500/10 via-orange-400/5 to-red-500/10",
     mockupAccent: "from-red-400 to-orange-400",
-    image: "/project/Farzi_Cafe.svg",
+    image: "/project/Farzi_Cafe.webp",
     projectType: "Custom Code",
     url: "https://www.farzicafe.com/"
   },
@@ -152,7 +152,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇧🇪",
     bg: "from-violet-500/10 via-purple-400/5 to-violet-500/10",
     mockupAccent: "from-violet-400 to-purple-400",
-    image: "/project/Foire.svg",
+    image: "/project/Foire.webp",
     projectType: "Shopify Store",
     url: "https://foire.in/"
   },
@@ -164,7 +164,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇸🇬",
     bg: "from-sky-500/10 via-blue-400/5 to-sky-500/10",
     mockupAccent: "from-sky-400 to-blue-400",
-    image: "/project/HONK.svg",
+    image: "/project/HONK.webp",
     projectType: "Shopify Store",
     url: "#"
   },
@@ -176,7 +176,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-yellow-500/10 via-amber-400/5 to-yellow-500/10",
     mockupAccent: "from-yellow-400 to-amber-400",
-    image: "/project/Kamal.svg",
+    image: "/project/Kamal.webp",
     projectType: "Custom Code",
     url: "https://kamalmotors.in/"
   },
@@ -188,7 +188,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇦🇺",
     bg: "from-orange-500/10 via-red-400/5 to-orange-500/10",
     mockupAccent: "from-orange-400 to-red-400",
-    image: "/project/Kitchun.svg",
+    image: "/project/Kitchun.webp",
     projectType: "Shopify Store",
     url: "#"
   },
@@ -200,7 +200,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇯🇲",
     bg: "from-pink-500/10 via-rose-400/5 to-pink-500/10",
     mockupAccent: "from-pink-400 to-rose-400",
-    image: "/project/Mama_jama.svg",
+    image: "/project/Mama_jama.webp",
     projectType: "Shopify Store",
     url: "https://mamajama.in/"
   },
@@ -212,7 +212,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇸🇦",
     bg: "from-yellow-600/10 via-zinc-400/5 to-yellow-600/10",
     mockupAccent: "from-amber-600 to-zinc-600",
-    image: "/project/Oud.svg",
+    image: "/project/Oud.webp",
     projectType: "Shopify Store",
     url: "https://theoudqua.com/"
   },
@@ -224,7 +224,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇫🇷",
     bg: "from-rose-500/10 via-pink-400/5 to-rose-500/10",
     mockupAccent: "from-rose-400 to-pink-400",
-    image: "/project/Rosete.svg",
+    image: "/project/Rosete.webp",
     projectType: "Shopify Store",
     url: "#"
   },
@@ -236,7 +236,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇲🇨",
     bg: "from-cyan-500/10 via-teal-400/5 to-cyan-500/10",
     mockupAccent: "from-cyan-500 to-teal-400",
-    image: "/project/Sexsea.svg",
+    image: "/project/Sexsea.webp",
     projectType: "Shopify Store",
     url: "https://sexsea.in/"
   },
@@ -248,7 +248,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇬🇧",
     bg: "from-amber-500/10 via-orange-400/5 to-amber-500/10",
     mockupAccent: "from-amber-500 to-orange-500",
-    image: "/project/The_fat_cookie.svg",
+    image: "/project/The_fat_cookie.webp",
     projectType: "Shopify Store",
     url: "https://thefatcookiechef.com/"
   },
@@ -260,7 +260,7 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇮🇳",
     bg: "from-amber-600/10 via-yellow-500/5 to-amber-600/10",
     mockupAccent: "from-amber-500 to-yellow-400",
-    image: "/Trivaro.jpg",
+    image: "/Trivaro.webp",
     projectType: "Shopify Store",
     url: "https://trivorajewels.com/"
   },

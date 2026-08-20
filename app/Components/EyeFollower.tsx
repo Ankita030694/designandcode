@@ -103,13 +103,18 @@ export default function EyeFollower() {
 
     const renderLoop = () => {
       if (containerRef.current && isEnabled.current) {
-        // Smooth lerp follow
-        const lerpFactor = 0.5;
-        cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * lerpFactor;
-        cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * lerpFactor;
+        const dx = mousePos.current.x - cursorPos.current.x;
+        const dy = mousePos.current.y - cursorPos.current.y;
+        
+        if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+          // Smooth lerp follow
+          const lerpFactor = 0.5;
+          cursorPos.current.x += dx * lerpFactor;
+          cursorPos.current.y += dy * lerpFactor;
 
-        // Position accurately with tip at cursor point
-        containerRef.current.style.transform = `translate3d(${cursorPos.current.x}px, ${cursorPos.current.y}px, 0)`;
+          // Position accurately with tip at cursor point
+          containerRef.current.style.transform = `translate3d(${cursorPos.current.x}px, ${cursorPos.current.y}px, 0)`;
+        }
       }
 
       animationFrameId = requestAnimationFrame(renderLoop);

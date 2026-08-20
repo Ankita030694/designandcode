@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600;1,700&family=Instrument+Serif:ital@1&display=swap');
 @import "tailwindcss";
 @plugin "../node_modules/@tailwindcss/typography";
 
@@ -208,7 +207,7 @@ body {
 
 /* Custom premium styles for rotating logo orbit */
 .font-premium-serif {
-  font-family: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+  font-family: var(--font-instrument-serif), var(--font-playfair), 'Instrument Serif', 'Playfair Display', Georgia, serif;
 }
 
 @keyframes orbit {

@@ -296,9 +296,11 @@ function AMABlogLayout() {
               </h4>
               <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4 border border-zinc-200 shadow-xs bg-zinc-100">
                 <Image
-                  src="/Ankita.jpeg"
+                  src="/Ankita.webp"
                   alt="Ankita Malik"
                   fill
+                  sizes="80px"
+                  quality={85}
                   className="object-cover"
                 />
               </div>
@@ -312,6 +314,7 @@ function AMABlogLayout() {
               <div className="flex flex-col gap-2 w-full mt-6">
                 <Link
                   href="/About_us"
+                  prefetch={true}
                   className="text-xs font-bold text-[#D2A02A] hover:underline uppercase tracking-wider"
                 >
                   View Profile

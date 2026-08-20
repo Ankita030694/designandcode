@@ -58,6 +58,8 @@ export default function ServicesPage() {
                   alt="Designncode Services"
                   fill
                   priority
+                  sizes="(max-width: 1024px) 100vw, 440px"
+                  quality={85}
                   className="object-cover"
                 />
               </div>

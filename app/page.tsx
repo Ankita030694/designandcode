@@ -20,7 +20,7 @@ export default function Home() {
       category: "Legal Services",
       platform: "Next.js",
       year: "2026",
-      image: "/project/AMA.svg",
+      image: "/project/AMA.webp",
       clipColor: "text-teal-500",
       rotation: "rotate-[-2deg] hover:rotate-[0deg]",
       link: "/Projects/ama"
@@ -30,7 +30,7 @@ export default function Home() {
       category: "Fine Jewellery",
       platform: "Shopify",
       year: "2026",
-      image: "/Trivaro.jpg",
+      image: "/Trivaro.webp",
       clipColor: "text-amber-500",
       rotation: "rotate-[2.5deg] hover:rotate-[0deg]",
       link: "/Projects/trivora-jewels"
@@ -40,7 +40,7 @@ export default function Home() {
       category: "Mobility & Transit",
       platform: "UI/UX",
       year: "2026",
-      image: "/project/HONK.svg",
+      image: "/project/HONK.webp",
       clipColor: "text-sky-500",
       rotation: "rotate-[3deg] hover:rotate-[0deg]",
       link: "/Projects/honk"
@@ -50,7 +50,7 @@ export default function Home() {
       category: "Gourmet Bakery",
       platform: "Shopify",
       year: "2026",
-      image: "/project/The_fat_cookie.svg",
+      image: "/project/The_fat_cookie.webp",
       clipColor: "text-rose-500",
       rotation: "rotate-[2deg] hover:rotate-[0deg]",
       link: "/Projects/the-fat-cookie"
@@ -64,10 +64,12 @@ export default function Home() {
         {/* 1. Background Image (Green hills and sky) */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero.jpg"
+            src="/hero.webp"
             alt="Green hills and sky"
             fill
             priority
+            quality={85}
+            sizes="100vw"
             className="object-cover object-center select-none"
           />
           {/* Soft atmospheric overlay for high text contrast */}
@@ -119,7 +121,7 @@ export default function Home() {
                 />
               </div>
               
-              <Link href="/ContactUs">
+              <Link href="/ContactUs" prefetch={true}>
                 <button className="bg-white border border-zinc-200/80 rounded-xl px-7 py-3 shadow-md hover:shadow-lg text-zinc-900 font-extrabold text-sm tracking-wide select-none cursor-pointer">
                   Start a Project
                 </button>
@@ -152,6 +154,7 @@ export default function Home() {
               {/* Card 3: HONK (Back Layer) */}
               <Link 
                 href="/Projects/honk"
+                prefetch={true}
                 className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
                   isOpen 
                     ? "z-30 translate-y-[-170px] sm:translate-y-[-208px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
@@ -171,9 +174,10 @@ export default function Home() {
                 
                 <div className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <Image 
-                    src="/project/HONK.svg" 
+                    src="/project/HONK.webp" 
                     alt="HONK" 
                     fill 
+                    sizes="(max-width: 768px) 48px, 56px"
                     className="object-cover scale-105" 
                   />
                 </div>
@@ -182,6 +186,7 @@ export default function Home() {
               {/* Card 2: Trivora Jewels (Middle Layer) */}
               <Link 
                 href="/Projects/trivora-jewels"
+                prefetch={true}
                 className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card ${
                   isOpen 
                     ? "z-30 translate-y-[-85px] sm:translate-y-[-104px] scale-100 bg-white/15 backdrop-blur-md border border-white/20 opacity-100 pointer-events-auto" 
@@ -201,9 +206,10 @@ export default function Home() {
                 
                 <div className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
                   <Image 
-                    src="/Trivaro.jpg" 
+                    src="/Trivaro.webp" 
                     alt="Trivora Jewels" 
                     fill 
+                    sizes="(max-width: 768px) 48px, 56px"
                     className="object-cover scale-105" 
                   />
                 </div>
@@ -212,6 +218,7 @@ export default function Home() {
               {/* Card 1: AMA Legal Solutions (Front Layer, Always Visible) */}
               <Link 
                 href="/Projects/ama"
+                prefetch={true}
                 className={`absolute inset-x-0 bottom-0 h-20 sm:h-24 rounded-2xl p-3 shadow-xl transition-all duration-500 ease-out flex items-center justify-between gap-3 group/card z-40 bg-white/15 backdrop-blur-md border border-white/20 ${
                   isOpen ? "-translate-y-1 hover:bg-white/20" : ""
                 }`}
@@ -229,9 +236,10 @@ export default function Home() {
                 
                 <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 bg-zinc-900 flex-shrink-0">
                   <Image 
-                    src="/project/AMA.svg" 
+                    src="/project/AMA.webp" 
                     alt="AMA Legal Solutions" 
                     fill 
+                    sizes="(max-width: 768px) 48px, 56px"
                     className="object-cover scale-105" 
                   />
                 </div>
@@ -436,10 +444,12 @@ export default function Home() {
         {/* Background Image (Same as Hero section) */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero.jpg"
+            src="/hero.webp"
             alt="Green hills and sky background"
             fill
-            priority
+            loading="lazy"
+            quality={80}
+            sizes="100vw"
             className="object-cover object-center select-none"
           />
           {/* Soft atmospheric overlay for text legibility */}
@@ -472,6 +482,7 @@ export default function Home() {
             {storyboardProjects.map((project) => (
               <Link 
                 href={project.link}
+                prefetch={true}
                 key={project.title}
                 className="w-full"
                 onClick={(e) => e.stopPropagation()}
@@ -498,6 +509,8 @@ export default function Home() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      quality={85}
                       className="object-cover scale-105"
                     />
                   </div>

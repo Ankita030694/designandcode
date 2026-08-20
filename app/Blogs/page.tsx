@@ -175,7 +175,7 @@ export default function BlogsPage() {
             duration: "15 min read",
             author: {
               name: "Ankita Malik",
-              avatar: "/Ankita.jpeg"
+              avatar: "/Ankita.webp"
             },
             image: "/Web.svg",
             isFeatured: false
@@ -198,7 +198,7 @@ export default function BlogsPage() {
             duration: "15 min read",
             author: {
               name: "Ankita Malik",
-              avatar: "/Ankita.jpeg"
+              avatar: "/Ankita.webp"
             },
             image: "/Web.svg",
             isFeatured: false

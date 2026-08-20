@@ -8,7 +8,7 @@ export default function Footer() {
     <footer
       className="w-full relative overflow-hidden mt-0 md:-mt-50 px-4 sm:px-6 pt-12 pb-24 md:pb-8"
       style={{
-        backgroundImage: "url('/Footer BG BG.jpg')",
+        backgroundImage: "url('/Footer BG BG.webp'), url('/Footer BG BG.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -18,7 +18,7 @@ export default function Footer() {
       <div
         className="relative w-full max-w-[1500px] mx-auto rounded-3xl overflow-hidden flex flex-col justify-between min-h-[620px] sm:min-h-[620px]"
         style={{
-          backgroundImage: "url('/Footer Bg.jpg')",
+          backgroundImage: "url('/Footer Bg.webp'), url('/Footer Bg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -99,6 +99,7 @@ export default function Footer() {
           <div className="mt-6 block md:hidden">
             <Link
               href="/ContactUs"
+              prefetch={true}
               className="bg-white text-zinc-900 font-bold text-base px-7 py-3.5 rounded-full shadow-xl hover:bg-zinc-100 active:scale-95 transition-all duration-200 select-none inline-block text-left"
             >
               Start Your Project
@@ -117,6 +118,7 @@ export default function Footer() {
             <Link
               key={link.label}
               href={link.href}
+              prefetch={true}
               className="text-white/95 font-bold text-xs tracking-widest hover:text-white transition-colors"
             >
               {link.label}
@@ -128,6 +130,7 @@ export default function Footer() {
         <div className="hidden md:block absolute bottom-8 right-8 z-20">
           <Link
             href="/ContactUs"
+            prefetch={true}
             className="bg-white text-zinc-900 font-bold text-lg px-7 py-3 rounded-full shadow-lg hover:bg-zinc-100 hover:scale-105 active:scale-95 transition-all duration-200 select-none inline-block"
           >
             Start Your Project

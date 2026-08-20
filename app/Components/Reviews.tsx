@@ -24,10 +24,12 @@ export default function Reviews() {
         {/* Background Image (Countryside Green hills and sky) */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero.jpg"
+            src="/hero.webp"
             alt="Countryside background"
             fill
-            priority
+            loading="lazy"
+            quality={80}
+            sizes="100vw"
             className="object-cover object-center select-none"
           />
           {/* Soft atmospheric overlay for text legibility */}
