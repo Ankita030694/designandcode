@@ -68,7 +68,6 @@ export async function POST(request: NextRequest) {
           prompt: prompt.slice(0, 1000),
           n: 1,
           size: "1024x1024",
-          response_format: "url",
         }),
         signal: controller.signal,
       });
@@ -109,7 +108,6 @@ export async function POST(request: NextRequest) {
             prompt: prompt.slice(0, 1000),
             n: 1,
             size: "1024x1024",
-            response_format: "url",
           }),
           signal: controller.signal,
         });
