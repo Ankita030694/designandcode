@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpload, faArrowLeft, faRotateLeft, faWandSparkles } from '@fortawesome/free-solid-svg-icons';
+import { faUpload, faArrowLeft, faRotateLeft, faWandSparkles, faImage, faChartLine, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../../lib/firebase';
-import { marked } from 'marked';
 import TiptapEditor from './TiptapEditor';
 
 interface Props {
@@ -15,30 +14,44 @@ interface Props {
 
 export default function BlogGenerationUI({ onClose }: Props) {
   const [blogContext, setBlogContext] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('Web Development & Architecture');
   const [isGenerating, setIsGenerating] = useState(false);
   const [isPublishing, setIsPublishing] = useState(false);
   
+  // Cover Image
   const [imagePrompt, setImagePrompt] = useState('');
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  // 3D Infographic Image
+  const [infographicPrompt, setInfographicPrompt] = useState('');
+  const [isGeneratingInfographic, setIsGeneratingInfographic] = useState(false);
+  const [infographicPreview, setInfographicPreview] = useState<string | null>(null);
 
   const [newBlog, setNewBlog] = useState({
     title: '',
     subtitle: '',
     slug: '',
+    category: 'Web Development & Architecture',
+    exactTopic: '',
+    techFramework: '',
     description: '',
     date: new Date().toISOString().split('T')[0],
     image: '',
-    author: 'Admin Team',
+    infographic: '',
+    author: 'DesignNCode Architecture Team',
     metaTitle: '',
     metaDescription: '',
-    faqs: []
+    keyTakeaways: [] as string[],
+    popularSearches: [] as string[],
+    faqs: [] as { question: string; answer: string }[],
+    reviews: [] as any[]
   });
 
-  // 1. Handle Text Content Generation
+  // 1. Handle Full AI Blog Generation Pipeline (<8s via Parallel API)
   const handleGenerate = async () => {
     if (!blogContext) {
-      alert('Please enter the blog context');
+      alert('Please enter the blog topic brief or primary keyword');
       return;
     }
 
@@ -47,7 +60,10 @@ export default function BlogGenerationUI({ onClose }: Props) {
       const response = await fetch('/api/generate-blog', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ primaryKeyword: blogContext }),
+        body: JSON.stringify({ 
+          primaryKeyword: blogContext,
+          category: selectedCategory 
+        }),
       });
 
       if (!response.ok) {
@@ -59,45 +75,34 @@ export default function BlogGenerationUI({ onClose }: Props) {
         throw new Error(errorMsg);
       }
 
-      // The backend streams JSON back
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
-      let result = '';
-
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          result += decoder.decode(value, { stream: true });
-        }
-      }
-
-      const generatedData = JSON.parse(result);
-
-      // Auto-fill the form with the AI's response
-      let finalDescriptionHtml = newBlog.description;
-      if (generatedData.description) {
-        // Backend now generates HTML directly, no need to parse Markdown
-        finalDescriptionHtml = generatedData.description;
-      }
+      const generatedData = await response.json();
 
       setNewBlog((prev) => ({
         ...prev,
         title: generatedData.title || prev.title,
         subtitle: generatedData.subtitle || prev.subtitle,
-        description: finalDescriptionHtml,
+        category: generatedData.category || prev.category,
+        exactTopic: generatedData.exactTopic || prev.exactTopic,
+        techFramework: generatedData.techFramework || prev.techFramework,
+        description: generatedData.description || prev.description,
         metaTitle: generatedData.metaTitle || prev.metaTitle,
         metaDescription: generatedData.metaDescription || prev.metaDescription,
         slug: generatedData.slug || prev.slug,
-        faqs: generatedData.faqs || prev.faqs,
+        keyTakeaways: generatedData.keyTakeaways || [],
+        popularSearches: generatedData.popularSearches || [],
+        faqs: generatedData.faqs || [],
+        reviews: generatedData.reviews || [],
       }));
 
-      // Pre-fill the image prompt suggestion
+      // Pre-fill prompts
       if (generatedData.suggestedImagePrompt) {
         setImagePrompt(generatedData.suggestedImagePrompt);
       }
+      if (generatedData.infographicPrompt) {
+        setInfographicPrompt(generatedData.infographicPrompt);
+      }
 
-      alert('Blog generated successfully!');
+      alert('Flagship blog blueprint and deep sections generated successfully in parallel!');
     } catch (error) {
       alert(`Failed to generate blog: ${error}`);
     } finally {
@@ -105,10 +110,10 @@ export default function BlogGenerationUI({ onClose }: Props) {
     }
   };
 
-  // 2. Handle Image Generation
-  const handleGenerateImage = async () => {
+  // 2. Handle Cover Image Generation
+  const handleGenerateCoverImage = async () => {
     if (!imagePrompt) {
-      alert('Please enter an image prompt');
+      alert('Please enter a cover image prompt');
       return;
     }
 
@@ -117,44 +122,55 @@ export default function BlogGenerationUI({ onClose }: Props) {
       const response = await fetch('/api/generate-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: imagePrompt }),
+        body: JSON.stringify({ prompt: imagePrompt, isInfographic: false }),
       });
 
       if (!response.ok) throw new Error('Failed to generate image');
 
       const data = await response.json();
-      let finalUrl = data.url;
+      let finalUrl = data.url || data.imageUrl;
 
-      // If the backend returned a base64 data URI, upload it to Firebase from the client
-      if (finalUrl && finalUrl.startsWith('data:image')) {
-        try {
-          const base64Data = finalUrl.split(',')[1];
-          const fileName = `generated-covers/cover-${Date.now()}-${Math.floor(Math.random() * 1000)}.png`;
-          const storageRef = ref(storage, fileName);
-          
-          await uploadString(storageRef, base64Data, 'base64', {
-            contentType: 'image/png',
-          });
-          
-          finalUrl = await getDownloadURL(storageRef);
-        } catch (uploadError) {
-          console.error("Client Firebase upload failed:", uploadError);
-          alert("Firebase upload failed, falling back to base64.");
-        }
-      }
-
-      // Display the generated image and save the URL
       setNewBlog((prev) => ({ ...prev, image: finalUrl }));
       setImagePreview(finalUrl);
       
     } catch (error) {
-      alert('Image generation failed.');
+      alert('Cover image generation failed.');
     } finally {
       setIsGeneratingImage(false);
     }
   };
 
-  // 3. Handle Publishing to Firestore
+  // 3. Handle 3D Isometric Infographic Generation
+  const handleGenerateInfographic = async () => {
+    if (!infographicPrompt) {
+      alert('Please enter an infographic visual prompt');
+      return;
+    }
+
+    try {
+      setIsGeneratingInfographic(true);
+      const response = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: infographicPrompt, isInfographic: true }),
+      });
+
+      if (!response.ok) throw new Error('Failed to generate infographic');
+
+      const data = await response.json();
+      let finalUrl = data.url || data.imageUrl;
+
+      setNewBlog((prev) => ({ ...prev, infographic: finalUrl }));
+      setInfographicPreview(finalUrl);
+      
+    } catch (error) {
+      alert('Infographic generation failed.');
+    } finally {
+      setIsGeneratingInfographic(false);
+    }
+  };
+
+  // 4. Handle Publishing to Firestore
   const handlePublish = async () => {
     if (!newBlog.title || !newBlog.slug || !newBlog.description) {
       alert("Title, Slug, and Description are required to publish!");
@@ -164,22 +180,19 @@ export default function BlogGenerationUI({ onClose }: Props) {
     try {
       setIsPublishing(true);
 
-      // We explicitly request a URL from the API now, so no Base64 strings should reach here.
-      // If one magically does, we fallback to Pollinations to avoid crashing Firestore.
-      let finalImageUrl = newBlog.image;
-      if (finalImageUrl && finalImageUrl.startsWith("data:image")) {
-        const encodedPrompt = encodeURIComponent(newBlog.title || "web design");
-        finalImageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1024&height=1024&nologo=true&seed=${Math.floor(Math.random() * 1000000)}`;
-        setNewBlog((prev) => ({ ...prev, image: finalImageUrl }));
-      }
+      let finalImageUrl = newBlog.image || "/Web.svg";
+      let finalInfographicUrl = newBlog.infographic || "";
 
       await addDoc(collection(db, "blogs"), {
         ...newBlog,
         image: finalImageUrl,
-        createdAt: new Date(),
+        infographic: finalInfographicUrl,
+        createdAt: new Date().toISOString(),
         published: true
       });
-      alert("Blog published successfully to the database!");
+      
+      alert("Blog article published successfully to Firebase Firestore!");
+      if (onClose) onClose();
     } catch (error: any) {
       console.error("Error publishing blog:", error);
       alert(`Failed to publish blog. Error: ${error.message || error}`);
@@ -188,183 +201,260 @@ export default function BlogGenerationUI({ onClose }: Props) {
     }
   };
 
-  // Form input handler
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setNewBlog(prev => ({ ...prev, [name]: value }));
   };
 
   return (
-    <div className="w-full bg-white rounded-3xl p-6 sm:p-10 border border-zinc-200 shadow-sm flex flex-col">
+    <div className="w-full bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm flex flex-col">
       
       {/* ─── HEADER SECTION ─── */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 pb-6 border-b border-zinc-100 gap-6">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 pb-6 border-b border-slate-100 gap-6">
         <div className="flex items-center gap-4">
           {onClose && (
             <button 
               onClick={onClose} 
-              className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-500 hover:bg-zinc-50 hover:text-zinc-800 transition-colors flex-shrink-0"
+              className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition-colors flex-shrink-0 cursor-pointer"
               aria-label="Back"
             >
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           )}
           <div>
-            <h2 className="text-2xl font-black text-slate-900 tracking-tight">Publish a New Blog Post</h2>
-            <p className="text-sm text-slate-500 mt-1 font-medium">Set up titles, subtitle blocks, canonical slug, Rich Tiptap body content, FAQs, and reviews.</p>
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight">Create Flagship Blog Post</h2>
+            <p className="text-sm text-slate-500 mt-1 font-medium">Parallel AI pipeline with Google Rich Schemas, Key Takeaways, Infographics, and Reviews.</p>
           </div>
         </div>
       </div>
 
-      {/* ─── AI ARTICLE WRITER ─── */}
+      {/* ─── AI ARTICLE WRITER CARD ─── */}
       <div className="mb-10 rounded-2xl border border-indigo-200 bg-indigo-50/40 overflow-hidden">
         <div className="p-6">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-indigo-100/80 text-indigo-600 flex items-center justify-center shadow-sm">
+            <div className="w-8 h-8 rounded-lg bg-indigo-100/80 text-indigo-600 flex items-center justify-center shadow-xs">
               <FontAwesomeIcon icon={faWandSparkles} className="w-4 h-4" />
             </div>
-            <h3 className="text-[13px] font-bold text-slate-700 tracking-wider">AI ARTICLE WRITER</h3>
+            <h3 className="text-[13px] font-bold text-slate-800 tracking-wider uppercase">Next-Gen Parallel AI Generator</h3>
           </div>
-          <p className="text-[13px] text-slate-500 mb-4 font-medium ml-11">Provide context, topic, or a writeup. AI will generate a complete blog post including FAQs and reviews.</p>
-          <textarea
-            value={blogContext}
-            onChange={(e) => setBlogContext(e.target.value)}
-            placeholder="Provide detailed context, a writeup, or topic here to generate a comprehensive blog article..."
-            rows={4}
-            className="w-full p-4 border border-zinc-200/80 rounded-2xl text-sm focus:outline-none focus:border-red-300 shadow-sm bg-white resize-y text-slate-700 placeholder-slate-400"
-            disabled={isGenerating}
-          />
-          <div className="flex justify-end mt-4">
+          <p className="text-[13px] text-slate-500 mb-4 font-medium ml-11">
+            Generates a ~2,000 word deep dive with comparison tables, 8–10 FAQs, 5 client reviews, 3D infographic prompt, and rich SEO schemas in under 8 seconds.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div className="md:col-span-2">
+              <textarea
+                value={blogContext}
+                onChange={(e) => setBlogContext(e.target.value)}
+                placeholder="Enter topic brief or primary keyword (e.g. 'Next.js 16 Server Actions vs API Routes Architecture')..."
+                rows={3}
+                className="w-full p-4 border border-slate-200 rounded-2xl text-sm focus:outline-none focus:border-indigo-400 shadow-xs bg-white resize-y text-slate-800 placeholder-slate-400 font-medium"
+                disabled={isGenerating}
+              />
+            </div>
+            <div>
+              <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider block mb-1">Target Taxonomy Category</label>
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full p-3.5 border border-slate-200 rounded-2xl text-xs font-semibold text-slate-800 bg-white focus:outline-none focus:border-indigo-400"
+              >
+                <option value="Web Development & Architecture">Web Development & Architecture</option>
+                <option value="UI/UX Design & Frontend Engineering">UI/UX Design & Frontend Engineering</option>
+                <option value="Tech Comparisons & ROI Frameworks">Tech Comparisons & ROI Frameworks</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex justify-end">
             <button
               onClick={handleGenerate}
               disabled={isGenerating || !blogContext}
-              className="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-sm transition-colors disabled:opacity-50 flex items-center gap-2 cursor-pointer"
+              className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold shadow-sm transition-colors disabled:opacity-50 flex items-center gap-2 cursor-pointer"
             >
               <FontAwesomeIcon icon={faWandSparkles} />
-              {isGenerating ? "Generating..." : "Generate Blog with AI"}
+              {isGenerating ? "Running Parallel Generation..." : "Generate Blog with AI"}
             </button>
           </div>
         </div>
       </div>
 
+      {/* ─── KEY TAKEAWAYS PREVIEW ─── */}
+      {newBlog.keyTakeaways.length > 0 && (
+        <div className="mb-10 bg-slate-50 border border-slate-200 rounded-2xl p-6">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+            <FontAwesomeIcon icon={faCheck} className="text-indigo-600" />
+            Generated Key Architectural Takeaways (5 Points)
+          </h4>
+          <div className="space-y-2">
+            {newBlog.keyTakeaways.map((point, idx) => (
+              <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200/60">
+                <span className="w-5 h-5 rounded-full bg-indigo-600 text-white text-[10px] font-bold flex items-center justify-center shrink-0">✓</span>
+                <input
+                  type="text"
+                  value={point}
+                  onChange={(e) => {
+                    const updated = [...newBlog.keyTakeaways];
+                    updated[idx] = e.target.value;
+                    setNewBlog(prev => ({ ...prev, keyTakeaways: updated }));
+                  }}
+                  className="w-full bg-transparent focus:outline-none text-slate-800 font-medium"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* ─── FORM FIELDS (2 COLUMN GRID) ─── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-10">
         
-        <div className="flex flex-col gap-2.5">
-          <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Blog Title *</label>
+        <div className="flex flex-col gap-2">
+          <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">H1 Article Title *</label>
           <input 
             type="text" 
             name="title" 
             value={newBlog.title} 
             onChange={handleInputChange} 
-            placeholder="e.g. Defeating Bank Harassment & Debt Settlement" 
-            className="w-full p-4 border border-zinc-200 rounded-2xl text-[15px] font-semibold text-slate-800 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all placeholder-slate-400" 
+            placeholder="e.g. Next.js 16 Architecture: The Complete Production Guide" 
+            className="w-full p-3.5 border border-slate-200 rounded-2xl text-[15px] font-semibold text-slate-800 focus:outline-none focus:border-indigo-400" 
           />
         </div>
 
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-2">
           <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Subtitle Block</label>
           <input 
             type="text" 
             name="subtitle" 
             value={newBlog.subtitle} 
             onChange={handleInputChange} 
-            placeholder="e.g. A comprehensive guide on debtor legal rights and RBI OTS pr" 
-            className="w-full p-4 border border-zinc-200 rounded-2xl text-[15px] text-slate-800 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all placeholder-slate-400" 
+            placeholder="e.g. How modular React Server Components scale enterprise web apps" 
+            className="w-full p-3.5 border border-slate-200 rounded-2xl text-[15px] text-slate-800 focus:outline-none focus:border-indigo-400" 
           />
         </div>
 
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-2">
           <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">
-            URL Slug * <span className="text-zinc-400 font-normal normal-case italic ml-1">(only letters, numbers, hyphens)</span>
+            Canonical URL Slug *
           </label>
           <input 
             type="text" 
             name="slug" 
             value={newBlog.slug} 
             onChange={handleInputChange} 
-            placeholder="e.g. defeating-bank-harassment" 
-            className="w-full p-4 border border-zinc-200 rounded-2xl text-[15px] font-mono font-medium text-slate-800 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all placeholder-slate-400" 
+            placeholder="e.g. nextjs-16-architecture-guide" 
+            className="w-full p-3.5 border border-slate-200 rounded-2xl text-[15px] font-mono font-medium text-slate-800 focus:outline-none focus:border-indigo-400" 
           />
         </div>
 
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-2">
+          <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Publication Category *</label>
+          <select 
+            name="category" 
+            value={newBlog.category} 
+            onChange={handleInputChange} 
+            className="w-full p-3.5 border border-slate-200 rounded-2xl text-[15px] font-semibold text-slate-800 focus:outline-none focus:border-indigo-400 bg-white" 
+          >
+            <option value="Web Development & Architecture">Web Development & Architecture</option>
+            <option value="UI/UX Design & Frontend Engineering">UI/UX Design & Frontend Engineering</option>
+            <option value="Tech Comparisons & ROI Frameworks">Tech Comparisons & ROI Frameworks</option>
+          </select>
+        </div>
+
+        <div className="flex flex-col gap-2">
           <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Publication Date *</label>
           <input 
             type="date" 
             name="date" 
             value={newBlog.date} 
             onChange={handleInputChange} 
-            className="w-full p-4 border border-zinc-200 rounded-2xl text-[15px] font-semibold text-slate-800 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all" 
+            className="w-full p-3.5 border border-slate-200 rounded-2xl text-[15px] font-semibold text-slate-800 focus:outline-none focus:border-indigo-400" 
           />
         </div>
 
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-2">
           <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Featured Author Profile</label>
-          <select 
+          <input 
+            type="text" 
             name="author" 
             value={newBlog.author} 
             onChange={handleInputChange} 
-            className="w-full p-4 border border-zinc-200 rounded-2xl text-[15px] font-semibold text-slate-800 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 appearance-none bg-white transition-all cursor-pointer"
-          >
-            <option value="Admin Team">Admin Team</option>
-            <option value="Rahul Verma">Rahul Verma</option>
-          </select>
-        </div>
-
-        <div className="flex flex-col gap-2.5">
-          <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Cover Image URL *</label>
-          <div className="relative">
-            <input 
-              type="text" 
-              name="image" 
-              value={newBlog.image} 
-              onChange={handleInputChange} 
-              placeholder="e.g. /api/blog/image/... or select local file" 
-              className="w-full p-4 pr-32 border border-zinc-200 rounded-2xl text-[15px] text-slate-800 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all placeholder-slate-400" 
-            />
-            <button className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#eff2f6] hover:bg-[#e2e6eb] text-slate-700 px-5 rounded-xl text-sm font-bold flex items-center gap-2 transition-colors cursor-pointer">
-              <FontAwesomeIcon icon={faUpload} /> Upload
-            </button>
-          </div>
+            className="w-full p-3.5 border border-slate-200 rounded-2xl text-[15px] font-semibold text-slate-800 focus:outline-none focus:border-indigo-400" 
+          />
         </div>
 
       </div>
 
-      {/* ─── AI IMAGE GENERATOR ─── */}
-      <div className="mb-10 rounded-2xl border border-zinc-200 overflow-hidden bg-white">
-        <div className="p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <h3 className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">AI Image DALL-E Generator</h3>
-          </div>
-          <div className="flex flex-col md:flex-row gap-3">
-             <input 
-               type="text" 
-               value={imagePrompt} 
-               onChange={(e) => setImagePrompt(e.target.value)} 
-               placeholder="Enter an image prompt (e.g. 'A sleek modern office')..." 
-               className="flex-1 p-4 border border-zinc-200 rounded-2xl text-[15px] bg-slate-50 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all placeholder-slate-400" 
-               disabled={isGeneratingImage} 
-             />
-             <button 
-               onClick={handleGenerateImage} 
-               disabled={isGeneratingImage || !imagePrompt} 
-               className="px-8 py-4 bg-slate-800 hover:bg-slate-900 text-white rounded-2xl text-sm font-bold transition-colors disabled:opacity-50 whitespace-nowrap cursor-pointer shadow-sm"
-             >
-               {isGeneratingImage ? "Generating..." : "Generate Image"}
-             </button>
-          </div>
-          {imagePreview && (
-            <div className="mt-8 flex justify-center border-t border-zinc-100 pt-8">
-              <img src={imagePreview} className="w-full max-w-lg h-64 object-cover rounded-2xl shadow-sm border border-zinc-200" alt="Generated preview" />
+      {/* ─── AI VISUAL MEDIA GENERATION SECTION (COVER & 3D INFOGRAPHIC) ─── */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        
+        {/* Cover Photo */}
+        <div className="rounded-2xl border border-slate-200 p-6 bg-white flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <FontAwesomeIcon icon={faImage} className="text-indigo-600 text-sm" />
+              <h3 className="text-xs font-bold text-slate-700 tracking-wider uppercase">Editorial Hero Banner</h3>
             </div>
-          )}
+            <textarea 
+              value={imagePrompt} 
+              onChange={(e) => setImagePrompt(e.target.value)} 
+              placeholder="Cover image prompt..." 
+              rows={3}
+              className="w-full p-3 border border-slate-200 rounded-xl text-xs bg-slate-50 focus:outline-none focus:border-indigo-400 mb-3"
+            />
+          </div>
+          <div>
+            <button 
+              onClick={handleGenerateCoverImage} 
+              disabled={isGeneratingImage || !imagePrompt} 
+              className="w-full py-2.5 bg-slate-900 hover:bg-black text-white rounded-xl text-xs font-bold transition-colors disabled:opacity-50 cursor-pointer"
+            >
+              {isGeneratingImage ? "Generating Cover..." : "Generate Hero Cover"}
+            </button>
+            {imagePreview && (
+              <div className="mt-4 rounded-xl overflow-hidden border border-slate-200 h-36 relative">
+                <img src={imagePreview} className="w-full h-full object-cover" alt="Cover preview" />
+              </div>
+            )}
+          </div>
         </div>
+
+        {/* 3D Isometric Infographic */}
+        <div className="rounded-2xl border border-slate-200 p-6 bg-white flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <FontAwesomeIcon icon={faChartLine} className="text-indigo-600 text-sm" />
+              <h3 className="text-xs font-bold text-slate-700 tracking-wider uppercase">3D Isometric Infographic</h3>
+            </div>
+            <textarea 
+              value={infographicPrompt} 
+              onChange={(e) => setInfographicPrompt(e.target.value)} 
+              placeholder="Infographic flowchart prompt..." 
+              rows={3}
+              className="w-full p-3 border border-slate-200 rounded-xl text-xs bg-slate-50 focus:outline-none focus:border-indigo-400 mb-3"
+            />
+          </div>
+          <div>
+            <button 
+              onClick={handleGenerateInfographic} 
+              disabled={isGeneratingInfographic || !infographicPrompt} 
+              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-colors disabled:opacity-50 cursor-pointer"
+            >
+              {isGeneratingInfographic ? "Generating Infographic..." : "Generate 3D Infographic"}
+            </button>
+            {infographicPreview && (
+              <div className="mt-4 rounded-xl overflow-hidden border border-slate-200 h-36 relative bg-slate-900">
+                <img src={infographicPreview} className="w-full h-full object-contain" alt="Infographic preview" />
+              </div>
+            )}
+          </div>
+        </div>
+
       </div>
 
-      {/* ─── BLOG CONTENT ─── */}
-      <div className="flex flex-col gap-2.5">
-        <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Detailed Blog Content Body</label>
+      {/* ─── BLOG CONTENT BODY ─── */}
+      <div className="flex flex-col gap-2.5 mb-10">
+        <label className="text-[11px] font-bold uppercase text-slate-400 tracking-wider">Detailed Blog Content Body (HTML)</label>
         <TiptapEditor 
           content={newBlog.description} 
           onChange={(html) => setNewBlog(prev => ({ ...prev, description: html }))} 
@@ -372,16 +462,13 @@ export default function BlogGenerationUI({ onClose }: Props) {
       </div>
 
       {/* ─── FOOTER ACTIONS ─── */}
-      <div className="mt-10 pt-6 border-t border-zinc-100 flex flex-col-reverse sm:flex-row justify-end gap-3 items-center">
-        <button className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-zinc-200 text-sm font-bold text-slate-600 hover:bg-slate-50 flex items-center justify-center gap-2 transition-colors">
-          <FontAwesomeIcon icon={faRotateLeft} className="text-slate-400" /> Restore Draft
-        </button>
+      <div className="pt-6 border-t border-slate-100 flex flex-col-reverse sm:flex-row justify-end gap-3 items-center">
         <button 
           onClick={handlePublish} 
           disabled={isPublishing} 
-          className="w-full sm:w-auto px-10 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-[15px] font-bold shadow-sm disabled:opacity-50 transition-colors flex items-center justify-center min-w-[180px]"
+          className="w-full sm:w-auto px-10 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-[15px] font-bold shadow-md disabled:opacity-50 transition-colors flex items-center justify-center min-w-[200px] cursor-pointer"
         >
-          {isPublishing ? "Publishing..." : "Publish Blog"}
+          {isPublishing ? "Publishing to Firestore..." : "Publish Flagship Article"}
         </button>
       </div>
 

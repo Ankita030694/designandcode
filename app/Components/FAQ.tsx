@@ -2,15 +2,28 @@
 
 import React, { useState } from "react";
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+  color?: string;
+}
+
+export interface FAQProps {
+  items?: FAQItem[];
+  title?: string;
+  subtitle?: string;
+  badge?: string;
+}
+
 /* ── FAQ Pill: absolutely positioned, smooth CSS max-height animation, no layout shift (Desktop) ── */
 function FAQPill({
   question,
   answer,
-  color,
+  color = "bg-[#FBDDE0]",
 }: {
   question: string;
   answer: string;
-  color: string;
+  color?: string;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -36,7 +49,7 @@ function FAQPill({
           </svg>
         </div>
       </div>
-      {/* Answer — animates via max-height, NO layout shift because pill is absolutely positioned */}
+      {/* Answer */}
       <div
         style={{
           maxHeight: open ? "200px" : "0px",
@@ -56,11 +69,11 @@ function FAQPill({
 function MobileFAQPill({
   question,
   answer,
-  color,
+  color = "bg-[#FDDDE0]",
 }: {
   question: string;
   answer: string;
-  color: string;
+  color?: string;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -98,7 +111,61 @@ function MobileFAQPill({
   );
 }
 
-export default function FAQ() {
+export default function FAQ({ items, title, subtitle, badge }: FAQProps = {}) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  // If custom items are provided (e.g. inside a blog post), render an elegant accordion
+  if (items && items.length > 0) {
+    return (
+      <section className="relative bg-[#FFFCF5] py-20 px-6 sm:px-8 lg:px-12 overflow-hidden border-t border-zinc-100/60 z-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+          <div className="md:col-span-5 flex flex-col justify-start">
+            <div className="space-y-4">
+              <span className="text-xs font-bold text-indigo-600 tracking-wider uppercase block">
+                {badge || "Article FAQ"}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 leading-tight uppercase">
+                {title || "Frequently Asked Questions"}
+              </h2>
+              {subtitle && (
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {subtitle}
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div className="md:col-span-7 divide-y divide-zinc-200/80 border-t border-b border-zinc-200/80">
+            {items.map((item, idx) => {
+              const isOpen = openIndex === idx;
+              return (
+                <div key={idx} className="py-5">
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : idx)}
+                    className="w-full flex justify-between items-center text-left gap-4 hover:text-indigo-600 transition-colors focus:outline-none cursor-pointer"
+                  >
+                    <span className="text-[16px] sm:text-[17px] font-bold text-slate-900 leading-snug">
+                      {item.question}
+                    </span>
+                    <span className="text-xl font-light text-indigo-600 select-none shrink-0">
+                      {isOpen ? "−" : "+"}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="pt-3 text-slate-600 text-sm sm:text-[15px] leading-relaxed">
+                      {item.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Default Agency Scattered Pills Design
   return (
     <section
       className="relative md:min-h-screen w-full py-12 md:py-24 pt-12 md:pt-12 pb-12 flex flex-col justify-center bg-transparent overflow-hidden font-sans select-none"
@@ -113,7 +180,7 @@ export default function FAQ() {
         clipPath: "inset(0)",
       }}
     >
-      {/* ── Fixed background doodles (same positions = sticks with grid) ── */}
+      {/* ── Fixed background doodles ── */}
       <div className="fixed top-[15%] right-[10%] w-24 h-24 text-rose-300 pointer-events-none select-none z-10">
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
           <path d="M50,30 C35,10 10,25 10,50 C10,75 50,90 50,90 C50,90 90,75 90,50 C90,25 65,10 50,30 Z" />
@@ -148,23 +215,8 @@ export default function FAQ() {
         </svg>
       </div>
 
-      {/* Extra fixed doodles specific to FAQ section feel */}
-      <div className="fixed top-[30%] right-[5%] w-10 h-14 text-blue-400/60 pointer-events-none select-none z-10">
-        <svg viewBox="0 0 24 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-          <path d="M12 2C9 2 6 4.5 6 8c0 3 2 5 4 6.5v2.5h4V14.5c2-1.5 4-3.5 4-6.5 0-3.5-3-6-6-6z" />
-          <line x1="9" y1="28" x2="15" y2="28" />
-          <line x1="10" y1="31" x2="14" y2="31" />
-        </svg>
-      </div>
-      <div className="fixed top-[62%] left-[4%] w-8 h-8 text-[#5BD4A3]/70 pointer-events-none select-none z-10">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M4.5 2l15 10.5-6.5 2.5 4.5 4.5-2.5 2.5-4.5-4.5-6 6z" />
-        </svg>
-      </div>
-
-      {/* ── ABSOLUTE LAYOUT: heading + scattered pills all in one tall container (Desktop only) ── */}
+      {/* ── ABSOLUTE LAYOUT: Desktop ── */}
       <div className="hidden md:block relative z-20 w-full" style={{ height: "680px" }}>
-        {/* FAQs sticker – floats near heading */}
         <div className="absolute left-1/2 top-[2%] transform -translate-x-[60%] -translate-y-2 rotate-[-6deg] bg-sky-100 border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 hover:scale-105 transition-transform duration-200 cursor-pointer z-30">
           <div className="absolute -top-3.5 left-3 text-zinc-400">
             <svg className="w-4 h-6" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -187,9 +239,7 @@ export default function FAQ() {
           </h2>
         </div>
 
-        {/* ── Absolutely placed FAQ pills ── */}
-
-        {/* Top-left: What does DesignNCode do? */}
+        {/* Scattered FAQ Pills */}
         <div className="absolute left-[3%] top-[5%] w-[260px] sm:w-[290px] mx-30">
           <FAQPill
             question="What does DesignNCode do?"
@@ -198,7 +248,6 @@ export default function FAQ() {
           />
         </div>
 
-        {/* Top-right: Do you design and develop websites? */}
         <div className="absolute right-[3%] top-[2%] w-[260px] sm:w-[290px] mx-30">
           <FAQPill
             question="Do you design and develop websites?"
@@ -207,7 +256,6 @@ export default function FAQ() {
           />
         </div>
 
-        {/* Middle-left: Can you redesign an existing website? */}
         <div className="absolute left-[2%] top-[48%] w-[240px] sm:w-[270px] mx-35 -mt-10">
           <FAQPill
             question="Can you redesign an existing website?"
@@ -216,7 +264,6 @@ export default function FAQ() {
           />
         </div>
 
-        {/* Centered below heading: Do you offer Shopify development? */}
         <div className="absolute left-1/2 -translate-x-1/2 top-[38%] w-[280px] sm:w-[320px] z-30 mt-20">
           <FAQPill
             question="Do you offer Shopify development?"
@@ -225,7 +272,6 @@ export default function FAQ() {
           />
         </div>
 
-        {/* Middle-right: Do you build websites with React and Next.js? */}
         <div className="absolute right-[2%] top-[50%] w-[240px] sm:w-[270px] mx-35 -mt-10">
           <FAQPill
             question="Do you build with React & Next.js?"
@@ -235,9 +281,8 @@ export default function FAQ() {
         </div>
       </div>
 
-      {/* ── STACKED LAYOUT: Mobile responsive view (Mobile only) ── */}
+      {/* ── STACKED LAYOUT: Mobile ── */}
       <div className="block md:hidden relative z-20 w-full px-6 flex flex-col items-center select-none pb-12">
-        {/* FAQs sticker */}
         <div className="relative mb-6 transform -rotate-12 bg-sky-100 border border-sky-200 shadow-md rounded-xl px-5 py-2 text-zinc-900 font-extrabold text-sm flex items-center gap-2 self-start ml-2">
           <div className="absolute -top-3.5 left-3 text-zinc-400">
             <svg className="w-4 h-6 transform -rotate-12" viewBox="0 0 20 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -253,12 +298,10 @@ export default function FAQ() {
           <span className="pl-1">FAQs</span>
         </div>
 
-        {/* Heading */}
         <h2 className="text-zinc-950 font-bold text-[28px] sm:text-3xl tracking-tight uppercase leading-[1.1] text-center mb-8 w-full">
           FREQUENTLY ASKED<br />QUESTIONS
         </h2>
 
-        {/* Stacked FAQ Cards */}
         <div className="flex flex-col gap-4 w-full max-w-[480px]">
           <MobileFAQPill
             question="What does DesignNCode do?"
@@ -290,3 +333,4 @@ export default function FAQ() {
     </section>
   );
 }
+

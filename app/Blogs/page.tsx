@@ -146,14 +146,14 @@ export default function BlogsPage() {
           return {
             id: doc.id,
             title: data.title || "Untitled",
-            description: data.subtitle || data.description || "",
-            contentType: "Insights", // Default
-            topic: "Web", // Default
-            tag: "Article", // Default
+            description: data.subtitle || data.description?.replace(/<[^>]*>?/gm, "").substring(0, 160) || "",
+            contentType: data.contentType || (data.category?.includes("Guide") ? "Guides" : data.category?.includes("Comparison") ? "Fundamentals" : "Insights"),
+            topic: data.exactTopic || data.category || "Web",
+            tag: data.category || data.tag || "Article",
             date: data.date || new Date().toISOString().split('T')[0],
-            duration: "5 min read", // Default
+            duration: "8 min read",
             author: {
-              name: data.author || "Admin Team",
+              name: typeof data.author === "string" ? data.author : data.author?.name || "DesignNCode Lead Architects",
               avatar: "/Client_Logo/wp.svg"
             },
             image: data.image || "/Web.svg",
