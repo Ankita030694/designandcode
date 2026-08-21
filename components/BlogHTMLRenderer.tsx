@@ -19,10 +19,7 @@ export default function BlogHTMLRenderer({ content, className = "" }: BlogHTMLRe
   const processedContent = injectHeadingIds(content);
 
   return (
-    <div 
-      className={`blog-content max-w-none space-y-6 text-slate-700 text-[16px] sm:text-[17px] leading-[1.8] font-normal ${className}`}
-      dangerouslySetInnerHTML={{ __html: processedContent }}
-    >
+    <>
       <style>{`
         .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
           scroll-margin-top: 110px;
@@ -190,8 +187,11 @@ export default function BlogHTMLRenderer({ content, className = "" }: BlogHTMLRe
         }
       `}</style>
       
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
+      <div 
+        className={`blog-content max-w-none space-y-6 text-slate-700 text-[16px] sm:text-[17px] leading-[1.8] font-normal ${className}`}
+        dangerouslySetInnerHTML={{ __html: processedContent }} 
+      />
+    </>
   );
 }
 
