@@ -5,10 +5,28 @@ interface BlogHTMLRendererProps {
   className?: string;
 }
 
+function injectHeadingIds(html: string): string {
+  if (!html) return "";
+  return html.replace(/<h2([^>]*)>(.*?)<\/h2>/gi, (match, attrs, innerText) => {
+    if (attrs.includes("id=")) return match;
+    const cleanText = innerText.replace(/<[^>]*>?/gm, "").trim();
+    const id = cleanText.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    return `<h2 id="${id || "section"}" ${attrs}>${innerText}</h2>`;
+  });
+}
+
 export default function BlogHTMLRenderer({ content, className = "" }: BlogHTMLRendererProps) {
+  const processedContent = injectHeadingIds(content);
+
   return (
-    <div className={`blog-content max-w-none space-y-6 text-slate-700 text-[16px] sm:text-[17px] leading-[1.8] font-normal ${className}`}>
+    <div 
+      className={`blog-content max-w-none space-y-6 text-slate-700 text-[16px] sm:text-[17px] leading-[1.8] font-normal ${className}`}
+      dangerouslySetInnerHTML={{ __html: processedContent }}
+    >
       <style>{`
+        .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
+          scroll-margin-top: 110px;
+        }
         .blog-content h1 {
           font-size: 2.25rem;
           font-weight: 800;

@@ -767,6 +767,49 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
     })),
   };
 
+  const authorInitials = (authorName || "DesignNCode")
+    .split(" ")
+    .map((n: string) => n[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase() || "DN";
+
+  // Dynamic TOC headings extracted from HTML
+  const tocHeadings = useMemo(() => {
+    if (!blog?.description) return [];
+    const regex = /<h2[^>]*>(.*?)<\/h2>/gi;
+    const headings: { id: string; title: string }[] = [];
+    let match;
+    let index = 1;
+    while ((match = regex.exec(blog.description)) !== null) {
+      const text = match[1].replace(/<[^>]*>?/gm, "").trim();
+      if (text) {
+        const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+        headings.push({ id: id || `section-${index}`, title: text });
+        index++;
+      }
+    }
+    return headings;
+  }, [blog?.description]);
+
+  const [activeHeadingId, setActiveHeadingId] = useState<string>("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const headingElements = tocHeadings.map(h => document.getElementById(h.id)).filter(Boolean);
+      for (const el of headingElements) {
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 0) {
+          setActiveHeadingId(el.id);
+          break;
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [tocHeadings]);
+
   return (
     <main className="relative flex flex-col min-h-screen bg-[#FAFAFC] pt-20">
       {/* ─── Google Rich Results JSON-LD Schemas ─── */}
@@ -793,117 +836,286 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
       
-      {/* ─── HERO IMAGE BANNER ─── */}
-      <div className="relative w-full h-[240px] sm:h-[360px] md:h-[460px] lg:h-[520px] overflow-hidden bg-slate-950 border-b border-slate-200/60">
-        <Image
-          src={blog.image || "/Web.svg"}
-          alt={blog.title}
-          fill
-          className="object-cover object-center brightness-95"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-      </div>
-
-      {/* ─── BREADCRUMBS & CATEGORY STRIP ─── */}
-      <div className="border-b border-slate-200/60 bg-white py-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)] relative z-10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-bold">
+      {/* ─── 1. HERO SECTION (Split 2-Column: Text Left, Card Right) ─── */}
+      <section className="bg-white border-b border-slate-200/70 pt-8 sm:pt-12 pb-12 sm:pb-16 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-2 text-xs text-slate-400 font-medium mb-6">
             <Link href="/" className="hover:text-slate-900 transition-colors">
               Home
             </Link>
             <span className="text-slate-300">/</span>
             <Link href="/Blogs" className="hover:text-slate-900 transition-colors">
-              Blog
+              Resources
             </Link>
             <span className="text-slate-300">/</span>
-            <span className="text-slate-600 font-semibold truncate max-w-[200px] sm:max-w-md normal-case tracking-normal text-xs sm:text-sm">
+            <span className="text-slate-700 font-semibold truncate max-w-xs sm:max-w-md">
               {blog.title}
+            </span>
+          </nav>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: Title, Subtitle, Author Meta Row */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-[1.14] mb-5">
+                {blog.title}
+              </h1>
+              {blog.subtitle && (
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 font-normal">
+                  {blog.subtitle}
+                </p>
+              )}
+
+              {/* Author & Meta Row */}
+              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-slate-950 text-white font-black flex items-center justify-center text-xs tracking-wider shadow-xs shrink-0">
+                    {authorInitials}
+                  </div>
+                  <div>
+                    <span className="font-bold text-slate-900 block leading-tight">{authorName}</span>
+                    <span className="text-slate-400 text-xs font-medium">Reviewed by DesignNCode Team</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-slate-600 font-medium text-xs border border-slate-200/60">
+                    📅 {publishedDate}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-slate-600 font-medium text-xs border border-slate-200/60">
+                    ⏱ 7 min read
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Hero Cover Card */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full aspect-[4/3] sm:aspect-square rounded-[32px] overflow-hidden border border-slate-200/80 shadow-2xl bg-slate-950 group">
+                <Image
+                  src={blog.image || "/Web.svg"}
+                  alt={blog.title}
+                  fill
+                  className="object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 550px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FULL-WIDTH STATS STRIP BAR DIRECTLY BELOW HERO ─── */}
+      <section className="bg-slate-50/80 border-b border-slate-200/70 py-6 px-6 sm:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200/80">
+          <div className="flex flex-col items-center justify-center p-2">
+            <div className="flex items-center gap-1 text-amber-500 font-black text-xl sm:text-2xl tracking-tight text-slate-950">
+              <span className="text-amber-400">★</span> 4.9/5
+            </div>
+            <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider mt-0.5">
+              Client Rating
             </span>
           </div>
 
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-100">
-            {categoryName}
-          </span>
-        </div>
-      </div>
-
-      {/* ─── BLOG EDITORIAL HEADER ─── */}
-      <header className="max-w-4xl mx-auto text-center px-6 sm:px-8 mt-12 sm:mt-16 mb-12 sm:mb-16">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.12] mb-6">
-          {blog.title}
-        </h1>
-        {blog.subtitle && (
-          <p className="text-slate-600 text-lg sm:text-xl font-normal leading-relaxed max-w-2xl mx-auto mb-8">
-            {blog.subtitle}
-          </p>
-        )}
-        
-        {/* Author pill badge */}
-        <div className="inline-flex items-center gap-3 bg-white px-5 py-2.5 rounded-full border border-slate-200/80 shadow-xs">
-          <div className="w-8 h-8 rounded-full overflow-hidden relative bg-slate-100 border border-slate-200 shrink-0">
-            <Image
-              src={"/Client_Logo/wp.svg"}
-              alt={authorName}
-              fill
-              className="object-cover"
-            />
+          <div className="flex flex-col items-center justify-center p-2 pt-4 md:pt-2">
+            <span className="font-black text-xl sm:text-2xl tracking-tight text-slate-950">
+              150+
+            </span>
+            <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider mt-0.5">
+              Flagships Delivered
+            </span>
           </div>
-          <div className="text-left text-xs">
-            <span className="font-bold text-slate-900 block">{authorName}</span>
-            <span className="text-slate-400 font-medium">{publishedDate} • 8 min read</span>
+
+          <div className="flex flex-col items-center justify-center p-2 pt-4 md:pt-2">
+            <span className="font-black text-xl sm:text-2xl tracking-tight text-emerald-600">
+              99.9%
+            </span>
+            <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider mt-0.5">
+              Lighthouse Performance
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center p-2 pt-4 md:pt-2">
+            <span className="font-black text-xl sm:text-2xl tracking-tight text-indigo-600">
+              100%
+            </span>
+            <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider mt-0.5">
+              Custom Architecture
+            </span>
           </div>
         </div>
-      </header>
+      </section>
 
-      {/* ─── MAIN TWO-COLUMN LAYOUT ─── */}
-      <div className="relative z-10 flex-grow max-w-7xl mx-auto w-full px-6 sm:px-8 pb-20 sm:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      {/* ─── 2. MAIN 3-COLUMN LAYOUT (TOC Left, Content Center, CTA Right) ─── */}
+      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* ─── Left Column: Main Article Body ─── */}
-          <article className="lg:col-span-8 bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+          {/* ─── Left Column (lg:col-span-3): Sticky Table of Contents ─── */}
+          <aside className="hidden lg:block lg:col-span-3 sticky top-24 space-y-6 self-start">
+            <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
+              <div className="bg-slate-950 text-white px-5 py-4 flex items-center justify-between">
+                <span className="text-xs font-black uppercase tracking-wider text-slate-200">
+                  IN THIS ARTICLE
+                </span>
+                <span className="text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full">
+                  {tocHeadings.length || 6} Sections
+                </span>
+              </div>
+
+              <nav className="p-4 space-y-1 max-h-[70vh] overflow-y-auto scrollbar-thin">
+                {tocHeadings.map((heading, idx) => {
+                  const isActive = activeHeadingId === heading.id;
+                  return (
+                    <a
+                      key={idx}
+                      href={`#${heading.id}`}
+                      className={`flex items-start gap-3 p-2.5 rounded-xl text-xs font-semibold transition-all duration-200 group ${
+                        isActive
+                          ? "bg-indigo-50 text-indigo-700 font-bold"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
+                      }`}
+                    >
+                      <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5 transition-colors ${
+                        isActive ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
+                      }`}>
+                        {idx + 1}
+                      </span>
+                      <span className="line-clamp-2 leading-relaxed">
+                        {heading.title}
+                      </span>
+                    </a>
+                  );
+                })}
+              </nav>
+            </div>
+          </aside>
+
+          {/* ─── Center Column (lg:col-span-6): Article Body, Takeaways, Solutions, Infographic, Reviews ─── */}
+          <article className="lg:col-span-6 bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-10 shadow-sm space-y-8">
             
-            {/* 1. KEY TAKEAWAYS BOX */}
+            {/* Card 1: Share this insight */}
+            <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-sm font-bold text-slate-900">Share this insight</h3>
+                <p className="text-slate-500 text-xs mt-0.5">Help your network stay informed on modern tech & architecture.</p>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(canonicalUrl)}`, '_blank')}
+                  className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-950 hover:text-white transition-colors cursor-pointer text-xs font-bold"
+                  title="Share on X"
+                >
+                  𝕏
+                </button>
+                <button
+                  onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`, '_blank')}
+                  className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#0077b5] hover:text-white transition-colors cursor-pointer text-xs font-bold"
+                  title="Share on LinkedIn"
+                >
+                  in
+                </button>
+                <button
+                  onClick={() => window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(blog.title + " " + canonicalUrl)}`, '_blank')}
+                  className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#25D366] hover:text-white transition-colors cursor-pointer text-xs font-bold"
+                  title="Share on WhatsApp"
+                >
+                  💬
+                </button>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(canonicalUrl);
+                    alert("Article link copied to clipboard!");
+                  }}
+                  className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-indigo-600 hover:text-white transition-colors cursor-pointer text-xs font-bold"
+                  title="Copy link"
+                >
+                  🔗
+                </button>
+              </div>
+            </div>
+
+            {/* Card 2: KEY TAKEAWAYS */}
             {keyTakeaways.length > 0 && (
-              <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 sm:p-8 mb-10 shadow-xs">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center border border-indigo-100 text-sm">
-                    💡
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
-                    Key Architectural Takeaways
+              <div className="bg-indigo-50/40 border border-indigo-100 rounded-3xl p-6 sm:p-8 space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
+                  <h3 className="text-xs font-black uppercase tracking-wider text-indigo-900">
+                    KEY TAKEAWAYS
                   </h3>
                 </div>
-                <ul className="space-y-3">
+                <div className="space-y-3 pt-1">
                   {keyTakeaways.map((takeaway, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-700 text-sm sm:text-[15px] leading-relaxed">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-600 text-white text-[11px] font-black flex items-center justify-center mt-0.5 shadow-xs">
+                    <div key={idx} className="flex items-start gap-3 text-slate-800 text-xs sm:text-sm leading-relaxed border-b border-indigo-100/60 pb-3 last:border-0 last:pb-0">
+                      <span className="w-5 h-5 rounded-full bg-indigo-600 text-white text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5">
                         ✓
                       </span>
                       <span>{takeaway}</span>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
 
-            {/* 2. ANIMATED COUNTER STATS STRIP */}
-            <AnimatedStatsStrip />
+            {/* Card 3: Media & Industry Recognition */}
+            <div className="py-2 border-y border-slate-100 text-center">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-4">
+                Recognized & Trusted in Modern Engineering
+              </span>
+              <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 opacity-65 grayscale hover:grayscale-0 transition-all duration-300">
+                <span className="font-black text-slate-900 text-lg tracking-tighter">MINT</span>
+                <span className="font-extrabold text-slate-900 text-lg tracking-tight font-serif">YOURSTORY</span>
+                <span className="font-bold text-slate-900 text-lg font-mono">MEDIUM</span>
+                <span className="font-black text-slate-900 text-lg tracking-wider">TECHRADAR</span>
+              </div>
+            </div>
 
-            {/* 3. FIRST HALF OF ARTICLE BODY */}
+            {/* Card 4: Our Solutions Grid */}
+            <div className="bg-slate-50/80 border border-slate-200/80 rounded-3xl p-6 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
+                <h4 className="text-xs font-black uppercase tracking-wider text-slate-800">
+                  Our Solutions:
+                </h4>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  { label: "Custom Web Apps", href: "/Service" },
+                  { label: "Design Systems", href: "/Service" },
+                  { label: "Headless Shopify", href: "/ecommerce" },
+                  { label: "Cloud SaaS", href: "/enterprise" },
+                  { label: "Lighthouse 100/100", href: "/Service" },
+                  { label: "Explore Projects", href: "/Projects" },
+                ].map((item, idx) => (
+                  <Link
+                    key={idx}
+                    href={item.href}
+                    className="p-3 bg-white rounded-2xl border border-slate-200/80 text-center text-xs font-bold text-slate-800 hover:border-indigo-500 hover:text-indigo-600 hover:shadow-xs transition-all duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Main Article Prose Part 1 */}
             <BlogHTMLRenderer content={part1} />
 
-            {/* 4. EMBEDDED 3D INFOGRAPHIC FRAME */}
+            {/* Embedded 3D Infographic Frame */}
             {infographicSrc && (
-              <div className="my-12 bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl text-white overflow-hidden relative">
+              <div className="my-8 bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl text-white overflow-hidden relative">
                 <div className="flex items-center justify-between mb-4 border-b border-slate-800/80 pb-4">
                   <div className="flex items-center gap-2">
                     <span className="px-2.5 py-1 rounded-md bg-indigo-500 text-white text-[10px] font-black tracking-wider uppercase">
                       INFOGRAPHIC
                     </span>
                     <h4 className="text-sm sm:text-base font-bold text-slate-200">
-                      Visual Architecture & Workflow Blueprint
+                      Visual Architecture Blueprint
                     </h4>
                   </div>
                   <button
@@ -916,7 +1128,7 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
 
                 <div 
                   onClick={() => setLightboxOpen(true)}
-                  className="relative w-full h-[260px] sm:h-[380px] md:h-[440px] rounded-2xl overflow-hidden cursor-zoom-in bg-slate-900 border border-slate-800 group"
+                  className="relative w-full h-[260px] sm:h-[380px] md:h-[420px] rounded-2xl overflow-hidden cursor-zoom-in bg-slate-900 border border-slate-800 group"
                 >
                   <Image
                     src={infographicSrc}
@@ -926,9 +1138,6 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
                     sizes="(max-width: 768px) 100vw, 800px"
                   />
                 </div>
-                <p className="text-slate-400 text-xs text-center mt-3 italic">
-                  Figure 1.0: End-to-end architectural workflow from problem diagnosis to 100/100 Lighthouse deployment.
-                </p>
               </div>
             )}
 
@@ -955,68 +1164,61 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
               </div>
             )}
 
-            {/* 5. SECOND HALF OF ARTICLE BODY */}
+            {/* Main Article Prose Part 2 */}
             {part2 && <BlogHTMLRenderer content={part2} />}
 
-            {/* 6. VERIFIED CLIENT REVIEWS GRID */}
-            <section className="mt-14 pt-10 border-t border-slate-150">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
+            {/* Verified Client Reviews */}
+            <section className="pt-8 border-t border-slate-150 space-y-6">
+              <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs font-bold text-indigo-600 tracking-wider uppercase block">
                     Verified Feedback
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight mt-1">
+                  <h3 className="text-lg sm:text-xl font-black text-slate-950 tracking-tight mt-0.5">
                     What Engineering Leaders Say
                   </h3>
                 </div>
-                <div className="flex items-center gap-1 text-amber-500 font-bold text-sm bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200/60 self-start sm:self-auto">
-                  <span>★ 4.9/5</span>
-                  <span className="text-slate-400 text-xs font-normal">(150+ Reviews)</span>
-                </div>
+                <span className="text-xs font-bold text-amber-500 bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60">
+                  ★ 4.9/5
+                </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {reviews.slice(0, 4).map((rev, idx) => (
                   <div
                     key={idx}
-                    className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-5 hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                    className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4.5 flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex items-center gap-1 text-amber-400 text-xs mb-2.5">
+                      <div className="text-amber-400 text-xs mb-2">
                         {"★".repeat(rev.rating || 5)}
                       </div>
-                      <p className="text-slate-700 text-xs sm:text-sm leading-relaxed italic mb-4">
+                      <p className="text-slate-700 text-xs leading-relaxed italic mb-3">
                         "{rev.comment}"
                       </p>
                     </div>
-                    <div className="flex items-center justify-between border-t border-slate-200/50 pt-3 mt-auto">
-                      <div>
-                        <h5 className="text-xs font-bold text-slate-900">{rev.author}</h5>
-                        <p className="text-[11px] text-slate-500">{rev.role} • {rev.company}</p>
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-mono">{rev.date}</span>
+                    <div className="border-t border-slate-200/50 pt-2 text-[11px]">
+                      <span className="font-bold text-slate-900 block">{rev.author}</span>
+                      <span className="text-slate-500">{rev.role} • {rev.company}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* 7. POPULAR SEARCHES / RELATED TAG CLOUD */}
+            {/* Popular Searches */}
             {popularSearches.length > 0 && (
-              <div className="mt-12 pt-8 border-t border-slate-100">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
-                  Popular Searches & Related Topics
+              <div className="pt-6 border-t border-slate-100">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2.5">
+                  Popular Searches
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {popularSearches.map((term, idx) => (
                     <Link
                       key={idx}
                       href={`/Blogs?search=${encodeURIComponent(term)}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 px-3 py-1.5 rounded-lg border border-slate-200/60 transition-colors"
+                      className="text-xs font-medium text-slate-600 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 px-3 py-1.5 rounded-lg border border-slate-200/60 transition-colors"
                     >
-                      <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
                       {term}
                     </Link>
                   ))}
@@ -1025,7 +1227,7 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
             )}
 
             {/* Back button */}
-            <div className="mt-12 pt-6 border-t border-slate-100">
+            <div className="pt-6 border-t border-slate-100">
               <Link
                 href="/Blogs"
                 className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 text-xs sm:text-sm font-semibold transition-colors"
@@ -1039,68 +1241,55 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
 
           </article>
 
-          {/* ─── Right Column: Sticky Sidebar Cards ─── */}
-          <aside className="lg:col-span-4 sticky top-24 space-y-6 self-start">
+          {/* ─── Right Column (lg:col-span-3): Sticky Conversion & Trust Widgets ─── */}
+          <aside className="lg:col-span-3 sticky top-24 space-y-6 self-start">
             
-            {/* Card 1: About Author */}
-            <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.01)] flex flex-col">
-              <h3 className="text-[10px] font-bold text-slate-400 tracking-wider uppercase border-b border-slate-100 pb-3 mb-5 select-none">
-                About The Author
-              </h3>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden bg-slate-50 relative border border-slate-200 shrink-0">
-                  <Image
-                    src={"/Client_Logo/wp.svg"}
-                    alt={authorName}
-                    fill
-                    className="object-cover"
-                  />
+            {/* Card 1: Talk to an Expert / Lead Architect Free */}
+            <div className="bg-slate-950 rounded-3xl p-6 sm:p-7 border border-slate-800 shadow-xl flex flex-col text-white relative overflow-hidden">
+              <div className="absolute -top-12 -right-12 w-28 h-28 bg-indigo-500/15 rounded-full blur-2xl pointer-events-none" />
+              
+              <div className="relative z-10 space-y-3.5">
+                <div className="w-10 h-10 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-lg">
+                  🎧
                 </div>
-                <div className="flex flex-col flex-grow">
-                  <span className="text-slate-900 font-bold text-[15px]">
-                    {authorName}
-                  </span>
-                  <span className="text-slate-500 text-xs mt-0.5">
-                    {authorRole}
-                  </span>
-                  <Link href="/About_us" className="text-indigo-600 hover:text-indigo-800 text-[11px] font-bold mt-1 block uppercase tracking-wider transition-colors">
-                    View Team Profile
-                  </Link>
+                <div>
+                  <h3 className="text-white text-base font-bold tracking-tight">
+                    Talk to a Lead Architect Free!
+                  </h3>
+                  <p className="text-slate-400 text-xs leading-relaxed mt-1.5">
+                    Get a personal web architecture and design assessment. One call. No pressure. Clear answers.
+                  </p>
                 </div>
+                <Link
+                  href="/ContactUs"
+                  className="w-full inline-flex items-center justify-center gap-2 text-center bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-3.5 px-4 rounded-2xl transition-all duration-200 shadow-md cursor-pointer"
+                >
+                  📞 Book My Free Call
+                </Link>
               </div>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-2 pl-0.5">
-                {authorBio}
-              </p>
             </div>
 
-            {/* Card 2: CTA Card - Pipeline Growth */}
-            <div className="bg-slate-950 rounded-3xl p-6 sm:p-7 border border-slate-850 shadow-xl flex flex-col gap-4 select-none relative overflow-hidden text-white">
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-indigo-500/15 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
-              
-              <div className="relative z-10">
-                <span className="text-[10px] font-black uppercase tracking-wider text-indigo-400 block mb-1">
-                  DesignNCode Engineering
-                </span>
-                <h3 className="text-white text-lg font-bold tracking-tight mb-2">
-                  Building a High-Performance Product?
-                </h3>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                  Partner with our Lead Web Architects and Design System specialists to scale your digital presence.
-                </p>
-                <div className="flex flex-col gap-3">
-                  <Link
-                    href="/ContactUs"
-                    className="w-full text-center bg-white text-slate-950 text-xs sm:text-sm font-bold py-3.5 px-4 rounded-xl hover:bg-slate-100 hover:scale-[1.01] active:scale-[0.99] transition-all duration-250 shadow-md cursor-pointer"
-                  >
-                    Book an Architecture Call
-                  </Link>
-                  <Link
-                    href="/Projects"
-                    className="w-full text-center border border-slate-800 bg-slate-900/50 hover:bg-slate-900 text-white text-xs sm:text-sm font-semibold py-3.5 px-4 rounded-xl hover:border-slate-700 hover:scale-[1.01] active:scale-[0.99] transition-all duration-250 cursor-pointer"
-                  >
-                    Explore Case Studies
-                  </Link>
+            {/* Card 2: WHY PEOPLE TRUST DESIGNNCODE */}
+            <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-4">
+              <h4 className="text-[10px] font-bold text-slate-400 tracking-wider uppercase select-none">
+                WHY PEOPLE TRUST DESIGNNCODE
+              </h4>
+              <div className="space-y-3 text-xs font-semibold text-slate-800">
+                <div className="flex items-center gap-3">
+                  <span className="text-indigo-600 text-base">👥</span>
+                  <span>5,000+ Users & 150+ Flagships</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-indigo-600 text-base">⚡️</span>
+                  <span>99.9% Performance & Legal</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-indigo-600 text-base">🔒</span>
+                  <span>Zero Technical Debt</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-indigo-600 text-base">⚖️</span>
+                  <span>100% Custom Code & SEO</span>
                 </div>
               </div>
             </div>
