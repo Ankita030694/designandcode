@@ -523,20 +523,11 @@ interface BlogDetailClientProps {
   initialBlog?: any;
 }
 
-function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
-  const params = useParams();
-  const slug = params?.slug as string;
-
-  if (slug && Object.keys(SERVICE_PAGES_DATA).includes(slug)) {
-    return <AMAServiceLayout slug={slug} />;
-  }
-  if (slug === "personal-loan-harassment-india-guide" || slug === "ama-guide" || slug === "guide") {
-    return <AMABlogLayout />;
-  }
-
+function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: string }) {
   const [blog, setBlog] = useState<any>(initialBlog || null);
   const [loading, setLoading] = useState(!initialBlog);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeHeadingId, setActiveHeadingId] = useState<string>("");
 
   useEffect(() => {
     if (initialBlog && (initialBlog.slug === slug || initialBlog.id === slug)) {
@@ -577,6 +568,39 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
     if (!blog?.description) return { part1: "", part2: "" };
     return splitContentAtMidpoint(blog.description);
   }, [blog?.description]);
+
+  const tocHeadings = useMemo(() => {
+    if (!blog?.description) return [];
+    const regex = /<h2[^>]*>(.*?)<\/h2>/gi;
+    const headings: { id: string; title: string }[] = [];
+    let match;
+    let index = 1;
+    while ((match = regex.exec(blog.description)) !== null) {
+      const text = match[1].replace(/<[^>]*>?/gm, "").trim();
+      if (text) {
+        const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+        headings.push({ id: id || `section-${index}`, title: text });
+        index++;
+      }
+    }
+    return headings;
+  }, [blog?.description]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const headingElements = tocHeadings.map(h => document.getElementById(h.id)).filter(Boolean);
+      for (const el of headingElements) {
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 0) {
+          setActiveHeadingId(el.id);
+          break;
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [tocHeadings]);
 
   if (loading) {
     return (
@@ -773,42 +797,6 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
     .slice(0, 2)
     .join("")
     .toUpperCase() || "DN";
-
-  // Dynamic TOC headings extracted from HTML
-  const tocHeadings = useMemo(() => {
-    if (!blog?.description) return [];
-    const regex = /<h2[^>]*>(.*?)<\/h2>/gi;
-    const headings: { id: string; title: string }[] = [];
-    let match;
-    let index = 1;
-    while ((match = regex.exec(blog.description)) !== null) {
-      const text = match[1].replace(/<[^>]*>?/gm, "").trim();
-      if (text) {
-        const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-        headings.push({ id: id || `section-${index}`, title: text });
-        index++;
-      }
-    }
-    return headings;
-  }, [blog?.description]);
-
-  const [activeHeadingId, setActiveHeadingId] = useState<string>("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const headingElements = tocHeadings.map(h => document.getElementById(h.id)).filter(Boolean);
-      for (const el of headingElements) {
-        if (!el) continue;
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 140 && rect.bottom >= 0) {
-          setActiveHeadingId(el.id);
-          break;
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [tocHeadings]);
 
   return (
     <main className="relative flex flex-col min-h-screen bg-[#FAFAFC] pt-20">
@@ -1317,9 +1305,19 @@ function BlogDetailContent({ initialBlog }: BlogDetailClientProps) {
 }
 
 export default function BlogDetailPage({ initialBlog }: BlogDetailClientProps) {
+  const params = useParams();
+  const slug = (params?.slug as string) || "";
+
+  if (slug && Object.keys(SERVICE_PAGES_DATA).includes(slug)) {
+    return <AMAServiceLayout slug={slug} />;
+  }
+  if (slug === "personal-loan-harassment-india-guide" || slug === "ama-guide" || slug === "guide") {
+    return <AMABlogLayout />;
+  }
+
   return (
     <Suspense fallback={<div className="min-h-screen bg-white" />}>
-      <BlogDetailContent initialBlog={initialBlog} />
+      <BlogDetailContent initialBlog={initialBlog} slug={slug} />
     </Suspense>
   );
 }
