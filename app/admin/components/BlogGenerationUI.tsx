@@ -110,6 +110,23 @@ export default function BlogGenerationUI({ onClose }: Props) {
     }
   };
 
+  // Live Telemetry & Log Console
+  const [imageLogs, setImageLogs] = useState<string[]>([
+    "[System Ready] Standby for AI Image / Infographic generation...",
+  ]);
+  const [modelTelemetry, setModelTelemetry] = useState<{
+    modelUsed?: string;
+    isFallback?: boolean;
+    diagnostics?: any;
+    lastGeneratedFor?: string;
+  } | null>(null);
+  const [showDiagnostics, setShowDiagnostics] = useState(false);
+
+  const appendLog = (msg: string) => {
+    const time = new Date().toLocaleTimeString();
+    setImageLogs((prev) => [...prev, `[${time}] ${msg}`]);
+  };
+
   // 2. Handle Cover Image Generation
   const handleGenerateCoverImage = async () => {
     if (!imagePrompt) {
@@ -119,22 +136,40 @@ export default function BlogGenerationUI({ onClose }: Props) {
 
     try {
       setIsGeneratingImage(true);
+      appendLog(`[Cover Generator] Initiating request with model "gpt-image-2"...`);
+      
       const response = await fetch('/api/generate-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: imagePrompt, isInfographic: false }),
+        body: JSON.stringify({ prompt: imagePrompt, isInfographic: false, model: "gpt-image-2" }),
       });
 
-      if (!response.ok) throw new Error('Failed to generate image');
-
       const data = await response.json();
-      let finalUrl = data.url || data.imageUrl;
+      
+      if (data.logs && Array.isArray(data.logs)) {
+        setImageLogs((prev) => [...prev, ...data.logs]);
+      }
 
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to generate image');
+      }
+
+      let finalUrl = data.url || data.imageUrl;
       setNewBlog((prev) => ({ ...prev, image: finalUrl }));
       setImagePreview(finalUrl);
+
+      setModelTelemetry({
+        modelUsed: data.modelUsed || "gpt-image-2",
+        isFallback: data.isFallback,
+        diagnostics: data.diagnostics,
+        lastGeneratedFor: "Hero Cover Banner",
+      });
+
+      appendLog(`[Cover Generator] Image generation completed via "${data.modelUsed}".`);
       
-    } catch (error) {
-      alert('Cover image generation failed.');
+    } catch (error: any) {
+      appendLog(`[Cover Generator Error] ${error.message || error}`);
+      alert(`Cover image generation error: ${error.message || error}`);
     } finally {
       setIsGeneratingImage(false);
     }
@@ -149,22 +184,40 @@ export default function BlogGenerationUI({ onClose }: Props) {
 
     try {
       setIsGeneratingInfographic(true);
+      appendLog(`[Infographic Generator] Initiating 3D visual request with model "gpt-image-2"...`);
+
       const response = await fetch('/api/generate-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: infographicPrompt, isInfographic: true }),
+        body: JSON.stringify({ prompt: infographicPrompt, isInfographic: true, model: "gpt-image-2" }),
       });
 
-      if (!response.ok) throw new Error('Failed to generate infographic');
-
       const data = await response.json();
-      let finalUrl = data.url || data.imageUrl;
 
+      if (data.logs && Array.isArray(data.logs)) {
+        setImageLogs((prev) => [...prev, ...data.logs]);
+      }
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to generate infographic');
+      }
+
+      let finalUrl = data.url || data.imageUrl;
       setNewBlog((prev) => ({ ...prev, infographic: finalUrl }));
       setInfographicPreview(finalUrl);
+
+      setModelTelemetry({
+        modelUsed: data.modelUsed || "gpt-image-2",
+        isFallback: data.isFallback,
+        diagnostics: data.diagnostics,
+        lastGeneratedFor: "3D Isometric Infographic",
+      });
+
+      appendLog(`[Infographic Generator] Infographic generation completed via "${data.modelUsed}".`);
       
-    } catch (error) {
-      alert('Infographic generation failed.');
+    } catch (error: any) {
+      appendLog(`[Infographic Generator Error] ${error.message || error}`);
+      alert(`Infographic generation error: ${error.message || error}`);
     } finally {
       setIsGeneratingInfographic(false);
     }
@@ -450,6 +503,80 @@ export default function BlogGenerationUI({ onClose }: Props) {
           </div>
         </div>
 
+      </div>
+
+      {/* ─── LIVE AI IMAGE GENERATION & TELEMETRY LOG ─── */}
+      <div className="mb-10 rounded-2xl bg-slate-950 border border-slate-800 p-6 text-slate-200 shadow-xl overflow-hidden font-mono">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-4">
+          <div className="flex items-center gap-2.5">
+            <span className={`w-2.5 h-2.5 rounded-full ${isGeneratingImage || isGeneratingInfographic ? "bg-amber-400 animate-ping" : "bg-emerald-400"}`} />
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
+              Live AI Image Generation & Model Telemetry
+            </h4>
+          </div>
+          
+          <div className="flex items-center gap-2">
+            {modelTelemetry && (
+              <span className={`px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider border ${
+                modelTelemetry.modelUsed === "gpt-image-2"
+                  ? "bg-purple-950/80 text-purple-300 border-purple-800"
+                  : modelTelemetry.modelUsed === "dall-e-3"
+                  ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
+                  : "bg-amber-950/80 text-amber-300 border-amber-800"
+              }`}>
+                Model: {modelTelemetry.modelUsed} {modelTelemetry.isFallback ? "(Fallback)" : "(Primary)"}
+              </span>
+            )}
+            <button
+              onClick={() => setShowDiagnostics(!showDiagnostics)}
+              className="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-[11px] font-bold text-slate-300 transition-colors cursor-pointer"
+            >
+              {showDiagnostics ? "Hide Diagnostics" : "Raw Diagnostics"}
+            </button>
+            <button
+              onClick={() => setImageLogs(["[Console Cleared]"])}
+              className="px-2.5 py-1 rounded-md bg-slate-850 hover:bg-slate-800 text-[11px] font-bold text-slate-400 hover:text-slate-200 transition-colors cursor-pointer"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
+        {/* Console Output Feed */}
+        <div className="bg-slate-900/90 rounded-xl p-4 border border-slate-800/80 max-h-48 overflow-y-auto space-y-1.5 scrollbar-thin text-[11px] leading-relaxed">
+          {imageLogs.map((log, index) => {
+            const isSuccess = log.includes("✓ Success") || log.includes("completed");
+            const isError = log.includes("✖") || log.includes("Error") || log.includes("failed");
+            const isWarn = log.includes("⚠") || log.includes("Fallback") || log.includes("Attempting");
+
+            return (
+              <div 
+                key={index} 
+                className={`${
+                  isSuccess ? "text-emerald-400 font-semibold" : 
+                  isError ? "text-rose-400 font-semibold" : 
+                  isWarn ? "text-amber-300" : 
+                  "text-slate-300"
+                }`}
+              >
+                {log}
+              </div>
+            );
+          })}
+          {(isGeneratingImage || isGeneratingInfographic) && (
+            <div className="text-amber-400 animate-pulse font-semibold">
+              › Processing generation stream across AI neural endpoints...
+            </div>
+          )}
+        </div>
+
+        {/* Expandable Raw Diagnostics JSON */}
+        {showDiagnostics && modelTelemetry?.diagnostics && (
+          <div className="mt-4 p-4 rounded-xl bg-slate-900 border border-slate-800 text-[10px] text-slate-400 overflow-x-auto max-h-48">
+            <div className="text-slate-300 font-bold uppercase text-[10px] mb-2 tracking-wider">Raw API Response Diagnostics:</div>
+            <pre>{JSON.stringify(modelTelemetry.diagnostics, null, 2)}</pre>
+          </div>
+        )}
       </div>
 
       {/* ─── BLOG CONTENT BODY ─── */}

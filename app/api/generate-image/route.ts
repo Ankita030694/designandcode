@@ -39,52 +39,133 @@ export async function POST(request: NextRequest) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 280000);
 
-    // Try OpenAI DALL-E 3
-    const openAiResponse = await fetch("https://api.openai.com/v1/images/generations", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: "dall-e-3",
-        prompt: prompt.slice(0, 1000),
-        n: 1,
-        size: "1024x1024",
-        response_format: "url"
-      }),
-      signal: controller.signal
-    });
+    const logs: string[] = [];
+    const addLog = (msg: string) => {
+      const time = new Date().toLocaleTimeString();
+      logs.push(`[${time}] ${msg}`);
+      console.log(`[Image Generator ${time}] ${msg}`);
+    };
+
+    addLog(`Initiating generation. Target: ${isInfographic ? "3D Isometric Infographic" : "Hero Cover"}`);
+    addLog(`Prompt: "${prompt.slice(0, 120)}..."`);
+
+    let finalImageUrl: string | null = null;
+    let modelUsed = "unknown";
+    const requestedModel = body.model || "gpt-image-2";
+    const diagnostics: Record<string, any> = {};
+
+    // 1. Primary generation attempt with gpt-image-2
+    addLog(`Attempting primary image generation with model: "${requestedModel}"...`);
+    try {
+      const gptImageResponse = await fetch("https://api.openai.com/v1/images/generations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: requestedModel,
+          prompt: prompt.slice(0, 1000),
+          n: 1,
+          size: "1024x1024",
+          response_format: "url",
+        }),
+        signal: controller.signal,
+      });
+
+      const gptData = await gptImageResponse.json().catch(() => ({}));
+      diagnostics[requestedModel] = { status: gptImageResponse.status, data: gptData };
+
+      if (gptImageResponse.ok) {
+        const first = gptData.data?.[0];
+        if (first?.url || first?.b64_json) {
+          finalImageUrl = first.url || (first.b64_json ? `data:image/png;base64,${first.b64_json}` : null);
+          modelUsed = requestedModel;
+          addLog(`✓ Success! ${requestedModel} generated image successfully.`);
+        } else {
+          addLog(`⚠ ${requestedModel} returned status 200 but no image URL was found.`);
+        }
+      } else {
+        const errMsg = gptData.error?.message || JSON.stringify(gptData);
+        addLog(`✖ ${requestedModel} failed (Status ${gptImageResponse.status}): ${errMsg}`);
+      }
+    } catch (e: any) {
+      diagnostics[requestedModel] = { error: e.message };
+      addLog(`✖ ${requestedModel} request error: ${e.message}`);
+    }
+
+    // 2. Secondary fallback attempt with dall-e-3 if gpt-image-2 did not return an image
+    if (!finalImageUrl) {
+      addLog(`Attempting secondary fallback model: "dall-e-3"...`);
+      try {
+        const openAiResponse = await fetch("https://api.openai.com/v1/images/generations", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({
+            model: "dall-e-3",
+            prompt: prompt.slice(0, 1000),
+            n: 1,
+            size: "1024x1024",
+            response_format: "url",
+          }),
+          signal: controller.signal,
+        });
+
+        const data = await openAiResponse.json().catch(() => ({}));
+        diagnostics["dall-e-3"] = { status: openAiResponse.status, data };
+
+        if (openAiResponse.ok) {
+          const firstItem = data.data?.[0];
+          if (firstItem?.url || firstItem?.b64_json) {
+            finalImageUrl = firstItem.url || (firstItem.b64_json ? `data:image/png;base64,${firstItem.b64_json}` : null);
+            modelUsed = "dall-e-3";
+            addLog(`✓ Success! DALL-E 3 generated image successfully.`);
+          } else {
+            addLog(`⚠ DALL-E 3 returned status 200 but no image data.`);
+          }
+        } else {
+          const errMsg = data.error?.message || JSON.stringify(data);
+          addLog(`✖ DALL-E 3 failed (Status ${openAiResponse.status}): ${errMsg}`);
+        }
+      } catch (e: any) {
+        diagnostics["dall-e-3"] = { error: e.message };
+        addLog(`✖ DALL-E 3 request error: ${e.message}`);
+      }
+    }
 
     clearTimeout(timeoutId);
 
-    const data = await openAiResponse.json();
-
-    if (!openAiResponse.ok) {
-      console.error("OpenAI API image error. Details:", JSON.stringify(data, null, 2));
-      console.warn("Falling back to Pollinations AI (FLUX)...");
-
-      const encodedPrompt = encodeURIComponent(prompt);
-      const dynamicFallbackUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1200&height=675&nologo=true&seed=${Math.floor(Math.random() * 1000000)}`;
-
+    if (finalImageUrl) {
       return NextResponse.json({
         success: true,
-        url: dynamicFallbackUrl,
-        imageUrl: dynamicFallbackUrl,
-        isFallback: true,
+        url: finalImageUrl,
+        imageUrl: finalImageUrl,
+        modelUsed,
+        logs,
+        diagnostics,
+        isFallback: modelUsed !== requestedModel,
       });
     }
 
-    const firstItem = data.data?.[0];
-    if (!firstItem) throw new Error("No data returned from OpenAI");
+    // 3. Fallback to Pollinations AI (FLUX)
+    addLog(`Initiating zero-failure fallback via Pollinations AI (FLUX engine)...`);
+    const encodedPrompt = encodeURIComponent(prompt);
+    const dynamicFallbackUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1200&height=675&nologo=true&seed=${Math.floor(Math.random() * 1000000)}`;
+    modelUsed = "pollinations-flux";
+    addLog(`✓ Image generated via Pollinations FLUX CDN.`);
 
-    const imageUrl = firstItem.url || (firstItem.b64_json ? `data:image/png;base64,${firstItem.b64_json}` : null);
-
-    if (!imageUrl) {
-      throw new Error("No image URL returned. Forcing fallback.");
-    }
-
-    return NextResponse.json({ success: true, url: imageUrl, imageUrl: imageUrl });
+    return NextResponse.json({
+      success: true,
+      url: dynamicFallbackUrl,
+      imageUrl: dynamicFallbackUrl,
+      modelUsed,
+      logs,
+      diagnostics,
+      isFallback: true,
+    });
 
   } catch (error: any) {
     console.error("Critical Image API Route Error:", error);
