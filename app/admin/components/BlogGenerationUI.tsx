@@ -127,6 +127,50 @@ export default function BlogGenerationUI({ onClose }: Props) {
     setImageLogs((prev) => [...prev, `[${time}] ${msg}`]);
   };
 
+  const ensureHostedImageUrl = async (imgUrl: string, prefix: string): Promise<string> => {
+    if (!imgUrl || !imgUrl.startsWith("data:image")) {
+      return imgUrl;
+    }
+
+    // 1. Try Server Upload Route (saves to public/uploads, instant and reliable)
+    try {
+      const res = await fetch("/api/upload-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ base64Image: imgUrl, filename: `${prefix}-${Date.now()}` }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.url) {
+          appendLog(`[Asset Host] Uploaded Base64 image to server storage: ${data.url}`);
+          return data.url;
+        }
+      }
+    } catch (apiErr) {
+      console.warn("Server image upload route failed:", apiErr);
+    }
+
+    // 2. Try Firebase Storage Client Upload
+    try {
+      const base64Data = imgUrl.split(",")[1];
+      const fileName = `blog-assets/${prefix}-${Date.now()}-${Math.floor(Math.random() * 1000)}.png`;
+      const storageRef = ref(storage, fileName);
+      
+      await uploadString(storageRef, base64Data, "base64", {
+        contentType: "image/png",
+      });
+      
+      const downloadUrl = await getDownloadURL(storageRef);
+      appendLog(`[Asset Host] Uploaded Base64 image to Firebase Storage.`);
+      return downloadUrl;
+    } catch (storageError) {
+      console.warn("Firebase client storage upload failed:", storageError);
+    }
+
+    // 3. Fallback to default if upload fails to prevent Firestore 1MB document crash
+    return "/Web.svg";
+  };
+
   // 2. Handle Cover Image Generation
   const handleGenerateCoverImage = async () => {
     if (!imagePrompt) {
@@ -155,6 +199,10 @@ export default function BlogGenerationUI({ onClose }: Props) {
       }
 
       let finalUrl = data.url || data.imageUrl;
+      if (finalUrl && finalUrl.startsWith("data:image")) {
+        finalUrl = await ensureHostedImageUrl(finalUrl, "hero-cover");
+      }
+
       setNewBlog((prev) => ({ ...prev, image: finalUrl }));
       setImagePreview(finalUrl);
 
@@ -203,6 +251,10 @@ export default function BlogGenerationUI({ onClose }: Props) {
       }
 
       let finalUrl = data.url || data.imageUrl;
+      if (finalUrl && finalUrl.startsWith("data:image")) {
+        finalUrl = await ensureHostedImageUrl(finalUrl, "infographic");
+      }
+
       setNewBlog((prev) => ({ ...prev, infographic: finalUrl }));
       setInfographicPreview(finalUrl);
 
@@ -233,8 +285,9 @@ export default function BlogGenerationUI({ onClose }: Props) {
     try {
       setIsPublishing(true);
 
-      let finalImageUrl = newBlog.image || "/Web.svg";
-      let finalInfographicUrl = newBlog.infographic || "";
+      // Convert any lingering Base64 strings to clean hosted URLs before saving to Firestore
+      let finalImageUrl = await ensureHostedImageUrl(newBlog.image || "/Web.svg", "hero-cover");
+      let finalInfographicUrl = newBlog.infographic ? await ensureHostedImageUrl(newBlog.infographic, "infographic") : "";
 
       await addDoc(collection(db, "blogs"), {
         ...newBlog,
