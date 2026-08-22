@@ -147,7 +147,11 @@ export default function BlogsPage() {
             id: doc.id,
             title: data.title || "Untitled",
             description: data.subtitle || data.description?.replace(/<[^>]*>?/gm, "").substring(0, 160) || "",
-            contentType: data.contentType || (data.category?.includes("Guide") ? "Guides" : data.category?.includes("Comparison") ? "Fundamentals" : "Insights"),
+            contentType: (data.contentType || (
+              data.category?.toLowerCase().includes("guide") ? "Guides" :
+              data.category?.toLowerCase().includes("comparison") || data.category?.toLowerCase().includes("framework") || data.category?.toLowerCase().includes("architecture") ? "Fundamentals" :
+              "Insights"
+            )) as Exclude<ContentType, "All">,
             topic: data.exactTopic || data.category || "Web",
             tag: data.category || data.tag || "Article",
             date: data.date || new Date().toISOString().split('T')[0],
@@ -219,6 +223,7 @@ export default function BlogsPage() {
       
       const searchLower = searchQuery.toLowerCase();
       const matchesSearch =
+        !searchQuery ||
         post.title.toLowerCase().includes(searchLower) ||
         post.description.toLowerCase().includes(searchLower) ||
         post.tag.toLowerCase().includes(searchLower) ||
@@ -226,7 +231,7 @@ export default function BlogsPage() {
 
       return matchesContentType && matchesSearch;
     });
-  }, [selectedContentType, searchQuery]);
+  }, [selectedContentType, searchQuery, blogsData]);
 
   // Separate featured post if it's matching the filters (or if we want it standard)
   const { featuredPost, regularPosts } = useMemo(() => {
@@ -382,6 +387,20 @@ export default function BlogsPage() {
           {/* ─── Articles Content Area (Grid) ─── */}
           <section className="col-span-1 lg:col-span-9 space-y-12">
             
+            {/* Loading Skeleton */}
+            {isLoading && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 animate-pulse">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="flex flex-col gap-4">
+                    <div className="aspect-[16/10] w-full rounded-[24px] bg-zinc-200/70" />
+                    <div className="h-3.5 bg-zinc-200/70 rounded-md w-1/3" />
+                    <div className="h-5 bg-zinc-200/70 rounded-md w-4/5" />
+                    <div className="h-3.5 bg-zinc-200/70 rounded-md w-full" />
+                  </div>
+                ))}
+              </div>
+            )}
+
             {/* Case: No Results Found */}
             {!isLoading && filteredPosts.length === 0 && (
               <div className="flex flex-col items-center justify-center text-center py-16 px-4 bg-white/70 backdrop-blur-sm border border-zinc-200/70 rounded-3xl shadow-sm">
