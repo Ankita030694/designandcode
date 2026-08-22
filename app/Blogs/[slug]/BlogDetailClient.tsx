@@ -940,40 +940,40 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
       </section>
 
       {/* ─── 2. MAIN 3-COLUMN LAYOUT (TOC Left, Content Center, CTA Right) ─── */}
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
-          {/* ─── Left Column (lg:col-span-3): Sticky Table of Contents ─── */}
-          <aside className="hidden lg:block lg:col-span-3 sticky top-24 space-y-6 self-start">
-            <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
-              <div className="bg-slate-950 text-white px-5 py-4 flex items-center justify-between">
-                <span className="text-xs font-black uppercase tracking-wider text-slate-200">
+          {/* ─── Left Column (lg:col-span-2 xl:col-span-2): Compact Sticky Table of Contents ─── */}
+          <aside className="hidden lg:block lg:col-span-2 xl:col-span-2 sticky top-24 space-y-4 self-start">
+            <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
+              <div className="bg-slate-950 text-white px-3.5 py-3 flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-200">
                   IN THIS ARTICLE
                 </span>
-                <span className="text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full">
-                  {tocHeadings.length || 6} Sections
+                <span className="text-[9px] font-bold text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded-full">
+                  {tocHeadings.length || 6}
                 </span>
               </div>
 
-              <nav className="p-4 space-y-1 max-h-[70vh] overflow-y-auto scrollbar-thin">
+              <nav className="p-2.5 space-y-1 max-h-[70vh] overflow-y-auto scrollbar-thin">
                 {tocHeadings.map((heading, idx) => {
                   const isActive = activeHeadingId === heading.id;
                   return (
                     <a
                       key={idx}
                       href={`#${heading.id}`}
-                      className={`flex items-start gap-3 p-2.5 rounded-xl text-xs font-semibold transition-all duration-200 group ${
+                      className={`flex items-start gap-2 p-2 rounded-xl text-[11px] font-medium transition-all duration-200 group ${
                         isActive
                           ? "bg-indigo-50 text-indigo-700 font-bold"
                           : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                       }`}
                     >
-                      <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5 transition-colors ${
+                      <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 mt-0.5 transition-colors ${
                         isActive ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
                       }`}>
                         {idx + 1}
                       </span>
-                      <span className="line-clamp-2 leading-relaxed">
+                      <span className="line-clamp-2 leading-snug">
                         {heading.title}
                       </span>
                     </a>
@@ -983,8 +983,8 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
             </div>
           </aside>
 
-          {/* ─── Center Column (lg:col-span-6): Article Body, Takeaways, Solutions, Infographic, Reviews ─── */}
-          <article className="lg:col-span-6 bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-10 shadow-sm space-y-8">
+          {/* ─── Center Column (lg:col-span-7 xl:col-span-8): Expanded Article Body, Takeaways, Solutions, Infographic, Reviews ─── */}
+          <article className="lg:col-span-7 xl:col-span-8 bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-sm space-y-8">
             
             {/* Card 1: Share this insight */}
             <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -1229,55 +1229,55 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
 
           </article>
 
-          {/* ─── Right Column (lg:col-span-3): Sticky Conversion & Trust Widgets ─── */}
-          <aside className="lg:col-span-3 sticky top-24 space-y-6 self-start">
+          {/* ─── Right Column (lg:col-span-3 xl:col-span-2): Compact Sticky Conversion & Trust Widgets ─── */}
+          <aside className="lg:col-span-3 xl:col-span-2 sticky top-24 space-y-4 self-start">
             
             {/* Card 1: Talk to an Expert / Lead Architect Free */}
-            <div className="bg-slate-950 rounded-3xl p-6 sm:p-7 border border-slate-800 shadow-xl flex flex-col text-white relative overflow-hidden">
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-indigo-500/15 rounded-full blur-2xl pointer-events-none" />
+            <div className="bg-slate-950 rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col text-white relative overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-indigo-500/15 rounded-full blur-2xl pointer-events-none" />
               
-              <div className="relative z-10 space-y-3.5">
-                <div className="w-10 h-10 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-lg">
+              <div className="relative z-10 space-y-3">
+                <div className="w-8 h-8 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-sm">
                   🎧
                 </div>
                 <div>
-                  <h3 className="text-white text-base font-bold tracking-tight">
+                  <h3 className="text-white text-sm font-bold tracking-tight">
                     Talk to a Lead Architect Free!
                   </h3>
-                  <p className="text-slate-400 text-xs leading-relaxed mt-1.5">
-                    Get a personal web architecture and design assessment. One call. No pressure. Clear answers.
+                  <p className="text-slate-400 text-[11px] leading-relaxed mt-1">
+                    Get a web architecture & design assessment. One call. Clear answers.
                   </p>
                 </div>
                 <Link
                   href="/ContactUs"
-                  className="w-full inline-flex items-center justify-center gap-2 text-center bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-3.5 px-4 rounded-2xl transition-all duration-200 shadow-md cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-1.5 text-center bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-bold py-2.5 px-3 rounded-xl transition-all duration-200 shadow-md cursor-pointer"
                 >
-                  📞 Book My Free Call
+                  📞 Book Free Call
                 </Link>
               </div>
             </div>
 
             {/* Card 2: WHY PEOPLE TRUST DESIGNNCODE */}
-            <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm space-y-4">
-              <h4 className="text-[10px] font-bold text-slate-400 tracking-wider uppercase select-none">
+            <div className="bg-white rounded-2xl p-4.5 border border-slate-200/90 shadow-xs space-y-3">
+              <h4 className="text-[9px] font-black text-slate-400 tracking-wider uppercase select-none">
                 WHY PEOPLE TRUST DESIGNNCODE
               </h4>
-              <div className="space-y-3 text-xs font-semibold text-slate-800">
-                <div className="flex items-center gap-3">
-                  <span className="text-indigo-600 text-base">👥</span>
-                  <span>5,000+ Users & 150+ Flagships</span>
+              <div className="space-y-2.5 text-[11px] font-semibold text-slate-800">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-indigo-600 text-sm">👥</span>
+                  <span className="leading-tight">5,000+ Users & 150+ Flagships</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-indigo-600 text-base">⚡️</span>
-                  <span>99.9% Performance & Legal</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="text-indigo-600 text-sm">⚡️</span>
+                  <span className="leading-tight">99.9% Performance & Speed</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-indigo-600 text-base">🔒</span>
-                  <span>Zero Technical Debt</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="text-indigo-600 text-sm">🔒</span>
+                  <span className="leading-tight">Zero Technical Debt</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-indigo-600 text-base">⚖️</span>
-                  <span>100% Custom Code & SEO</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="text-indigo-600 text-sm">⚖️</span>
+                  <span className="leading-tight">100% Custom Code & SEO</span>
                 </div>
               </div>
             </div>
