@@ -210,6 +210,19 @@ body {
   font-family: var(--font-instrument-serif), var(--font-playfair), 'Instrument Serif', 'Playfair Display', Georgia, serif;
 }
 
+.font-handwriting {
+  font-family: var(--font-caveat), 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive, sans-serif;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 @keyframes orbit {
   from {
     transform: rotate(0deg);

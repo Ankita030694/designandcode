@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Outfit, Geist_Mono, Instrument_Serif, Playfair_Display } from "next/font/google";
+import { Outfit, Geist_Mono, Instrument_Serif, Playfair_Display, Caveat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/navbar";
 import GlobalContactWidget from "./Components/GlobalContactWidget";
 import FixedBackgroundGraphics from "./Components/FixedBackgroundGraphics";
 import EyeFollower from "./Components/EyeFollower";
+import PageLoader from "./Components/PageLoader";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -29,6 +30,13 @@ const instrumentSerif = Instrument_Serif({
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -90,9 +98,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${geistMono.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} h-full antialiased`}
+      className={`${outfit.variable} ${geistMono.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col relative bg-[#FAF9F6]">
+        <PageLoader />
         <FixedBackgroundGraphics />
         <Navbar />
         {children}
