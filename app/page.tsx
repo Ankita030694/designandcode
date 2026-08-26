@@ -11,7 +11,28 @@ import Footer from "./Components/footer";
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeStatIndex, setActiveStatIndex] = useState(0);
+  const [heroReady, setHeroReady] = useState(false);
 
+  React.useEffect(() => {
+    const handleLoaderComplete = () => {
+      setHeroReady(true);
+    };
+
+    if (typeof document !== "undefined" && document.documentElement.classList.contains("page-loaded")) {
+      setHeroReady(true);
+    }
+
+    window.addEventListener("page-loader-complete", handleLoaderComplete);
+    // Safe fallback timeout
+    const fallbackTimer = setTimeout(() => {
+      setHeroReady(true);
+    }, 2400);
+
+    return () => {
+      window.removeEventListener("page-loader-complete", handleLoaderComplete);
+      clearTimeout(fallbackTimer);
+    };
+  }, []);
 
   const dropupProjects = PROJECTS_DATA.slice(0, 3);
   const storyboardProjects = [
@@ -62,7 +83,7 @@ export default function Home() {
       {/* SECTION 1: HERO */}
       <section className="relative min-h-[100vh] md:min-h-screen w-full flex flex-col justify-between overflow-hidden z-10 pt-24 pb-20 md:pt-0 md:pb-0">
         {/* 1. Background Image (Green hills and sky) */}
-        <div className="absolute inset-0 z-0">
+        <div className={`absolute inset-0 z-0 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${heroReady ? "scale-100 opacity-100" : "scale-105 opacity-90"}`}>
           <Image
             src="/hero.webp"
             alt="Green hills and sky"
@@ -78,28 +99,28 @@ export default function Home() {
 
         {/* Mobile-Only Interactive Doodles */}
         {/* Top-Right Sparkle */}
-        <div className="absolute top-[18%] right-[10%] w-9 h-9 text-[#bef264]/70 pointer-events-none select-none block md:hidden z-20 animate-pulse">
+        <div className={`absolute top-[18%] right-[10%] w-9 h-9 text-[#bef264]/70 pointer-events-none select-none block md:hidden z-20 animate-pulse transition-all duration-700 delay-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] ${heroReady ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M12 2v20M2 12h20M5.75 5.75l12.5 12.5M5.75 19.25l12.5-12.5" />
           </svg>
         </div>
 
         {/* Top-Left Ribbon Wavy Scribble */}
-        <div className="absolute top-[22%] left-[8%] w-18 h-7 text-rose-400/60 pointer-events-none select-none block md:hidden z-20">
+        <div className={`absolute top-[22%] left-[8%] w-18 h-7 text-rose-400/60 pointer-events-none select-none block md:hidden z-20 transition-all duration-700 delay-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] ${heroReady ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}>
           <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round">
             <path d="M5,10 Q15,5 25,12 T45,8 T65,13 T85,7" />
           </svg>
         </div>
 
         {/* Center-Left Loop */}
-        <div className="absolute bottom-[35%] left-[8%] w-10 h-10 text-sky-400/70 pointer-events-none select-none block md:hidden z-20">
+        <div className={`absolute bottom-[35%] left-[8%] w-10 h-10 text-sky-400/70 pointer-events-none select-none block md:hidden z-20 transition-all duration-700 delay-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] ${heroReady ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}>
           <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
             <path d="M10,25 Q20,10 30,15 T35,30 T20,35 Z" />
           </svg>
         </div>
 
-        {/* 3. Headline & Stickers Section */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-6xl mx-auto px-6 py-6 md:py-12 select-none">
+        {/* 3. Headline & Stickers Section - Pops from scale 0 to 100 */}
+        <div className={`relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-6xl mx-auto px-6 py-6 md:py-12 select-none origin-center transition-all duration-[900ms] ease-[cubic-bezier(0.34,1.35,0.64,1)] ${heroReady ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}>
           <div className="relative py-6 md:py-12 max-w-full">
             {/* Main Typography Heading */}
             <h1 className="text-4xl sm:text-6xl md:text-[76px] font-bold tracking-tight text-white leading-[0.95] max-w-5xl">
@@ -109,7 +130,7 @@ export default function Home() {
             </h1>
 
             {/* Pinned Start a Project Button in Hero Section */}
-            <div className="relative mt-8 md:mt-12 inline-block transform rotate-3 hover:scale-105 transition-transform duration-200 pointer-events-auto">
+            <div className={`relative mt-8 md:mt-12 inline-block transform rotate-3 hover:scale-105 origin-center transition-all duration-700 delay-150 ease-[cubic-bezier(0.34,1.4,0.64,1)] pointer-events-auto ${heroReady ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}>
               {/* Red Pushpin */}
               <div className="absolute -top-6 left-[46%] -translate-x-1/2 w-8 h-8 z-10 flex items-center justify-center drop-shadow-md">
                 <Image 
@@ -131,7 +152,7 @@ export default function Home() {
         </div>
 
         {/* 4. Bottom Elements (Left Text and Right Case Study Card) */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-4 md:pb-10 select-none gap-4 md:gap-8">
+        <div className={`relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-4 md:pb-10 select-none gap-4 md:gap-8 origin-bottom transition-all duration-900 delay-200 ease-[cubic-bezier(0.34,1.2,0.64,1)] ${heroReady ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-75 translate-y-8"}`}>
           
           {/* Left: Tagline */}
           <div className="hidden md:flex flex-1 max-w-[340px] sm:max-w-[420px] items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
