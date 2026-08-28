@@ -127,6 +127,198 @@ export function getProjectCopy(project: Project): ProjectDetailCopy {
     };
   }
 
+  if (project.slug === "rp-royal" || project.slug === "rproyal") {
+    return {
+      category: "Sustainable Food Packaging & Commercial Supplies",
+      client: "RP Royal",
+      duration: "5 weeks",
+      intro: "RP Royal is a premier packaging solutions provider delivering high-durability, food-safe containers, meal trays, and freezer/microwave-safe packaging engineered for food brands, caterers, and enterprise hospitality.",
+      important: "In commercial packaging, structural integrity, food safety certifications, heat/cold tolerance, and ease of bulk ordering are vital to earn client trust and repeat industrial contracts.",
+      approach: "We architected an organized B2B & B2C digital catalog on WordPress featuring categorized container sizing matrices, leak-proof material specifications, instant quotation requests, and wholesale inquiry funnels.",
+      vision: "To create a clean, modern commercial web portal that showcases RP Royal's manufacturing capabilities, wide product versatility, and eco-friendly standards with clarity.",
+      challenges: "Presenting extensive technical container dimensions, compartment layouts, and temperature tolerances without overwhelming commercial procurement managers.",
+      resolving: "Developed intuitive filter tabs by capacity (ml), compartment count, and material grade, alongside downloadable product specification sheets and direct WhatsApp/quote requests.",
+      userCentric: "Organized around the food service workflow - allowing restaurant chains, cloud kitchens, and takeaway outlets to quickly find the exact packaging dimensions they require.",
+      needs: "A scalable, responsive WordPress architecture capable of supporting rapid new mold additions, bulk customer inquiries, and localized logistics coordination.",
+    };
+  }
+
+  if (project.slug === "purifi") {
+    return {
+      category: "Eco-Friendly Living & Natural Air Purification",
+      client: "Purifi",
+      duration: "4 weeks",
+      intro: "Purifi is an eco-conscious wellness brand offering 100% natural, non-electric air purifiers powered by activated coconut shell carbon to quietly absorb odors, humidity, and airborne toxins in homes, cars, and offices.",
+      important: "For zero-electricity, sustainable wellness solutions, educating customers on the science of adsorption and demonstrating long-term environmental value builds essential buying conviction.",
+      approach: "We designed a conversion-focused WordPress storefront that pairs educational visual diagrams, bundle builder options, and transparent surface area science.",
+      vision: "To craft an organic, minimalist digital storefront emphasizing pure living, sustainable coconut shell charcoal origins, and effortless room-by-room air freshening.",
+      challenges: "Differentiating passive carbon filtration from conventional motorized electric air purifiers while highlighting superior sustainability and zero ongoing energy costs.",
+      resolving: "Created side-by-side comparison charts, visual coverage area guides (from wardrobes to full rooms), and compelling multi-pack family bundle offerings with 1-click checkout.",
+      userCentric: "Designed for health-conscious families with clear room-type selector guides, maintenance-free instructions, and recurring replacement reminders.",
+      needs: "A fast, modular WordPress architecture optimized for mobile checkouts, bundle discounts, and scalable product catalog expansions.",
+    };
+  }
+
+  if (project.slug === "oudqua") {
+    return {
+      category: "Luxury Niche Perfumery & Arabian Oud",
+      client: "Oudqua",
+      duration: "4 weeks",
+      intro: "Oudqua is a luxury niche perfume house specializing in authentic Arabian Oud, rare attars, artisanal incense, and opulent fine fragrances crafted for discerning fragrance connoisseurs.",
+      important: "In luxury perfumery, evocative storytelling, olfactory pyramid transparency (top, heart, and base notes), and rich visual aesthetics are essential to convey luxury without physical sampling.",
+      approach: "We developed an immersive Shopify flagship highlighting dramatic bottle art, sensory note breakdowns, longevity ratings, and seamless international checkout.",
+      vision: "To evoke the timeless mystique of Arabian olfactory traditions through rich dark tones, gold accents, and fluid product exploration.",
+      challenges: "Translating complex aromatic profiles - aged oud, amber, rose, and rare woods - into a sensory digital shopping journey with fast mobile loading.",
+      resolving: "Integrated fragrance pyramid visualizers, sample set discovery kits, customer scent reviews, and express multi-currency Shopify payment options.",
+      userCentric: "Designed around the fragrance discovery ritual, allowing customers to easily explore scents by intensity, key notes, and occasion suitability.",
+      needs: "A resilient Shopify e-commerce platform built for high-ticket artisanal perfumery, international shipping fulfillment, and limited-edition scent drops.",
+    };
+  }
+
+  if (project.slug === "mj-and-co" || project.slug === "mjco") {
+    return {
+      category: "Handcrafted Scented Candles & Home Aromas",
+      client: "MJ & Co",
+      duration: "4 weeks",
+      intro: "MJ & Co is an artisanal home fragrance brand crafting hand-poured 100% natural soy wax scented candles, luxury aroma diffusers, and curated gift hampers for conscious living.",
+      important: "In home fragrance and candle commerce, clean-burning ingredients, soothing aesthetic presentation, and gift-ready packaging storytelling are key drivers of customer loyalty.",
+      approach: "We designed an elegant, warm Shopify store featuring mood-based fragrance categorizations, burn-time longevity highlights, custom gift box configurations, and smooth mobile ordering.",
+      vision: "To create a serene, candle-lit digital atmosphere that reflects artisan craftsmanship, natural botanical fragrances, and mindful relaxation.",
+      challenges: "Showcasing nuanced aromas and flame-throw details digitally while ensuring lightning-fast mobile browsing during peak festive gifting seasons.",
+      resolving: "Built fragrance family filters (floral, woody, gourmand, fresh), festive gifting bundles, customer burn-test testimonials, and 1-tap checkout.",
+      userCentric: "Empowered shoppers to choose candles by room mood and gifting occasions, complete with custom greeting notes and luxury packaging previews.",
+      needs: "A scalable Shopify storefront engineered to handle surge traffic during festival seasons with synchronized inventory tracking and fast local fulfillment.",
+    };
+  }
+
+  if (project.slug === "rosete") {
+    return {
+      category: "Luxury Hospitality Gifting & Gourmet Boutique",
+      client: "Roseate - Upstage Collect",
+      duration: "5 weeks",
+      intro: "Upstage Collect by Roseate is the luxury retail and gifting flagship of Roseate Hotels & Resorts, offering handcrafted artisanal mithai, bespoke chocolates, luxury home decor, fine jewellery, and celebratory gifting hampers.",
+      important: "In luxury hospitality e-commerce, expressing 5-star brand heritage, sensory culinary elegance, and refined gifting presentation builds supreme prestige and high-value conversion.",
+      approach: "We architected an opulent digital storefront on Shopify featuring editorial product showcases, customized festive hamper builders, temperature-controlled delivery details, and effortless gifting checkouts.",
+      vision: "To mirror the refined luxury and five-star hospitality of Roseate Hotels in a digital boutique format with delicate rose-gold hues, sophisticated typography, and smooth purchasing flows.",
+      challenges: "Organizing an eclectic catalog spanning perishable luxury confectionery, fine fragrances, designer lifestyle books, and heavy home decor while ensuring frictionless cross-category shopping.",
+      resolving: "Engineered curated occasion navigation (festive, corporate, personal gifting), real-time delivery slot schedulers for fresh mithai, and personalized gift message integration at checkout.",
+      userCentric: "Designed for discerning luxury gift-givers - offering recipient customization, luxury box previews, and direct corporate concierge assistance.",
+      needs: "A scalable Shopify infrastructure engineered to manage festive traffic spikes with integrated cold-chain logistics and multi-item gift shipping.",
+    };
+  }
+
+  if (project.slug === "xcel") {
+    return {
+      category: "Commercial Machinery & Industrial Laundry Engineering",
+      client: "XCEL Laundry Systems",
+      duration: "5 weeks",
+      intro: "XCEL Laundry Systems is India's premier manufacturer and turnkey provider of industrial laundry machinery, powering leading hotels, hospitals, garment export houses, and commercial laundromats with precision-engineered washing, drying, and steam finishing systems.",
+      important: "Industrial machinery websites require detailed technical specifications, capacity ranges (kg/lbs), energy-efficiency metrics, and clear consultation funnels to establish manufacturing authority.",
+      approach: "We designed a robust, modern industrial web portal with categorized equipment catalogues (washing, drying, flat-work ironing, dry-cleaning), interactive equipment showcases, and automated quote generation.",
+      vision: "To reflect 32+ years of manufacturing excellence and over 30,000 installations through a clean, authoritative, and high-performance digital presence.",
+      challenges: "Simplifying comprehensive technical specifications, power requirements, and industrial schematics into an intuitive, responsive interface for plant managers and business owners.",
+      resolving: "Implemented structured spec tables, downloadable equipment brochures, filterable capacity matrices, and instant RFQ (Request for Quote) routing.",
+      userCentric: "Organized by industry vertical (hospitality, healthcare, apparel processing) so procurement managers can immediately locate complete turnkey laundry setups.",
+      needs: "A high-speed custom frontend built with Next.js that loads instantaneous equipment data, supports pan-India service inquiries, and drives high-intent B2B leads.",
+    };
+  }
+
+  if (project.slug === "settleloans") {
+    return {
+      category: "Fintech & Legal Debt Settlement Advisory",
+      client: "SettleLoans",
+      duration: "4 weeks",
+      intro: "SettleLoans is India's leading debt relief and legal advisory platform, helping individuals and businesses lawfully settle unmanageable personal loans, credit card debts, and commercial borrowings while ending harassment from recovery agents.",
+      important: "In financial debt relief, building empathy, absolute legal clarity, strict confidentiality, and transparent settlement proof is paramount to easing consumer anxiety.",
+      approach: "We engineered an interactive, trust-first web application featuring interactive settlement calculators, verified client settlement letters, step-by-step legal workflows, and rapid confidential consultation booking.",
+      vision: "To deliver a calming, authoritative digital experience that empowers distressed borrowers with legally sound, structured paths to debt freedom.",
+      challenges: "Communicating complex RBI guidelines, legal notice responses, and NPA restructuring terms simply without overwhelming users in financial distress.",
+      resolving: "Designed an interactive 'Fix It' toggle journey, verified settlement proof sliders, legal rights FAQs, and an encrypted 1-minute loan evaluation funnel.",
+      userCentric: "Built with extreme focus on accessibility and psychological reassurance - clean typography, non-intimidating forms, and one-tap WhatsApp / legal counsel access.",
+      needs: "A high-converting, lightning-fast custom web application with automated CRM lead routing, secure customer data encryption, and instant case management.",
+    };
+  }
+
+  if (project.slug === "rockers-jr" || project.slug === "rockers") {
+    return {
+      category: "Textile Manufacturing & Premium Kids Apparel",
+      client: "Rockers Jr",
+      duration: "4 weeks",
+      intro: "Rockers Jr is an established textile master and kids' fashion manufacturer specializing in stylish, ultra-comfortable, and durable boys' wear crafted with 20+ years of textile excellence.",
+      important: "Kids' apparel platforms must communicate fabric softness, breathable durability, seam quality, and flexible movement for playful children while conveying manufacturing trustworthiness to retail partners.",
+      approach: "We crafted an energetic yet refined brand experience showcasing boy's fashion lookbooks, fabric composition highlights, wholesale bulk supply services, and direct customer touchpoints.",
+      vision: "To build a vibrant digital home celebrating playful childhood with high-contrast typography, warm earth tones, and responsive textile storytelling.",
+      challenges: "Demonstrating superior textile weave quality and stitch durability across mobile screens while catering to both B2C parents and B2B wholesale buyers.",
+      resolving: "Engineered high-definition zoom lookbooks, fabric certification badges, size recommendation guides, and direct wholesale inquiry portals.",
+      userCentric: "Designed with thumb-friendly navigation, relatable playdate lifestyle visuals, and instant access to textile mastery credentials.",
+      needs: "A high-performance custom frontend architecture designed to support rapid collection drops, seasonal catalogs, and international textile client inquiries.",
+    };
+  }
+
+  if (project.slug === "pp-green-city" || project.slug === "ppgreen") {
+    return {
+      category: "Luxury Real Estate & Township Infrastructure",
+      client: "PP Green City",
+      duration: "5 weeks",
+      intro: "PP Green City 2 is a premier integrated township and commercial infrastructure development in Sonipat, offering master-planned residential living, lush green landscapes, and modern commercial complexes like PP City Centre and West End Convention Mall.",
+      important: "Luxury real estate platforms require cinematic visual immersion, interactive master plans, location connectivity highlights, and seamless site visit scheduling to turn curiosity into high-value bookings.",
+      approach: "We engineered a cinematic real estate portal featuring drone video reels, interactive portfolio carousels, floor plan downloads, and instant appointment booking.",
+      vision: "To capture the harmony of eco-conscious architecture and urban sophistication through rich emerald green accents, warm gold typography, and full-screen video media.",
+      challenges: "Streaming ultra-high-definition drone walkthroughs, customer video reels, and complex architectural blueprints with zero buffering on mobile networks.",
+      resolving: "Optimized modern video streaming codecs (WebM/MP4), lazy-loaded architectural galleries, location distance matrices, and 1-click consultation triggers.",
+      userCentric: "Calibrated for prospective homeowners and commercial investors with dedicated residential vs commercial toggles, amenity tours, and instant sales representative connect.",
+      needs: "A high-speed Next.js architecture built for rapid multimedia rendering, verified lead capture, and scalable project portfolio expansions.",
+    };
+  }
+
+  if (project.slug === "cacti" || project.slug === "the-cacti-store") {
+    return {
+      category: "Anti-Tarnish Jewelry & Fashion Accessories",
+      client: "The Cacti Store",
+      duration: "4 weeks",
+      intro: "The Cacti Store is a trendy lifestyle brand specializing in premium waterproof, anti-tarnish jewelry, chic Apple Watch bands, aesthetic phone accessories, and curated gift hampers for modern style lovers.",
+      important: "In accessible luxury jewelry and accessories, showcasing daily durability (waterproof & sweatproof), close-up styling stacks, and gift-ready bundles is crucial to drive Gen-Z and millennial engagement.",
+      approach: "We designed a vibrant, high-energy Shopify store featuring stack builders, anti-tarnish guarantee spotlights, dynamic accessory carousels, and rapid 1-click mobile checkout.",
+      vision: "To create a playful, aesthetic digital boutique combining fresh pastels, editorial accessory flat-lays, and social-first shoppable media.",
+      challenges: "Displaying extensive multi-color accessory variants and bundle-and-save deals while ensuring instantaneous product page loading on mobile devices.",
+      resolving: "Built instant swatch selection drawers, shoppable UGC Instagram feeds, mix-and-match stack discounts, and streamlined UPI checkout integrations.",
+      userCentric: "Empowered shoppers to build personalized accessory stacks with clear material purity guides and gift packaging options.",
+      needs: "A scalable Shopify infrastructure engineered to manage high-volume social traffic surges, viral product drops, and seamless pan-India logistics.",
+    };
+  }
+
+  if (project.slug === "pehnavri") {
+    return {
+      category: "Women's Ethnic Wear & Maternity-Friendly Fashion",
+      client: "Pehnavri",
+      duration: "4 weeks",
+      intro: "Pehnavri is a beloved Indian ethnic wear brand celebrated for handcrafted breathable cotton kurtis, regal Anarkali sets, and thoughtful maternity-friendly outfits with concealed nursing zips.",
+      important: "In women's ethnic and maternity apparel, highlighting pure breathable cotton fabrics, flattering tailored silhouettes, and functional feeding-friendly details creates strong consumer loyalty.",
+      approach: "We developed a warm, culturally resonant Shopify e-commerce flagship with easy fabric filtering, concealed-zip feature spotlights, custom sizing guides, and official security trust badges.",
+      vision: "To build a graceful digital home celebrating Indian heritage craftsmanship while offering contemporary comfort for modern women and mothers.",
+      challenges: "Effectively demonstrating unique functional features like hidden nursing zippers without disrupting the elegance of traditional ethnic wear visuals.",
+      resolving: "Created interactive functional callout hotspots, detailed video try-on reels, size-recommendation tools, and express checkout flows.",
+      userCentric: "Designed around the diverse lifestyles of women - from festive celebrations to daily comfort and postpartum ease with straightforward return and exchange policies.",
+      needs: "A nimble Shopify store built to scale new weekly ethnic drops, manage customer repeat subscriptions, and coordinate direct WhatsApp shopping inquiries.",
+    };
+  }
+
+  if (project.slug === "rad" || project.slug === "rad-india") {
+    return {
+      category: "Contemporary Designer Womenswear & Luxury Co-Ords",
+      client: "RAD India",
+      duration: "4 weeks",
+      intro: "RAD India is a luxury contemporary womenswear label known for architectural silhouettes, fine pintuck tailoring, sculpted bishop-sleeve blouses, and high-waisted statement trousers crafted for effortless elegance.",
+      important: "In high-end designer womenswear, conveying textural depth, garment movement, precise tailoring measurements, and limited-run exclusivity drives aspirational luxury appeal.",
+      approach: "We designed a high-fashion editorial Shopify storefront with monochromatic minimalism, dynamic lookbook carousels, detailed garment drape highlights, and seamless international checkout.",
+      vision: "To reflect modern understated sophistication through crisp typography, expansive negative space, and evocative editorial imagery that lets the clothing speak.",
+      challenges: "Translating tactile garment qualities such as subtle pintucks and fluid drapery into high-definition digital experiences while maintaining instantaneous mobile performance.",
+      resolving: "Implemented editorial collection galleries, responsive size & fit breakdown modals, pre-order reservation triggers, and multi-currency payment gateways.",
+      userCentric: "Built with intuitive collection browsing by occasion, styling pairing recommendations, and direct concierge styling support.",
+      needs: "A sleek, resilient Shopify architecture engineered for rapid seasonal collection launches and seamless global fulfillment.",
+    };
+  }
+
   // Stable duration assignment based on title character length
   const durations = ["3 weeks", "4 weeks", "5 weeks", "6 weeks"];
   const durationIndex = project.title.length % durations.length;

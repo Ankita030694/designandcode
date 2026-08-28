@@ -42,7 +42,7 @@ export interface ServicePageProps {
   deepDiveItems: ServiceSubDetail[];
   
   faqs?: ServiceFAQ[];
-  projectTypeFilter?: "Custom Code" | "Shopify Store" | "All";
+  projectTypeFilter?: "Custom Code" | "Shopify Store" | "Wordpress" | "All";
   projectsTitle?: string;
   projectsSubtitle?: string;
 }

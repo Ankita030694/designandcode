@@ -9,7 +9,7 @@ import { PROJECTS_DATA } from "../data/projects";
 
 // ─── PAGE COMPONENT ───
 export default function ProjectsPage() {
-  const [activeFilter, setActiveFilter] = useState<"All" | "Shopify Store" | "Custom Code">("All");
+  const [activeFilter, setActiveFilter] = useState<"All" | "Shopify Store" | "Custom Code" | "Wordpress">("All");
 
   const filteredProjects = PROJECTS_DATA.filter((project) => {
     if (activeFilter === "All") return true;
@@ -83,6 +83,16 @@ export default function ProjectsPage() {
             >
               Custom Code
             </button>
+            <button
+              onClick={() => setActiveFilter("Wordpress")}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                activeFilter === "Wordpress"
+                  ? "bg-white text-zinc-900 shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              WordPress
+            </button>
           </div>
         </div>
 
@@ -112,9 +122,11 @@ export default function ProjectsPage() {
                     <span className={`text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full border ${
                       project.projectType === "Shopify Store" 
                         ? "bg-emerald-50 text-emerald-700 border-emerald-200/60" 
+                        : project.projectType === "Wordpress"
+                        ? "bg-sky-50 text-sky-700 border-sky-200/60"
                         : "bg-indigo-50 text-indigo-700 border-indigo-200/60"
                     }`}>
-                      {project.projectType}
+                      {project.projectType === "Wordpress" ? "WordPress" : project.projectType}
                     </span>
                   </h3>
                   <p className="text-zinc-500 text-[15px] leading-relaxed mb-4">{project.description}</p>

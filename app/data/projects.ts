@@ -7,7 +7,7 @@ export interface Project {
   bg: string;
   mockupAccent: string;
   image: string;
-  projectType: "Shopify Store" | "Custom Code";
+  projectType: "Shopify Store" | "Custom Code" | "Wordpress";
   url: string;
 }
 
@@ -200,21 +200,21 @@ export const PROJECTS_DATA: Project[] = [
     flag: "🇸🇦",
     bg: "from-yellow-600/10 via-zinc-400/5 to-yellow-600/10",
     mockupAccent: "from-amber-600 to-zinc-600",
-    image: "/project/Oud.webp",
+    image: "/Oudqua.jpg",
     projectType: "Shopify Store",
     url: "https://theoudqua.com/"
   },
   {
     slug: "rosete",
-    title: "Rosete",
-    description: "A high-fashion brand portal focused on editorial imagery and seamless checkout.",
-    tags: ["E-Commerce", "Art Direction", "Web Design"],
-    flag: "🇫🇷",
+    title: "Roseate - Upstage Collect",
+    description: "A luxury lifestyle and gourmet boutique by Roseate Hotels, offering artisanal sweets, handcrafted chocolates, fine decor, and bespoke gift hampers.",
+    tags: ["Luxury Gifting", "Gourmet Boutique", "Shopify Store"],
+    flag: "🇮🇳",
     bg: "from-rose-500/10 via-pink-400/5 to-rose-500/10",
     mockupAccent: "from-rose-400 to-pink-400",
     image: "/project/Rosete.webp",
     projectType: "Shopify Store",
-    url: "#"
+    url: "https://upstagecollect.com/"
   },
   {
     slug: "sexsea",
@@ -335,5 +335,125 @@ export const PROJECTS_DATA: Project[] = [
     image: "/Laysyy.jpg",
     projectType: "Shopify Store",
     url: "https://laysyy.com/"
+  },
+  {
+    slug: "rp-royal",
+    title: "RP Royal",
+    description: "A premier sustainable packaging manufacturer delivering high-grade food-safe containers, microwave & freezer-ready packaging, and enterprise supply solutions.",
+    tags: ["Food Packaging", "Sustainable Materials", "WordPress"],
+    flag: "🇮🇳",
+    bg: "from-sky-500/10 via-blue-400/5 to-sky-500/10",
+    mockupAccent: "from-sky-400 to-blue-500",
+    image: "/rproyal.jpg",
+    projectType: "Wordpress",
+    url: "https://rproyal.com/"
+  },
+  {
+    slug: "purifi",
+    title: "Purifi",
+    description: "An eco-innovative brand crafting 100% natural, non-electric air purifiers using activated coconut shell carbon to absorb household odors and toxins.",
+    tags: ["Air Purification", "Eco-Friendly Living", "WordPress"],
+    flag: "🇮🇳",
+    bg: "from-emerald-500/10 via-teal-400/5 to-emerald-500/10",
+    mockupAccent: "from-emerald-400 to-teal-500",
+    image: "/Purifi.jpg",
+    projectType: "Wordpress",
+    url: "https://purifi.in/shop"
+  },
+  {
+    slug: "mj-and-co",
+    title: "MJ & Co",
+    description: "An artisanal luxury home fragrance brand creating handcrafted 100% soy wax scented candles, aroma diffusers, and curated festive gift sets.",
+    tags: ["Scented Candles", "Home Fragrances", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-rose-500/10 via-amber-400/5 to-rose-500/10",
+    mockupAccent: "from-rose-400 to-amber-500",
+    image: "/MJCO.jpg",
+    projectType: "Shopify Store",
+    url: "https://mjandco.in/"
+  },
+  {
+    slug: "xcel",
+    title: "XCEL Laundry Systems",
+    description: "A leading industrial laundry machinery manufacturer providing commercial washing, drying, flat-work ironing, and steam finishing systems across India.",
+    tags: ["Industrial Systems", "Commercial Machinery", "Custom Code"],
+    flag: "🇮🇳",
+    bg: "from-blue-600/10 via-slate-400/5 to-blue-600/10",
+    mockupAccent: "from-blue-500 to-slate-600",
+    image: "/Xcel.svg",
+    projectType: "Custom Code",
+    url: "https://xcel-beta.vercel.app/"
+  },
+  {
+    slug: "settleloans",
+    title: "SettleLoans",
+    description: "A premier legal advisory and debt relief platform providing structured loan settlements, protection against recovery agent harassment, and legal debt resolution across India.",
+    tags: ["Fintech & Legal", "Debt Settlement", "Custom Code"],
+    flag: "🇮🇳",
+    bg: "from-blue-500/10 via-indigo-400/5 to-blue-500/10",
+    mockupAccent: "from-blue-500 to-indigo-500",
+    image: "/settleloans.svg",
+    projectType: "Custom Code",
+    url: "https://www.settleloans.in/"
+  },
+  {
+    slug: "rockers-jr",
+    title: "Rockers Jr",
+    description: "A premier kids' fashion and textile manufacturing brand crafting high-comfort, durable boys' apparel and bespoke garments with over two decades of textile mastery.",
+    tags: ["Kids Fashion", "Textile Manufacturing", "Custom Code"],
+    flag: "🇮🇳",
+    bg: "from-orange-500/10 via-amber-400/5 to-orange-500/10",
+    mockupAccent: "from-orange-500 to-amber-500",
+    image: "/Rockers.jpg",
+    projectType: "Custom Code",
+    url: "https://rockersjr.com/"
+  },
+  {
+    slug: "pp-green-city",
+    title: "PP Green City",
+    description: "A luxury real estate and township infrastructure developer creating sustainable green residential communities, commercial hubs, and modern lifestyle landmarks in Sonipat.",
+    tags: ["Luxury Real Estate", "Township Infrastructure", "Custom Code"],
+    flag: "🇮🇳",
+    bg: "from-emerald-600/10 via-teal-400/5 to-emerald-600/10",
+    mockupAccent: "from-emerald-500 to-teal-500",
+    image: "/PPGreen.jpg",
+    projectType: "Custom Code",
+    url: "https://ppgreen.vercel.app/"
+  },
+  {
+    slug: "cacti",
+    title: "The Cacti Store",
+    description: "A trending lifestyle and fashion jewelry boutique offering anti-tarnish waterproof pieces, stylish Apple Watch straps, phone accessories, and curated gift boxes.",
+    tags: ["Anti-Tarnish Jewelry", "Fashion Accessories", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-emerald-500/10 via-amber-400/5 to-emerald-500/10",
+    mockupAccent: "from-emerald-400 to-amber-500",
+    image: "/cacti.svg",
+    projectType: "Shopify Store",
+    url: "https://thecactistore.com/"
+  },
+  {
+    slug: "pehnavri",
+    title: "Pehnavri",
+    description: "A celebrated Indian women's ethnic wear brand creating handcrafted everyday cotton kurtis, regal Anarkali suit sets, and innovative maternity-friendly feeding outfits.",
+    tags: ["Women's Ethnic Wear", "Handcrafted Apparel", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-rose-500/10 via-purple-400/5 to-rose-500/10",
+    mockupAccent: "from-rose-400 to-purple-500",
+    image: "/Pehnavri.svg",
+    projectType: "Shopify Store",
+    url: "https://pehnavri.com/"
+  },
+  {
+    slug: "rad",
+    title: "RAD India",
+    description: "A luxury contemporary womenswear label creating sculptural co-ord sets, tailored occasion wear, and minimalist designer silhouettes crafted for understated modern elegance.",
+    tags: ["Contemporary Fashion", "Designer Womenswear", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-zinc-600/10 via-neutral-400/5 to-zinc-600/10",
+    mockupAccent: "from-zinc-500 to-neutral-700",
+    image: "/RAD.svg",
+    projectType: "Shopify Store",
+    url: "https://radindia.co/"
   }
 ];
