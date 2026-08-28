@@ -79,6 +79,54 @@ export function getProjectCopy(project: Project): ProjectDetailCopy {
     };
   }
 
+  if (project.slug === "vensa") {
+    return {
+      category: "Dermatological Skincare & Daily Essentials",
+      client: "Vensa Skin Care",
+      duration: "4 weeks",
+      intro: "Vensa Skin Care is a modern dermatological brand formulating high-efficacy daily cleansers, sun protection, and barrier-repair essentials engineered for healthy, hydrated, and glowing skin.",
+      important: "In clean skincare, clarity of benefits, skin-type targeting, and dermatologist-tested credentials build essential buyer confidence. Vensa blends clean aesthetics with informative product breakdowns.",
+      approach: "We created a streamlined skincare discovery experience featuring routine builders, ingredient highlights, skin concern filters, and a high-converting mobile checkout flow.",
+      vision: "To deliver a fresh, rejuvenating digital storefront that inspires confidence and makes everyday skincare routines simple, effective, and delightful.",
+      challenges: "Presenting active skincare formulations and clinical benefits clearly across mobile screens without cluttering the shopping experience.",
+      resolving: "Built intuitive ingredient matrices, before-and-after customer galleries, bundle-and-save product recommendations, and fast Shopify payments.",
+      userCentric: "Designed around skin-type personalization - helping visitors instantly identify their ideal hydration and sun protection routine.",
+      needs: "A nimble and scalable Shopify storefront optimized for repeat purchases, customer subscriptions, and rapid seasonal launches.",
+    };
+  }
+
+  if (project.slug === "limitless") {
+    return {
+      category: "Apparel Manufacturing & Corporate Workwear",
+      client: "Limitless Clothing",
+      duration: "5 weeks",
+      intro: "Limitless Clothing is an end-to-end textile manufacturer and apparel brand delivering customized uniforms, corporate merchandise, and lifestyle apparel with superior fabric quality and precision craftsmanship.",
+      important: "B2B and B2C apparel manufacturing platforms must showcase fabric endurance, production capabilities, and sample ordering processes with absolute clarity.",
+      approach: "We designed a multi-vertical catalog structure catering to corporate, education, healthcare, and lifestyle apparel buyers with dedicated inquiry funnels and direct sample ordering.",
+      vision: "To present an enterprise-grade digital portal demonstrating end-to-end manufacturing power, modern design standards, and sustainable textile practices.",
+      challenges: "Seamlessly organizing diverse product verticals (healthcare scrubs, corporate uniforms, lifestyle hoodies) while supporting both bulk wholesale quotes and retail purchases.",
+      resolving: "Engineered customized vertical landing pages, bulk RFQ (Request for Quote) calculators, spec-sheet downloads, and responsive product carousels.",
+      userCentric: "Tailored journeys for corporate procurement managers and retail customers alike, with clear sizing charts, fabric GSM specifications, and rapid contact touchpoints.",
+      needs: "A flexible and robust commerce infrastructure built to scale large B2B wholesale orders alongside direct-to-consumer product drops.",
+    };
+  }
+
+  if (project.slug === "laysyy") {
+    return {
+      category: "Urban Streetwear & Oversized Fashion",
+      client: "Laysyy",
+      duration: "4 weeks",
+      intro: "Laysyy is a homegrown Indian streetwear brand redefining everyday youth fashion with premium heavy-cotton oversized tees, cozy hoodies, and timeless minimal silhouettes.",
+      important: "Modern streetwear culture thrives on bold visuals, drop countdowns, effortless mobile shopping, and relatable urban lifestyle aesthetics.",
+      approach: "We created a high-energy e-commerce experience focusing on editorial lifestyle lookbooks, limited drop mechanics, instant color/swatch selections, and seamless social commerce integrations.",
+      vision: "To build a vibrant digital home for contemporary streetwear enthusiasts, merging dark and moody aesthetics with lightning-fast cart-to-checkout velocity.",
+      challenges: "Balancing high-resolution editorial lookbook media and video assets with instant mobile page load times and real-time inventory countdowns.",
+      resolving: "Implemented custom theme optimizations, quick-view drawer modals, sticky add-to-cart bars, and rapid 1-tap UPI payment flows.",
+      userCentric: "Prioritized the mobile generation with thumb-friendly navigation, fit-guide overlays, customer UGC lookbooks, and instant order tracking.",
+      needs: "A scalable Shopify store capable of managing massive flash-sale traffic spikes and synchronized social media product drops.",
+    };
+  }
+
   // Stable duration assignment based on title character length
   const durations = ["3 weeks", "4 weeks", "5 weeks", "6 weeks"];
   const durationIndex = project.title.length % durations.length;

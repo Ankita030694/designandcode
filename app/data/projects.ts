@@ -299,5 +299,41 @@ export const PROJECTS_DATA: Project[] = [
     image: "/deja.jpg",
     projectType: "Custom Code",
     url: "https://www.dejabrew.co.in/"
+  },
+  {
+    slug: "vensa",
+    title: "Vensa Skin Care",
+    description: "A modern dermatological skincare brand offering hydrating daily cleansers, sunscreens, and nourishing barrier-repair essentials.",
+    tags: ["Skincare & Beauty", "Daily Essentials", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-teal-500/10 via-emerald-400/5 to-teal-500/10",
+    mockupAccent: "from-teal-400 to-emerald-400",
+    image: "/Vensa.jpg",
+    projectType: "Shopify Store",
+    url: "https://vensaskincare.com/"
+  },
+  {
+    slug: "limitless",
+    title: "Limitless Clothing",
+    description: "An end-to-end textile manufacturer and bespoke apparel brand specializing in corporate workwear, institutional uniforms, and lifestyle garments.",
+    tags: ["Apparel Manufacturing", "Corporate Workwear", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-red-500/10 via-orange-400/5 to-red-500/10",
+    mockupAccent: "from-red-500 to-orange-500",
+    image: "/Limitless.jpg",
+    projectType: "Shopify Store",
+    url: "https://limitlessclothing.in/"
+  },
+  {
+    slug: "laysyy",
+    title: "Laysyy",
+    description: "A contemporary streetwear and lifestyle brand crafting premium heavy-cotton oversized t-shirts, hoodies, and minimal urban fashion.",
+    tags: ["Urban Streetwear", "Oversized Apparel", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-purple-500/10 via-indigo-400/5 to-purple-500/10",
+    mockupAccent: "from-purple-400 to-indigo-400",
+    image: "/Laysyy.jpg",
+    projectType: "Shopify Store",
+    url: "https://laysyy.com/"
   }
 ];
