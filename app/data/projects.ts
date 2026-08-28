@@ -109,18 +109,6 @@ export const PROJECTS_DATA: Project[] = [
     url: "https://www.credsettle.com/"
   },
   {
-    slug: "house-of-nihal-khera",
-    title: "House of Nihal khera",
-    description: "A luxurious heritage homestay and agritourism resort offering premium hospitality experiences in Punjab.",
-    tags: ["Luxury Homestay", "Agritourism", "Custom Code"],
-    flag: "🇮🇳",
-    bg: "from-amber-500/10 via-yellow-400/5 to-amber-500/10",
-    mockupAccent: "from-amber-400 to-yellow-400",
-    image: "/project/Delhi House.webp",
-    projectType: "Custom Code",
-    url: "https://houseofnihalkhera.com/"
-  },
-  {
     slug: "delhi-house",
     title: "Delhi House Cafe",
     description: "A premier contemporary Indian restaurant and culinary destination offering gourmet street food and authentic meals.",
@@ -264,16 +252,4 @@ export const PROJECTS_DATA: Project[] = [
     projectType: "Shopify Store",
     url: "https://trivorajewels.com/"
   },
-  {
-    slug: "purifi",
-    title: "Purifi",
-    description: "An advanced smart air purification and wellness technology brand engineered for modern homes and commercial spaces.",
-    tags: ["Smart Wellness", "Clean Tech", "Shopify Store"],
-    flag: "🇺🇸",
-    bg: "from-sky-500/10 via-teal-400/5 to-sky-500/10",
-    mockupAccent: "from-sky-400 to-teal-400",
-    image: "/E-Commerce.png",
-    projectType: "Shopify Store",
-    url: "#"
-  }
 ];
