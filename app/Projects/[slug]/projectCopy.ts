@@ -47,6 +47,38 @@ export function getProjectCopy(project: Project): ProjectDetailCopy {
     };
   }
 
+  if (project.slug === "herstories") {
+    return {
+      category: "Women's Wellness & Nutritional Science",
+      client: "Her Stories",
+      duration: "4 weeks",
+      intro: "Her Stories is an intentional women's wellness brand offering science-backed, all-in-one nutritional supplements designed to help women live in alignment with who they want to be through quiet and consistent daily rituals.",
+      important: "In wellness and nutritional supplements, consumer trust, scientific transparency, and ingredient integrity are paramount. Her Stories blends clinical efficacy with soothing minimalism to foster sustainable daily wellness habits.",
+      approach: "We designed a conversion-driven digital flagship highlighting clinical benefits, active ingredient breakdowns, flexible recurring subscriptions, and genuine customer progress stories.",
+      vision: "To create an empowering digital sanctuary that simplifies women's daily health regimens through calming aesthetics, clean typography, and a seamless shopping journey.",
+      challenges: "Translating comprehensive nutritional formulas and health benefits into easily digestible visual guides while maintaining lightning-fast mobile performance and friction-free subscription checkouts.",
+      resolving: "Implemented interactive ingredient spotlights, routine builders, customer progress testimonials, and an intuitive 1-click subscription checkout powered by custom Shopify integrations.",
+      userCentric: "Every interaction is calibrated for the customer's wellness journey - featuring clear dosage guidance, holistic routine recommendations, and transparent ingredient sourcing.",
+      needs: "A robust, high-speed Shopify architecture built for scalable recurring subscription management, customer accounts, and rapid product catalog expansions.",
+    };
+  }
+
+  if (project.slug === "gods") {
+    return {
+      category: "Spiritual Décor & Luxury Divine Collectibles",
+      client: "Gods by D'mart",
+      duration: "5 weeks",
+      intro: "Gods by D'mart is a luxury brand offering handcrafted divine idols, premium spiritual home décor, and exquisite brass, marble, and sterling silver masterpieces crafted with exceptional artisan mastery.",
+      important: "Divine collectibles demand reverence, immaculate visual fidelity, and unwavering confidence in material authenticity and craftsmanship. Gods by D'mart captures the essence of sacred heritage in a refined modern digital experience.",
+      approach: "We architected an opulent digital gallery emphasizing ultra-high-definition artifact showcases, artisan provenance storytelling, material purity certifications, and bespoke luxury gifting experiences.",
+      vision: "To craft a sublime online destination celebrating sacred art and heirloom craftsmanship through warm golden accents, rich ambient textures, and effortless navigation.",
+      challenges: "Capturing the intricate sculptural textures and metallic finishes of brass, silver, and marble idols while guaranteeing instant mobile loading and secure high-value transactions.",
+      resolving: "Engineered high-performance image zoom inspection, authenticity certificate badges, curated festive/housewarming gifting funnels, and personalized concierge checkout.",
+      userCentric: "Designed thoughtfully for collectors and sacred gift-givers - offering occasion-based curation, detailed dimension charts, and secure insured transit options.",
+      needs: "A scalable, high-converting Shopify store designed to support high-ticket catalog items, bespoke gifting inquiries, and international shipping requirements.",
+    };
+  }
+
   // Stable duration assignment based on title character length
   const durations = ["3 weeks", "4 weeks", "5 weeks", "6 weeks"];
   const durationIndex = project.title.length % durations.length;

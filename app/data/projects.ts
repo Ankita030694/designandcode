@@ -252,4 +252,52 @@ export const PROJECTS_DATA: Project[] = [
     projectType: "Shopify Store",
     url: "https://trivorajewels.com/"
   },
+  {
+    slug: "saladlife",
+    title: "Salad Life",
+    description: "A healthy dining and subscription brand delivering farm-fresh gourmet salads, cold-pressed juices, and nutritious meals.",
+    tags: ["Healthy Dining", "Gourmet Salads", "Custom Code"],
+    flag: "🇮🇳",
+    bg: "from-emerald-500/10 via-green-400/5 to-emerald-500/10",
+    mockupAccent: "from-emerald-400 to-green-400",
+    image: "/Saladlife.jpg",
+    projectType: "Custom Code",
+    url: "https://saladlife.in/"
+  },
+  {
+    slug: "herstories",
+    title: "Her Stories",
+    description: "A science-backed women's wellness and intentional nutrition brand creating all-in-one daily supplements for holistic vitality.",
+    tags: ["Women's Wellness", "Daily Supplements", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-rose-500/10 via-pink-400/5 to-rose-500/10",
+    mockupAccent: "from-rose-400 to-pink-400",
+    image: "/HerStories.jpg",
+    projectType: "Shopify Store",
+    url: "https://herstories.co/"
+  },
+  {
+    slug: "gods",
+    title: "Gods by D'mart",
+    description: "A luxury spiritual brand offering handcrafted divine idols, premium home décor, and bespoke brass and silver collectible masterpieces.",
+    tags: ["Spiritual Décor", "Divine Collectibles", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-amber-600/10 via-yellow-500/5 to-amber-600/10",
+    mockupAccent: "from-amber-500 to-yellow-400",
+    image: "/gods.jpg",
+    projectType: "Shopify Store",
+    url: "https://godsbydmart.com/"
+  },
+  {
+    slug: "deja-brew",
+    title: "Deja Brew",
+    description: "A premier artisanal craft brewery, coffee roastery, and dining destination offering bespoke brews and curated culinary experiences.",
+    tags: ["Craft Brewery", "Cafe & Dining", "Custom Code"],
+    flag: "🇮🇳",
+    bg: "from-amber-600/10 via-yellow-500/5 to-amber-600/10",
+    mockupAccent: "from-amber-500 to-yellow-500",
+    image: "/deja.jpg",
+    projectType: "Custom Code",
+    url: "https://www.dejabrew.co.in/"
+  }
 ];
