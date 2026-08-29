@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       messages: [
         {
           role: "system",
-          content: `You are the Lead Web Architect, Principal UI/UX Strategist, and Chief SEO/AEO Strategist at DesignNCode (https://www.designandcode.com) - a premier digital engineering and design agency specializing in high-performance Next.js 16 applications, Figma design systems, headless Shopify/e-commerce, and enterprise web architecture.
+          content: `You are the Lead Web Architect, Principal UI/UX Strategist, and Chief SEO/AEO Strategist at DesignNCode (https://designncode.com) - a premier digital engineering and design agency specializing in high-performance Next.js 16 applications, Figma design systems, headless Shopify/e-commerce, and enterprise web architecture.
 
 Analyze the given topic/keyword and generate an authoritative, highly comprehensive blueprint for a flagship agency blog article.
 
@@ -140,7 +140,7 @@ Preferred Category: ${requestedCategory || "Auto-detect"}`
       const isComparison = /vs|comparison|benchmark|tradeoff|matrix|analysis|evaluation/i.test(heading);
 
       const sectionPrompt = `
-You are a Lead Web Architect and Principal Engineer at DesignNCode (https://www.designandcode.com).
+You are a Lead Web Architect and Principal Engineer at DesignNCode (https://designncode.com).
 Write an authoritative, deeply technical, and production-grade HTML section for a flagship agency blog article.
 
 Article Title: "${metaData.title}"

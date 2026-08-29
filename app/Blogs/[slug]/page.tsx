@@ -12,12 +12,17 @@ export async function generateMetadata({
 
   if (SERVICE_PAGES_DATA[slug]) {
     const pageData = SERVICE_PAGES_DATA[slug];
+    const canonicalUrl = `https://designncode.com/Blogs/${slug}`;
     return {
       title: `${pageData.title} | DesignNCode`,
       description: pageData.subtitle,
+      alternates: {
+        canonical: canonicalUrl,
+      },
       openGraph: {
         title: `${pageData.title} | DesignNCode`,
         description: pageData.subtitle,
+        url: canonicalUrl,
         images: pageData.image ? [pageData.image] : [],
         type: 'article',
       },
@@ -63,13 +68,18 @@ export async function generateMetadata({
       const rawDesc = docData.metaDescription?.stringValue || docData.subtitle?.stringValue || docData.description?.stringValue || "Read our latest blog post on DesignNCode.";
       const cleanDesc = rawDesc.replace(/<[^>]*>?/gm, "").substring(0, 160).trim();
       const imageUrl = docData.image?.stringValue || "/Web.svg";
+      const canonicalUrl = `https://designncode.com/Blogs/${slug}`;
 
       return {
         title: `${title} | DesignNCode`,
         description: cleanDesc,
+        alternates: {
+          canonical: canonicalUrl,
+        },
         openGraph: {
           title: `${title} | DesignNCode`,
           description: cleanDesc,
+          url: canonicalUrl,
           images: [imageUrl],
           type: "article",
         },
@@ -88,6 +98,9 @@ export async function generateMetadata({
   return {
     title: "Blog | DesignNCode",
     description: "Read the latest engineering and design insights from DesignNCode.",
+    alternates: {
+      canonical: `https://designncode.com/Blogs/${slug}`,
+    },
   };
 }
 

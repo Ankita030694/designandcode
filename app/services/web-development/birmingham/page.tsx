@@ -1,36 +1,17 @@
+import { constructCityMetadata } from '@/lib/seo';
 import { Metadata } from "next";
 import Link from "next/link";
 import TableOfContents from "../../components/TableOfContents";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://designncode.com/services/web-development/birmingham",
-  },
-  title: "Web Development in Birmingham | DesignNCode",
-  description: "Enterprise full-stack web development and Next.js cloud architecture in Birmingham. Sub-second performance, FCA compliance, and scalable micro-frontends.",
-  openGraph: {
-    title: "Web Development in Birmingham | DesignNCode",
-    description: "Enterprise full-stack web development and Next.js cloud architecture in Birmingham. Sub-second performance, FCA compliance, and scalable micro-frontends.",
-    url: "https://designncode.com/services/web-development/birmingham",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/web-development-birmingham.jpg",
-        width: 1200,
-        height: 675,
-        alt: "Web Development in Birmingham Infographic Blueprint",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Web Development in Birmingham | DesignNCode",
-    description: "Enterprise full-stack web development and Next.js cloud architecture in Birmingham. Sub-second performance, FCA compliance, and scalable micro-frontends.",
-    images: ["https://designncode.com/images/infographics/web-development-birmingham.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Web Development",
+  serviceModifier: "Engineering",
+  city: "Birmingham",
+  slug: "services/web-development/birmingham",
+  customTitle: "Web Development & Engineering in Birmingham | DesignNCode",
+  customDescription: "Enterprise Next.js web development and software systems in Birmingham. Sub-second performance, WCAG 2.2 AA compliance & APIs. Request a technical quote.",
+  image: "https://designncode.com/images/infographics/web-development-birmingham.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -280,7 +261,7 @@ export default function BirminghamWebDevelopmentPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.08] mb-6">
-              Enterprise Web Development &amp; Full-Stack Cloud Architecture in Birmingham
+              Enterprise Web Development &amp; Systems in Birmingham
             </h1>
 
             <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed font-normal max-w-3xl">
@@ -444,7 +425,7 @@ export default function BirminghamWebDevelopmentPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/web-development-birmingham.jpg"
-                    alt="Web Development in Birmingham Technical Architecture Infographic"
+                    alt="Web Development in Birmingham Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

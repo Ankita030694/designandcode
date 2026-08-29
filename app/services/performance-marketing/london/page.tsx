@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/performance-marketing/london',
-  },
-  title: "Performance Marketing in London | DesignNCode",
-  description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in London. Maximize ROAS with data-driven engineering.",
-  openGraph: {
-    title: "Performance Marketing in London | DesignNCode",
-    description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in London. Maximize ROAS with data-driven engineering.",
-    url: "https://designncode.com/services/performance-marketing/london",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/performance-marketing-london.jpg",
-        width: 1200,
-        height: 675,
-        alt: "Performance Marketing in London Infographic Blueprint",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Performance Marketing in London | DesignNCode",
-    description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in London. Maximize ROAS with data-driven engineering.",
-    images: ["https://designncode.com/images/infographics/performance-marketing-london.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Performance Marketing",
+  serviceModifier: "Paid Growth",
+  city: "London",
+  slug: "services/performance-marketing/london",
+  customTitle: "Performance Marketing & Growth in London | DesignNCode",
+  customDescription: "Enterprise performance marketing & paid media scaling in London. Server-side CAPI, multi-touch attribution & CRO funnels. Schedule your growth audit today.",
+  image: "https://designncode.com/images/infographics/performance-marketing-london.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -444,7 +425,7 @@ export default function LondonPerformanceMarketingPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/performance-marketing-london.jpg"
-                    alt="Performance Marketing in London Technical Architecture Infographic"
+                    alt="Performance Marketing in London Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

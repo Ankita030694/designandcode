@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/seo-and-organic-growth/performance-marketing',
-  },
-  title: "SEO for Performance Marketing & Organic Growth Architecture | DesignNCode",
-  description: "Enterprise technical SEO architecture integrated with performance marketing funnels, Generative Engine Optimization, and high-velocity organic revenue systems.",
-  openGraph: {
-    title: "SEO for Performance Marketing & Organic Growth Architecture | DesignNCode",
-    description: "Enterprise technical SEO architecture integrated with performance marketing funnels, Generative Engine Optimization, and high-velocity organic revenue systems.",
-    url: "https://designncode.com/services/seo-and-organic-growth/performance-marketing",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/seo-and-organic-growth-performance-marketing.jpg",
-        width: 1200,
-        height: 675,
-        alt: "SEO for Performance Marketing Technical Architecture Infographic Blueprint",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "SEO for Performance Marketing & Organic Growth Architecture | DesignNCode",
-    description: "Enterprise technical SEO architecture integrated with performance marketing funnels, Generative Engine Optimization, and high-velocity organic revenue systems.",
-    images: ["https://designncode.com/images/infographics/seo-and-organic-growth-performance-marketing.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "SEO & Growth",
+  serviceModifier: "Performance Marketing",
+  city: "Global",
+  slug: "services/seo-and-organic-growth/performance-marketing",
+  customTitle: "SEO for Performance Marketing & Growth | DesignNCode",
+  customDescription: "Enterprise technical SEO architecture integrated with performance marketing funnels, GEO & revenue systems. Book your strategic growth consultation today.",
+  image: "https://designncode.com/images/infographics/seo-performance-marketing.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -259,7 +240,7 @@ export default function SeoPerformanceMarketingPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.08] mb-6">
-              SEO for Performance Marketing: Technical Organic Growth Architecture
+              SEO for Performance Marketing &amp; Organic Growth
             </h1>
 
             <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed font-normal max-w-3xl">
@@ -423,7 +404,7 @@ export default function SeoPerformanceMarketingPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/seo-performance-marketing.jpg"
-                    alt="SEO for Performance Marketing Technical Architecture Infographic"
+                    alt="SEO for Performance Marketing Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

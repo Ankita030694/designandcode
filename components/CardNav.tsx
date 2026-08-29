@@ -212,8 +212,8 @@ const CardNav: React.FC<CardNavProps> = ({
             />
           </div>
 
-          <Link href="/" className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none cursor-pointer">
-            <img src={logo} alt={logoAlt} className="logo h-[28px]" />
+          <Link href="/" aria-label="DesignNCode Homepage" className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none cursor-pointer">
+            <img src={logo} alt={logoAlt} width={140} height={28} className="logo h-[28px] w-auto" />
           </Link>
 
           <Link

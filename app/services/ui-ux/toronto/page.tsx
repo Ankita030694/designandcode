@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/ui-ux/toronto',
-  },
-  title: "UI/UX Design in Toronto | DesignNCode",
-  description: "Enterprise UI/UX design systems and digital product architecture in Toronto. AODA and WCAG 2.2 AA compliance, Bay Street fintech interfaces, and conversion optimization.",
-  openGraph: {
-    title: "UI/UX Design in Toronto | DesignNCode",
-    description: "Enterprise UI/UX design systems and digital product architecture in Toronto. AODA and WCAG 2.2 AA compliance, Bay Street fintech interfaces, and conversion optimization.",
-    url: "https://designncode.com/services/ui-ux/toronto",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/ui-ux-toronto.jpg",
-        width: 1200,
-        height: 675,
-        alt: "UI/UX Design in Toronto Infographic Blueprint",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "UI/UX Design in Toronto | DesignNCode",
-    description: "Enterprise UI/UX design systems and digital product architecture in Toronto. AODA and WCAG 2.2 AA compliance, Bay Street fintech interfaces, and conversion optimization.",
-    images: ["https://designncode.com/images/infographics/ui-ux-toronto.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "UI/UX Design",
+  serviceModifier: "Product Systems",
+  city: "Toronto",
+  slug: "services/ui-ux-design/toronto",
+  customTitle: "UI/UX Design & Product Systems in Toronto | DesignNCode",
+  customDescription: "Enterprise UI/UX design and digital product systems in Toronto. AODA & WCAG 2.2 AA compliance, SaaS interfaces & design systems. Book a consultation today.",
+  image: "https://designncode.com/images/infographics/ui-ux-toronto.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -280,7 +261,7 @@ export default function TorontoUIUXPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.08] mb-6">
-              Enterprise UI/UX Design &amp; Digital Product Architecture in Toronto
+              UI/UX Design &amp; Product Architecture in Toronto
             </h1>
 
             <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed font-normal max-w-3xl">
@@ -444,7 +425,7 @@ export default function TorontoUIUXPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/ui-ux-toronto.jpg"
-                    alt="UI/UX Design in Toronto Technical Architecture Infographic"
+                    alt="UI/UX Design in Toronto Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

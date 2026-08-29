@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/shopify-development/london',
-  },
-  title: "Shopify Development in London | DesignNCode",
-  description: "Enterprise Shopify Plus development, headless Hydrogen architecture, and bespoke ecommerce engineering in London. Sub-second speed and FCA compliance.",
-  openGraph: {
-    title: "Shopify Development in London | DesignNCode",
-    description: "Enterprise Shopify Plus development, headless Hydrogen architecture, and bespoke ecommerce engineering in London. Sub-second speed and FCA compliance.",
-    url: "https://designncode.com/services/shopify-development/london",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/shopify-development-london.jpg",
-        width: 1200,
-        height: 675,
-        alt: "Shopify Development in London Infographic Blueprint",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Shopify Development in London | DesignNCode",
-    description: "Enterprise Shopify Plus development, headless Hydrogen architecture, and bespoke ecommerce engineering in London. Sub-second speed and FCA compliance.",
-    images: ["https://designncode.com/images/infographics/shopify-development-london.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Shopify Plus & CRO",
+  serviceModifier: "E-Commerce",
+  city: "London",
+  slug: "services/shopify-development/london",
+  customTitle: "Shopify Plus & E-Commerce Systems in London | DesignNCode",
+  customDescription: "Enterprise Shopify Plus development and e-commerce architecture in London. Bespoke Liquid themes, custom apps & headless checkout. Launch your project today.",
+  image: "https://designncode.com/images/infographics/shopify-development-london.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -280,7 +261,7 @@ export default function LondonShopifyDevelopmentPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.08] mb-6">
-              Enterprise Shopify Plus Development &amp; Headless Commerce in London
+              Shopify Plus &amp; E-Commerce Systems in London
             </h1>
 
             <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed font-normal max-w-3xl">
@@ -444,7 +425,7 @@ export default function LondonShopifyDevelopmentPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/shopify-development-london.jpg"
-                    alt="Shopify Development in London Technical Architecture Infographic"
+                    alt="Shopify Development in London Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

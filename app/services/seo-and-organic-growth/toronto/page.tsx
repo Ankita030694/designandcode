@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/seo-and-organic-growth/toronto',
-  },
-  title: "SEO and Organic Growth in Toronto | DesignNCode",
-  description: "Enterprise SEO, Generative Engine Optimization, and technical search architecture in Toronto. Maximize organic visibility, AI citations, and commercial growth.",
-  openGraph: {
-    title: "SEO and Organic Growth in Toronto | DesignNCode",
-    description: "Enterprise SEO, Generative Engine Optimization, and technical search architecture in Toronto. Maximize organic visibility, AI citations, and commercial growth.",
-    url: "https://designncode.com/services/seo-and-organic-growth/toronto",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/seo-and-organic-growth-toronto.jpg",
-        width: 1200,
-        height: 675,
-        alt: "SEO and Organic Growth in Toronto Infographic Blueprint",
-      },
-    ],
-    locale: "en_CA",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "SEO and Organic Growth in Toronto | DesignNCode",
-    description: "Enterprise SEO, Generative Engine Optimization, and technical search architecture in Toronto. Maximize organic visibility, AI citations, and commercial growth.",
-    images: ["https://designncode.com/images/infographics/seo-and-organic-growth-toronto.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Enterprise SEO",
+  serviceModifier: "Organic Growth",
+  city: "Toronto",
+  slug: "services/seo-and-organic-growth/toronto",
+  customTitle: "Enterprise SEO & Organic Growth in Toronto | DesignNCode",
+  customDescription: "Enterprise SEO services and technical search architecture in Toronto. Core Web Vitals optimization, entity indexing & organic growth. Speak with our team.",
+  image: "https://designncode.com/images/infographics/seo-and-organic-growth-toronto.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -429,7 +410,7 @@ export default function TorontoSeoOrganicGrowthPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/seo-and-organic-growth-toronto.jpg"
-                    alt="SEO and Organic Growth in Toronto Technical Architecture Infographic"
+                    alt="SEO and Organic Growth in Toronto Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

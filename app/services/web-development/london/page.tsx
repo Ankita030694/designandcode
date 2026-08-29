@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/web-development/london',
-  },
-  title: "Web Development in London | DesignNCode",
-  description: "Enterprise full-stack web development and Next.js cloud architecture in London. Sub-second performance, FCA compliance, and scalable micro-frontends.",
-  openGraph: {
-    title: "Web Development in London | DesignNCode",
-    description: "Enterprise full-stack web development and Next.js cloud architecture in London. Sub-second performance, FCA compliance, and scalable micro-frontends.",
-    url: "https://designncode.com/services/web-development/london",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/web-development-london.jpg",
-        width: 1200,
-        height: 675,
-        alt: "Web Development in London Infographic Blueprint",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Web Development in London | DesignNCode",
-    description: "Enterprise full-stack web development and Next.js cloud architecture in London. Sub-second performance, FCA compliance, and scalable micro-frontends.",
-    images: ["https://designncode.com/images/infographics/web-development-london.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Web Development",
+  serviceModifier: "Engineering",
+  city: "London",
+  slug: "services/web-development/london",
+  customTitle: "Web Development & Engineering in London | DesignNCode",
+  customDescription: "Enterprise Next.js web development services in London. Sub-second performance, WCAG 2.2 AA compliance & headless architecture. Request a technical quote.",
+  image: "https://designncode.com/images/infographics/web-development-london.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -280,7 +261,7 @@ export default function LondonWebDevelopmentPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.08] mb-6">
-              Enterprise Web Development &amp; Full-Stack Cloud Architecture in London
+              Enterprise Web Development &amp; Systems in London
             </h1>
 
             <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed font-normal max-w-3xl">
@@ -444,7 +425,7 @@ export default function LondonWebDevelopmentPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/web-development-london.jpg"
-                    alt="Web Development in London Technical Architecture Infographic"
+                    alt="Web Development in London Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

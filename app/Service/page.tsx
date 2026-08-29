@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Digital Design & Development Services | DesignNCode",
   description: "Explore DesignNCode services including UI/UX design, web development, Shopify, SEO, e-commerce and performance marketing for growing brands.",
   keywords: ["digital design and development services", "UI/UX design", "web development", "Shopify", "SEO", "e-commerce", "performance marketing"],
+  alternates: {
+    canonical: "https://designncode.com/Service",
+  },
 };
 
 export default function ServicesPage() {

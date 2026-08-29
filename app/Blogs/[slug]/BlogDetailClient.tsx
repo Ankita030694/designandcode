@@ -75,7 +75,7 @@ function AMABlogLayout() {
       <div className="max-w-9xl lg:max-w-[1600px] mx-auto w-full px-6 sm:px-8 py-12">
         {/* Title and Meta */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 leading-tight mb-6">
-          The Ultimate Guide to Modern Web Development & UI/UX Design for Enterprise Scale
+          Web Development &amp; UI/UX Design for Enterprise Scale
         </h1>
         <div className="flex items-center gap-3 text-sm text-zinc-500 mb-10 border-b border-zinc-100 pb-6">
           <span>Published on: August 3, 2026</span>
@@ -660,7 +660,7 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
   const infographicSrc = blog.infographic || blog.infographicUrl || null;
 
   // ─── 5 GOOGLE RICH RESULTS JSON-LD SCHEMAS ───
-  const canonicalUrl = `https://www.designandcode.com/Blogs/${slug || blog.slug || blog.id}`;
+  const canonicalUrl = `https://designncode.com/Blogs/${slug || blog.slug || blog.id}`;
   const cleanDescription = (blog.metaDescription || blog.subtitle || blog.description || "")
     .replace(/<[^>]*>?/gm, "")
     .substring(0, 160)
@@ -671,7 +671,7 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
     "@type": "BlogPosting",
     headline: blog.title,
     description: cleanDescription,
-    image: [blog.image || "https://www.designandcode.com/Web.svg"],
+    image: [blog.image || "https://designncode.com/Web.svg"],
     datePublished: blog.date ? new Date(blog.date).toISOString() : new Date().toISOString(),
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -684,16 +684,16 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
       worksFor: {
         "@type": "Organization",
         name: "DesignNCode",
-        url: "https://www.designandcode.com",
+        url: "https://designncode.com",
       },
     },
     publisher: {
       "@type": "Organization",
       name: "DesignNCode",
-      url: "https://www.designandcode.com",
+      url: "https://designncode.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.designandcode.com/Web.svg",
+        url: "https://designncode.com/Web.svg",
       },
     },
     keywords: popularSearches.length > 0 ? popularSearches.join(", ") : undefined,
@@ -704,18 +704,18 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "DesignNCode",
-    url: "https://www.designandcode.com",
-    logo: "https://www.designandcode.com/Web.svg",
+    url: "https://designncode.com",
+    logo: "https://designncode.com/Web.svg",
     sameAs: [
       "https://twitter.com/DesignNCode",
-      "https://linkedin.com/company/designandcode",
-      "https://github.com/designandcode",
+      "https://linkedin.com/company/designncode",
+      "https://github.com/designncode",
     ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
-      email: "contact@designandcode.com",
-      url: "https://www.designandcode.com/ContactUs",
+      email: "info@designncode.com",
+      url: "https://designncode.com/ContactUs",
     },
   };
 
@@ -727,13 +727,13 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.designandcode.com",
+        item: "https://designncode.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.designandcode.com/Blogs",
+        item: "https://designncode.com/Blogs",
       },
       {
         "@type": "ListItem",
@@ -762,8 +762,8 @@ function BlogDetailContent({ initialBlog, slug }: { initialBlog?: any; slug: str
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "DesignNCode Web Engineering & UI/UX Agency",
-    image: blog.image || "https://www.designandcode.com/Web.svg",
-    url: "https://www.designandcode.com",
+    image: blog.image || "https://designncode.com/Web.svg",
+    url: "https://designncode.com",
     priceRange: "$$$$",
     address: {
       "@type": "PostalAddress",

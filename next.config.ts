@@ -22,6 +22,40 @@ const nextConfig: NextConfig = {
       'motion',
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/services/ui-ux/:city',
+        destination: '/services/ui-ux-design/:city',
+        permanent: true,
+      },
+      {
+        source: '/services/web-dev/:city',
+        destination: '/services/web-development/:city',
+        permanent: true,
+      },
+      {
+        source: '/services/seo/:city',
+        destination: '/services/seo-and-organic-growth/:city',
+        permanent: true,
+      },
+      {
+        source: '/services/seo-services/:city',
+        destination: '/services/seo-and-organic-growth/:city',
+        permanent: true,
+      },
+      {
+        source: '/services/seo/performance-marketing',
+        destination: '/services/seo-and-organic-growth/performance-marketing',
+        permanent: true,
+      },
+      {
+        source: '/services/seo-services/performance-marketing',
+        destination: '/services/seo-and-organic-growth/performance-marketing',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

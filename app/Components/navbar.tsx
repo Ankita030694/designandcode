@@ -60,7 +60,7 @@ export default function Navbar() {
     <>
       {/* Top Middle Logo */}
       <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto select-none">
-        <Link href="/" prefetch={true} className="block transition-transform duration-300 hover:scale-105">
+        <Link href="/" prefetch={true} aria-label="DesignNCode Homepage" className="block transition-transform duration-300 hover:scale-105">
           <Image 
             src="/LOGO.svg" 
             alt="Designncode Logo" 

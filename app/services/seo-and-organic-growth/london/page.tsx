@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/seo-and-organic-growth/london',
-  },
-  title: "SEO and Organic Growth in London | DesignNCode",
-  description: "Enterprise SEO, Generative Engine Optimization, and technical search architecture in London. Maximize organic visibility, AI citations, and commercial growth.",
-  openGraph: {
-    title: "SEO and Organic Growth in London | DesignNCode",
-    description: "Enterprise SEO, Generative Engine Optimization, and technical search architecture in London. Maximize organic visibility, AI citations, and commercial growth.",
-    url: "https://designncode.com/services/seo-and-organic-growth/london",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/seo-and-organic-growth-london.jpg",
-        width: 1200,
-        height: 675,
-        alt: "SEO and Organic Growth in London Infographic Blueprint",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "SEO and Organic Growth in London | DesignNCode",
-    description: "Enterprise SEO, Generative Engine Optimization, and technical search architecture in London. Maximize organic visibility, AI citations, and commercial growth.",
-    images: ["https://designncode.com/images/infographics/seo-and-organic-growth-london.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Enterprise SEO",
+  serviceModifier: "Organic Growth",
+  city: "London",
+  slug: "services/seo-and-organic-growth/london",
+  customTitle: "Enterprise SEO & Organic Growth in London | DesignNCode",
+  customDescription: "Enterprise SEO services and technical search architecture in London. Core Web Vitals optimization, entity indexing & organic growth. Speak with our team.",
+  image: "https://designncode.com/images/infographics/seo-and-organic-growth-london.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -444,7 +425,7 @@ export default function LondonSeoAndOrganicGrowthPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/seo-and-organic-growth-london.jpg"
-                    alt="SEO and Organic Growth in London Technical Architecture Infographic"
+                    alt="SEO and Organic Growth in London Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

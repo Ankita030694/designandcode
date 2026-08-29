@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/ui-ux/birmingham',
-  },
-  title: "UI/UX Design in Birmingham | DesignNCode",
-  description: "Enterprise UI/UX design systems and digital product architecture in Birmingham. WCAG 2.2 AA compliance, FCA-aligned fintech interfaces, and conversion optimization.",
-  openGraph: {
-    title: "UI/UX Design in Birmingham | DesignNCode",
-    description: "Enterprise UI/UX design systems and digital product architecture in Birmingham. WCAG 2.2 AA compliance, FCA-aligned fintech interfaces, and conversion optimization.",
-    url: "https://designncode.com/services/ui-ux/birmingham",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/ui-ux-birmingham.jpg",
-        width: 1200,
-        height: 675,
-        alt: "UI/UX Design in Birmingham Infographic Blueprint",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "UI/UX Design in Birmingham | DesignNCode",
-    description: "Enterprise UI/UX design systems and digital product architecture in Birmingham. WCAG 2.2 AA compliance, FCA-aligned fintech interfaces, and conversion optimization.",
-    images: ["https://designncode.com/images/infographics/ui-ux-birmingham.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "UI/UX Design",
+  serviceModifier: "Product Systems",
+  city: "Birmingham",
+  slug: "services/ui-ux-design/birmingham",
+  customTitle: "UI/UX Design & Product Systems in Birmingham | DesignNCode",
+  customDescription: "Enterprise UI/UX design and digital product systems in Birmingham. WCAG 2.2 AA compliance, conversion-driven interfaces & tokens. Book a consultation today.",
+  image: "https://designncode.com/images/infographics/ui-ux-birmingham.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -449,7 +430,7 @@ export default function BirminghamUIUXPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/ui-ux-birmingham.jpg"
-                    alt="UI/UX Design in Birmingham Technical Architecture Infographic"
+                    alt="UI/UX Design in Birmingham Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

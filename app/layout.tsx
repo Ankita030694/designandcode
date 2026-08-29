@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   authors: [{ name: "DesignNCode Team" }],
   creator: "DesignNCode",
   publisher: "DesignNCode",
+  alternates: {
+    canonical: 'https://designncode.com',
+  },
   robots: {
     index: true,
     follow: true,
@@ -95,11 +98,63 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const rootSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://designncode.com/#organization",
+        "name": "DesignNCode",
+        "url": "https://designncode.com",
+        "logo": "https://designncode.com/LOGO.svg",
+        "image": "https://designncode.com/LOGO.svg",
+        "description": "DesignNCode is a premier UI/UX design, web development, and digital engineering agency.",
+        "telephone": "+91 92207 21921",
+        "email": "info@designncode.com",
+        "sameAs": [
+          "https://twitter.com/DesignNCode",
+          "https://linkedin.com/company/designncode",
+          "https://github.com/designncode",
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Ankita Malik",
+          "jobTitle": "Founder & Web Developer",
+          "sameAs": "https://designncode.com/About_us",
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91 92207 21921",
+          "contactType": "customer service",
+          "email": "info@designncode.com",
+          "areaServed": ["GB", "US", "CA", "IN"],
+          "availableLanguage": ["en"],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://designncode.com/#website",
+        "url": "https://designncode.com",
+        "name": "DesignNCode",
+        "description": "UI/UX Design & Web Development Agency",
+        "publisher": {
+          "@id": "https://designncode.com/#organization",
+        },
+      },
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${outfit.variable} ${geistMono.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} ${caveat.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootSchema) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col relative bg-[#FAF9F6]">
         <PageLoader />
         <FixedBackgroundGraphics />

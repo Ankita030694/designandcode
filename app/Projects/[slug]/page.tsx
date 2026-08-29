@@ -34,6 +34,15 @@ export async function generateMetadata({
     title: `${project.title} | Case Studies | DesignNCode`,
     description: project.description || "Explore DesignNCode case studies covering UI/UX design, web development, e-commerce and digital products, from strategy to final execution.",
     keywords: ["UI/UX design case studies", project.title, "Case Studies", "UI/UX design", "web development", "e-commerce"],
+    alternates: {
+      canonical: `https://designncode.com/Projects/${slug}`,
+    },
+    openGraph: {
+      title: `${project.title} | Case Studies | DesignNCode`,
+      description: project.description,
+      url: `https://designncode.com/Projects/${slug}`,
+      images: project.image ? [project.image] : [],
+    },
   };
 }
 
@@ -52,8 +61,64 @@ export default async function ProjectDetailPage({
 
   const copy = getProjectCopy(project);
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "@id": `https://designncode.com/Projects/${slug}#project`,
+        "headline": `${project.title} - UI/UX & Web Case Study`,
+        "name": project.title,
+        "description": project.description,
+        "image": project.image,
+        "author": {
+          "@type": "Organization",
+          "name": "DesignNCode",
+          "url": "https://designncode.com",
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DesignNCode",
+          "url": "https://designncode.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://designncode.com/LOGO.svg",
+          },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://designncode.com/Projects/${slug}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://designncode.com",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "https://designncode.com/Projects",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": project.title,
+            "item": `https://designncode.com/Projects/${slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="relative flex flex-col min-h-screen pt-20 bg-transparent">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         

@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/ui-ux-design/manchester',
-  },
-  title: "UI/UX Design in Manchester | DesignNCode",
-  description: "Enterprise UI/UX design systems and digital product architecture in Manchester. WCAG 2.2 AA compliance, FCA-aligned fintech interfaces, and e-commerce optimization.",
-  openGraph: {
-    title: "UI/UX Design in Manchester | DesignNCode",
-    description: "Enterprise UI/UX design systems and digital product architecture in Manchester. WCAG 2.2 AA compliance, FCA-aligned fintech interfaces, and e-commerce optimization.",
-    url: "https://designncode.com/services/ui-ux-design/manchester",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/ui-ux-design-manchester.jpg",
-        width: 1200,
-        height: 675,
-        alt: "UI/UX Design in Manchester Infographic Blueprint",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "UI/UX Design in Manchester | DesignNCode",
-    description: "Enterprise UI/UX design systems and digital product architecture in Manchester. WCAG 2.2 AA compliance, FCA-aligned fintech interfaces, and e-commerce optimization.",
-    images: ["https://designncode.com/images/infographics/ui-ux-design-manchester.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "UI/UX Design",
+  serviceModifier: "Product Systems",
+  city: "Manchester",
+  slug: "services/ui-ux-design/manchester",
+  customTitle: "UI/UX Design & Product Systems in Manchester | DesignNCode",
+  customDescription: "Enterprise UI/UX design and digital product systems in Manchester. WCAG 2.2 AA compliance, conversion-driven interfaces & tokens. Book a consultation today.",
+  image: "https://designncode.com/images/infographics/ui-ux-design-manchester.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -280,7 +261,7 @@ export default function ManchesterUIUXDesignPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.08] mb-6">
-              Enterprise UI/UX Design &amp; Digital Experience Architecture in Manchester
+              UI/UX Design &amp; Product Architecture in Manchester
             </h1>
 
             <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed font-normal max-w-3xl">
@@ -444,7 +425,7 @@ export default function ManchesterUIUXDesignPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/ui-ux-design-manchester.jpg"
-                    alt="UI/UX Design in Manchester Technical Architecture Infographic"
+                    alt="UI/UX Design in Manchester Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

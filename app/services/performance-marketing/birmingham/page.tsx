@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/performance-marketing/birmingham',
-  },
-  title: "Performance Marketing in Birmingham | DesignNCode",
-  description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in Birmingham. Maximize ROAS with data-driven engineering.",
-  openGraph: {
-    title: "Performance Marketing in Birmingham | DesignNCode",
-    description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in Birmingham. Maximize ROAS with data-driven engineering.",
-    url: "https://designncode.com/services/performance-marketing/birmingham",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/performance-marketing-birmingham.jpg",
-        width: 1200,
-        height: 675,
-        alt: "Performance Marketing in Birmingham Infographic Blueprint",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Performance Marketing in Birmingham | DesignNCode",
-    description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in Birmingham. Maximize ROAS with data-driven engineering.",
-    images: ["https://designncode.com/images/infographics/performance-marketing-birmingham.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Performance Marketing",
+  serviceModifier: "Paid Growth",
+  city: "Birmingham",
+  slug: "services/performance-marketing/birmingham",
+  customTitle: "Performance Marketing & Growth in Birmingham | DesignNCode",
+  customDescription: "Enterprise performance marketing & paid acquisition in Birmingham. Server-side CAPI tracking, multi-touch attribution & CRO funnels. Book your growth audit.",
+  image: "https://designncode.com/images/infographics/performance-marketing-birmingham.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -488,7 +469,7 @@ export default function BirminghamPerformanceMarketingPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/performance-marketing-birmingham.jpg"
-                    alt="Performance Marketing in Birmingham Technical Architecture Infographic"
+                    alt="Performance Marketing in Birmingham Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />

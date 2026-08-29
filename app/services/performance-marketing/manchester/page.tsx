@@ -1,36 +1,17 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import TableOfContents from '../../components/TableOfContents';
+import { constructCityMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://designncode.com/services/performance-marketing/manchester',
-  },
-  title: "Performance Marketing in Manchester | DesignNCode",
-  description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in Manchester. Maximize ROAS with data-driven engineering.",
-  openGraph: {
-    title: "Performance Marketing in Manchester | DesignNCode",
-    description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in Manchester. Maximize ROAS with data-driven engineering.",
-    url: "https://designncode.com/services/performance-marketing/manchester",
-    siteName: "DesignNCode",
-    images: [
-      {
-        url: "https://designncode.com/images/infographics/performance-marketing-manchester.jpg",
-        width: 1200,
-        height: 675,
-        alt: "Performance Marketing in Manchester Infographic Blueprint",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Performance Marketing in Manchester | DesignNCode",
-    description: "Enterprise performance marketing, server-side CAPI tracking, and algorithmic multi-touch attribution in Manchester. Maximize ROAS with data-driven engineering.",
-    images: ["https://designncode.com/images/infographics/performance-marketing-manchester.jpg"],
-  },
-};
+export const metadata: Metadata = constructCityMetadata({
+  service: "Performance Marketing",
+  serviceModifier: "Paid Growth",
+  city: "Manchester",
+  slug: "services/performance-marketing/manchester",
+  customTitle: "Performance Marketing & Growth in Manchester | DesignNCode",
+  customDescription: "Enterprise performance marketing & paid acquisition in Manchester. Server-side CAPI tracking, multi-touch attribution & CRO funnels. Book your growth audit.",
+  image: "https://designncode.com/images/infographics/performance-marketing-manchester.jpg",
+});
 
 const tableOfContents = [
   { id: "key-takeaways", title: "Executive Key Takeaways" },
@@ -444,7 +425,7 @@ export default function ManchesterPerformanceMarketingPage() {
                 <div className="rounded-xl overflow-hidden border border-zinc-200 bg-white">
                   <img
                     src="/images/infographics/performance-marketing-manchester.jpg"
-                    alt="Performance Marketing in Manchester Technical Architecture Infographic"
+                    alt="Performance Marketing in Manchester Technical Architecture Infographic" width={1200} height={675}
                     className="w-full h-auto object-contain max-h-[440px] mx-auto hover:scale-[1.01] transition-transform duration-300"
                     loading="lazy"
                   />
