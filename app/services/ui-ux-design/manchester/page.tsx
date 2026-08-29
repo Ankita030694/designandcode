@@ -101,75 +101,75 @@ export default function ManchesterUIUXDesignPage() {
         ]
       },
       {
-        "@type": "FAQPage",
-        "@id": "https://designncode.com/services/ui-ux-design/manchester#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does DesignNCode ensure UI/UX compliance with UK FCA Consumer Duty regulations?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We engineer financial interfaces strictly aligned with FCA Consumer Duty principles. Our team builds transparent fee disclosure components, eliminates manipulative dark patterns, refines microcopy for cognitive clarity, and conducts structured user testing to ensure consumers navigate complex financial choices without hesitation or confusion."
+      "@type": "FAQPage",
+      "@id": "https://designncode.com/services/ui-ux-design/manchester#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "How does DesignNCode architect UI/UX systems for Manchester tech and digital enterprises?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We engineer design architectures specifically for fast-scaling digital brands across Manchester, Spinningfields, and MediaCityUK. Our approach combines rigorous user journey mapping with modular design token libraries in Figma and React, accelerating feature shipping by 40%."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do you achieve WCAG 2.2 AA accessibility and UK Equality Act compliance?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We integrate automated and manual accessibility audits into our design sprints. Every interface guarantees 4.5:1 color contrast ratios, screen-reader focus hierarchies, and complete keyboard navigation, ensuring full legal compliance with the UK Equality Act 2010."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do your UI/UX designs optimize conversions for Northern Powerhouse digital commerce?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We eliminate cognitive friction in product discovery, search filtering, and checkout funnels. By conducting biometric heatmapping and rapid prototype user testing, our UX architectures increase mobile cart conversion rates and average order values."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Can you create multi-platform design token systems for web and mobile apps?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. We build unified design token architectures that synchronize typography, spacing, and color themes seamlessly across React web applications, iOS, and Android codebases, ensuring 100% brand consistency."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How does your UX design process handle complex SaaS dashboards and data visualization?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We specialize in dense data architecture, modular dashboard widgets, and contextual data tables for enterprise SaaS. We ensure executive users can glean actionable analytics in seconds without cognitive overload."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What user research and usability testing methodologies do you deploy?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We conduct unmoderated remote user testing, prototype tree testing, and live moderated interviews with target demographic segments in the UK, generating empirical behavioral data before writing a single line of production code."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do you collaborate with internal engineering teams in Manchester?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We provide comprehensive developer handoffs in Figma with exact auto-layout constraints, state variants, Storybook component documentation, and production-ready Tailwind CSS and React component templates."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What is the typical timeframe for an enterprise UI/UX product design engagement?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A complete enterprise product design engagement—from user research and wireframing to high-fidelity design systems and interactive prototyping—typically takes 6 to 10 weeks."
+                  }
             }
-          },
-          {
-            "@type": "Question",
-            "name": "What methodology does your team follow for enterprise design systems in Manchester?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We implement atomic design architecture governed by strict design tokens across typography, color palettes, and spacing scales. These tokens synchronize seamlessly between Figma design libraries and React repositories, enabling Manchester software engineering teams to accelerate feature delivery while ensuring strict interface consistency."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you achieve WCAG 2.2 AA accessibility compliance for enterprise platforms?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our designers and engineers incorporate accessibility standards across every project milestone, verifying contrast ratios, screen reader trees, focus indicators, and ARIA semantic structures. We execute comprehensive automated and manual audits to guarantee compliance with the UK Equality Act 2010 and international web guidelines."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can DesignNCode modernize legacy enterprise software without disrupting operations?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, we utilize a modular micro-frontend modernization approach to upgrade legacy user interfaces incrementally. By mapping critical user workflows and introducing reusable component systems, we enhance interface usability and workflow velocity while preserving backend reliability and preventing costly operational downtime for your business."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does localized UI/UX design improve conversion rates for Manchester e-commerce brands?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Modern consumers demand intuitive navigation, fast mobile checkout funnels, and transparent shipping information. We design frictionless product discovery paths, one-click checkout flows, and responsive micro-interactions that reinforce consumer trust, reduce shopping cart abandonment, and increase average order values across online retail stores."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the typical timeline and discovery process for a Manchester UI/UX project?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "An enterprise UI/UX engagement typically spans four to eight weeks, beginning with stakeholder discovery, user persona research, and competitive intelligence mapping. We iterate rapidly through interactive wireframes, high-fidelity prototypes, user testing validations, and developer handoff specifications to ensure timely delivery."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do your UI/UX designs integrate with Next.js and modern frontend frameworks?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our UI/UX architects construct design systems directly compatible with Next.js server components and Tailwind CSS. By establishing precise layout constraints, zero-runtime styling rules, and responsive breakpoints, we ensure frontend developers convert design prototypes into high-performance web applications without layout shifts."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you optimize mobile user interfaces for Manchester's mobile workforce?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We optimize mobile interfaces for rapid one-handed navigation and swift cognitive comprehension during urban commutes. By placing primary interactive elements within comfortable thumb-reach zones, implementing skeleton loading screens, and minimizing form fields, we enable busy professionals to complete complex tasks smoothly on mobile devices."
-            }
-          }
-        ]
-      }
+      ]
+}
     ]
   };
 
@@ -557,36 +557,36 @@ export default function ManchesterUIUXDesignPage() {
               <div className="divide-y divide-zinc-200/80">
                 {[
                   {
-                    q: "How does DesignNCode ensure UI/UX compliance with UK FCA Consumer Duty regulations?",
-                    a: "We engineer financial interfaces strictly aligned with FCA Consumer Duty principles. Our team builds transparent fee disclosure components, eliminates manipulative dark patterns, refines microcopy for cognitive clarity, and conducts structured user testing to ensure consumers navigate complex financial choices without hesitation or confusion."
+                    q: "How does DesignNCode architect UI/UX systems for Manchester tech and digital enterprises?",
+                    a: "We engineer design architectures specifically for fast-scaling digital brands across Manchester, Spinningfields, and MediaCityUK. Our approach combines rigorous user journey mapping with modular design token libraries in Figma and React, accelerating feature shipping by 40%."
                   },
                   {
-                    q: "What methodology does your team follow for enterprise design systems in Manchester?",
-                    a: "We implement atomic design architecture governed by strict design tokens across typography, color palettes, and spacing scales. These tokens synchronize seamlessly between Figma design libraries and React repositories, enabling Manchester software engineering teams to accelerate feature delivery while ensuring strict interface consistency."
+                    q: "How do you achieve WCAG 2.2 AA accessibility and UK Equality Act compliance?",
+                    a: "We integrate automated and manual accessibility audits into our design sprints. Every interface guarantees 4.5:1 color contrast ratios, screen-reader focus hierarchies, and complete keyboard navigation, ensuring full legal compliance with the UK Equality Act 2010."
                   },
                   {
-                    q: "How do you achieve WCAG 2.2 AA accessibility compliance for enterprise platforms?",
-                    a: "Our designers and engineers incorporate accessibility standards across every project milestone, verifying contrast ratios, screen reader trees, focus indicators, and ARIA semantic structures. We execute comprehensive automated and manual audits to guarantee compliance with the UK Equality Act 2010 and international web guidelines."
+                    q: "How do your UI/UX designs optimize conversions for Northern Powerhouse digital commerce?",
+                    a: "We eliminate cognitive friction in product discovery, search filtering, and checkout funnels. By conducting biometric heatmapping and rapid prototype user testing, our UX architectures increase mobile cart conversion rates and average order values."
                   },
                   {
-                    q: "Can DesignNCode modernize legacy enterprise software without disrupting operations?",
-                    a: "Yes, we utilize a modular micro-frontend modernization approach to upgrade legacy user interfaces incrementally. By mapping critical user workflows and introducing reusable component systems, we enhance interface usability and workflow velocity while preserving backend reliability and preventing costly operational downtime for your business."
+                    q: "Can you create multi-platform design token systems for web and mobile apps?",
+                    a: "Yes. We build unified design token architectures that synchronize typography, spacing, and color themes seamlessly across React web applications, iOS, and Android codebases, ensuring 100% brand consistency."
                   },
                   {
-                    q: "How does localized UI/UX design improve conversion rates for Manchester e-commerce brands?",
-                    a: "Modern consumers demand intuitive navigation, fast mobile checkout funnels, and transparent shipping information. We design frictionless product discovery paths, one-click checkout flows, and responsive micro-interactions that reinforce consumer trust, reduce shopping cart abandonment, and increase average order values across online retail stores."
+                    q: "How does your UX design process handle complex SaaS dashboards and data visualization?",
+                    a: "We specialize in dense data architecture, modular dashboard widgets, and contextual data tables for enterprise SaaS. We ensure executive users can glean actionable analytics in seconds without cognitive overload."
                   },
                   {
-                    q: "What is the typical timeline and discovery process for a Manchester UI/UX project?",
-                    a: "An enterprise UI/UX engagement typically spans four to eight weeks, beginning with stakeholder discovery, user persona research, and competitive intelligence mapping. We iterate rapidly through interactive wireframes, high-fidelity prototypes, user testing validations, and developer handoff specifications to ensure timely delivery."
+                    q: "What user research and usability testing methodologies do you deploy?",
+                    a: "We conduct unmoderated remote user testing, prototype tree testing, and live moderated interviews with target demographic segments in the UK, generating empirical behavioral data before writing a single line of production code."
                   },
                   {
-                    q: "How do your UI/UX designs integrate with Next.js and modern frontend frameworks?",
-                    a: "Our UI/UX architects construct design systems directly compatible with Next.js server components and Tailwind CSS. By establishing precise layout constraints, zero-runtime styling rules, and responsive breakpoints, we ensure frontend developers convert design prototypes into high-performance web applications without layout shifts."
+                    q: "How do you collaborate with internal engineering teams in Manchester?",
+                    a: "We provide comprehensive developer handoffs in Figma with exact auto-layout constraints, state variants, Storybook component documentation, and production-ready Tailwind CSS and React component templates."
                   },
                   {
-                    q: "How do you optimize mobile user interfaces for Manchester's mobile workforce?",
-                    a: "We optimize mobile interfaces for rapid one-handed navigation and swift cognitive comprehension during urban commutes. By placing primary interactive elements within comfortable thumb-reach zones, implementing skeleton loading screens, and minimizing form fields, we enable busy professionals to complete complex tasks smoothly on mobile devices."
+                    q: "What is the typical timeframe for an enterprise UI/UX product design engagement?",
+                    a: "A complete enterprise product design engagement—from user research and wireframing to high-fidelity design systems and interactive prototyping—typically takes 6 to 10 weeks."
                   }
                 ].map((faq, idx) => (
                   <details key={idx} className="group py-4 select-none cursor-pointer">

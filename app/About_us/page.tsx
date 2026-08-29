@@ -570,6 +570,62 @@ export default function AboutUs() {
         </div>
       </section>
 
+      
+      {/* ── Engineering & Architectural Principles Section ── */}
+      <section className="relative w-full max-w-6xl mx-auto py-16 px-6 sm:px-8 lg:px-12 z-10 border-t border-zinc-100">
+        <div className="max-w-3xl mb-12 text-left">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#D2A02A] block mb-2">Our Engineering Standard</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 tracking-tight">
+            How We Engineer Digital Products That Last
+          </h2>
+          <p className="text-zinc-600 text-sm sm:text-base mt-3 leading-relaxed">
+            We reject fragile shortcuts, unnecessary dependency bloat, and disposable code. Our cross-functional studio unites senior UI/UX designers and full-stack software engineers around four core product commitments:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="p-8 rounded-3xl bg-white border border-zinc-200/80 shadow-xs space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-lg">
+              01
+            </div>
+            <h3 className="text-xl font-bold text-zinc-900">Server-First React &amp; Next.js 16</h3>
+            <p className="text-sm text-zinc-600 leading-relaxed">
+              We leverage React Server Components to execute heavy database queries and component logic at the cloud edge, streaming lightweight, semantic HTML directly to client browsers without transmitting unnecessary JavaScript bundles.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white border border-zinc-200/80 shadow-xs space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-lg">
+              02
+            </div>
+            <h3 className="text-xl font-bold text-zinc-900">Atomic Design Token Architecture</h3>
+            <p className="text-sm text-zinc-600 leading-relaxed">
+              Visual styles—colors, typography scales, margins, and animation curves—are codified as machine-readable JSON tokens in Figma. These tokens synchronize automatically with Tailwind CSS, eliminating visual regression and design debt.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white border border-zinc-200/80 shadow-xs space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-lg">
+              03
+            </div>
+            <h3 className="text-xl font-bold text-zinc-900">Zero-Trust Security &amp; Privacy</h3>
+            <p className="text-sm text-zinc-600 leading-relaxed">
+              By decoupling frontend user interfaces from core databases and executing on immutable serverless edge containers, we eliminate public SQL injection vectors and guarantee strict compliance with UK GDPR and global data protection laws.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white border border-zinc-200/80 shadow-xs space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg">
+              04
+            </div>
+            <h3 className="text-xl font-bold text-zinc-900">Universal WCAG 2.2 AA Accessibility</h3>
+            <p className="text-sm text-zinc-600 leading-relaxed">
+              Digital products must be universally usable. We integrate automated Playwright accessibility test suites into continuous integration pipelines to guarantee contrast compliance, keyboard focus rings, and screen-reader accessibility.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <FAQ />
 
       {/* Footer component */}

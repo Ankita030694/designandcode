@@ -35,6 +35,30 @@ export async function generateMetadata({
     };
   }
 
+  if (slug === "web-development-and-ui-ux-design-for-enterprise-scale") {
+    const canonicalUrl = `https://designncode.com/Blogs/web-development-and-ui-ux-design-for-enterprise-scale`;
+    return {
+      title: "Web Development & UI/UX Design for Enterprise Scale | DesignNCode",
+      description: "A comprehensive guide on composable architecture, design systems, Core Web Vitals, and headless development for enterprise scale.",
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title: "Web Development & UI/UX Design for Enterprise Scale | DesignNCode",
+        description: "A comprehensive guide on composable architecture, design systems, Core Web Vitals, and headless development for enterprise scale.",
+        url: canonicalUrl,
+        images: ["/Web.svg"],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Web Development & UI/UX Design for Enterprise Scale | DesignNCode",
+        description: "A comprehensive guide on composable architecture, design systems, Core Web Vitals, and headless development for enterprise scale.",
+        images: ["/Web.svg"],
+      },
+    };
+  }
+
   try {
     const resolvedParams = await params;
     const slug = resolvedParams?.slug || "";

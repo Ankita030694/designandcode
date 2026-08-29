@@ -88,6 +88,58 @@ export default function ServicesPage() {
       </section>
 
       {/* Featured Projects Section */}
+      
+      {/* ── Detailed Technical Capabilities Grid ── */}
+      <section className="max-w-6xl mx-auto py-16 px-6 sm:px-8 lg:px-12">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#D2A02A] block mb-2">Capabilities Matrix</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight">
+            Comprehensive Digital Engineering Solutions
+          </h2>
+          <p className="text-zinc-600 text-sm sm:text-base mt-3 leading-relaxed">
+            From initial user experience wireframing to high-scale serverless deployments, our senior engineering teams deliver end-to-end digital solutions built for enduring performance.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-8 bg-white border border-zinc-200/80 rounded-3xl shadow-xs space-y-4">
+            <h3 className="text-xl font-bold text-zinc-900">Full-Stack Web Development</h3>
+            <p className="text-sm text-zinc-600 leading-relaxed">
+              Bespoke Next.js 16 applications, React Server Components, TypeScript architectures, PostgreSQL databases, and edge caching for sub-second global response times.
+            </p>
+            <ul className="text-xs text-zinc-500 space-y-2 pt-2 border-t border-zinc-100">
+              <li>• React Server Components &amp; PPR</li>
+              <li>• Automated CI/CD Quality Gates</li>
+              <li>• 100% Custom TypeScript Codebase</li>
+            </ul>
+          </div>
+
+          <div className="p-8 bg-white border border-zinc-200/80 rounded-3xl shadow-xs space-y-4">
+            <h3 className="text-xl font-bold text-zinc-900">Headless Shopify Plus</h3>
+            <p className="text-sm text-zinc-600 leading-relaxed">
+              Decoupled e-commerce flagships utilizing Shopify Storefront GraphQL APIs, single-page Checkout Extensibility, and multi-currency Shopify Markets localization.
+            </p>
+            <ul className="text-xs text-zinc-500 space-y-2 pt-2 border-t border-zinc-100">
+              <li>• Optimistic Cart Architecture</li>
+              <li>• Sub-400ms Product Detail Pages</li>
+              <li>• PCI-DSS Level 1 Security</li>
+            </ul>
+          </div>
+
+          <div className="p-8 bg-white border border-zinc-200/80 rounded-3xl shadow-xs space-y-4">
+            <h3 className="text-xl font-bold text-zinc-900">Technical SEO &amp; AI GEO</h3>
+            <p className="text-sm text-zinc-600 leading-relaxed">
+              Interconnected Schema.org JSON-LD entity graphs, Core Web Vitals remediation, crawl budget optimization, and structured Generative Engine Optimization.
+            </p>
+            <ul className="text-xs text-zinc-500 space-y-2 pt-2 border-t border-zinc-100">
+              <li>• Schema.org @graph Integration</li>
+              <li>• Core Web Vitals &lt; 1.2s LCP</li>
+              <li>• Generative Engine AI Citations</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <FeaturedProjects />
 
       {/* FAQ Section */}

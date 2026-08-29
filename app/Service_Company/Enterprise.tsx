@@ -37,7 +37,7 @@ export default function EnterpriseServicePage() {
   const [activeToc, setActiveToc] = useState("intro");
 
   useEffect(() => {
-    const sectionIds = ["intro", "automation", "wellness", "indoor", "materials", "sanctuary", "conclusion"];
+    const sectionIds = ["intro", "governance", "monolith-modernisation", "edge-infrastructure", "zero-trust-security", "automated-cicd", "conclusion"];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 180;
       for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -124,11 +124,11 @@ export default function EnterpriseServicePage() {
             <nav className="flex flex-col space-y-3">
               {[
                 { id: "intro", label: "Introduction" },
-                { id: "automation", label: "1. Architectural Governance" },
-                { id: "wellness", label: "2. Legacy Monolith Modernisation" },
-                { id: "indoor", label: "3. Global Edge Infrastructure" },
-                { id: "materials", label: "4. Zero-Trust Security & Compliance" },
-                { id: "sanctuary", label: "5. Automated CI/CD & SLAs" },
+                { id: "governance", label: "1. Architectural Governance" },
+                { id: "monolith-modernisation", label: "2. Legacy Monolith Modernisation" },
+                { id: "edge-infrastructure", label: "3. Global Edge Infrastructure" },
+                { id: "zero-trust-security", label: "4. Zero-Trust Security & Compliance" },
+                { id: "automated-cicd", label: "5. Automated CI/CD & SLAs" },
                 { id: "conclusion", label: "Conclusion" },
               ].map((item) => {
                 const isActive = activeToc === item.id;
@@ -171,7 +171,7 @@ export default function EnterpriseServicePage() {
             </div>
 
             {/* Section 01 */}
-            <div id="automation" className="space-y-4 pt-6 scroll-mt-28">
+            <div id="governance" className="space-y-4 pt-6 scroll-mt-28">
               <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight flex items-center gap-3">
                 <span className="text-[#AD8BFF] font-sans font-bold">// 01</span>
                 <span>Architectural Governance</span>
@@ -182,7 +182,7 @@ export default function EnterpriseServicePage() {
             </div>
 
             {/* Section 02 */}
-            <div id="wellness" className="space-y-4 pt-6 scroll-mt-28">
+            <div id="monolith-modernisation" className="space-y-4 pt-6 scroll-mt-28">
               <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight flex items-center gap-3">
                 <span className="text-[#AD8BFF] font-sans font-bold">// 02</span>
                 <span>Legacy Monolith Modernisation</span>
@@ -193,7 +193,7 @@ export default function EnterpriseServicePage() {
             </div>
 
             {/* Section 03 */}
-            <div id="indoor" className="space-y-4 pt-6 scroll-mt-28">
+            <div id="edge-infrastructure" className="space-y-4 pt-6 scroll-mt-28">
               <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight flex items-center gap-3">
                 <span className="text-[#AD8BFF] font-sans font-bold">// 03</span>
                 <span>Global Edge Infrastructure</span>
@@ -204,7 +204,7 @@ export default function EnterpriseServicePage() {
             </div>
 
             {/* Section 04 */}
-            <div id="materials" className="space-y-4 pt-6 scroll-mt-28">
+            <div id="zero-trust-security" className="space-y-4 pt-6 scroll-mt-28">
               <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight flex items-center gap-3">
                 <span className="text-[#AD8BFF] font-sans font-bold">// 04</span>
                 <span>Zero-Trust Security &amp; Compliance</span>
@@ -215,7 +215,7 @@ export default function EnterpriseServicePage() {
             </div>
 
             {/* Section 05 */}
-            <div id="sanctuary" className="space-y-4 pt-6 scroll-mt-28">
+            <div id="automated-cicd" className="space-y-4 pt-6 scroll-mt-28">
               <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight flex items-center gap-3">
                 <span className="text-[#AD8BFF] font-sans font-bold">// 05</span>
                 <span>Automated CI/CD &amp; SLAs</span>

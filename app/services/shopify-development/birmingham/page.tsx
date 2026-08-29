@@ -101,75 +101,75 @@ export default function BirminghamShopifyDevelopmentPage() {
         ]
       },
       {
-        "@type": "FAQPage",
-        "@id": "https://designncode.com/services/shopify-development/birmingham#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Why choose Shopify Plus over legacy platforms for Birmingham retail brands?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Shopify Plus delivers 99.99% operational uptime, native multi-currency checkout, and zero infrastructure maintenance overhead. Combined with headless Hydrogen frontends, Birmingham retailers achieve sub-second speeds, unconstrained visual storytelling, and seamless omnichannel scaling across domestic and international markets."
+      "@type": "FAQPage",
+      "@id": "https://designncode.com/services/shopify-development/birmingham#faq",
+      "mainEntity": [
+            {
+                  "@type": "Question",
+                  "name": "Why choose Shopify Plus for West Midlands B2B and wholesale enterprises?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Shopify Plus provides native wholesale functionality, custom price matrices, and automated credit terms. For West Midlands manufacturers and B2B distributors in Birmingham, this modernizes legacy ordering into a seamless, high-margin digital buying experience."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do you achieve sub-second Core Web Vitals on high-inventory Birmingham storefronts?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We architect headless Shopify storefronts using Next.js 16 and Hydrogen on UK edge nodes. By decoupling the frontend from the Shopify liquid monolith and optimizing static image generation, we consistently achieve sub-800ms Largest Contentful Paint."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do you integrate Shopify Plus with Birmingham industrial ERP systems?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We build custom REST and GraphQL middleware connecting Shopify Plus to enterprise ERPs including SAP, Microsoft Dynamics 365, and Sage. This ensures real-time inventory synchronization across multi-location West Midlands warehouses."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do your Shopify checkouts comply with UK GDPR and FCA regulations?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Our checkout pipelines enforce strict UK GDPR data sovereignty and FCA Consumer Duty standards. We implement deterministic compliance disclosures, transparent Klarna/BNPL terms, and secure tokenized payment gateways with zero unconsented data capture."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "Can DesignNCode migrate legacy Magento or WooCommerce stores to Shopify Plus?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. We execute zero-downtime data migrations transferring customer histories, complex product variants, SEO URL redirect maps, and historical transaction records without losing organic search ranking equity."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "How do you optimize checkout conversion rates for Birmingham consumer brands?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We engineer single-page checkout extensibility apps, dynamic post-purchase upsells, and express wallet integrations (Apple Pay, Google Pay). This removes friction and raises checkout completion rates by up to 24%."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What ongoing technical support does DesignNCode provide for Shopify stores?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We offer dedicated 24/7 SLA maintenance, edge uptime monitoring, proactive theme updates, and continuous conversion rate optimization (CRO) to ensure peak performance through high-volume seasonal trading periods."
+                  }
+            },
+            {
+                  "@type": "Question",
+                  "name": "What is the typical timeframe for an enterprise Shopify Plus deployment in Birmingham?",
+                  "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Custom enterprise headless builds and complex ERP migrations generally require 8 to 14 weeks from technical discovery and design token systems through to staging load tests and production go-live."
+                  }
             }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you achieve sub-second Core Web Vitals on Shopify storefronts?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We deploy server-side rendering, modern WebP and AVIF image compression, and IXBirmingham edge caching. By auditing third-party application scripts, eliminating render-blocking JavaScript, and building bespoke Hydrogen components, our team guarantees sub-second Largest Contentful Paint metrics."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do your checkouts comply with FCA Consumer Duty and UK GDPR?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We engineer deterministic checkout extensions with transparent interest disclosures for BNPL providers like Klarna and Clearpay. Our team implements compliant cookie consent banners, encrypted transaction payloads, and strict UK ICO privacy governance across every customer journey."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can you integrate Shopify Plus with NetSuite, SAP, and Midlands 3PL hubs?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. We engineer serverless middleware and resilient GraphQL connectors that establish bidirectional synchronization between Shopify Plus, central ERP systems, and Golden Triangle logistics hubs, eliminating inventory overselling and accelerating automated multi-warehouse order fulfillment."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between custom Liquid themes and headless Hydrogen?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Custom Liquid themes render natively on Shopify servers, providing intuitive theme editor controls and low operating overhead. Headless Hydrogen decouples the React frontend from the commerce backend, delivering sub-second edge performance and infinite frontend flexibility."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you ensure Shopify stores comply with the UK Equality Act 2010?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We embed semantic HTML5 landmarks, compliant ARIA roles, logical keyboard focus states, and high-contrast color ratios directly into storefront architecture. Every page undergoes automated CI validation and manual screen reader testing to achieve W3C WCAG 2.2 AA certification."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do you optimize Shopify Plus for international multi-currency trade?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We implement Shopify Markets with automated geolocation routing, local currency pricing, localized payment methods like iDEAL and Bancontact, and automated import duty calculations, enabling Birmingham merchants to scale seamlessly across European and North American territories."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the typical timeline for an enterprise Shopify build in Birmingham?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "An enterprise Shopify Plus build or headless migration typically spans six to twelve weeks, encompassing discovery blueprinting, bespoke UI and UX prototyping, full-stack engineering, ERP integration, and end-to-end quality assurance before launch."
-            }
-          }
-        ]
-      }
+      ]
+}
     ]
   };
 
@@ -536,36 +536,36 @@ export default function BirminghamShopifyDevelopmentPage() {
               <div className="divide-y divide-zinc-200/80">
                 {[
                   {
-                    q: "Why choose Shopify Plus over legacy platforms for Birmingham retail brands?",
-                    a: "Shopify Plus delivers 99.99% operational uptime, native multi-currency checkout, and zero infrastructure maintenance overhead. Combined with headless Hydrogen frontends, Birmingham retailers achieve sub-second speeds, unconstrained visual storytelling, and seamless omnichannel scaling across domestic and international markets."
+                    q: "Why choose Shopify Plus for West Midlands B2B and wholesale enterprises?",
+                    a: "Shopify Plus provides native wholesale functionality, custom price matrices, and automated credit terms. For West Midlands manufacturers and B2B distributors in Birmingham, this modernizes legacy ordering into a seamless, high-margin digital buying experience."
                   },
                   {
-                    q: "How do you achieve sub-second Core Web Vitals on Shopify storefronts?",
-                    a: "We deploy server-side rendering, modern WebP and AVIF image compression, and IXBirmingham edge caching. By auditing third-party application scripts, eliminating render-blocking JavaScript, and building bespoke Hydrogen components, our team guarantees sub-second Largest Contentful Paint metrics."
+                    q: "How do you achieve sub-second Core Web Vitals on high-inventory Birmingham storefronts?",
+                    a: "We architect headless Shopify storefronts using Next.js 16 and Hydrogen on UK edge nodes. By decoupling the frontend from the Shopify liquid monolith and optimizing static image generation, we consistently achieve sub-800ms Largest Contentful Paint."
                   },
                   {
-                    q: "How do your checkouts comply with FCA Consumer Duty and UK GDPR?",
-                    a: "We engineer deterministic checkout extensions with transparent interest disclosures for BNPL providers like Klarna and Clearpay. Our team implements compliant cookie consent banners, encrypted transaction payloads, and strict UK ICO privacy governance across every customer journey."
+                    q: "How do you integrate Shopify Plus with Birmingham industrial ERP systems?",
+                    a: "We build custom REST and GraphQL middleware connecting Shopify Plus to enterprise ERPs including SAP, Microsoft Dynamics 365, and Sage. This ensures real-time inventory synchronization across multi-location West Midlands warehouses."
                   },
                   {
-                    q: "Can you integrate Shopify Plus with NetSuite, SAP, and Midlands 3PL hubs?",
-                    a: "Yes. We engineer serverless middleware and resilient GraphQL connectors that establish bidirectional synchronization between Shopify Plus, central ERP systems, and Golden Triangle logistics hubs, eliminating inventory overselling and accelerating automated multi-warehouse order fulfillment."
+                    q: "How do your Shopify checkouts comply with UK GDPR and FCA regulations?",
+                    a: "Our checkout pipelines enforce strict UK GDPR data sovereignty and FCA Consumer Duty standards. We implement deterministic compliance disclosures, transparent Klarna/BNPL terms, and secure tokenized payment gateways with zero unconsented data capture."
                   },
                   {
-                    q: "What is the difference between custom Liquid themes and headless Hydrogen?",
-                    a: "Custom Liquid themes render natively on Shopify servers, providing intuitive theme editor controls and low operating overhead. Headless Hydrogen decouples the React frontend from the commerce backend, delivering sub-second edge performance and infinite frontend flexibility."
+                    q: "Can DesignNCode migrate legacy Magento or WooCommerce stores to Shopify Plus?",
+                    a: "Yes. We execute zero-downtime data migrations transferring customer histories, complex product variants, SEO URL redirect maps, and historical transaction records without losing organic search ranking equity."
                   },
                   {
-                    q: "How do you ensure Shopify stores comply with the UK Equality Act 2010?",
-                    a: "We embed semantic HTML5 landmarks, compliant ARIA roles, logical keyboard focus states, and high-contrast color ratios directly into storefront architecture. Every page undergoes automated CI validation and manual screen reader testing to achieve W3C WCAG 2.2 AA certification."
+                    q: "How do you optimize checkout conversion rates for Birmingham consumer brands?",
+                    a: "We engineer single-page checkout extensibility apps, dynamic post-purchase upsells, and express wallet integrations (Apple Pay, Google Pay). This removes friction and raises checkout completion rates by up to 24%."
                   },
                   {
-                    q: "How do you optimize Shopify Plus for international multi-currency trade?",
-                    a: "We implement Shopify Markets with automated geolocation routing, local currency pricing, localized payment methods like iDEAL and Bancontact, and automated import duty calculations, enabling Birmingham merchants to scale seamlessly across European and North American territories."
+                    q: "What ongoing technical support does DesignNCode provide for Shopify stores?",
+                    a: "We offer dedicated 24/7 SLA maintenance, edge uptime monitoring, proactive theme updates, and continuous conversion rate optimization (CRO) to ensure peak performance through high-volume seasonal trading periods."
                   },
                   {
-                    q: "What is the typical timeline for an enterprise Shopify build in Birmingham?",
-                    a: "An enterprise Shopify Plus build or headless migration typically spans six to twelve weeks, encompassing discovery blueprinting, bespoke UI and UX prototyping, full-stack engineering, ERP integration, and end-to-end quality assurance before launch."
+                    q: "What is the typical timeframe for an enterprise Shopify Plus deployment in Birmingham?",
+                    a: "Custom enterprise headless builds and complex ERP migrations generally require 8 to 14 weeks from technical discovery and design token systems through to staging load tests and production go-live."
                   }
                 ].map((faq, idx) => (
                   <details key={idx} className="group py-4 select-none cursor-pointer">
