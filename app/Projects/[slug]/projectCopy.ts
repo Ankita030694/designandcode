@@ -15,6 +15,70 @@ export interface ProjectDetailCopy {
 }
 
 export function getProjectCopy(project: Project): ProjectDetailCopy {
+  if (project.slug === "kshaum") {
+    return {
+      category: "Contemporary Quiet Luxury & Slow Fashion",
+      client: "KSHAUM",
+      duration: "4 weeks",
+      intro: "KSHAUM is a contemporary fashion house shaped by restraint, considered design, and a quieter approach to luxury dressing. Crafted around natural artisan fibers and minimalist silhouettes, the digital flagship embodies understated elegance and architectural balance.",
+      important: "In high-end luxury fashion, less is more. The digital experience must reflect the tactile refinement of raw linen, pure silk, and fine cotton through immaculate whitespace, cinematic campaign video streaming, and understated typography.",
+      approach: "We architected a custom web application featuring high-definition campaign reels, intuitive collection exploration, multi-currency localization, and a seamless shopping bag drawer calibrated for discerning global buyers.",
+      vision: "To present a tranquil, museum-grade digital atelier where garments are discovered as tactile art pieces, free from visual noise and aggressive commercial push.",
+      challenges: "Delivering full-screen auto-playing 4K campaign videos across mobile and desktop devices without incurring layout shifts, buffering latency, or Core Web Vitals degradation.",
+      resolving: "Implemented progressive WebM video streams, edge CDN asset caching, custom drawer transitions, and responsive typography tokens tailored for luxury fashion shoppers.",
+      userCentric: "Streamlined navigation with quick-access category filters (Sets, Silk, Linen, Leather), subtle hover micro-interactions, and frictionless one-click shopping bag workflows.",
+      needs: "A bespoke, lightweight custom codebase ready to scale international lookbooks, seasonal drops, and high-converting global lookbook showcases.",
+    };
+  }
+
+  if (project.slug === "tap-and-tandoor" || project.slug === "tapntandoor" || project.slug === "tap-tandoor") {
+    return {
+      category: "Hospitality, Gastropub & Bistro Dining",
+      client: "Tap & Tandoor",
+      duration: "3 weeks",
+      intro: "Tap & Tandoor is Toronto's premier British-Indian sports tavern and bistro situated in the historic Junction neighborhood. Combining charcoal-fired tandoori sizzlers, craft local beers, smash burgers, and live sports broadcasts, the digital experience delivers immediate reservation conversion and menu discovery.",
+      important: "Hospitality websites must deliver lightning-fast access to food menus, PDF downloads, OpenTable table reservations, and geo-location details with zero friction on mobile devices.",
+      approach: "We engineered a dynamic dual-column culinary showcase integrating auto-cycling high-resolution food galleries, one-tap PDF menu downloads, live hours telemetry, and seamless OpenTable booking widgets.",
+      vision: "To capture the lively energy of a modern British-Indian sports tavern—marrying bold red accents, crisp monospaced typography, and mouthwatering culinary photography.",
+      challenges: "Balancing rich multi-image carousel galleries of signature sizzlers and burgers with instant mobile load speeds for on-the-go diners in Toronto.",
+      resolving: "Engineered high-performance image preloading, structured Schema.org Restaurant JSON-LD for local SEO rankings, and integrated one-click direct telephone and maps directions.",
+      userCentric: "Mobile-first layout prioritizing instant reservation booking, live operating hours status, and comprehensive dietary allergen transparency.",
+      needs: "A resilient custom frontend architecture engineered for high local search visibility across the Greater Toronto Area and effortless peak-hour booking management.",
+    };
+  }
+
+  if (project.slug === "slay") {
+    return {
+      category: "Creative Agency & Digital Production",
+      client: "Slay Agency",
+      duration: "4 weeks",
+      intro: "Slay Agency is a creative and digital production agency crafting aesthetic, intentional content and high-yield performance marketing architectures for visionary brand founders.",
+      important: "Digital agencies require an electrifying first impression that proves creative prowess. The portfolio platform must demonstrate bold typography, fluid animations, and clear proof of commercial impact.",
+      approach: "We developed a bespoke portfolio and client acquisition platform featuring interactive service drawers, full-bleed hero video reels, dynamic client logo marquees, and a structured 5-step process dome navigator.",
+      vision: "To build a modern digital showcase that stands out from boilerplate agency templates—celebrating expressive doodle accents, organic olive-green tones, and tactile interactive elements.",
+      challenges: "Creating complex scroll-triggered bezier animations and interactive service cards while maintaining 60fps frame rates across all mobile viewports.",
+      resolving: "Engineered hardware-accelerated CSS keyframes, modular SVG arc graphs, optimized video embeds, and streamlined Calendly/booking integrations.",
+      userCentric: "Frictionless case study navigation, instant contact triggers, and structured service breakdowns that guide prospective brand founders directly toward booking consultation calls.",
+      needs: "A scalable, ultra-fast custom web app built to showcase expanding client rosters, influencer campaigns, and high-impact founder-led marketing case studies.",
+    };
+  }
+
+  if (project.slug === "annapurna" || project.slug === "annapurna-story") {
+    return {
+      category: "Indian Handloom & Ethnic Luxury Couture",
+      client: "Annapurna Story",
+      duration: "4 weeks",
+      intro: "Annapurna Story is a luxury Indian handloom and ethnic couture boutique celebrating authentic handpainted Jamdani sarees, handcrafted designer blouses, and timeless artisanal craftsmanship.",
+      important: "High-ticket traditional ethnic wear requires deep visual storytelling, fabric provenance transparency, and precise blouse sizing clarity to convert discerning buyers online.",
+      approach: "We architected a high-converting Shopify storefront featuring curated saree collections, custom color swatch filtering, interactive Instagram community feeds, and a frictionless slide-out cart drawer.",
+      vision: "To translate the grandeur of Indian royal textiles and traditional Kolkata craftsmanship into an opulent, warm-toned digital boutique adorned with Marcellus and Poppins typography.",
+      challenges: "Presenting intricate handpainted Kolka details and textile textures with high-resolution clarity while maintaining sub-second mobile page loads and automated currency conversions.",
+      resolving: "Configured custom Shopify Liquid optimizations, dynamic collection filters, responsive image matrices, free-shipping threshold calculators, and quick-view modal sheets.",
+      userCentric: "Tailored for ethnic couture enthusiasts—featuring custom blouse neckline guides, fabric care instructions, matching ensemble recommendations, and seamless UPI / card checkout.",
+      needs: "A robust Shopify architecture optimized for high average order values (AOV), seasonal festival launches, and frictionless international deliveries.",
+    };
+  }
+
   if (project.slug === "trivora-jewels" || project.slug === "trivora") {
     return {
       category: "Fine Jewellery & Luxury E-Commerce",

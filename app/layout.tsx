@@ -149,6 +149,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${geistMono.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} ${caveat.variable} h-full antialiased`}
     >
       <head>
+        <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(rootSchema) }}

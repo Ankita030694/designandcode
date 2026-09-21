@@ -13,6 +13,54 @@ export interface Project {
 
 export const PROJECTS_DATA: Project[] = [
   {
+    slug: "kshaum",
+    title: "Kshaum",
+    description: "A contemporary luxury fashion house shaped by restraint, considered design, artisan natural fibers, and understated couture.",
+    tags: ["Quiet Luxury", "Artisan Fashion", "Custom Code"],
+    flag: "🇫🇷",
+    bg: "from-stone-500/10 via-zinc-400/5 to-stone-500/10",
+    mockupAccent: "from-stone-400 to-zinc-400",
+    image: "/newprojects/kshaum.jpeg",
+    projectType: "Custom Code",
+    url: "https://shipofdessert.vercel.app/"
+  },
+  {
+    slug: "tap-and-tandoor",
+    title: "Tap & Tandoor",
+    description: "Toronto's premier British-Indian sports tavern and bistro in The Junction, serving charcoal tandoori grills, craft beers, and smash burgers.",
+    tags: ["British-Indian Bistro", "Hospitality", "Custom Code"],
+    flag: "🇨🇦",
+    bg: "from-red-500/10 via-orange-400/5 to-red-500/10",
+    mockupAccent: "from-red-500 to-orange-400",
+    image: "/newprojects/tapandtandoor.jpeg",
+    projectType: "Custom Code",
+    url: "https://www.tapntandoor.ca/"
+  },
+  {
+    slug: "slay",
+    title: "Slay Agency",
+    description: "A creative and digital production agency crafting aesthetic, intentional content and performance marketing systems for modern brands.",
+    tags: ["Digital Production", "Brand Identity", "Custom Code"],
+    flag: "🇮🇳",
+    bg: "from-emerald-600/10 via-teal-400/5 to-emerald-600/10",
+    mockupAccent: "from-emerald-600 to-teal-400",
+    image: "/newprojects/slay.jpeg",
+    projectType: "Custom Code",
+    url: "https://slay-gamma.vercel.app/"
+  },
+  {
+    slug: "annapurna",
+    title: "Annapurna Story",
+    description: "An artisanal luxury Indian ethnic handloom boutique offering handpainted Jamdani sarees, handcrafted blouses, and heritage couture.",
+    tags: ["Handloom Sarees", "Ethnic Luxury", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-amber-600/10 via-rose-500/5 to-amber-600/10",
+    mockupAccent: "from-amber-500 to-rose-400",
+    image: "/newprojects/annapurna.jpeg",
+    projectType: "Shopify Store",
+    url: "https://annapurnastory.com/"
+  },
+  {
     slug: "ama",
     title: "AMA Legal Solutions",
     description: "A leading corporate and commercial law firm providing high-end legal counsel and cross-border solutions.",

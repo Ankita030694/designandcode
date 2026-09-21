@@ -59,15 +59,21 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden bg-transparent font-sans scroll-smooth">
       {/* SECTION 1: HERO */}
-      <section className="relative min-h-[100vh] md:min-h-screen w-full flex flex-col justify-between overflow-hidden z-10 pt-24 pb-20 md:pt-0 md:pb-0">
+      <section 
+        className="relative min-h-screen min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden z-10 pt-24 pb-20 md:pt-0 md:pb-0 bg-[#4e7745] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero.webp')" }}
+      >
         {/* 1. Background Image (Green hills and sky) */}
-        <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero.webp')" }}
+        >
           <Image
             src="/hero.webp"
             alt="Green hills and sky"
             fill
             priority
-            quality={85}
+            unoptimized
             sizes="100vw"
             className="object-cover object-center select-none"
           />
