@@ -5,7 +5,6 @@ import Navbar from "./Components/navbar";
 import GlobalContactWidget from "./Components/GlobalContactWidget";
 import FixedBackgroundGraphics from "./Components/FixedBackgroundGraphics";
 import EyeFollower from "./Components/EyeFollower";
-import PageLoader from "./Components/PageLoader";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -156,7 +155,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col relative bg-[#FAF9F6]">
-        <PageLoader />
         <FixedBackgroundGraphics />
         <Navbar />
         {children}
