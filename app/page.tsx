@@ -139,11 +139,11 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-6 pb-4 md:pb-10 select-none gap-4 md:gap-8 origin-bottom">
           
           {/* Left: Tagline */}
-          <div className="hidden md:flex flex-1 max-w-[340px] sm:max-w-[420px] items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
-            <span className="text-white text-base md:text-lg font-bold">—</span>
+          <div className="hidden md:flex flex-1 max-w-[340px] sm:max-w-[320px] items-center justify-center text-center md:text-left md:items-start gap-2 text-white leading-relaxed mb-0">
+            
             <div className="flex flex-col">
               <span className="text-sm sm:text-base md:text-[17px] font-medium text-white leading-snug">
-                We design and build high-performing digital experiences that help ambitious brands stand out, connect with customers and grow online.
+                We partner with ambitious businesses across the <span className="text-[#FFBF00] font-bold">UK, USA & Canada</span>, creating digital experiences that look exceptional, work beautifully, and drive real growth.
               </span>
             </div>
           </div>
