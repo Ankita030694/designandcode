@@ -301,18 +301,6 @@ export const PROJECTS_DATA: Project[] = [
     url: "https://saladlife.in/"
   },
   {
-    slug: "herstories",
-    title: "Her Stories",
-    description: "A science-backed women's wellness and intentional nutrition brand creating all-in-one daily supplements for holistic vitality.",
-    tags: ["Women's Wellness", "Daily Supplements", "Shopify Store"],
-    flag: "🇮🇳",
-    bg: "from-rose-500/10 via-pink-400/5 to-rose-500/10",
-    mockupAccent: "from-rose-400 to-pink-400",
-    image: "/HerStories.jpg",
-    projectType: "Shopify Store",
-    url: "https://herstories.co/"
-  },
-  {
     slug: "gods",
     title: "Gods by D'mart",
     description: "A luxury spiritual brand offering handcrafted divine idols, premium home décor, and bespoke brass and silver collectible masterpieces.",
@@ -347,18 +335,6 @@ export const PROJECTS_DATA: Project[] = [
     image: "/Vensa.jpg",
     projectType: "Shopify Store",
     url: "https://vensaskincare.com/"
-  },
-  {
-    slug: "limitless",
-    title: "Limitless Clothing",
-    description: "An end-to-end textile manufacturer and bespoke apparel brand specializing in corporate workwear, institutional uniforms, and lifestyle garments.",
-    tags: ["Apparel Manufacturing", "Corporate Workwear", "Shopify Store"],
-    flag: "🇮🇳",
-    bg: "from-red-500/10 via-orange-400/5 to-red-500/10",
-    mockupAccent: "from-red-500 to-orange-500",
-    image: "/Limitless.jpg",
-    projectType: "Shopify Store",
-    url: "https://limitlessclothing.in/"
   },
   {
     slug: "laysyy",
@@ -491,5 +467,29 @@ export const PROJECTS_DATA: Project[] = [
     image: "/RAD.svg",
     projectType: "Shopify Store",
     url: "https://radindia.co/"
+  },
+  {
+    slug: "last-summer",
+    title: "Last Summer",
+    description: "A contemporary apparel brand offering timeless collections made for the in-between seasons, transcending seasonal fashion trends.",
+    tags: ["Contemporary Fashion", "Apparel", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-sky-500/10 via-blue-400/5 to-sky-500/10",
+    mockupAccent: "from-sky-400 to-blue-500",
+    image: "/lastsummer.png",
+    projectType: "Shopify Store",
+    url: "https://lasttsummer.in/"
+  },
+  {
+    slug: "herstoriesbybhawana",
+    title: "Her Storie by Bhawna",
+    description: "A premium clothing brand offering a curated collection of contemporary everyday and occasion wear.",
+    tags: ["Clothing Brand", "Womenswear", "Shopify Store"],
+    flag: "🇮🇳",
+    bg: "from-rose-500/10 via-pink-400/5 to-rose-500/10",
+    mockupAccent: "from-rose-400 to-pink-500",
+    image: "/herstoriesbybhawana.png",
+    projectType: "Shopify Store",
+    url: "https://herstoriebybhawna.com/?srsltid=AU7gw4WBrzfsOsZ6NqmLVVJ660-G7iH61b67ub9yXKd-1f53fgtLVN7R"
   }
 ];
