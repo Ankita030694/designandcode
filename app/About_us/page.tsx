@@ -70,12 +70,7 @@ const teamMembers = [
     bio: "Bringing UI/UX design and frontend development together to create interfaces that are visually engaging, responsive and easy to use.",
     imageSrc: "/Zaib.webp",
   },
-  {
-    name: "Piyush",
-    role: "Junior Software Developer",
-    bio: "Supporting development projects while learning and contributing to modern web development and digital product experiences.",
-    imageSrc: "/Piyush.webp",
-  },
+  
 ];
 
 const statsItems = [
@@ -517,7 +512,7 @@ export default function AboutUs() {
         </div>
 
         {/* Team Grid (Portrait Cards Style) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => {
             const teamAccents = [
               { border: "hover:border-sky-400", badge: "bg-sky-400/20 text-sky-200 border-sky-400/30" },
