@@ -31,21 +31,7 @@ export function getProjectCopy(project: Project): ProjectDetailCopy {
     };
   }
 
-  if (project.slug === "tap-and-tandoor" || project.slug === "tapntandoor" || project.slug === "tap-tandoor") {
-    return {
-      category: "Hospitality, Gastropub & Bistro Dining",
-      client: "Tap & Tandoor",
-      duration: "3 weeks",
-      intro: "Tap & Tandoor is Toronto's premier British-Indian sports tavern and bistro situated in the historic Junction neighborhood. Combining charcoal-fired tandoori sizzlers, craft local beers, smash burgers, and live sports broadcasts, the digital experience delivers immediate reservation conversion and menu discovery.",
-      important: "Hospitality websites must deliver lightning-fast access to food menus, PDF downloads, OpenTable table reservations, and geo-location details with zero friction on mobile devices.",
-      approach: "We engineered a dynamic dual-column culinary showcase integrating auto-cycling high-resolution food galleries, one-tap PDF menu downloads, live hours telemetry, and seamless OpenTable booking widgets.",
-      vision: "To capture the lively energy of a modern British-Indian sports tavern—marrying bold red accents, crisp monospaced typography, and mouthwatering culinary photography.",
-      challenges: "Balancing rich multi-image carousel galleries of signature sizzlers and burgers with instant mobile load speeds for on-the-go diners in Toronto.",
-      resolving: "Engineered high-performance image preloading, structured Schema.org Restaurant JSON-LD for local SEO rankings, and integrated one-click direct telephone and maps directions.",
-      userCentric: "Mobile-first layout prioritizing instant reservation booking, live operating hours status, and comprehensive dietary allergen transparency.",
-      needs: "A resilient custom frontend architecture engineered for high local search visibility across the Greater Toronto Area and effortless peak-hour booking management.",
-    };
-  }
+  
 
   if (project.slug === "slay") {
     return {

@@ -25,18 +25,6 @@ export const PROJECTS_DATA: Project[] = [
     url: "https://shipofdessert.vercel.app/"
   },
   {
-    slug: "tap-and-tandoor",
-    title: "Tap & Tandoor",
-    description: "Toronto's premier British-Indian sports tavern and bistro in The Junction, serving charcoal tandoori grills, craft beers, and smash burgers.",
-    tags: ["British-Indian Bistro", "Hospitality", "Custom Code"],
-    flag: "🇨🇦",
-    bg: "from-red-500/10 via-orange-400/5 to-red-500/10",
-    mockupAccent: "from-red-500 to-orange-400",
-    image: "/newprojects/tapandtandoor.jpeg",
-    projectType: "Custom Code",
-    url: "https://www.tapntandoor.ca/"
-  },
-  {
     slug: "slay",
     title: "Slay Agency",
     description: "A creative and digital production agency crafting aesthetic, intentional content and performance marketing systems for modern brands.",
@@ -46,7 +34,7 @@ export const PROJECTS_DATA: Project[] = [
     mockupAccent: "from-emerald-600 to-teal-400",
     image: "/newprojects/slay.jpeg",
     projectType: "Custom Code",
-    url: "https://slay-gamma.vercel.app/"
+    url: "https://www.slaystrategy.com/"
   },
   {
     slug: "annapurna",
