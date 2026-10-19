@@ -40,7 +40,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://designncode.com'),
+  metadataBase: new URL('https://www.designncode.com'),
   title: {
     default: "UI/UX Design & Web Development Agency | DesignNCode",
     template: "%s",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   creator: "DesignNCode",
   publisher: "DesignNCode",
   alternates: {
-    canonical: 'https://designncode.com',
+    canonical: 'https://www.designncode.com',
   },
   robots: {
     index: true,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://designncode.com",
+    url: "https://www.designncode.com",
     title: "UI/UX Design & Web Development Agency | DesignNCode",
     description: "DesignNCode creates high-converting websites, UI/UX designs, Shopify stores and digital products built for performance, SEO and growth.",
     siteName: "DesignNCode",
@@ -103,11 +103,11 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://designncode.com/#organization",
+        "@id": "https://www.designncode.com/#organization",
         "name": "DesignNCode",
-        "url": "https://designncode.com",
-        "logo": "https://designncode.com/LOGO.svg",
-        "image": "https://designncode.com/DNC.png",
+        "url": "https://www.designncode.com",
+        "logo": "https://www.designncode.com/LOGO.svg",
+        "image": "https://www.designncode.com/DNC.png",
         "description": "DesignNCode is a premier UI/UX design, web development, and digital engineering agency.",
         "telephone": "+91 92207 21921",
         "email": "info@designncode.com",
