@@ -73,10 +73,11 @@ export const metadata: Metadata = {
     siteName: "DesignNCode",
     images: [
       {
-        url: "/LOGO.svg",
+        url: "/DNC.svg",
         width: 1200,
         height: 630,
         alt: "DesignNCode - UI/UX Design & Web Development Agency",
+        type: "image/svg+xml",
       },
     ],
   },
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "UI/UX Design & Web Development Agency | DesignNCode",
     description: "DesignNCode creates high-converting websites, UI/UX designs, Shopify stores and digital products built for performance, SEO and growth.",
-    images: ["/LOGO.svg"],
+    images: ["/DNC.svg"],
   },
   icons: {
     icon: "/icon.svg",
@@ -106,7 +107,7 @@ export default function RootLayout({
         "name": "DesignNCode",
         "url": "https://designncode.com",
         "logo": "https://designncode.com/LOGO.svg",
-        "image": "https://designncode.com/LOGO.svg",
+        "image": "https://designncode.com/DNC.svg",
         "description": "DesignNCode is a premier UI/UX design, web development, and digital engineering agency.",
         "telephone": "+91 92207 21921",
         "email": "info@designncode.com",
